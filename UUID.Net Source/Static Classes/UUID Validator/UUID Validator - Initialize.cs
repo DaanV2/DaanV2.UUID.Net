@@ -14,29 +14,17 @@ WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.*/
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace DaanV2.UUID.Generators {
-    public abstract partial class GeneratorBase : IUUIDGenerator {
+namespace DaanV2.UUID {
+    ///DOLATER <summary> add description for class: UUIDValidator</summary>
+    public static partial class UUIDValidator {
+        /// <summary>Creates a new instance of <see cref="UUIDValidator"/></summary>
+        static UUIDValidator() {
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public abstract Int32 Version { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public abstract Int32 Variant { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public Random NumberGenerator { get => this._NumberGenerator; set => this._NumberGenerator = value; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public abstract UUID Generate();
+        }
     }
 }

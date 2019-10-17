@@ -20,30 +20,42 @@ namespace DaanV2.UUID {
         /// <summary></summary>
         /// <returns></returns>
         public Int32 GetVersion() {
-            Int32 Out = this._Chars[12];
+            Char C = this._Chars[14];
 
-            return Out;
+            if (C >= '0' && C <= '9') {
+                return C - '0';
+            }
+
+            if (C >= 'A' && C <= 'F') {
+                return C - 'A' + 10;
+            }
+
+            if (C >= 'a' && C <= 'f') {
+                return C - 'A' + 10;
+            }
+
+            return -1;
         }
 
         /// <summary></summary>
         /// <returns></returns>
         public Int32 GetVariant() {
-            Int32 Out = this._Chars[19] >> 1;
+            Char C = this._Chars[19];
 
-            if (Out < 4) {
+            if (C >= '0' && C < '8') {
                 return 0;
             }
-            else if (Out == 7) {
-                return 3;
+            else if (C >= '8' && C <= 'B') {
+                return 1;
             }
-            else if (Out == 6) {
+            else if (C == 'C' || C == 'D') {
                 return 2;
             }
-            else if (Out == 0) {
-                return 0;
+            else if (C == 'E' || C == 'F') {
+                return 3;
             }
 
-            return 1;
+            return -1;
         }
     }
 }

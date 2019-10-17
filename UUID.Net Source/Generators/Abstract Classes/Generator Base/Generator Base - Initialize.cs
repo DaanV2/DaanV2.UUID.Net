@@ -1,17 +1,34 @@
-﻿using System;
+﻿/*ISC License
+
+Copyright (c) 2019, Daan Verstraten, daanverstraten@hotmail.com
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.*/
+using System;
 
 namespace DaanV2.UUID.Generators {
     ///DOLATER <summary> add description for abstract class: GeneratorBase</summary>
     public abstract partial class GeneratorBase {
         /// <summary>Creates a new instance of <see cref="GeneratorBase"/></summary>
-        public GeneratorBase() : this((Int32)DateTime.Now.Ticks) {
-
-        }
+        public GeneratorBase() : this((Int32)DateTime.Now.Ticks) { }
 
         /// <summary>Creates a new instance of <see cref="GeneratorBase"/></summary>
         /// <param name="Seed"></param>
-        public GeneratorBase(Int32 Seed) {
-            this._NumberGenerator = new Random(Seed);
+        public GeneratorBase(Int32 Seed) : this(new Random(Seed)) { }
+
+        /// <summary>Creates a new instance of <see cref="GeneratorBase"/></summary>
+        /// <param name="NumberGenerator"></param>
+        public GeneratorBase(Random NumberGenerator) {
+            this._NumberGenerator = NumberGenerator;
             this._ToHexChars = new Char[,] {
                 {'0', '0'}, {'0', '1'}, {'0', '2'}, {'0', '3'},{'0', '4'}, {'0', '5'}, {'0', '6'}, {'0', '7'},
                 {'0', '8'}, {'0', '9'}, {'0', 'A'}, {'0', 'B'},{'0', 'C'}, {'0', 'D'}, {'0', 'E'}, {'0', 'F'},

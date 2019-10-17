@@ -9,5 +9,22 @@
     <Import_RootNamespace>DaanV2.UUID</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Classes\UUID\UUID - Nill.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Classes\UUID\UUID - Initialize.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Classes\UUID\UUID - Operator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Classes\UUID\UUID - Get.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Classes\UUID\UUID - Properties.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Classes\UUID\UUID - Overrides.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Classes\UUID\UUID - Variables.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Generators\Abstract Classes\Generator Base\Generator Base - Initialize.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Generators\Abstract Classes\Generator Base\Generator Base - Variables.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Generators\Abstract Classes\Generator Base\Generator Base - IUUIDGenerator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Generators\Version4\Classes\GeneratorVariant1\Generator Variant 1 - Initialize.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Generators\Version4\Classes\GeneratorVariant1\Generator Variant 1 - GeneratorBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Generators\Version4\Classes\GeneratorVariant2\GeneratorVariant2 - Initialize.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Generators\Version4\Classes\GeneratorVariant2\GeneratorVariant2 - GeneratorBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\IUUIDGenerator\IUUIDGenerator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Static Classes\UUID Validator\UUID Validator - Initialize.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Static Classes\UUID Validator\UUID Validator - Properties.cs" />
   </ItemGroup>
 </Project>

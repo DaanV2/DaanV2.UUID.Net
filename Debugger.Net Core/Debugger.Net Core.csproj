@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <RootNamespace>Debugger.Net_Core</RootNamespace>
+  </PropertyGroup>
+
+  <Import Project="..\UUID.Net Source\UUID.Net Source.projitems" Label="Shared" />
+
+</Project>
