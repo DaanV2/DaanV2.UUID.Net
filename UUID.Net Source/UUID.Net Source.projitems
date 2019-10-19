@@ -26,5 +26,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Interfaces\IUUIDGenerator\IUUIDGenerator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Static Classes\UUID Validator\UUID Validator - Initialize.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Static Classes\UUID Validator\UUID Validator - Properties.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Static Classes\UUID Factory\UUID Factory - Initialize.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Static Classes\UUID Factory\UUID Factory - CreateGenerator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Static Classes\UUID Factory\UUID Factory - CreateUUID.cs" />
   </ItemGroup>
 </Project>
