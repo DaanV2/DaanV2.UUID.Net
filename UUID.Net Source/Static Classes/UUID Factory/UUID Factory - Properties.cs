@@ -16,26 +16,27 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.*/
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DaanV2.UUID.Generators.Version4 {
-    ///DOLATER <summary> add description for class: GeneratorVariant2</summary>
-	[Serializable, DataContract]
-    public partial class GeneratorVariant2 {
+namespace DaanV2.UUID {
+    public static partial class UUIDFactory {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Version"></param>
+        /// <param name="Variant"></param>
+        /// <returns></returns>
+        static public IUUIDGenerator CreateGenerator(Int32 Version, Int32 Variant) {
+            switch (Version) {
+                case 4:
+                    if (Variant == 1) { return new Generators.Version4.GeneratorVariant1(); }
+                    if (Variant == 2) { return new Generators.Version4.GeneratorVariant2(); }
 
-        /// <summary>Creates a new instance of <see cref="GeneratorVariant1"/></summary>
-        public GeneratorVariant2() : base() {
+                    break;
+            }
 
+            return null;
         }
-
-        /// <summary>Creates a new instance of <see cref="GeneratorBase"/></summary>
-        /// <param name="Seed"></param>
-        public GeneratorVariant2(Int32 Seed) : base(Seed) { }
-
-        /// <summary>Creates a new instance of <see cref="GeneratorBase"/></summary>
-        /// <param name="NumberGenerator"></param>
-        public GeneratorVariant2(Random NumberGenerator) : base(NumberGenerator) { }
     }
 }
