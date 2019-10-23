@@ -12,12 +12,7 @@ namespace Debugger.Net_Core {
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
 
-            for (Int32 I = 0; I < Count; I++) {
-                UUID Value = Generator.Generate();
 
-                /*if (Value.GetVariant() != Generator.Variant || Value.GetVersion() != Value.GetVersion())
-                    throw new Exception("Whoops");*/
-            }
 
             stopwatch.Stop();
             Output(stopwatch, Count);

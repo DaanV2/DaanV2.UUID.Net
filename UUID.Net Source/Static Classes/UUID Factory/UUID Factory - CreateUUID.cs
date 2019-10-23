@@ -14,16 +14,16 @@ WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.*/
 using System;
+using System.Threading.Tasks;
 
 namespace DaanV2.UUID {
     public static partial class UUIDFactory {
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Version"></param>
-        /// <param name="Variant"></param>
-        /// <returns></returns>
-        public static UUID CreateUUID(Int32 Version = 4, Int32 Variant = 1) {
+
+        /// <summary>Generate a <see cref="UUID"/> using the specified version and variant</summary>
+        /// <param name="Version">The version of the generator</param>
+        /// <param name="Variant">The variant of the generator</param>
+        /// <returns>A newly generated <see cref="UUID"/></returns>
+        public static UUID CreateUUID(Int32 Version, Int32 Variant) {
             IUUIDGenerator Generator = UUIDFactory.CreateGenerator(Version, Variant);
 
             return Generator == null ?
@@ -31,13 +31,20 @@ namespace DaanV2.UUID {
                 Generator.Generate();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Version"></param>
-        /// <param name="Variant"></param>
-        /// <returns></returns>
-        public static UUID[] CreateUUIDs(Int32 Amount, Int32 Version = 4, Int32 Variant = 1) {
+        /// <summary>Generate a <see cref="UUID"/> using the specified version and variant</summary>
+        /// <param name="Version">The version of the generator</param>
+        /// <param name="Variant">The variant of the generator</param>
+        /// <returns>A newly generated <see cref="UUID"/></returns>
+        public static Task<UUID> CreateUUIDAsync(Int32 Version, Int32 Variant) {
+            return Task<UUID>.Run(() => { return CreateUUID(Version, Variant); });
+        }
+
+        /// <summary>Generate a <see cref="UUID[]"/> using the specified version and variant and specified amount</summary>
+        /// <param name="Amount">The amount of UUID to generate</param>
+        /// <param name="Version">The version of the generator</param>
+        /// <param name="Variant">The variant of the generator</param>
+        /// <returns>A newly generated <see cref="UUID[]"/></returns>
+        public static UUID[] CreateUUIDs(Int32 Amount, Int32 Version, Int32 Variant) {
             UUID[] Out = new UUID[Amount];
 
             IUUIDGenerator Generator = UUIDFactory.CreateGenerator(Version, Variant);
@@ -51,6 +58,15 @@ namespace DaanV2.UUID {
             }
 
             return Out;
+        }
+
+        /// <summary>Generate a <see cref="UUID[]"/> using the specified version and variant and specified amount</summary>
+        /// <param name="Amount">The amount of UUID to generate</param>
+        /// <param name="Version">The version of the generator</param>
+        /// <param name="Variant">The variant of the generator</param>
+        /// <returns>A newly generated <see cref="UUID[]"/></returns>
+        public static Task<UUID[]> CreateUUIDsAsync(Int32 Amount, Int32 Version, Int32 Variant) {
+            return Task<UUID[]>.Run(() => CreateUUIDs(Amount, Version, Variant));
         }
     }
 }

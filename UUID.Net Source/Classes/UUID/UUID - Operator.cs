@@ -39,7 +39,7 @@ namespace DaanV2.UUID {
         public static implicit operator String(UUID value) {
             return value.ToString();
         }
-
+        
         /// <summary>Auto converts the <see cref="UUID"/> to a <see cref="Char[]"/></summary>
         /// <param name="value">The <see cref="UUID"/> to convert to <see cref="Char[]"/></param>
         public static implicit operator Char[](UUID value) {
