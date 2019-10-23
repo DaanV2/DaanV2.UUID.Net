@@ -13,14 +13,9 @@ ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
 WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.*/
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DaanV2.UUID {
-    ///DOLATER <summary> add description for class: UUIDFactory</summary>
+    /// <summary>the static class that handles the generations of UUIDs or generators through version numbering</summary>
     public static partial class UUIDFactory {
         /// <summary>Creates a new instance of <see cref="UUIDFactory"/></summary>
         static UUIDFactory() {

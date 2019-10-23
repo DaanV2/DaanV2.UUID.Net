@@ -17,8 +17,8 @@ using System;
 
 namespace DaanV2.UUID {
     public partial class UUID {
-        /// <summary></summary>
-        /// <returns></returns>
+        /// <summary>Returns the version of this UUID</summary>
+        /// <returns>The version number that is stored within the UUID</returns>
         public Int32 GetVersion() {
             Char C = this._Chars[14];
 
@@ -37,8 +37,8 @@ namespace DaanV2.UUID {
             return -1;
         }
 
-        /// <summary></summary>
-        /// <returns></returns>
+        /// <summary>Returns the variant of this UUID</summary>
+        /// <returns>The variant number that is stored within the UUID</returns>
         public Int32 GetVariant() {
             Char C = this._Chars[19];
 

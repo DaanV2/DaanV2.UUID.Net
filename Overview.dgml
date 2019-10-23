@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph GraphDirection="LeftToRight" Layout="Sugiyama" ZoomLevel="-1" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="(@1 @10 @11 @48)" Category="CodeSchema_Method" Bounds="-9214.34797057333,-9831.02392,133.706666666665,26" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsPublic="True" CommonLabel="Generate" Icon="Microsoft.VisualStudio.Method.Public" Label="Generate() : UUID" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Interfaces/IUUID Generator/IUUID Generator.cs&quot; StartLineNumber=32 StartCharacterOffset=13 EndLineNumber=32 EndCharacterOffset=21)" UseManualLocation="True" />
+    <Node Id="(@1 @10 @11 @55)" Category="CodeSchema_Property" Bounds="-9214.34797057333,-9887.001968,100.66,26" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsPublic="True" CommonLabel="Variant" Icon="Microsoft.VisualStudio.Property.Public" Label="Variant : int" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Interfaces/IUUID Generator/IUUID Generator.cs&quot; StartLineNumber=25 StartCharacterOffset=14 EndLineNumber=25 EndCharacterOffset=21)" UseManualLocation="True" />
+    <Node Id="(@1 @10 @11 @56)" Category="CodeSchema_Property" Bounds="-9083.73918929333,-9887.001968,102.896666666667,26" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsPublic="True" CommonLabel="Version" Icon="Microsoft.VisualStudio.Property.Public" Label="Version : int" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Interfaces/IUUID Generator/IUUID Generator.cs&quot; StartLineNumber=22 StartCharacterOffset=14 EndLineNumber=22 EndCharacterOffset=21)" UseManualLocation="True" />
+    <Node Id="(@1 @10 @11 Member=NumberGenerator)" Category="CodeSchema_Property" Bounds="-9214.34797057333,-9775.045872,191.413333333334,26" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsPublic="True" CommonLabel="NumberGenerator" Icon="Microsoft.VisualStudio.Property.Public" Label="NumberGenerator : Random" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Interfaces/IUUID Generator/IUUID Generator.cs&quot; StartLineNumber=28 StartCharacterOffset=15 EndLineNumber=28 EndCharacterOffset=30)" UseManualLocation="True" />
+    <Node Id="(@1 @10 @13 @43)" Category="CodeSchema_Method" Bounds="-9216.68833333334,-9783.02,76.3333333333358,26" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CommonLabel="UUID" Icon="Microsoft.VisualStudio.Method.Public" Label="UUID()" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Classes/UUID/UUID - Initialize.cs&quot; StartLineNumber=23 StartCharacterOffset=15 EndLineNumber=23 EndCharacterOffset=19)" UseManualLocation="True" />
+    <Node Id="(@1 @10 @13 Member=(@38 OverloadingParameters=[@14,(@20 @21 Type=(Name=Char ArrayRank=1 ParentType=Char) ParamKind=Return)]))" Category="CodeSchema_Method" Bounds="-8989.39166666667,-9559.02,197.296666666669,26" CodeSchemaProperty_IsOperator="True" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" CommonLabel="op_Implicit" Icon="Microsoft.VisualStudio.Operator.Public" Label="implicit operator char[](UUID)" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Classes/UUID/UUID - Operator.cs&quot; StartLineNumber=44 StartCharacterOffset=40 EndLineNumber=44 EndCharacterOffset=46)" UseManualLocation="True" />
+    <Node Id="(@1 @10 @13 Member=(Name=Equals OverloadingParameters=[(@20 @21 Type=Object)]))" Category="CodeSchema_Method" Bounds="-9216.68833333334,-9615.02,148.343333333334,26" CodeSchemaProperty_IsPublic="True" CommonLabel="Equals" Icon="Microsoft.VisualStudio.Method.Public" IsOverloaded="True" Label="Equals(object) : bool" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Classes/UUID/UUID - Overrides.cs&quot; StartLineNumber=30 StartCharacterOffset=32 EndLineNumber=30 EndCharacterOffset=38)" UseManualLocation="True" />
+    <Node Id="(@1 @10 @13 Member=GetHashCode)" Category="CodeSchema_Method" Bounds="-8882.48166666667,-9671.02,144.066666666666,26" CodeSchemaProperty_IsPublic="True" CommonLabel="GetHashCode" Icon="Microsoft.VisualStudio.Method.Public" IsOverloaded="True" Label="GetHashCode() : int" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Classes/UUID/UUID - Overrides.cs&quot; StartLineNumber=50 StartCharacterOffset=30 EndLineNumber=50 EndCharacterOffset=41)" UseManualLocation="True" />
+    <Node Id="(@1 @10 @13 Member=_Chars)" Category="CodeSchema_Field" Bounds="-9077.06833333333,-9727.02,114.599999999999,26" CodeSchemaProperty_IsInternal="True" CodeSchemaProperty_IsProtected="True" CommonLabel="_Chars" Icon="Microsoft.VisualStudio.Field.Protected" Label="_Chars : char[]" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Classes/UUID/UUID - Variables.cs&quot; StartLineNumber=20 StartCharacterOffset=33 EndLineNumber=20 EndCharacterOffset=39)" UseManualLocation="True" />
+    <Node Id="(@1 @10 @15 Member=.cctor)" Category="CodeSchema_Method" Bounds="-9256.01083333333,-9894.02,114.510000000002,26" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPrivate="True" CodeSchemaProperty_IsStatic="True" CommonLabel="static UUIDFactory" Icon="Microsoft.VisualStudio.Method.Private" Label="UUIDFactory()" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Static Classes/UUID Factory/UUID Factory - Initialize.cs&quot; StartLineNumber=20 StartCharacterOffset=15 EndLineNumber=20 EndCharacterOffset=26)" UseManualLocation="True" />
+    <Node Id="(@1 @10 @17 Member=.cctor)" Category="CodeSchema_Method" Bounds="-9528.75530598958,-9906.55439470488,122.976666666669,26" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPrivate="True" CodeSchemaProperty_IsStatic="True" CommonLabel="static UUIDValidator" Icon="Microsoft.VisualStudio.Method.Private" Label="UUIDValidator()" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Static Classes/UUID Validator/UUID Validator - Initialize.cs&quot; StartLineNumber=20 StartCharacterOffset=15 EndLineNumber=20 EndCharacterOffset=28)" UseManualLocation="True" />
+    <Node Id="(@1 @2 @3 @48)" Category="CodeSchema_Method" Bounds="-9249.68265885417,-9829.04296875,133.706666666665,26" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsPublic="True" CommonLabel="Generate" Icon="Microsoft.VisualStudio.Method.Public" Label="Generate() : UUID" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Generators/Abstract Classes/Generator Base/Generator Base - IUUIDGenerator.cs&quot; StartLineNumber=31 StartCharacterOffset=29 EndLineNumber=31 EndCharacterOffset=37)" UseManualLocation="True" />
+    <Node Id="(@1 @2 @3 @55)" Category="CodeSchema_Property" Bounds="-9249.68265885417,-9885.04296875,100.66,26" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsPublic="True" CommonLabel="Variant" Icon="Microsoft.VisualStudio.Property.Public" Label="Variant : int" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Generators/Abstract Classes/Generator Base/Generator Base - IUUIDGenerator.cs&quot; StartLineNumber=24 StartCharacterOffset=30 EndLineNumber=24 EndCharacterOffset=37)" UseManualLocation="True" />
+    <Node Id="(@1 @2 @3 @56)" Category="CodeSchema_Property" Bounds="-9119.02265885417,-9885.04296875,102.896666666667,26" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsPublic="True" CommonLabel="Version" Icon="Microsoft.VisualStudio.Property.Public" Label="Version : int" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Generators/Abstract Classes/Generator Base/Generator Base - IUUIDGenerator.cs&quot; StartLineNumber=21 StartCharacterOffset=30 EndLineNumber=21 EndCharacterOffset=37)" UseManualLocation="True" />
+    <Node Id="(@1 @2 @3 Member=NumberGenerator)" Category="CodeSchema_Property" Bounds="-9249.68265885417,-9717.04296875,191.413333333334,26" CodeSchemaProperty_IsPublic="True" CommonLabel="NumberGenerator" Icon="Microsoft.VisualStudio.Property.Public" Label="NumberGenerator : Random" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Generators/Abstract Classes/Generator Base/Generator Base - IUUIDGenerator.cs&quot; StartLineNumber=27 StartCharacterOffset=22 EndLineNumber=27 EndCharacterOffset=37)" UseManualLocation="True" />
+    <Node Id="(@1 @2 @3 Member=_NumberGenerator)" Category="CodeSchema_Field" Bounds="-9249.68265885417,-9661.04296875,196.393333333333,26" CodeSchemaProperty_IsInternal="True" CodeSchemaProperty_IsProtected="True" CommonLabel="_NumberGenerator" Icon="Microsoft.VisualStudio.Field.Protected" Label="_NumberGenerator : Random" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Generators/Abstract Classes/Generator Base/Generator Base - Variables.cs&quot; StartLineNumber=20 StartCharacterOffset=33 EndLineNumber=20 EndCharacterOffset=49)" UseManualLocation="True" />
+    <Node Id="(@1 @2 @3 Member=_ToHexChars)" Category="CodeSchema_Field" Bounds="-9249.68265885417,-9773.04296875,149.650000000001,26" CodeSchemaProperty_IsInternal="True" CodeSchemaProperty_IsProtected="True" CommonLabel="_ToHexChars" Icon="Microsoft.VisualStudio.Field.Protected" Label="_ToHexChars : char[,]" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Generators/Abstract Classes/Generator Base/Generator Base - Variables.cs&quot; StartLineNumber=23 StartCharacterOffset=34 EndLineNumber=23 EndCharacterOffset=45)" UseManualLocation="True" />
+    <Node Id="(@1 @5 @6 @55)" Category="CodeSchema_Property" Bounds="-8974.41382283484,-9927.83864722716,100.66,26" CodeSchemaProperty_IsPublic="True" CommonLabel="Variant" Icon="Microsoft.VisualStudio.Property.Public" IsOverloaded="True" Label="Variant : int" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Generators/Version4/Classes/Generator Variant 1/Generator Variant 1 - GeneratorBase.cs&quot; StartLineNumber=28 StartCharacterOffset=30 EndLineNumber=28 EndCharacterOffset=37)" UseManualLocation="True" />
+    <Node Id="(@1 @5 @6 @56)" Category="CodeSchema_Property" Bounds="-8843.75334763526,-9927.83864722716,102.896666666667,26" CodeSchemaProperty_IsPublic="True" CommonLabel="Version" Icon="Microsoft.VisualStudio.Property.Public" IsOverloaded="True" Label="Version : int" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Generators/Version4/Classes/Generator Variant 1/Generator Variant 1 - GeneratorBase.cs&quot; StartLineNumber=23 StartCharacterOffset=30 EndLineNumber=23 EndCharacterOffset=37)" UseManualLocation="True" />
+    <Node Id="(@1 @5 @8 @55)" Category="CodeSchema_Property" Bounds="-8596.14388027679,-10041.8293951875,100.66,26" CodeSchemaProperty_IsPublic="True" CommonLabel="Variant" Icon="Microsoft.VisualStudio.Property.Public" IsOverloaded="True" Label="Variant : int" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Generators/Version4/Classes/Generator Variant 2/Generator Variant 2 - GeneratorBase.cs&quot; StartLineNumber=28 StartCharacterOffset=30 EndLineNumber=28 EndCharacterOffset=37)" UseManualLocation="True" />
+    <Node Id="(@1 @5 @8 @56)" Category="CodeSchema_Property" Bounds="-8465.50060475679,-10041.8293951875,102.896666666667,26" CodeSchemaProperty_IsPublic="True" CommonLabel="Version" Icon="Microsoft.VisualStudio.Property.Public" IsOverloaded="True" Label="Version : int" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Generators/Version4/Classes/Generator Variant 2/Generator Variant 2 - GeneratorBase.cs&quot; StartLineNumber=23 StartCharacterOffset=30 EndLineNumber=23 EndCharacterOffset=37)" UseManualLocation="True" />
+    <Node Id="@12" Category="CodeSchema_Interface" Bounds="20,150,184.033333333333,25" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsPublic="True" CommonLabel="IUUIDGenerator" Group="Collapsed" Icon="Microsoft.VisualStudio.Interface.Public" Label="IUUIDGenerator (UUID)" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Interfaces/IUUID Generator/IUUID Generator.cs&quot; StartLineNumber=19 StartCharacterOffset=21 EndLineNumber=19 EndCharacterOffset=35)" />
+    <Node Id="@14" Category="CodeSchema_Class" Bounds="185.736666666668,40,89.0933333333342,25" CodeSchemaProperty_IsPublic="True" CommonLabel="UUID" Group="Collapsed" Icon="Microsoft.VisualStudio.Class.Public" Label="UUID" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Classes/UUID/UUID - Get.cs&quot; StartLineNumber=18 StartCharacterOffset=25 EndLineNumber=18 EndCharacterOffset=29)" />
+    <Node Id="@16" Category="CodeSchema_Class" Bounds="20,95,127.27,25" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" CommonLabel="UUIDFactory" Group="Collapsed" Icon="Microsoft.VisualStudio.Class.Public" Label="UUIDFactory" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Static Classes/UUID Factory/UUID Factory - CreateGenerator.cs&quot; StartLineNumber=18 StartCharacterOffset=32 EndLineNumber=18 EndCharacterOffset=43)" />
+    <Node Id="@18" Category="CodeSchema_Class" Bounds="20,40,135.736666666668,25" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" CommonLabel="UUIDValidator" Group="Collapsed" Icon="Microsoft.VisualStudio.Class.Public" Label="UUIDValidator" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Static Classes/UUID Validator/UUID Validator - Initialize.cs&quot; StartLineNumber=18 StartCharacterOffset=32 EndLineNumber=18 EndCharacterOffset=45)" />
+    <Node Id="@22" Category="CodeSchema_Method" Bounds="-17118.5579657736,-19636.6486954821,106.186666666668,26" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CommonLabel="UUID" Icon="Microsoft.VisualStudio.Method.Public" Label="UUID(char[]) (UUID)" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Classes/UUID/UUID - Initialize.cs&quot; StartLineNumber=29 StartCharacterOffset=15 EndLineNumber=29 EndCharacterOffset=19)" UseManualLocation="True" />
+    <Node Id="@24" Category="CodeSchema_Method" Bounds="-7643.8118829897,-9693.37167367595,139.486666666664,26" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CommonLabel="GeneratorBase" Icon="Microsoft.VisualStudio.Method.Public" Label="GeneratorBase(int) (GeneratorBase)" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Generators/Abstract Classes/Generator Base/Generator Base - Initialize.cs&quot; StartLineNumber=25 StartCharacterOffset=15 EndLineNumber=25 EndCharacterOffset=28)" UseManualLocation="True" />
+    <Node Id="@25" Category="CodeSchema_Method" Bounds="-7532.24934910037,-9680.16735212751,158.323333333334,26" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CommonLabel="GeneratorVariant1" Icon="Microsoft.VisualStudio.Method.Public" Label="GeneratorVariant1(int) (GeneratorVariant1)" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Generators/Version4/Classes/Generator Variant 1/Generator Variant 1 - Initialize.cs&quot; StartLineNumber=30 StartCharacterOffset=15 EndLineNumber=30 EndCharacterOffset=32)" UseManualLocation="True" />
+    <Node Id="@26" Category="CodeSchema_Method" Bounds="-7153.97977107898,-9794.17243611345,158.323333333334,26" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CommonLabel="GeneratorVariant2" Icon="Microsoft.VisualStudio.Method.Public" Label="GeneratorVariant2(int) (GeneratorVariant2)" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Generators/Version4/Classes/Generator Variant 2/Generator Variant 2 - Initialize.cs&quot; StartLineNumber=30 StartCharacterOffset=15 EndLineNumber=30 EndCharacterOffset=32)" UseManualLocation="True" />
+    <Node Id="@27" Category="CodeSchema_Method" Bounds="-8379.45060425527,-9674.70732121297,170.23,26" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CommonLabel="GeneratorBase" Icon="Microsoft.VisualStudio.Method.Public" Label="GeneratorBase(Random) (GeneratorBase)" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Generators/Abstract Classes/Generator Base/Generator Base - Initialize.cs&quot; StartLineNumber=29 StartCharacterOffset=15 EndLineNumber=29 EndCharacterOffset=28)" UseManualLocation="True" />
+    <Node Id="@28" Category="CodeSchema_Method" Bounds="-8283.83148832386,-9661.50299965173,189.066666666666,26" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CommonLabel="GeneratorVariant1" Icon="Microsoft.VisualStudio.Method.Public" Label="GeneratorVariant1(Random) (GeneratorVariant1)" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Generators/Version4/Classes/Generator Variant 1/Generator Variant 1 - Initialize.cs&quot; StartLineNumber=34 StartCharacterOffset=15 EndLineNumber=34 EndCharacterOffset=32)" UseManualLocation="True" />
+    <Node Id="@29" Category="CodeSchema_Method" Bounds="-7905.56182567789,-9775.51525165048,189.066666666666,26" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CommonLabel="GeneratorVariant2" Icon="Microsoft.VisualStudio.Method.Public" Label="GeneratorVariant2(Random) (GeneratorVariant2)" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Generators/Version4/Classes/Generator Variant 2/Generator Variant 2 - Initialize.cs&quot; StartLineNumber=34 StartCharacterOffset=15 EndLineNumber=34 EndCharacterOffset=32)" UseManualLocation="True" />
+    <Node Id="@30" Category="CodeSchema_Method" Bounds="-8049.62294540109,-9762.68435246297,106.43,26" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CommonLabel="UUID" Icon="Microsoft.VisualStudio.Method.Public" Label="UUID(string) (UUID)" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Classes/UUID/UUID - Initialize.cs&quot; StartLineNumber=35 StartCharacterOffset=15 EndLineNumber=35 EndCharacterOffset=19)" UseManualLocation="True" />
+    <Node Id="@31" Category="CodeSchema_Method" Bounds="-8312.45961206777,-9578.68435246297,143.559999999998,26" CodeSchemaProperty_IsPublic="True" CommonLabel="Equals" Icon="Microsoft.VisualStudio.Method.Public" Label="Equals(UUID) : bool (UUID)" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Classes/UUID/UUID - Overrides.cs&quot; StartLineNumber=44 StartCharacterOffset=23 EndLineNumber=44 EndCharacterOffset=29)" UseManualLocation="True" />
+    <Node Id="@32" Category="CodeSchema_Method" Bounds="-6424.42708759397,-9531.21180455678,171.466666666667,26" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" CommonLabel="IsValidUUID" Icon="Microsoft.VisualStudio.Method.Public" Label="IsValidUUID(UUID) : bool (UUIDValidator)" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Static Classes/UUID Validator/UUID Validator - Validate.cs&quot; StartLineNumber=22 StartCharacterOffset=30 EndLineNumber=22 EndCharacterOffset=41)" UseManualLocation="True" />
+    <Node Id="@33" Category="CodeSchema_Method" Bounds="-6424.42708759397,-9587.21180455678,150.266666666666,26" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" CommonLabel="Validate" Icon="Microsoft.VisualStudio.Method.Public" Label="Validate(UUID) : void (UUIDValidator)" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Static Classes/UUID Validator/UUID Validator - Validate.cs&quot; StartLineNumber=53 StartCharacterOffset=27 EndLineNumber=53 EndCharacterOffset=35)" UseManualLocation="True" />
+    <Node Id="@34" Category="CodeSchema_Method" Bounds="-33738.3113854539,-39309.1188782481,262.696666666667,26" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" CommonLabel="CreateGenerator" Icon="Microsoft.VisualStudio.Method.Public" Label="CreateGenerator(int, int) : IUUIDGenerator (UUIDFactory)" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Static Classes/UUID Factory/UUID Factory - CreateGenerator.cs&quot; StartLineNumber=25 StartCharacterOffset=37 EndLineNumber=25 EndCharacterOffset=52)" UseManualLocation="True" />
+    <Node Id="@35" Category="CodeSchema_Method" Bounds="-33738.3113854539,-39421.1188782481,195.823333333334,26" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" CommonLabel="CreateUUID" Icon="Microsoft.VisualStudio.Method.Public" Label="CreateUUID([int], [int]) : UUID (UUIDFactory)" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Static Classes/UUID Factory/UUID Factory - CreateUUID.cs&quot; StartLineNumber=25 StartCharacterOffset=27 EndLineNumber=25 EndCharacterOffset=37)" UseManualLocation="True" />
+    <Node Id="@36" Category="CodeSchema_Method" Bounds="-8037.6329454011,-9550.68435246297,175.93,26" CodeSchemaProperty_IsOperator="True" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" CommonLabel="op_Equality" Icon="Microsoft.VisualStudio.Operator.Public" Label="operator ==(UUID, UUID) (UUID)" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Classes/UUID/UUID - Operator.cs&quot; StartLineNumber=24 StartCharacterOffset=39 EndLineNumber=24 EndCharacterOffset=41)" UseManualLocation="True" />
+    <Node Id="@37" Category="CodeSchema_Method" Bounds="-8294.7629454011,-9522.68435246297,171.129999999997,26" CodeSchemaProperty_IsOperator="True" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" CommonLabel="op_Inequality" Icon="Microsoft.VisualStudio.Operator.Public" Label="operator !=(UUID, UUID) (UUID)" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Classes/UUID/UUID - Operator.cs&quot; StartLineNumber=32 StartCharacterOffset=39 EndLineNumber=32 EndCharacterOffset=41)" UseManualLocation="True" />
+    <Node Id="@39" Category="CodeSchema_Method" Bounds="-7487.98422413553,-9289.34870492595,197.540000000001,26" CodeSchemaProperty_IsOperator="True" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" CommonLabel="op_Implicit" Icon="Microsoft.VisualStudio.Operator.Public" Label="implicit operator string(UUID) (UUID)" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Classes/UUID/UUID - Operator.cs&quot; StartLineNumber=38 StartCharacterOffset=40 EndLineNumber=38 EndCharacterOffset=46)" UseManualLocation="True" />
+    <Node Id="@4" Category="CodeSchema_Class" Bounds="631.481666666668,137,207.23,25" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsPublic="True" CommonLabel="GeneratorBase" Group="Collapsed" Icon="Microsoft.VisualStudio.Class.Public" Label="GeneratorBase (Generators)" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Generators/Abstract Classes/Generator Base/Generator Base - Initialize.cs&quot; StartLineNumber=19 StartCharacterOffset=34 EndLineNumber=19 EndCharacterOffset=47)" />
+    <Node Id="@40" Category="CodeSchema_Method" Bounds="-8455.10627873443,-9480.68435246297,197.296666666669,26" CodeSchemaProperty_IsOperator="True" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" CommonLabel="op_Implicit" Icon="Microsoft.VisualStudio.Operator.Public" Label="implicit operator UUID(char[]) (UUID)" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Classes/UUID/UUID - Operator.cs&quot; StartLineNumber=56 StartCharacterOffset=40 EndLineNumber=56 EndCharacterOffset=44)" UseManualLocation="True" />
+    <Node Id="@41" Category="CodeSchema_Method" Bounds="-8418.10627873443,-9482.68435246297,197.540000000001,26" CodeSchemaProperty_IsOperator="True" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" CommonLabel="op_Implicit" Icon="Microsoft.VisualStudio.Operator.Public" Label="implicit operator UUID(string) (UUID)" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Classes/UUID/UUID - Operator.cs&quot; StartLineNumber=50 StartCharacterOffset=40 EndLineNumber=50 EndCharacterOffset=44)" UseManualLocation="True" />
+    <Node Id="@42" Category="CodeSchema_Method" Bounds="-33738.3113854539,-39365.1188782481,227.806666666667,26" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" CommonLabel="CreateUUIDs" Icon="Microsoft.VisualStudio.Method.Public" Label="CreateUUIDs(int, [int], [int]) : UUID[] (UUIDFactory)" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Static Classes/UUID Factory/UUID Factory - CreateUUID.cs&quot; StartLineNumber=39 StartCharacterOffset=29 EndLineNumber=39 EndCharacterOffset=40)" UseManualLocation="True" />
+    <Node Id="@44" Category="CodeSchema_Method" Bounds="-16581.9645624767,-19656.4415096834,125.723333333335,26" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CommonLabel="GeneratorBase" Icon="Microsoft.VisualStudio.Method.Public" Label="GeneratorBase() (GeneratorBase)" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Generators/Abstract Classes/Generator Base/Generator Base - Initialize.cs&quot; StartLineNumber=21 StartCharacterOffset=15 EndLineNumber=21 EndCharacterOffset=28)" UseManualLocation="True" />
+    <Node Id="@45" Category="CodeSchema_Method" Bounds="-25281.844461008,-29559.197919514,144.559999999998,26" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CommonLabel="GeneratorVariant1" Icon="Microsoft.VisualStudio.Method.Public" Label="GeneratorVariant1() (GeneratorVariant1)" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Generators/Version4/Classes/Generator Variant 1/Generator Variant 1 - Initialize.cs&quot; StartLineNumber=24 StartCharacterOffset=15 EndLineNumber=24 EndCharacterOffset=32)" UseManualLocation="True" />
+    <Node Id="@46" Category="CodeSchema_Method" Bounds="-24908.0414804081,-29688.3103576039,144.559999999998,26" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CommonLabel="GeneratorVariant2" Icon="Microsoft.VisualStudio.Method.Public" Label="GeneratorVariant2() (GeneratorVariant2)" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Generators/Version4/Classes/Generator Variant 2/Generator Variant 2 - Initialize.cs&quot; StartLineNumber=24 StartCharacterOffset=15 EndLineNumber=24 EndCharacterOffset=32)" UseManualLocation="True" />
+    <Node Id="@47" Category="CodeSchema_Property" Bounds="-8402.10627873443,-9608.68435246297,109.620000000003,26" CodeSchemaProperty_IsPublic="True" CommonLabel="Chars" Icon="Microsoft.VisualStudio.Property.Public" Label="Chars : char[] (UUID)" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Classes/UUID/UUID - Properties.cs&quot; StartLineNumber=22 StartCharacterOffset=22 EndLineNumber=22 EndCharacterOffset=27)" UseManualLocation="True" />
+    <Node Id="@49" Category="CodeSchema_Method" Bounds="-8212.83166408261,-9793.50299967733,133.706666666665,26" CodeSchemaProperty_IsPublic="True" CommonLabel="Generate" Icon="Microsoft.VisualStudio.Method.Public" IsOverloaded="True" Label="Generate() : UUID (GeneratorVariant1)" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Generators/Version4/Classes/Generator Variant 1/Generator Variant 1 - GeneratorBase.cs&quot; StartLineNumber=34 StartCharacterOffset=29 EndLineNumber=34 EndCharacterOffset=37)" UseManualLocation="True" />
+    <Node Id="@50" Category="CodeSchema_Method" Bounds="-16730.3101793837,-19839.4652586696,133.706666666665,26" CodeSchemaProperty_IsPublic="True" CommonLabel="Generate" Icon="Microsoft.VisualStudio.Method.Public" IsOverloaded="True" Label="Generate() : UUID (GeneratorVariant2)" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Generators/Version4/Classes/Generator Variant 2/Generator Variant 2 - GeneratorBase.cs&quot; StartLineNumber=34 StartCharacterOffset=29 EndLineNumber=34 EndCharacterOffset=37)" UseManualLocation="True" />
+    <Node Id="@51" Category="CodeSchema_Method" Bounds="-8207.88627873443,-9672.68435246297,126.476666666669,26" CodeSchemaProperty_IsPublic="True" CommonLabel="GetVariant" Icon="Microsoft.VisualStudio.Method.Public" Label="GetVariant() : int (UUID)" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Classes/UUID/UUID - Get.cs&quot; StartLineNumber=41 StartCharacterOffset=21 EndLineNumber=41 EndCharacterOffset=31)" UseManualLocation="True" />
+    <Node Id="@52" Category="CodeSchema_Method" Bounds="-8010.40961206776,-9700.68435246297,128.713333333333,26" CodeSchemaProperty_IsPublic="True" CommonLabel="GetVersion" Icon="Microsoft.VisualStudio.Method.Public" Label="GetVersion() : int (UUID)" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Classes/UUID/UUID - Get.cs&quot; StartLineNumber=21 StartCharacterOffset=21 EndLineNumber=21 EndCharacterOffset=31)" UseManualLocation="True" />
+    <Node Id="@53" Category="CodeSchema_Field" Bounds="-8348.7729454011,-9704.68435246297,95.9633333333331,26" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" CommonLabel="Nill" Icon="Microsoft.VisualStudio.Field.Public" Label="Nill : UUID (UUID)" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Classes/UUID/UUID - Nill.cs&quot; StartLineNumber=20 StartCharacterOffset=36 EndLineNumber=20 EndCharacterOffset=40)" UseManualLocation="True" />
+    <Node Id="@54" Category="CodeSchema_Method" Bounds="-8450.10627873443,-9583.68435246297,130.646666666667,26" CodeSchemaProperty_IsPublic="True" CommonLabel="ToString" Icon="Microsoft.VisualStudio.Method.Public" IsOverloaded="True" Label="ToString() : string (UUID)" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Classes/UUID/UUID - Overrides.cs&quot; StartLineNumber=23 StartCharacterOffset=31 EndLineNumber=23 EndCharacterOffset=39)" UseManualLocation="True" />
+    <Node Id="@7" Category="CodeSchema_Class" Bounds="346.517500000002,40.5,213.276666666667,25" CodeSchemaProperty_IsPublic="True" CommonLabel="GeneratorVariant1" Group="Collapsed" Icon="Microsoft.VisualStudio.Class.Public" Label="GeneratorVariant1 (Version4)" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Generators/Version4/Classes/Generator Variant 1/Generator Variant 1 - GeneratorBase.cs&quot; StartLineNumber=18 StartCharacterOffset=25 EndLineNumber=18 EndCharacterOffset=42)" />
+    <Node Id="@9" Category="CodeSchema_Class" Bounds="346.517500000002,95.4999999999999,213.276666666667,25" CodeSchemaProperty_IsPublic="True" CommonLabel="GeneratorVariant2" Group="Collapsed" Icon="Microsoft.VisualStudio.Class.Public" Label="GeneratorVariant2 (Version4)" SourceLocation="(Assembly=&quot;file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net Source/Generators/Version4/Classes/Generator Variant 2/Generator Variant 2 - GeneratorBase.cs&quot; StartLineNumber=18 StartCharacterOffset=25 EndLineNumber=18 EndCharacterOffset=42)" />
+    <Node Id="DaanV2.UUID" Bounds="0,-7.105427357601E-15,294.830000000002,195" Group="Expanded" />
+    <Node Id="DaanV2.UUID.Generators" Bounds="611.481666666668,96.9999999999999,247.23,85" Group="Expanded" />
+    <Node Id="DaanV2.UUID.Generators.Version4" Bounds="326.517500000002,0.499999999999964,253.276666666667,140" Group="Expanded" />
+  </Nodes>
+  <Links>
+    <Link Source="@12" Target="(@1 @10 @11 @48)" Category="Contains" />
+    <Link Source="@12" Target="(@1 @10 @11 @55)" Category="Contains" />
+    <Link Source="@12" Target="(@1 @10 @11 @56)" Category="Contains" />
+    <Link Source="@12" Target="(@1 @10 @11 Member=NumberGenerator)" Category="Contains" />
+    <Link Source="@14" Target="(@1 @10 @13 @43)" Category="Contains" />
+    <Link Source="@14" Target="(@1 @10 @13 Member=(@38 OverloadingParameters=[@14,(@20 @21 Type=(Name=Char ArrayRank=1 ParentType=Char) ParamKind=Return)]))" Category="Contains" />
+    <Link Source="@14" Target="(@1 @10 @13 Member=(Name=Equals OverloadingParameters=[(@20 @21 Type=Object)]))" Category="Contains" />
+    <Link Source="@14" Target="(@1 @10 @13 Member=GetHashCode)" Category="Contains" />
+    <Link Source="@14" Target="(@1 @10 @13 Member=_Chars)" Category="Contains" />
+    <Link Source="@14" Target="@22" Category="Contains" />
+    <Link Source="@14" Target="@30" Category="Contains" />
+    <Link Source="@14" Target="@31" Category="Contains" />
+    <Link Source="@14" Target="@36" Category="Contains" />
+    <Link Source="@14" Target="@37" Category="Contains" />
+    <Link Source="@14" Target="@39" Category="Contains" />
+    <Link Source="@14" Target="@40" Category="Contains" />
+    <Link Source="@14" Target="@41" Category="Contains" />
+    <Link Source="@14" Target="@47" Category="Contains" />
+    <Link Source="@14" Target="@51" Category="Contains" />
+    <Link Source="@14" Target="@52" Category="Contains" />
+    <Link Source="@14" Target="@53" Category="Contains" />
+    <Link Source="@14" Target="@54" Category="Contains" />
+    <Link Source="@16" Target="(@1 @10 @15 Member=.cctor)" Category="Contains" />
+    <Link Source="@16" Target="@34" Category="Contains" />
+    <Link Source="@16" Target="@35" Category="Contains" />
+    <Link Source="@16" Target="@42" Category="Contains" />
+    <Link Source="@18" Target="(@1 @10 @17 Member=.cctor)" Category="Contains" />
+    <Link Source="@18" Target="@32" Category="Contains" />
+    <Link Source="@18" Target="@33" Category="Contains" />
+    <Link Source="@24" Target="@27" Category="CodeSchema_Calls" />
+    <Link Source="@25" Target="@24" Category="CodeSchema_Calls" />
+    <Link Source="@26" Target="@24" Category="CodeSchema_Calls" />
+    <Link Source="@28" Target="@27" Category="CodeSchema_Calls" />
+    <Link Source="@29" Target="@27" Category="CodeSchema_Calls" />
+    <Link Source="@31" Target="@37" Category="CodeSchema_Calls" />
+    <Link Source="@32" Target="@36" Category="CodeSchema_Calls" />
+    <Link Source="@32" Target="@47" Category="CodeSchema_Calls" />
+    <Link Source="@32" Target="@51" Category="CodeSchema_Calls" />
+    <Link Source="@32" Target="@52" Category="CodeSchema_Calls" />
+    <Link Source="@33" Target="@36" Category="CodeSchema_Calls" />
+    <Link Source="@33" Target="@47" Category="CodeSchema_Calls" />
+    <Link Source="@33" Target="@51" Category="CodeSchema_Calls" />
+    <Link Source="@33" Target="@52" Category="CodeSchema_Calls" />
+    <Link Source="@34" Target="@45" Category="CodeSchema_Calls" />
+    <Link Source="@34" Target="@46" Category="CodeSchema_Calls" />
+    <Link Source="@35" Target="@34" Category="CodeSchema_Calls" />
+    <Link Source="@39" Target="@54" Category="CodeSchema_Calls" />
+    <Link Source="@4" Target="(@1 @2 @3 @48)" Category="Contains" />
+    <Link Source="@4" Target="(@1 @2 @3 @55)" Category="Contains" />
+    <Link Source="@4" Target="(@1 @2 @3 @56)" Category="Contains" />
+    <Link Source="@4" Target="(@1 @2 @3 Member=NumberGenerator)" Category="Contains" />
+    <Link Source="@4" Target="(@1 @2 @3 Member=_NumberGenerator)" Category="Contains" />
+    <Link Source="@4" Target="(@1 @2 @3 Member=_ToHexChars)" Category="Contains" />
+    <Link Source="@4" Target="@12" Category="Implements" Bounds="213.031375045554,151.661849780927,418.450291621115,8.73065358558077" />
+    <Link Source="@4" Target="@24" Category="Contains" />
+    <Link Source="@4" Target="@27" Category="Contains" />
+    <Link Source="@4" Target="@44" Category="Contains" />
+    <Link Source="@40" Target="@22" Category="CodeSchema_Calls" />
+    <Link Source="@41" Target="@30" Category="CodeSchema_Calls" />
+    <Link Source="@42" Target="@34" Category="CodeSchema_Calls" />
+    <Link Source="@44" Target="@24" Category="CodeSchema_Calls" />
+    <Link Source="@45" Target="@44" Category="CodeSchema_Calls" />
+    <Link Source="@46" Target="@44" Category="CodeSchema_Calls" />
+    <Link Source="@49" Target="@22" Category="CodeSchema_Calls" />
+    <Link Source="@50" Target="@22" Category="CodeSchema_Calls" />
+    <Link Source="@53" Target="@22" Category="CodeSchema_Calls" />
+    <Link Source="@7" Target="(@1 @5 @6 @55)" Category="Contains" />
+    <Link Source="@7" Target="(@1 @5 @6 @56)" Category="Contains" />
+    <Link Source="@7" Target="@12" Category="Implements" Bounds="159.528807267673,65.4999499999999,254.684252166874,81.7495220129921" />
+    <Link Source="@7" Target="@25" Category="Contains" />
+    <Link Source="@7" Target="@28" Category="Contains" />
+    <Link Source="@7" Target="@45" Category="Contains" />
+    <Link Source="@7" Target="@49" Category="Contains" />
+    <Link Source="@9" Target="(@1 @5 @8 @55)" Category="Contains" />
+    <Link Source="@9" Target="(@1 @5 @8 @56)" Category="Contains" />
+    <Link Source="@9" Target="@12" Category="Implements" Bounds="199.146822609575,120.50005,175.766154371641,28.0802239601006" />
+    <Link Source="@9" Target="@26" Category="Contains" />
+    <Link Source="@9" Target="@29" Category="Contains" />
+    <Link Source="@9" Target="@46" Category="Contains" />
+    <Link Source="@9" Target="@50" Category="Contains" />
+    <Link Source="DaanV2.UUID" Target="@12" Category="Contains" />
+    <Link Source="DaanV2.UUID" Target="@14" Category="Contains" />
+    <Link Source="DaanV2.UUID" Target="@16" Category="Contains" />
+    <Link Source="DaanV2.UUID" Target="@18" Category="Contains" />
+    <Link Source="DaanV2.UUID.Generators" Target="@4" Category="Contains" />
+    <Link Source="DaanV2.UUID.Generators.Version4" Target="@7" Category="Contains" />
+    <Link Source="DaanV2.UUID.Generators.Version4" Target="@9" Category="Contains" />
+  </Links>
+  <Categories>
+    <Category Id="CodeSchema_Calls" Label="Calls" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Called By" OutgoingActionLabel="Calls" />
+    <Category Id="CodeSchema_Class" Label="Class" BasedOn="CodeSchema_Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="Classes" />
+    <Category Id="CodeSchema_Field" Label="Field" BasedOn="CodeSchema_Member" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="CodeSchema_Field" NavigationActionLabel="Fields" />
+    <Category Id="CodeSchema_Interface" Label="Interface" BasedOn="CodeSchema_Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Interface" NavigationActionLabel="Interfaces" />
+    <Category Id="CodeSchema_Member" Label="Member" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="CodeSchema_Field" NavigationActionLabel="Members" />
+    <Category Id="CodeSchema_Method" Label="Method" BasedOn="CodeSchema_Member" CanBeDataDriven="True" DefaultAction="Link:Forward:CodeSchema_Calls" Icon="CodeSchema_Method" NavigationActionLabel="Methods" />
+    <Category Id="CodeSchema_Property" Label="Property" BasedOn="CodeSchema_Member" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="CodeSchema_Property" NavigationActionLabel="Properties" />
+    <Category Id="CodeSchema_Type" Label="Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="Types" />
+    <Category Id="Contains" Label="Contains" Description="Whether the source of the link contains the target object" CanBeDataDriven="False" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Contained By" IsContainment="True" OutgoingActionLabel="Contains" />
+    <Category Id="Implements" Label="Implements" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Implemented by" OutgoingActionLabel="Implements" />
+  </Categories>
+  <Properties>
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CanLinkedNodesBeDataDriven" Label="CanLinkedNodesBeDataDriven" Description="CanLinkedNodesBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsAbstract" Label="Is Abstract" Description="Flag to indicate member is 'Abstract' does not provide a full implementation" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsConstructor" Label="Is Constructor" Description="Flag to indicate the method is a constructor" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsInternal" Label="Is Internal" Description="Flag to indicate the method is 'Internal'" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsOperator" Label="Is Operator" Description="Flag indicating if this method defines a new operator" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsPrivate" Label="Is Private" Description="Flag to indicate the scope is Private" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsProtected" Label="Is Protected" Description="Flag to indicate the scope is Protected" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsPublic" Label="Is Public" Description="Flag to indicate the scope is Public" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsStatic" Label="Is Static" Description="Flag to indicate the member is a static member" DataType="System.Boolean" />
+    <Property Id="CommonLabel" DataType="System.String" />
+    <Property Id="DefaultAction" Label="DefaultAction" Description="DefaultAction" DataType="System.String" />
+    <Property Id="GraphDirection" DataType="Microsoft.VisualStudio.Diagrams.Layout.LayoutOrientation" />
+    <Property Id="Group" Label="Group" Description="Display the node as a group" DataType="Microsoft.VisualStudio.GraphModel.GraphGroupStyle" />
+    <Property Id="Icon" Label="Icon" Description="Icon" DataType="System.String" />
+    <Property Id="IncomingActionLabel" Label="IncomingActionLabel" Description="IncomingActionLabel" DataType="System.String" />
+    <Property Id="IsContainment" DataType="System.Boolean" />
+    <Property Id="IsOverloaded" Label="IsOverloaded" Description="IsOverloaded" DataType="System.Boolean" />
+    <Property Id="Label" Label="Label" Description="Displayable label of an Annotatable object" DataType="System.String" />
+    <Property Id="Layout" DataType="System.String" />
+    <Property Id="NavigationActionLabel" Label="NavigationActionLabel" Description="NavigationActionLabel" DataType="System.String" />
+    <Property Id="OutgoingActionLabel" Label="OutgoingActionLabel" Description="OutgoingActionLabel" DataType="System.String" />
+    <Property Id="SourceLocation" Label="Start Line Number" DataType="Microsoft.VisualStudio.GraphModel.CodeSchema.SourceLocation" />
+    <Property Id="UseManualLocation" DataType="System.Boolean" />
+    <Property Id="ZoomLevel" DataType="System.String" />
+  </Properties>
+  <QualifiedNames>
+    <Name Id="ArrayRank" Label="Array Rank" ValueType="System.String" />
+    <Name Id="Assembly" Label="Assembly" ValueType="Uri" />
+    <Name Id="Member" Label="Member" ValueType="System.Object" />
+    <Name Id="Name" Label="Name" ValueType="System.String" />
+    <Name Id="Namespace" Label="Namespace" ValueType="System.String" />
+    <Name Id="OverloadingParameters" Label="Parameter" ValueType="Microsoft.VisualStudio.GraphModel.GraphNodeIdCollection" Formatter="NameValueNoEscape" />
+    <Name Id="ParamKind" Label="Parameter Kind" ValueType="Microsoft.VisualStudio.GraphModel.CodeSchema.ParamKind" />
+    <Name Id="ParentType" Label="Parent Type" ValueType="System.Object" />
+    <Name Id="Type" Label="Type" ValueType="System.Object" />
+  </QualifiedNames>
+  <IdentifierAliases>
+    <Alias n="1" Uri="Assembly=$(c419e0c7-2d37-433e-ad0d-44a319047ddf.OutputPathUri)" />
+    <Alias n="2" Id="Namespace=DaanV2.UUID.Generators" />
+    <Alias n="3" Id="Type=GeneratorBase" />
+    <Alias n="4" Id="(@1 @2 @3)" />
+    <Alias n="5" Id="Namespace=DaanV2.UUID.Generators.Version4" />
+    <Alias n="6" Id="Type=GeneratorVariant1" />
+    <Alias n="7" Id="(@1 @5 @6)" />
+    <Alias n="8" Id="Type=GeneratorVariant2" />
+    <Alias n="9" Id="(@1 @5 @8)" />
+    <Alias n="10" Id="Namespace=DaanV2.UUID" />
+    <Alias n="11" Id="Type=IUUIDGenerator" />
+    <Alias n="12" Id="(@1 @10 @11)" />
+    <Alias n="13" Id="Type=UUID" />
+    <Alias n="14" Id="(@1 @10 @13)" />
+    <Alias n="15" Id="Type=UUIDFactory" />
+    <Alias n="16" Id="(@1 @10 @15)" />
+    <Alias n="17" Id="Type=UUIDValidator" />
+    <Alias n="18" Id="(@1 @10 @17)" />
+    <Alias n="19" Id="Name=.ctor" />
+    <Alias n="20" Uri="Assembly=$(FxReferenceAssembliesUri)/.NETFramework/v4.7.2/mscorlib.dll" />
+    <Alias n="21" Id="Namespace=System" />
+    <Alias n="22" Id="(@1 @10 @13 Member=(@19 OverloadingParameters=[(@20 @21 Type=(Name=Char ArrayRank=1 ParentType=Char))]))" />
+    <Alias n="23" Id="(@20 @21 Type=Int32)" />
+    <Alias n="24" Id="(@1 @2 @3 Member=(@19 OverloadingParameters=[@23]))" />
+    <Alias n="25" Id="(@1 @5 @6 Member=(@19 OverloadingParameters=[@23]))" />
+    <Alias n="26" Id="(@1 @5 @8 Member=(@19 OverloadingParameters=[@23]))" />
+    <Alias n="27" Id="(@1 @2 @3 Member=(@19 OverloadingParameters=[(@20 @21 Type=Random)]))" />
+    <Alias n="28" Id="(@1 @5 @6 Member=(@19 OverloadingParameters=[(@20 @21 Type=Random)]))" />
+    <Alias n="29" Id="(@1 @5 @8 Member=(@19 OverloadingParameters=[(@20 @21 Type=Random)]))" />
+    <Alias n="30" Id="(@1 @10 @13 Member=(@19 OverloadingParameters=[(@20 @21 Type=String)]))" />
+    <Alias n="31" Id="(@1 @10 @13 Member=(Name=Equals OverloadingParameters=[@14]))" />
+    <Alias n="32" Id="(@1 @10 @17 Member=(Name=IsValidUUID OverloadingParameters=[@14]))" />
+    <Alias n="33" Id="(@1 @10 @17 Member=(Name=Validate OverloadingParameters=[@14]))" />
+    <Alias n="34" Id="(@1 @10 @15 Member=(Name=CreateGenerator OverloadingParameters=[@23,@23]))" />
+    <Alias n="35" Id="(@1 @10 @15 Member=(Name=CreateUUID OverloadingParameters=[@23,@23]))" />
+    <Alias n="36" Id="(@1 @10 @13 Member=(Name=op_Equality OverloadingParameters=[@14,@14]))" />
+    <Alias n="37" Id="(@1 @10 @13 Member=(Name=op_Inequality OverloadingParameters=[@14,@14]))" />
+    <Alias n="38" Id="Name=op_Implicit" />
+    <Alias n="39" Id="(@1 @10 @13 Member=(@38 OverloadingParameters=[@14,(@20 @21 Type=String ParamKind=Return)]))" />
+    <Alias n="40" Id="(@1 @10 @13 Member=(@38 OverloadingParameters=[(@20 @21 Type=(Name=Char ArrayRank=1 ParentType=Char)),(@1 @10 @13 ParamKind=Return)]))" />
+    <Alias n="41" Id="(@1 @10 @13 Member=(@38 OverloadingParameters=[(@20 @21 Type=String),(@1 @10 @13 ParamKind=Return)]))" />
+    <Alias n="42" Id="(@1 @10 @15 Member=(Name=CreateUUIDs OverloadingParameters=[@23,@23,@23]))" />
+    <Alias n="43" Id="Member=.ctor" />
+    <Alias n="44" Id="(@1 @2 @3 @43)" />
+    <Alias n="45" Id="(@1 @5 @6 @43)" />
+    <Alias n="46" Id="(@1 @5 @8 @43)" />
+    <Alias n="47" Id="(@1 @10 @13 Member=Chars)" />
+    <Alias n="48" Id="Member=Generate" />
+    <Alias n="49" Id="(@1 @5 @6 @48)" />
+    <Alias n="50" Id="(@1 @5 @8 @48)" />
+    <Alias n="51" Id="(@1 @10 @13 Member=GetVariant)" />
+    <Alias n="52" Id="(@1 @10 @13 Member=GetVersion)" />
+    <Alias n="53" Id="(@1 @10 @13 Member=Nill)" />
+    <Alias n="54" Id="(@1 @10 @13 Member=ToString)" />
+    <Alias n="55" Id="Member=Variant" />
+    <Alias n="56" Id="Member=Version" />
+  </IdentifierAliases>
+  <Paths>
+    <Path Id="c419e0c7-2d37-433e-ad0d-44a319047ddf.OutputPathUri" Value="file:///D:/Mijn Projecten/Software/Git Hub/UUID.Net/UUID.Net/bin/x86/Debug/UUID.Net.dll" />
+    <Path Id="FxReferenceAssembliesUri" Value="file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework" />
+  </Paths>
+</DirectedGraph>

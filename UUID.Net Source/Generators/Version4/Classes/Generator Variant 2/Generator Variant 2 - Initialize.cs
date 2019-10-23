@@ -14,14 +14,10 @@ WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.*/
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DaanV2.UUID.Generators.Version4 {
-    ///DOLATER <summary> add description for class: GeneratorVariant2</summary>
+    /// <summary>The UUID generator Version 4, Variant 2</summary>
 	[Serializable, DataContract]
     public partial class GeneratorVariant2 {
 
@@ -31,11 +27,11 @@ namespace DaanV2.UUID.Generators.Version4 {
         }
 
         /// <summary>Creates a new instance of <see cref="GeneratorBase"/></summary>
-        /// <param name="Seed"></param>
+        /// <param name="Seed">The seed used in the randomiser</param>
         public GeneratorVariant2(Int32 Seed) : base(Seed) { }
 
         /// <summary>Creates a new instance of <see cref="GeneratorBase"/></summary>
-        /// <param name="NumberGenerator"></param>
+        /// <param name="NumberGenerator">The random number randomiser</param>
         public GeneratorVariant2(Random NumberGenerator) : base(NumberGenerator) { }
     }
 }

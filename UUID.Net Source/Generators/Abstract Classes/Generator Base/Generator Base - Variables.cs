@@ -17,14 +17,10 @@ using System;
 
 namespace DaanV2.UUID.Generators {
     public abstract partial class GeneratorBase {
-        /// <summary>
-        /// 
-        /// </summary>
-        protected Random _NumberGenerator;
+        /// <summary>The random number generator</summary>
+        private protected Random _NumberGenerator;
 
-        /// <summary>
-        /// 
-        /// </summary>
-        protected Char[,] _ToHexChars;
+        /// <summary>The conversion of bytes to hex values</summary>
+        private protected Char[,] _ToHexChars;
     }
 }

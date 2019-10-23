@@ -16,7 +16,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.*/
 using System;
 
 namespace DaanV2.UUID.Generators {
-    ///DOLATER <summary> add description for abstract class: GeneratorBase</summary>
+    /// <summary>The base of a UUID generator</summary>
     public abstract partial class GeneratorBase {
         /// <summary>Creates a new instance of <see cref="GeneratorBase"/></summary>
         public GeneratorBase() : this((Int32)DateTime.Now.Ticks) { }

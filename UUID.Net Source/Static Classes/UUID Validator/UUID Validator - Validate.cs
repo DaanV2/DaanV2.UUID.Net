@@ -74,7 +74,7 @@ namespace DaanV2.UUID {
             Int32 Variant = Value.GetVariant();
 
             if (Version > 0 && Version < 6) {
-              if (!(Variant > -1 && Variant < 4)) {
+                if (!(Variant > -1 && Variant < 4)) {
                     throw new Exception($"UUID has invalid variant: {Variant}, expected one of these values:  0, 1, 2, 3");
                 }
             }

@@ -18,25 +18,17 @@ using System;
 namespace DaanV2.UUID.Generators {
     public abstract partial class GeneratorBase : IUUIDGenerator {
 
-        /// <summary>
-        /// 
-        /// </summary>
+        /// <summary>Gets the version of the generator</summary>
         public abstract Int32 Version { get; }
 
-        /// <summary>
-        /// 
-        /// </summary>
+        /// <summary>Gets the variant of the generator</summary>
         public abstract Int32 Variant { get; }
 
-        /// <summary>
-        /// 
-        /// </summary>
+        /// <summary>Get or sets the number generator of this generator</summary>
         public Random NumberGenerator { get => this._NumberGenerator; set => this._NumberGenerator = value; }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
+        /// <summary>Generates a <see cref="UUID"/> specified by this version and variant format </summary>
+        /// <returns>A new generated <see cref="UUID"/></returns>
         public abstract UUID Generate();
     }
 }

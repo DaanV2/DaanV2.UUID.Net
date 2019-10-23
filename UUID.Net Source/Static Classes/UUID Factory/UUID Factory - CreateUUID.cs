@@ -26,11 +26,9 @@ namespace DaanV2.UUID {
         public static UUID CreateUUID(Int32 Version = 4, Int32 Variant = 1) {
             IUUIDGenerator Generator = UUIDFactory.CreateGenerator(Version, Variant);
 
-            if (Generator == null) {
-                return UUID.Nill;
-            }
-
-            return Generator.Generate();
+            return Generator == null ?
+                UUID.Nill :
+                Generator.Generate();
         }
 
         /// <summary>

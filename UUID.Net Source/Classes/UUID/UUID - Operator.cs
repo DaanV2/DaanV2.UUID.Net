@@ -14,59 +14,46 @@ WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.*/
 using System;
-using System.Collections.Generic;
 
 namespace DaanV2.UUID {
     public partial class UUID {
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="left"></param>
-        /// <param name="right"></param>
-        /// <returns></returns>
+        /// <summary>Compare two <see cref="UUID"/> if they are equal to each other</summary>
+        /// <param name="left">The first <see cref="UUID"/></param>
+        /// <param name="right">the second <see cref="UUID"/> to compare to the first</param>
+        /// <returns>Returns true if two UUID are equal</returns>
         public static Boolean operator ==(UUID left, UUID right) {
             return left._Chars == right._Chars;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="left"></param>
-        /// <param name="right"></param>
-        /// <returns></returns>
+        /// <summary>Compare two <see cref="UUID"/> if they are not equal to each other</summary>
+        /// <param name="left">The first <see cref="UUID"/></param>
+        /// <param name="right">the second <see cref="UUID"/> to compare to the first</param>
+        /// <returns>Returns true if two UUID are not equal</returns>
         public static Boolean operator !=(UUID left, UUID right) {
             return left._Chars != right._Chars;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="value"></param>
+        /// <summary>Auto converts the <see cref="UUID"/> to a <see cref="String"/></summary>
+        /// <param name="value">The <see cref="UUID"/> to convert to <see cref="String"/></param>
         public static implicit operator String(UUID value) {
             return value.ToString();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="value"></param>
+        /// <summary>Auto converts the <see cref="UUID"/> to a <see cref="Char[]"/></summary>
+        /// <param name="value">The <see cref="UUID"/> to convert to <see cref="Char[]"/></param>
         public static implicit operator Char[](UUID value) {
             return value._Chars;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Value"></param>
-        public static implicit operator UUID(String Value) {
-            return new UUID(Value);
+        /// <summary>Auto converts the <see cref="String"/> to a <see cref="UUID"/></summary>
+        /// <param name="value">The <see cref="String"/> to convert to <see cref="UUID[]"/></param>
+        public static implicit operator UUID(String value) {
+            return new UUID(value);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Values"></param>
+        /// <summary>Auto converts the <see cref="Char[]"/> to a <see cref="UUID"/></summary>
+        /// <param name="value">The <see cref="Char[]"/> to convert to <see cref="UUID[]"/></param>
         public static implicit operator UUID(Char[] Values) {
             return new UUID(Values);
         }

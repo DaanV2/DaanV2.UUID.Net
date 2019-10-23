@@ -8,16 +8,17 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{11DEC96A-31A7-414B-9858-86815C90CF13}"
 	ProjectSection(SolutionItems) = preProject
 		LICENSE.txt = LICENSE.txt
+		Overview.dgml = Overview.dgml
 		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{898452FA-EE0A-48F2-A101-055E150A8D03}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UUID.Net Core", "UUID.Net Core\UUID.Net Core.csproj", "{4D0EDF17-58C1-4158-8EC4-1623FF922258}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UUID.Net Core", "UUID.Net Core\UUID.Net Core.csproj", "{4D0EDF17-58C1-4158-8EC4-1623FF922258}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UUID.Net", "UUID.Net\UUID.Net.csproj", "{C419E0C7-2D37-433E-AD0D-44A319047DDF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Debugger.Net Core", "Debugger.Net Core\Debugger.Net Core.csproj", "{248BA48A-4504-4CB3-97CA-918D0B250310}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Debugger.Net Core", "Debugger.Net Core\Debugger.Net Core.csproj", "{248BA48A-4504-4CB3-97CA-918D0B250310}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution

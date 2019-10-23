@@ -14,10 +14,6 @@ WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.*/
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DaanV2.UUID {
     public static partial class UUIDFactory {
@@ -27,7 +23,7 @@ namespace DaanV2.UUID {
         /// <param name="Version"></param>
         /// <param name="Variant"></param>
         /// <returns></returns>
-        static public IUUIDGenerator CreateGenerator(Int32 Version, Int32 Variant) {
+        public static IUUIDGenerator CreateGenerator(Int32 Version, Int32 Variant) {
             switch (Version) {
                 case 4:
                     if (Variant == 1) { return new Generators.Version4.GeneratorVariant1(); }

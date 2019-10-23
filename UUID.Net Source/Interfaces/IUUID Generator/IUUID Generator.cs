@@ -16,20 +16,20 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.*/
 using System;
 
 namespace DaanV2.UUID {
-    ///DOLATER <summary> add description for interface: IUUIDGenerator</summary>
+    /// <summary>The interface responsible for how a UUID generator should behave</summary>
     public interface IUUIDGenerator {
 
-        ///DOLATER <summary>Add Description</summary>
+        /// <summary>The version of the UUID generator</summary>
         Int32 Version { get; }
 
-        ///DOLATER <summary>Add Description</summary>
+        /// <summary>The variant of the UUID generator</summary>
         Int32 Variant { get; }
 
-        ///DOLATER <summary>Add Description</summary>
+        /// <summary>The number randomiser</summary>
         Random NumberGenerator { get; set; }
 
-        ///DOLATER <summary>Add Description</summary>
-        /// <returns></returns>
+        /// <summary>Generate the UUID</summary>
+        /// <returns>Returns a new <see cref="UUID"/></returns>
         UUID Generate();
     }
 }
