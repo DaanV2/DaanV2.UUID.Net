@@ -14,22 +14,34 @@ WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.*/
 using System;
-using System.Runtime.Serialization;
 
 namespace DaanV2.UUID.Generators.Version4 {
-    /// <summary>The UUID generator version 4, variant 1</summary>
-	[Serializable, DataContract]
-    public partial class GeneratorVariant1 {
+    public partial class GeneratorVariant1 : RandomGeneratorBase {
 
-        /// <summary>Creates a new instance of <see cref="GeneratorVariant1"/></summary>
-        public GeneratorVariant1() : base() { }
+        /// <summary>
+        /// 
+        /// </summary>
+        public override Int32 Version => 4;
 
-        /// <summary>Creates a new instance of <see cref="GeneratorBase"/></summary>
-        /// <param name="Seed"></param>
-        public GeneratorVariant1(Int32 Seed) : base(Seed) { }
+        /// <summary>
+        /// 
+        /// </summary>
+        public override Int32 Variant => 1;
 
-        /// <summary>Creates a new instance of <see cref="GeneratorBase"/></summary>
-        /// <param name="NumberGenerator"></param>
-        public GeneratorVariant1(Random NumberGenerator) : base(NumberGenerator) { }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public override UUID Generate() {
+            Byte[] Bytes = new Byte[16];
+
+            this._NumberGenerator.NextBytes(Bytes);
+
+            //set version and variant
+            Bytes[6] = (Byte)((Bytes[6] & 0b0000_1111) | 0b0100_0000);
+            Bytes[8] = (Byte)((Bytes[8] & 0b0011_1111) | 0b1000_0000);
+
+            return new UUID(Converter.ToCharArray(Bytes));
+        }
     }
 }

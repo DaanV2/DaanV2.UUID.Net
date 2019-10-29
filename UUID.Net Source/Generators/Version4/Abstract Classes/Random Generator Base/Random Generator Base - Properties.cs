@@ -15,12 +15,11 @@ ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.*/
 using System;
 
-namespace DaanV2.UUID.Generators {
-    public abstract partial class GeneratorBase {
-        /// <summary>The random number generator</summary>
-        private protected Random _NumberGenerator;
-
-        /// <summary>The conversion of bytes to hex values</summary>
-        private protected Char[,] _ToHexChars;
+namespace DaanV2.UUID.Generators.Version4 {
+    public abstract partial class RandomGeneratorBase {
+        /// <summary>
+        /// 
+        /// </summary>
+        public Random NumberGenerator { get => this._NumberGenerator; set => this._NumberGenerator = value; }
     }
 }

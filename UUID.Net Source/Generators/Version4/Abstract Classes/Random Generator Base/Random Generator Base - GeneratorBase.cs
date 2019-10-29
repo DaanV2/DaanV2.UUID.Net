@@ -14,22 +14,21 @@ WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.*/
 using System;
-using System.Runtime.Serialization;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace DaanV2.UUID.Generators.Version4 {
-    /// <summary>The UUID generator version 4, variant 1</summary>
-	[Serializable, DataContract]
-    public partial class GeneratorVariant1 {
+    public abstract partial class RandomGeneratorBase : GeneratorBase {
+        /// <summary>Gets the version of the generator</summary>
+        public abstract override Int32 Version { get; }
 
-        /// <summary>Creates a new instance of <see cref="GeneratorVariant1"/></summary>
-        public GeneratorVariant1() : base() { }
+        /// <summary>Gets the variant of the generator</summary>
+        public abstract override Int32 Variant { get; }
 
-        /// <summary>Creates a new instance of <see cref="GeneratorBase"/></summary>
-        /// <param name="Seed"></param>
-        public GeneratorVariant1(Int32 Seed) : base(Seed) { }
-
-        /// <summary>Creates a new instance of <see cref="GeneratorBase"/></summary>
-        /// <param name="NumberGenerator"></param>
-        public GeneratorVariant1(Random NumberGenerator) : base(NumberGenerator) { }
+        /// <summary>Generates a <see cref="UUID"/> specified by this version and variant format </summary>
+        /// <returns>A new generated <see cref="UUID"/></returns>
+        public abstract override UUID Generate();
     }
 }

@@ -16,19 +16,28 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.*/
 using System;
 
 namespace DaanV2.UUID.Generators {
-    public abstract partial class GeneratorBase : IUUIDGenerator {
-
+    public abstract partial class GeneratorBase<TypeContext> : IUUIDGenerator<TypeContext> {
         /// <summary>Gets the version of the generator</summary>
         public abstract Int32 Version { get; }
 
         /// <summary>Gets the variant of the generator</summary>
         public abstract Int32 Variant { get; }
 
-        /// <summary>Get or sets the number generator of this generator</summary>
-        public Random NumberGenerator { get => this._NumberGenerator; set => this._NumberGenerator = value; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public Boolean NeedContext => throw new NotImplementedException();
 
+        /// <summary>
+        /// 
+        /// </summary>
+        public Type ContextType => throw new NotImplementedException();
+        
         /// <summary>Generates a <see cref="UUID"/> specified by this version and variant format </summary>
+        /// <param name="Context"></param>
         /// <returns>A new generated <see cref="UUID"/></returns>
-        public abstract UUID Generate();
+        public UUID Generate(TypeContext Context) {
+            throw new NotImplementedException();
+        }
     }
 }

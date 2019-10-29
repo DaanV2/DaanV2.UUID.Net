@@ -22,9 +22,7 @@ namespace DaanV2.UUID.Generators.Version4 {
     public partial class GeneratorVariant2 {
 
         /// <summary>Creates a new instance of <see cref="GeneratorVariant1"/></summary>
-        public GeneratorVariant2() : base() {
-
-        }
+        public GeneratorVariant2() : base() { }
 
         /// <summary>Creates a new instance of <see cref="GeneratorBase"/></summary>
         /// <param name="Seed">The seed used in the randomiser</param>

@@ -14,22 +14,25 @@ WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.*/
 using System;
-using System.Runtime.Serialization;
 
 namespace DaanV2.UUID.Generators.Version4 {
-    /// <summary>The UUID generator version 4, variant 1</summary>
-	[Serializable, DataContract]
-    public partial class GeneratorVariant1 {
+    ///DOLATER <summary> add description for abstract class: RandomGeneratorBase</summary>
+    public abstract partial class RandomGeneratorBase {
+        /// <summary>Creates a new instance of <see cref="RandomGeneratorBase"/></summary>
+        public RandomGeneratorBase() : base() {
+            this._NumberGenerator = new Random();
+        }
 
-        /// <summary>Creates a new instance of <see cref="GeneratorVariant1"/></summary>
-        public GeneratorVariant1() : base() { }
-
-        /// <summary>Creates a new instance of <see cref="GeneratorBase"/></summary>
+        /// <summary>Creates a new instance of <see cref="RandomGeneratorBase"/></summary>
         /// <param name="Seed"></param>
-        public GeneratorVariant1(Int32 Seed) : base(Seed) { }
+        public RandomGeneratorBase(Int32 Seed) : base() {
+            this._NumberGenerator = new Random(Seed);
+        }
 
-        /// <summary>Creates a new instance of <see cref="GeneratorBase"/></summary>
+        /// <summary>Creates a new instance of <see cref="RandomGeneratorBase"/></summary>
         /// <param name="NumberGenerator"></param>
-        public GeneratorVariant1(Random NumberGenerator) : base(NumberGenerator) { }
+        public RandomGeneratorBase(Random NumberGenerator) : base() {
+            this._NumberGenerator = NumberGenerator;
+        }
     }
 }

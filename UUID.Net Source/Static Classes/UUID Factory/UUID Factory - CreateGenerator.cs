@@ -17,12 +17,10 @@ using System;
 
 namespace DaanV2.UUID {
     public static partial class UUIDFactory {
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Version"></param>
-        /// <param name="Variant"></param>
-        /// <returns></returns>
+        /// <summary>Creates the specified generator or returns null</summary>
+        /// <param name="Version">The version of the generator to create</param>
+        /// <param name="Variant">The variant of the generator to create</param>
+        /// <returns>A UUID generator</returns>
         public static IUUIDGenerator CreateGenerator(Int32 Version, Int32 Variant) {
             switch (Version) {
                 case 4:

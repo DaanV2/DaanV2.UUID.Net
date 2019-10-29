@@ -17,7 +17,7 @@ using System;
 
 namespace DaanV2.UUID {
     /// <summary>The interface responsible for how a UUID generator should behave</summary>
-    public interface IUUIDGenerator {
+    public interface IUUIDGenerator<TypeContext> {
 
         /// <summary>The version of the UUID generator</summary>
         Int32 Version { get; }
@@ -25,11 +25,18 @@ namespace DaanV2.UUID {
         /// <summary>The variant of the UUID generator</summary>
         Int32 Variant { get; }
 
-        /// <summary>The number randomiser</summary>
-        Random NumberGenerator { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        Boolean NeedContext { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        Type ContextType { get; }
 
         /// <summary>Generate the UUID</summary>
         /// <returns>Returns a new <see cref="UUID"/></returns>
-        UUID Generate();
+        UUID Generate(TypeContext Context);
     }
 }

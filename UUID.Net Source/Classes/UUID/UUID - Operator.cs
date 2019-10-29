@@ -23,7 +23,25 @@ namespace DaanV2.UUID {
         /// <param name="right">the second <see cref="UUID"/> to compare to the first</param>
         /// <returns>Returns true if two UUID are equal</returns>
         public static Boolean operator ==(UUID left, UUID right) {
-            return left._Chars == right._Chars;
+            Boolean Bl = left is Object;
+            Boolean Br = right is Object;
+
+            if (Bl == Br) {
+                if (left._Chars.Length != right._Chars.Length)
+                    return false;
+
+                if (Bl) {
+                    for (Int32 I = 0; I < left._Chars.Length; I++) {
+                        if (left._Chars[I] != right._Chars[I]) {
+                            return false;
+                        }
+                    }
+
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         /// <summary>Compare two <see cref="UUID"/> if they are not equal to each other</summary>
@@ -31,7 +49,25 @@ namespace DaanV2.UUID {
         /// <param name="right">the second <see cref="UUID"/> to compare to the first</param>
         /// <returns>Returns true if two UUID are not equal</returns>
         public static Boolean operator !=(UUID left, UUID right) {
-            return left._Chars != right._Chars;
+            Boolean Bl = left is Object;
+            Boolean Br = right is Object;
+
+            if (Bl == Br) {
+                if (left._Chars.Length != right._Chars.Length)
+                    return true;
+
+                if (Bl) {
+                    for (Int32 I = 0; I < left._Chars.Length; I++) {
+                        if (left._Chars[I] != right._Chars[I]) {
+                            return true;
+                        }
+                    }
+
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         /// <summary>Auto converts the <see cref="UUID"/> to a <see cref="String"/></summary>
@@ -39,7 +75,7 @@ namespace DaanV2.UUID {
         public static implicit operator String(UUID value) {
             return value.ToString();
         }
-        
+
         /// <summary>Auto converts the <see cref="UUID"/> to a <see cref="Char[]"/></summary>
         /// <param name="value">The <see cref="UUID"/> to convert to <see cref="Char[]"/></param>
         public static implicit operator Char[](UUID value) {

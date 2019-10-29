@@ -1,52 +1,44 @@
 ﻿using System;
 using System.Diagnostics;
 using DaanV2.UUID;
+using DaanV2.UUID.Generators;
 
 namespace Debugger.Net_Core {
     internal class Program {
         private static void Main(String[] args) {
-            IUUIDGenerator Generator = new DaanV2.UUID.Generators.Version4.GeneratorVariant2();
 
-            Int32 Count = 1000000;
-            Int32 TestCount = 100;
+            DaanV2.UUID.Generators.Version4.GeneratorVariant1 G = new DaanV2.UUID.Generators.Version4.GeneratorVariant1();
+            Random R = new Random();
 
-            Stopwatch stopwatch = new Stopwatch();
+            Int32 TestAmount = 100;
+            Int32 Batch = 1000000;
+            Int32 TestIndex, I;
 
-            for (Int32 I = 0; I < TestCount; I++) {
-                stopwatch.Start();
+            Stopwatch sw = new Stopwatch();
 
-                UUID[] Temp = UUIDFactory.CreateUUIDs(Count, 4, 2);
+            UUID uuid = G.Generate();
 
-                stopwatch.Stop();
+            sw.Start();
 
-                Temp = null;
-                GC.Collect(GC.MaxGeneration, GCCollectionMode.Default, true);
-                Console.WriteLine(I);
+            Converter.Load();
+
+            Byte[] Bytes = Converter.ToBytes(uuid.Chars);
+            Char[] Chars = Converter.ToCharArray(Bytes);
+
+            UUID Te = new UUID(Chars);
+            
+            if (uuid == Te) {
+                Console.WriteLine("Good");
             }
-            Output(stopwatch, TestCount, Count);
+            else {
+                Console.WriteLine("NOPE");
+            }
 
-            Console.WriteLine(Generator.Generate().ToString());
+            sw.Stop();
+
+            Benchmark.Output(sw, TestAmount, Batch);
+
             Console.ReadLine();
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sw"></param>
-        /// <param name="TestCount"></param>
-        /// <param name="ItemCount"></param>
-        public static void Output(Stopwatch sw, Int32 TestCount, Int32 ItemCount = -1) {
-            Console.WriteLine("x---\tTotals\t---x");
-            Console.WriteLine($"Elapsed ticks:\t\t{(Double)sw.ElapsedTicks / (Double)TestCount}");
-            Console.WriteLine($"Elapsed milli seconds:\t{(Double)sw.ElapsedMilliseconds / (Double)TestCount}");
-
-            if (ItemCount < 0) {
-                return;
-            }
-
-            Console.WriteLine("x---\tPer Item\t---x");
-            Console.WriteLine($"Elapsed ticks:\t\t{(Double)sw.ElapsedTicks / (Double)(ItemCount*TestCount)}");
-            Console.WriteLine($"Elapsed milli seconds:\t{(Double)sw.ElapsedMilliseconds / (Double)(ItemCount * TestCount)}");
         }
     }
 }

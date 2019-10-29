@@ -13,23 +13,13 @@ ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
 WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.*/
-using System;
-using System.Runtime.Serialization;
+using System.Security.Cryptography;
 
-namespace DaanV2.UUID.Generators.Version4 {
-    /// <summary>The UUID generator version 4, variant 1</summary>
-	[Serializable, DataContract]
+namespace DaanV2.UUID.Generators.Version3 {
     public partial class GeneratorVariant1 {
-
-        /// <summary>Creates a new instance of <see cref="GeneratorVariant1"/></summary>
-        public GeneratorVariant1() : base() { }
-
-        /// <summary>Creates a new instance of <see cref="GeneratorBase"/></summary>
-        /// <param name="Seed"></param>
-        public GeneratorVariant1(Int32 Seed) : base(Seed) { }
-
-        /// <summary>Creates a new instance of <see cref="GeneratorBase"/></summary>
-        /// <param name="NumberGenerator"></param>
-        public GeneratorVariant1(Random NumberGenerator) : base(NumberGenerator) { }
+        /// <summary>
+        /// 
+        /// </summary>
+        public MD5 Hasher { get => this._Hasher; set => this._Hasher = value; }
     }
 }
