@@ -2,13 +2,24 @@
 
 Provides a base class that can handle UUIDs as an object but also the generators to generate any version.
 
-## Usage Example
-
-Below are two examples of generating UUIDs and usage
+### Table of Contents
+- [UUID.Net](#uuidnet)
+    - [Table of Contents](#table-of-contents)
+    - [Implicit Casting](#implicit-casting)
+  - [Usage Example](#usage-example)
+    - [Generating UUIDs](#generating-uuids)
+      - [Generate a UUID](#generate-a-uuid)
+      - [Generate a batch of UUIDs](#generate-a-batch-of-uuids)
+      - [Generating through a Generator](#generating-through-a-generator)
+  - [UUIDs Version](#uuids-version)
 
 ### Implicit Casting
 
 This API contains pre-made casting methods that convert UUID to strings, char arrays or vice versa.
+
+## Usage Example
+
+Below are two examples of generating UUIDs and usage
 
 ### Generating UUIDs
 
