@@ -15,23 +15,23 @@ This API contains pre-made casting methods that convert UUID to strings, char ar
 #### Generate a UUID
 
 ```csharp
-UUID Temp = UUIDFactory.CreateUUID(4, 1); //Version 4, Variant 1
-String UUID = UUIDFactory.CreateUUID(4, 2); //Version 4, Variant 2. auto cast to string
+UUID Temp = UUIDFactory.CreateUUID(4, 2); //Version 4, Variant 2
+String UUID = UUIDFactory.CreateUUID(3, 1); //Version 3, Variant 1. auto cast to string
 ```
 
 #### Generate a batch of UUIDs
 
 ```csharp
-UUID[] UUIDs = UUIDFactory.CreateUUIDs(100000, 4, 1); //Version 4, Variant 1
+UUID[] UUIDs = UUIDFactory.CreateUUIDs(100000, 4, 1); //Version 4, Variant 1, Amount of 100.000
 ```
 
 #### Generating through a Generator
 
 ```csharp
 IUUIDGenerator Generator = UUIDFactory.CreateGenerator(4, 1); //Get the version 4, variant 1 generator
-Generator = new DaanV2.UUID.Generators.Version4.GeneratorVariant1(); //Get the version 4, variant 1 generator
+IUUIDGenerator<Int32> GeneratorV4 = new DaanV2.UUID.Generators.Version4.GeneratorVariant1(); //Get the version 4, variant 1 generator
 
-UUID Out = Generator.Generate();
+UUID Out = GeneratorV4.Generate();
 ```
 
 ## UUIDs Version
