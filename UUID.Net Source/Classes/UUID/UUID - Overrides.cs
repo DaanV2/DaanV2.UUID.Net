@@ -29,11 +29,14 @@ namespace DaanV2.UUID {
         /// <param name="obj">The object to compare to</param>
         /// <returns>Returns if true is the obj is the same as this object</returns>
         public override Boolean Equals(Object obj) {
-            if (obj is UUID Same) {
+            if (obj is null) {
+                return false;
+            }
+            else if (obj is UUID Same) {
                 return this._Chars == Same._Chars;
             }
             else if (obj is Char[] Values) {
-                return this._Chars == Values;
+                return this == Values;
             }
 
             return this._Chars.Equals(obj);
@@ -43,7 +46,10 @@ namespace DaanV2.UUID {
         /// <param name="other">The <see cref="UUID"/> to compare to</param>
         /// <returns>Returns if true is the obj is the same as this object</returns>
         public Boolean Equals(UUID other) {
-            return other != null && this._Chars == other._Chars;
+            if (other is null)
+                return false;
+
+            return this == other;
         }
 
         /// <summary>Generates the hashcode for this <see cref="UUID"/></summary>

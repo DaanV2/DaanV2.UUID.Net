@@ -73,39 +73,6 @@ namespace DaanV2.UUID {
             return CreateUUIDs<String>(Amount, UUIDFactory.CreateGeneratorVersion5(Variant), Context);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <typeparam name="TypeContext"></typeparam>
-        /// <param name="Generator"></param>
-        /// <param name="Context"></param>
-        /// <returns></returns>
-        public static UUID[] CreateUUIDs<TypeContext>(Int32 Amount, IUUIDGenerator<TypeContext> Generator, TypeContext[] Context) {
-            UUID[] Out = new UUID[Amount];
 
-            if (Generator == null) { return new UUID[] { UUID.Nill }; }
-            if (Context == null) { Context = new TypeContext[] { default }; }
-            Int32 J = 0;
-            Int32 Max = Context.Length - 1;
-
-            for (Int32 I = 0; I < Amount; I++) {
-                Out[I] = Generator.Generate(Context[J++]);
-
-                if (J > Max) { J = 0; }
-            }
-
-            return Out;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <typeparam name="TypeContext"></typeparam>
-        /// <param name="Generator"></param>
-        /// <param name="Context"></param>
-        /// <returns></returns>
-        public static UUID CreateUUID<TypeContext>(IUUIDGenerator<TypeContext> Generator, TypeContext Context) {
-            return Generator?.Generate(Context) ?? UUID.Nill;
-        }
     }
 }
