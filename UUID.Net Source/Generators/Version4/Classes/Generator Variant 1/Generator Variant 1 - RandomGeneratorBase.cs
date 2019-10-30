@@ -17,7 +17,6 @@ using System;
 
 namespace DaanV2.UUID.Generators.Version4 {
     public partial class GeneratorVariant1 : RandomGeneratorBase {
-
         /// <summary>
         /// 
         /// </summary>
@@ -31,10 +30,14 @@ namespace DaanV2.UUID.Generators.Version4 {
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="Context"></param>
         /// <returns></returns>
-        public override UUID Generate() {
-            Byte[] Bytes = new Byte[16];
+        public override UUID Generate(Int32 Context = 0) {
+            if (Context != 0) {
+                this.NumberGenerator = new Random(Context);
+            }
 
+            Byte[] Bytes = new Byte[16];
             this._NumberGenerator.NextBytes(Bytes);
 
             //set version and variant

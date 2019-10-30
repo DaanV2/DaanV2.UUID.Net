@@ -13,14 +13,26 @@ ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
 WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.*/
-using System.Security.Cryptography;
+using System;
 
-namespace DaanV2.UUID.Generators.Version3 {
-    ///DOLATER <summary> add description for class: GeneratorVariant1</summary>
-    public partial class GeneratorVariant1 {
-        /// <summary>Creates a new instance of <see cref="GeneratorVariant1"/></summary>
-        public GeneratorVariant1() {
-            this.Hasher = MD5.Create();
-        }
+namespace DaanV2.UUID {
+    /// <summary>The interface responsible for how a UUID generator should behave</summary>
+    public interface IUUIDGenerator {
+
+        /// <summary>The version of the UUID generator</summary>
+        Int32 Version { get; }
+
+        /// <summary>The variant of the UUID generator</summary>
+        Int32 Variant { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        Boolean NeedContext { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        Type ContextType { get; }
     }
 }

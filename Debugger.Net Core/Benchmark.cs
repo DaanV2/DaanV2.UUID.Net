@@ -1,7 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
+﻿/*ISC License
+
+Copyright (c) 2019, Daan Verstraten, daanverstraten@hotmail.com
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.*/
+using System;
 using System.Diagnostics;
-using System.Text;
 using DaanV2.UUID;
 
 namespace Debugger.Net_Core {
@@ -9,26 +22,41 @@ namespace Debugger.Net_Core {
         /// <summary>
         /// 
         /// </summary>
-        public void Test() {
-            IUUIDGenerator Generator = new DaanV2.UUID.Generators.Version4.GeneratorVariant2();
-
-            Int32 Count = 1000000;
-            Int32 TestCount = 100;
-
+        /// <param name="Version"></param>
+        /// <param name="Variant"></param>
+        /// <param name="TestCount"></param>
+        /// <param name="Count"></param>
+        public static void Test(Int32 Version, Int32 Variant, Int32 TestCount = 100, Int32 Count = 1000000) {
             Stopwatch stopwatch = new Stopwatch();
 
             for (Int32 I = 0; I < TestCount; I++) {
                 stopwatch.Start();
 
-                UUID[] Temp = UUIDFactory.CreateUUIDs(Count, 4, 2);
+                UUID[] Temp = UUIDFactory.CreateUUIDs(Count, Version, Variant);
 
                 stopwatch.Stop();
 
                 Temp = null;
                 GC.Collect(GC.MaxGeneration, GCCollectionMode.Default, true);
-                Console.WriteLine(I);
+                Console.Title = $"V{Version}.{Variant}\t-\t{I}/{TestCount}";
             }
-            Output(stopwatch, TestCount, Count);
+
+            Output(stopwatch, Version, Variant, TestCount, Count);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static void TestAll() {
+            Int32[] Versions = UUIDFactory.GetAvailableVersion();
+
+            for (Int32 VersionIndex = 0; VersionIndex < Versions.Length; VersionIndex++) {
+                Int32[] Variants = UUIDFactory.GetAvailableVariants(Versions[VersionIndex]);
+
+                for (Int32 VariantIndex = 0; VariantIndex < Variants.Length; VariantIndex++) {
+                    Test(Versions[VersionIndex], Variants[VariantIndex]);
+                }
+            }
         }
 
         /// <summary>
@@ -37,18 +65,13 @@ namespace Debugger.Net_Core {
         /// <param name="sw"></param>
         /// <param name="TestCount"></param>
         /// <param name="ItemCount"></param>
-        public static void Output(Stopwatch sw, Int32 TestCount, Int32 ItemCount = -1) {
-            Console.WriteLine("x---\tTotals\t---x");
-            Console.WriteLine($"Elapsed ticks:\t\t{(Double)sw.ElapsedTicks / (Double)TestCount}");
-            Console.WriteLine($"Elapsed milli seconds:\t{(Double)sw.ElapsedMilliseconds / (Double)TestCount}");
+        public static void Output(Stopwatch sw, Int32 Version, Int32 Variant, Int32 TestCount, Int32 ItemCount = -1) {
+            Double MSPerTest = (double)sw.ElapsedMilliseconds / (double)TestCount;
+            Double TicksPerTest = (double)sw.ElapsedTicks / (double)TestCount;
+            Double MSPerTestPerItem = MSPerTest / ItemCount;
+            Double TicksPerTestPerItem = TicksPerTest / ItemCount;
 
-            if (ItemCount < 0) {
-                return;
-            }
-
-            Console.WriteLine("x---\tPer Item\t---x");
-            Console.WriteLine($"Elapsed ticks:\t\t{(Double)sw.ElapsedTicks / (Double)(ItemCount * TestCount)}");
-            Console.WriteLine($"Elapsed milli seconds:\t{(Double)sw.ElapsedMilliseconds / (Double)(ItemCount * TestCount)}");
+            Console.WriteLine($"|{Version:G2} |{Variant:G2} |{MSPerTest:G2} |{TicksPerTest:G2} |{MSPerTestPerItem:G2} |{TicksPerTestPerItem:G2} |");
         }
     }
 }

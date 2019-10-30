@@ -14,30 +14,28 @@ WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.*/
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace DaanV2.UUID.Generators {
-    public abstract partial class GeneratorBase<TypeContext> : IUUIDGenerator<TypeContext> {
+    public abstract partial class GeneratorBase : GeneratorBase<Object> {
         /// <summary>Gets the version of the generator</summary>
-        public abstract Int32 Version { get; }
+        public override abstract Int32 Version { get; }
 
         /// <summary>Gets the variant of the generator</summary>
-        public abstract Int32 Variant { get; }
+        public override abstract Int32 Variant { get; }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public Boolean NeedContext => throw new NotImplementedException();
+        /// <summary></summary>
+        public override Boolean NeedContext => false;
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public Type ContextType => throw new NotImplementedException();
-        
+        /// <summary></summary>
+        public new Type ContextType => typeof(Object);
+
         /// <summary>Generates a <see cref="UUID"/> specified by this version and variant format </summary>
-        /// <param name="Context"></param>
+        /// <param name="Context">The context needed for this generation, can be null</param>
         /// <returns>A new generated <see cref="UUID"/></returns>
-        public UUID Generate(TypeContext Context) {
-            throw new NotImplementedException();
-        }
+        public override abstract UUID Generate(Object Context = default);
     }
 }

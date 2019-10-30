@@ -14,25 +14,24 @@ WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.*/
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace DaanV2.UUID.Generators.Version4 {
-    public abstract partial class RandomGeneratorBase : GeneratorBase<Int32> {
+namespace DaanV2.UUID.Generators {
+    public abstract partial class GeneratorBase<TypeContext> : IUUIDGenerator<TypeContext> {
         /// <summary>Gets the version of the generator</summary>
-        public abstract override Int32 Version { get; }
+        public abstract Int32 Version { get; }
 
         /// <summary>Gets the variant of the generator</summary>
-        public abstract override Int32 Variant { get; }
+        public abstract Int32 Variant { get; }
 
         /// <summary></summary>
-        public override Boolean NeedContext => false;
+        public abstract Boolean NeedContext { get; }
+
+        /// <summary></summary>
+        public virtual Type ContextType => typeof(TypeContext);
 
         /// <summary>Generates a <see cref="UUID"/> specified by this version and variant format </summary>
         /// <param name="Context">The context needed to generate this UUID can be null</param>
         /// <returns>A new generated <see cref="UUID"/></returns>
-        public abstract override UUID Generate(Int32 Context = default);
+        public abstract UUID Generate(TypeContext Context = default);
     }
 }

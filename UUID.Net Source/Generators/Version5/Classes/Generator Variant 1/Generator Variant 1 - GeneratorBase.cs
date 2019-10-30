@@ -14,35 +14,45 @@ WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.*/
 using System;
+using System.Text;
 
-namespace DaanV2.UUID.Generators.Version4 {
-    public partial class GeneratorVariant2 : RandomGeneratorBase {
+namespace DaanV2.UUID.Generators.Version5 {
+    public partial class GeneratorVariant1 : GeneratorBase<String> {
+        /// <summary></summary>
+        public override Int32 Version => 5;
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public override Int32 Version => 4;
+        /// <summary></summary>
+        public override Int32 Variant => 1;
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public override Int32 Variant => 2;
+        /// <summary></summary>
+        public override Boolean NeedContext => true;
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="Context"></param>
         /// <returns></returns>
-        public override UUID Generate(Int32 Context = 0) {
-            if (Context != 0)
-                this.NumberGenerator = new Random(Context);
+        public override UUID Generate(String Context = null) {
+            if (String.IsNullOrEmpty(Context)) {
+                Context = DateTime.Now.ToString();
+            }
 
+            return this.Generate(Context, Encoding.UTF8);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public UUID Generate(String Text, Encoding encoding) {
             Byte[] Bytes = new Byte[16];
-            this._NumberGenerator.NextBytes(Bytes);
+
+            //Compute hash
+            Bytes = this._Hasher.ComputeHash(encoding.GetBytes(Text));
 
             //set version and variant
-            Bytes[6] = (Byte)((Bytes[6] & 0b0000_1111) | 0b0100_0000);
-            Bytes[8] = (Byte)((Bytes[8] & 0b0001_1111) | 0b1100_0000);
+            Bytes[6] = (Byte)((Bytes[6] & 0b0000_1111) | 0b0101_0000);
+            Bytes[8] = (Byte)((Bytes[8] & 0b0011_1111) | 0b1000_0000);
 
             return new UUID(Converter.ToCharArray(Bytes));
         }

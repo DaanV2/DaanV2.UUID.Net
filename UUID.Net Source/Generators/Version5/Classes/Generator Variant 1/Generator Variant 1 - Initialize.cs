@@ -13,24 +13,14 @@ ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
 WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.*/
-using System;
+using System.Security.Cryptography;
 
-namespace DaanV2.UUID {
-    public static partial class UUIDFactory {
-        /// <summary>Creates the specified generator or returns null</summary>
-        /// <param name="Version">The version of the generator to create</param>
-        /// <param name="Variant">The variant of the generator to create</param>
-        /// <returns>A UUID generator</returns>
-        public static IUUIDGenerator CreateGenerator(Int32 Version, Int32 Variant) {
-            switch (Version) {
-                case 4:
-                    if (Variant == 1) { return new Generators.Version4.GeneratorVariant1(); }
-                    if (Variant == 2) { return new Generators.Version4.GeneratorVariant2(); }
-
-                    break;
-            }
-
-            return null;
+namespace DaanV2.UUID.Generators.Version5 {
+    ///DOLATER <summary> add description for abstract class: GeneratorVariant1</summary>
+    public partial class GeneratorVariant1 {
+        /// <summary>Creates a new instance of <see cref="GeneratorVariant1"/></summary>
+        public GeneratorVariant1() {
+            this._Hasher = SHA1.Create();
         }
     }
 }

@@ -18,7 +18,6 @@ using System.Runtime.Serialization;
 
 namespace DaanV2.UUID.Generators.Version4 {
     /// <summary>The UUID generator Version 4, Variant 2</summary>
-	[Serializable, DataContract]
     public partial class GeneratorVariant2 {
 
         /// <summary>Creates a new instance of <see cref="GeneratorVariant1"/></summary>

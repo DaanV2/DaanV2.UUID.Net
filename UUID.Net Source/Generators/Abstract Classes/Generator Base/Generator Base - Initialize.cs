@@ -14,11 +14,17 @@ WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.*/
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace DaanV2.UUID.Generators {
-    /// <summary>The base of a UUID generator</summary>
-    public abstract partial class GeneratorBase<TypeContext> {
+    ///DOLATER <summary> add description for abstract class: GeneratorBase</summary>
+    public abstract partial class GeneratorBase {
         /// <summary>Creates a new instance of <see cref="GeneratorBase"/></summary>
-        public GeneratorBase() { }
+        public GeneratorBase() {
+            //TODO Fill contructor: GeneratorBase
+        }
     }
 }

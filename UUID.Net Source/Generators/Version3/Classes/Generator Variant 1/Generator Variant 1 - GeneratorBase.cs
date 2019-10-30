@@ -17,24 +17,27 @@ using System;
 using System.Text;
 
 namespace DaanV2.UUID.Generators.Version3 {
-    public partial class GeneratorVariant1 : GeneratorBase {
-        /// <summary>
-        /// 
-        /// </summary>
+    public partial class GeneratorVariant1 : GeneratorBase<String> {
+        /// <summary></summary>
         public override Int32 Version => 3;
 
-        /// <summary>
-        /// 
-        /// </summary>
+        /// <summary></summary>
         public override Int32 Variant => 1;
+
+        /// <summary></summary>
+        public override Boolean NeedContext => true;
 
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="Text"></param>
+        /// <param name="Context"></param>
         /// <returns></returns>
-        public UUID Generate(String Text) {
-            return this.Generate(Text, Encoding.UTF8);
+        public override UUID Generate(String Context = null) {
+            if (String.IsNullOrEmpty(Context)) {
+                Context = DateTime.Now.ToString();
+            }
+
+            return this.Generate(Context, Encoding.UTF8);
         }
 
         /// <summary>
@@ -44,12 +47,13 @@ namespace DaanV2.UUID.Generators.Version3 {
         public UUID Generate(String Text, Encoding encoding) {
             Byte[] Bytes = new Byte[16];
 
+            //Compute hash
             Bytes = this._Hasher.ComputeHash(encoding.GetBytes(Text));
 
             //set version and variant
             Bytes[6] = (Byte)((Bytes[6] & 0b0000_1111) | 0b0011_0000);
             Bytes[8] = (Byte)((Bytes[8] & 0b0011_1111) | 0b1000_0000);
-            
+
             return new UUID(Converter.ToCharArray(Bytes));
         }
     }
