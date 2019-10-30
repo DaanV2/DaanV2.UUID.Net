@@ -41,4 +41,4 @@ UUID Out = GeneratorV4.Generate();
 |3 |1 |A UUID generated from a string using MD5 hashing bits, 122 bits |Yes |String |
 |4 |1 |A random generated UUID of 122 bits |No |Int32 |
 |4 |2 |A random generated UUID of 121 bits |No |Int32 |
-|5 |1 |A UUID generated from a string using SHA! hashing bits, 122 bits |Yes |String |
+|5 |1 |A UUID generated from a string using SHA1 hashing bits, 122 bits |Yes |String |
