@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DaanV2.UUID</RootNamespace>
     <AssemblyName>UUID.Net</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -23,7 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
+    <DebugType>none</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
@@ -44,7 +45,7 @@
     <OutputPath>bin\x64\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
+    <DebugType>none</DebugType>
     <PlatformTarget>x64</PlatformTarget>
     <LangVersion>7.3</LangVersion>
     <ErrorReport>prompt</ErrorReport>
@@ -64,7 +65,7 @@
     <OutputPath>bin\x86\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
+    <DebugType>none</DebugType>
     <PlatformTarget>x86</PlatformTarget>
     <LangVersion>7.3</LangVersion>
     <ErrorReport>prompt</ErrorReport>
@@ -86,4 +87,24 @@
   </ItemGroup>
   <Import Project="..\UUID.Net Source\UUID.Net Source.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+
+if $(ConfigurationName) == Release (
+	if not exist "$(SolutionDir)Releases\" mkdir "$(SolutionDir)Releases\"
+	if not exist "$(SolutionDir)Releases\$(ProjectName)\$(PlatformName)\" mkdir "$(SolutionDir)Releases\$(ProjectName)\$(PlatformName)\"
+	copy "$(TargetDir)*" "$(SolutionDir)Releases\$(ProjectName)\$(PlatformName)\"
+)</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>rd /s /q "$(TargetDir)"
+if not exist "$(TargetDir)" mkdir "$(TargetDir)"
+if $(ConfigurationName) == Release (
+	rd /s /q "$(SolutionDir)Releases\$(ProjectName)-$(PlatformName)\"
+	if exist "$(SolutionDir)LICENSE.txt" copy "$(SolutionDir)LICENSE.txt" "$(TargetDir)LICENSE.txt"
+	if exist "$(SolutionDir)README.md" copy "$(SolutionDir)README.md" "$(TargetDir)README.md"
+	if exist "$(SolutionDir)Include\" copy "$(SolutionDir)Include\" "$(TargetDir)"
+	if exist "$(ProjectDir)Include\" copy "$(ProjectDir)Include\" "$(TargetDir)"
+)</PreBuildEvent>
+  </PropertyGroup>
 </Project>

@@ -109,7 +109,7 @@ namespace DaanV2.UUID {
                     return true;
 
                 if (Bl) {
-                    for (Int32 I = 0; I < left.Length; I++) {
+                    for (Int32 I = 0; I < left._Chars.Length; I++) {
                         if (left._Chars[I] != right[I]) {
                             return true;
                         }
