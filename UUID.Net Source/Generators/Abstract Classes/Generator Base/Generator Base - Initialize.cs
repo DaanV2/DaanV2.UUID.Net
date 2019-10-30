@@ -23,7 +23,7 @@ namespace DaanV2.UUID.Generators {
     ///DOLATER <summary> add description for abstract class: GeneratorBase</summary>
     public abstract partial class GeneratorBase {
         /// <summary>Creates a new instance of <see cref="GeneratorBase"/></summary>
-        public GeneratorBase() {
+        public GeneratorBase() : base() {
             //TODO Fill contructor: GeneratorBase
         }
     }

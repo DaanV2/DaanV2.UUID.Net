@@ -28,17 +28,7 @@ namespace DaanV2.UUID {
         public static Type GetContext(Int32 Version, Int32 Variant, Object Context = default, Boolean ForMultipleUUIDGeneration = false) {
             Type T = null;
 
-            switch (Version) {
-                case 3:
-                    T = UUIDFactory.CreateGeneratorVersion3(Variant)?.ContextType;
-                    break;
-                case 4:
-                    T = UUIDFactory.CreateGeneratorVersion4(Variant)?.ContextType;
-                    break;
-                case 5:
-                    T = UUIDFactory.CreateGeneratorVersion5(Variant)?.ContextType;
-                    break;
-            }
+            T = CreateGenerator(Version, Variant)?.ContextType;
 
             if (T == null) {
                 return T;
@@ -58,17 +48,7 @@ namespace DaanV2.UUID {
         /// <param name="Variant"></param>
         /// <returns></returns>
         public static Boolean? NeedContext(Int32 Version, Int32 Variant) {
-            switch (Version) {
-                case 3:
-                    return UUIDFactory.CreateGeneratorVersion3(Variant)?.NeedContext;
-                case 4:
-                    return UUIDFactory.CreateGeneratorVersion4(Variant)?.NeedContext;
-                case 5:
-                    return UUIDFactory.CreateGeneratorVersion5(Variant)?.NeedContext;
-
-                default:
-                    return null;
-            }
+            return CreateGenerator(Version, Variant)?.NeedContext;
         }
     }
 }

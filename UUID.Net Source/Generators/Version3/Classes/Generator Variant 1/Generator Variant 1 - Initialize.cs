@@ -19,7 +19,7 @@ namespace DaanV2.UUID.Generators.Version3 {
     ///DOLATER <summary> add description for class: GeneratorVariant1</summary>
     public partial class GeneratorVariant1 {
         /// <summary>Creates a new instance of <see cref="GeneratorVariant1"/></summary>
-        public GeneratorVariant1() {
+        public GeneratorVariant1() : base() {
             this.Hasher = MD5.Create();
         }
     }

@@ -19,6 +19,6 @@ namespace DaanV2.UUID.Generators {
     /// <summary>The base of a UUID generator</summary>
     public abstract partial class GeneratorBase<TypeContext> {
         /// <summary>Creates a new instance of <see cref="GeneratorBase"/></summary>
-        public GeneratorBase() { }
+        public GeneratorBase() : base() { }
     }
 }
