@@ -32,7 +32,7 @@ String UUID = UUIDFactory.CreateUUID(3, 1); //Version 3, Variant 1. auto cast to
 #### Generate a batch of UUIDs
 
 ```csharp
-UUID[] UUIDs = UUIDFactory.CreateUUIDs(100000, 4, 1); //Version 4, Variant 1, Amount of 100.000
+UUID[] UUIDs = UUIDFactory.CreateUUIDs(100000, 4, 1); //Version 4, Variant 1, Amount of 100000
 ```
 
 #### Generating through a Generator
