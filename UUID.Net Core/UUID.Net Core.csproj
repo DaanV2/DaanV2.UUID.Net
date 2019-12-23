@@ -4,6 +4,18 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <RootNamespace>DaanV2.UUID</RootNamespace>
     <Platforms>AnyCPU;x64;x86</Platforms>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Daan Verstraten</Authors>
+    <Company>Daan Verstraten</Company>
+    <PackageId>UUID.Net</PackageId>
+    <Product>UUID.Net</Product>
+    <Description>Provides a base class that can handle UUIDs as an object but also the generators to generate any version.</Description>
+    <Copyright>Daan Verstraten 2019</Copyright>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/DaanV2/UUID.Net</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/DaanV2/UUID.Net</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>UUID;UUID3;UUID4;UUID5</PackageTags>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -35,6 +47,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <DefineConstants>TRACE;NETCORE</DefineConstants>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\DaanV2.Essentials.Net\DaanV2.Essentials.Net\LICENSE.txt">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
 
   <Import Project="..\UUID.Net Source\UUID.Net Source.projitems" Label="Shared" />
 
