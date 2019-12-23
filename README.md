@@ -1,10 +1,9 @@
 # UUID.Net
 
-Provides a base class that can handle UUIDs as an object but also the generators to generate any version.
+Provides a base class that can handle UUIDs as an object but also provides the generators to generate version 3, 4 and 5.
 
-** Table of Contents **
+**Table of Contents**
 - [UUID.Net](#uuidnet)
-    - [Table of Contents](#table-of-contents)
     - [Implicit Casting](#implicit-casting)
   - [Usage Example](#usage-example)
     - [Generating UUIDs](#generating-uuids)
