@@ -18,8 +18,6 @@ namespace DaanV2.UUID {
     /// <summary>the static class that handles the generations of UUIDs or generators through version numbering</summary>
     public static partial class UUIDFactory {
         /// <summary>Creates a new instance of <see cref="UUIDFactory"/></summary>
-        static UUIDFactory() {
-
-        }
+        static UUIDFactory() { }
     }
 }

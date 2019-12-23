@@ -18,24 +18,19 @@ using System;
 namespace DaanV2.UUID.Generators.Version4 {
     public partial class GeneratorVariant2 : RandomGeneratorBase {
 
-        /// <summary>
-        /// 
-        /// </summary>
+        /// <summary>Gets the version of the UUID generator</summary>
         public override Int32 Version => 4;
 
-        /// <summary>
-        /// 
-        /// </summary>
+        /// <summary>Gets the variant of the UUID generator</summary>
         public override Int32 Variant => 2;
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Context"></param>
-        /// <returns></returns>
+        /// <summary>Generates a <see cref="UUID"/> specified by this version and variant format </summary>
+        /// <param name="Context">The context needed to generate this UUID can be null</param>
+        /// <returns>A new generated <see cref="UUID"/></returns>
         public override UUID Generate(Int32 Context = 0) {
-            if (Context != 0)
+            if (Context != 0) {
                 this.NumberGenerator = new Random(Context);
+            }
 
             Byte[] Bytes = new Byte[16];
             this._NumberGenerator.NextBytes(Bytes);

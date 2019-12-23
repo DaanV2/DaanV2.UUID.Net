@@ -16,23 +16,23 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.*/
 using System;
 
 namespace DaanV2.UUID {
-    /// <summary>The interface responsible for how a UUID generator should behave</summary>
+    /// <summary>The interface responsible for determing how a UUID generator should behave</summary>
     public interface IUUIDGenerator {
 
-        /// <summary>The version of the UUID generator</summary>
+        /// <summary>Gets the version of the UUID generator</summary>
         Int32 Version { get; }
 
-        /// <summary>The variant of the UUID generator</summary>
+        /// <summary>Gets the variant of the UUID generator</summary>
         Int32 Variant { get; }
 
-        /// <summary>
-        /// 
-        /// </summary>
+        /// <summary>Gets if this <see cref="IUUIDGenerator"/> needs context to generate <see cref="UUID"/>s</summary>
         Boolean NeedContext { get; }
 
-        /// <summary>
-        /// 
-        /// </summary>
+        /// <summary>Gets what type this <see cref="IUUIDGenerator"/> needs to generate a UUID</summary>
         Type ContextType { get; }
     }
 }
+
+/// <summary>Generates a <see cref="UUID"/> specified by this version and variant format </summary>
+/// <param name="Context">The context needed to generate this UUID can be null</param>
+/// <returns>A new generated <see cref="UUID"/></returns>

@@ -27,8 +27,9 @@ namespace DaanV2.UUID {
             Boolean Br = right is Object;
 
             if (Bl == Br) {
-                if (left._Chars.Length != right._Chars.Length)
+                if (left._Chars.Length != right._Chars.Length) {
                     return false;
+                }
 
                 if (Bl) {
                     for (Int32 I = 0; I < left._Chars.Length; I++) {
@@ -53,8 +54,9 @@ namespace DaanV2.UUID {
             Boolean Br = right is Object;
 
             if (Bl == Br) {
-                if (left._Chars.Length != right.Length)
+                if (left._Chars.Length != right.Length) {
                     return false;
+                }
 
                 if (Bl) {
                     for (Int32 I = 0; I < left._Chars.Length; I++) {
@@ -79,8 +81,9 @@ namespace DaanV2.UUID {
             Boolean Br = right is Object;
 
             if (Bl == Br) {
-                if (left._Chars.Length != right._Chars.Length)
+                if (left._Chars.Length != right._Chars.Length) {
                     return true;
+                }
 
                 if (Bl) {
                     for (Int32 I = 0; I < left._Chars.Length; I++) {
@@ -105,8 +108,9 @@ namespace DaanV2.UUID {
             Boolean Br = right is Object;
 
             if (Bl == Br) {
-                if (left._Chars.Length != right.Length)
+                if (left._Chars.Length != right.Length) {
                     return true;
+                }
 
                 if (Bl) {
                     for (Int32 I = 0; I < left._Chars.Length; I++) {

@@ -16,7 +16,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.*/
 using System.Security.Cryptography;
 
 namespace DaanV2.UUID.Generators.Version5 {
-    ///DOLATER <summary> add description for abstract class: GeneratorVariant1</summary>
+    /// <summary>The UUID Generator Version 5, Variant 1</summary>
     public partial class GeneratorVariant1 {
         /// <summary>Creates a new instance of <see cref="GeneratorVariant1"/></summary>
         public GeneratorVariant1() {

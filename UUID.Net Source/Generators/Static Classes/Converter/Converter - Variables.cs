@@ -17,14 +17,10 @@ using System;
 
 namespace DaanV2.UUID.Generators {
     public static partial class Converter {
-        /// <summary>
-        /// 
-        /// </summary>
+        /// <summary>An <see cref="Char[]"/> that can be used to convert <see cref="Byte"/> to <see cref="Char"/> using hexidecimal</summary>
         private static Char[] _ToChars;
 
-        /// <summary>
-        /// 
-        /// </summary>
+        /// <summary>An <see cref="Byte[]"/> that can be used to convert <see cref="Char"/> to <see cref="Byte"/> using hexidecimal</summary>
         private static Byte[,] _ToByte;
     }
 }

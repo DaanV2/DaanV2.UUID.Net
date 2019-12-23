@@ -46,8 +46,9 @@ namespace DaanV2.UUID {
         /// <param name="other">The <see cref="UUID"/> to compare to</param>
         /// <returns>Returns if true is the obj is the same as this object</returns>
         public Boolean Equals(UUID other) {
-            if (other is null)
+            if (other is null) {
                 return false;
+            }
 
             return this == other;
         }

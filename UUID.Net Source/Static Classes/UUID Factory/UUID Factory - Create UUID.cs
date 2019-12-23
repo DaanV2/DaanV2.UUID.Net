@@ -14,7 +14,6 @@ WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.*/
 using System;
-using System.Threading.Tasks;
 
 namespace DaanV2.UUID {
     public static partial class UUIDFactory {
@@ -22,7 +21,7 @@ namespace DaanV2.UUID {
         /// <summary>Generate a <see cref="UUID"/> using the specified version and variant</summary>
         /// <param name="Version">The version of the generator</param>
         /// <param name="Variant">The variant of the generator</param>
-        /// <returns>A newly generated <see cref="UUID"/></returns>
+        /// <returns>Generate a <see cref="UUID"/> using the specified version and variant and specified amount</returns>
         public static UUID CreateUUID(Int32 Version, Int32 Variant, Object Context = default) {
             switch (Version) {
                 case 3:
@@ -37,19 +36,11 @@ namespace DaanV2.UUID {
             }
         }
 
-        /// <summary>Generate a <see cref="UUID"/> using the specified version and variant</summary>
-        /// <param name="Version">The version of the generator</param>
-        /// <param name="Variant">The variant of the generator</param>
-        /// <returns>A newly generated <see cref="UUID"/></returns>
-        public static Task<UUID> CreateUUIDAsync(Int32 Version, Int32 Variant, Object Context = default) {
-            return Task.Run(() => CreateUUID(Version, Variant, Context));
-        }
-
         /// <summary>Generate a <see cref="UUID[]"/> using the specified version and variant and specified amount</summary>
         /// <param name="Amount">The amount of UUID to generate</param>
         /// <param name="Version">The version of the generator</param>
         /// <param name="Variant">The variant of the generator</param>
-        /// <returns>A newly generated <see cref="UUID[]"/></returns>
+        /// <returns>Generate a <see cref="UUID[]"/> using the specified version and variant and specified amount</returns>
         public static UUID[] CreateUUIDs(Int32 Amount, Int32 Version, Int32 Variant, Object Context = default) {
             switch (Version) {
                 case 3:
@@ -65,21 +56,10 @@ namespace DaanV2.UUID {
         }
 
         /// <summary>Generate a <see cref="UUID[]"/> using the specified version and variant and specified amount</summary>
-        /// <param name="Amount">The amount of UUID to generate</param>
-        /// <param name="Version">The version of the generator</param>
-        /// <param name="Variant">The variant of the generator</param>
-        /// <returns>A newly generated <see cref="UUID[]"/></returns>
-        public static Task<UUID[]> CreateUUIDsAsync(Int32 Amount, Int32 Version, Int32 Variant, Object Context = default) {
-            return Task<UUID[]>.Run(() => CreateUUIDs(Amount, Version, Variant, Context));
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
         /// <typeparam name="TypeContext"></typeparam>
-        /// <param name="Generator"></param>
-        /// <param name="Context"></param>
-        /// <returns></returns>
+        /// <param name="Generator">The generator to use to generate multiple <see cref="UUID[]"/></param>
+        /// <param name="Context">The context to be used for generating uuids</param>
+        /// <returns>Generate a <see cref="UUID[]"/> using the specified version and variant and specified amount</returns>
         public static UUID[] CreateUUIDs<TypeContext>(Int32 Amount, IUUIDGenerator<TypeContext> Generator, TypeContext[] Context) {
             UUID[] Out = new UUID[Amount];
 
@@ -97,13 +77,11 @@ namespace DaanV2.UUID {
             return Out;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
+        /// <summary>Generate a <see cref="UUID"/> using the specified version and variant and specified amount</summary>
         /// <typeparam name="TypeContext"></typeparam>
-        /// <param name="Generator"></param>
-        /// <param name="Context"></param>
-        /// <returns></returns>
+        /// <param name="Generator">The generator to use to generate multiple <see cref="UUID[]"/></param>
+        /// <param name="Context">The context to be used for generating uuids</param>
+        /// <returns>Generate a <see cref="UUID"/> using the specified version and variant and specified amount</returns>
         public static UUID CreateUUID<TypeContext>(IUUIDGenerator<TypeContext> Generator, TypeContext Context) {
             return Generator?.Generate(Context) ?? UUID.Nill;
         }

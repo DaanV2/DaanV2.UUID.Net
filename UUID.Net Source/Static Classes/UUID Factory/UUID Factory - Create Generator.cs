@@ -20,7 +20,7 @@ namespace DaanV2.UUID {
         /// <summary>Creates the specified generator or returns null</summary>
         /// <param name="Version">The version of the generator to create</param>
         /// <param name="Variant">The variant of the generator to create</param>
-        /// <returns>A UUID generator</returns>
+        /// <returns>Creates the specified generator or returns null</returns>
         public static IUUIDGenerator CreateGenerator(Int32 Version, Int32 Variant) {
             switch (Version) {
                 case 3:
@@ -36,7 +36,7 @@ namespace DaanV2.UUID {
 
         /// <summary>Creates the specified generator of version 3 or returns null</summary>
         /// <param name="Variant">The variant of the generator to create</param>
-        /// <returns>A UUID generator</returns>
+        /// <returns>Creates the specified generator of version 3 or returns null</returns>
         public static IUUIDGenerator<String> CreateGeneratorVersion3(Int32 Variant) {
             switch (Variant) {
                 case 1:
@@ -48,7 +48,7 @@ namespace DaanV2.UUID {
 
         /// <summary>Creates the specified generator of version 4 or returns null</summary>
         /// <param name="Variant">The variant of the generator to create</param>
-        /// <returns>A UUID generator</returns>
+        /// <returns>Creates the specified generator of version 4 or returns null</returns>
         public static IUUIDGenerator<Int32> CreateGeneratorVersion4(Int32 Variant) {
             switch (Variant) {
                 case 1:
@@ -56,13 +56,13 @@ namespace DaanV2.UUID {
                 case 2:
                     return new Generators.Version4.GeneratorVariant2();
                 default:
-                return null;
-            }            
+                    return null;
+            }
         }
 
         /// <summary>Creates the specified generator of version 5 or returns null</summary>
         /// <param name="Variant">The variant of the generator to create</param>
-        /// <returns>A UUID generator</returns>
+        /// <returns>Creates the specified generator of version 5 or returns null</returns>
         public static IUUIDGenerator<String> CreateGeneratorVersion5(Int32 Variant) {
             switch (Variant) {
                 case 1:

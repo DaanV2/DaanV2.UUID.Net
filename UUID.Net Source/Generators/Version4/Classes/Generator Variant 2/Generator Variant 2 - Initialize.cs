@@ -14,7 +14,6 @@ WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.*/
 using System;
-using System.Runtime.Serialization;
 
 namespace DaanV2.UUID.Generators.Version4 {
     /// <summary>The UUID generator Version 4, Variant 2</summary>

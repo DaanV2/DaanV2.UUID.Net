@@ -16,7 +16,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.*/
 using System;
 
 namespace DaanV2.UUID.Generators.Version4 {
-    ///DOLATER <summary> add description for abstract class: RandomGeneratorBase</summary>
+    /// <summary>An abstract class that has a built in random generator</summary>
     public abstract partial class RandomGeneratorBase {
         /// <summary>Creates a new instance of <see cref="RandomGeneratorBase"/></summary>
         public RandomGeneratorBase() : base() {
@@ -24,7 +24,7 @@ namespace DaanV2.UUID.Generators.Version4 {
         }
 
         /// <summary>Creates a new instance of <see cref="RandomGeneratorBase"/></summary>
-        /// <param name="Seed"></param>
+        /// <param name="Seed">The seed used for the random generator</param>
         public RandomGeneratorBase(Int32 Seed) : base() {
             this._NumberGenerator = new Random(Seed);
         }

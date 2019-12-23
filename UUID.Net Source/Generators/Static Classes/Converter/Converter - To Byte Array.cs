@@ -17,11 +17,9 @@ using System;
 
 namespace DaanV2.UUID.Generators {
     public static partial class Converter {
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Chars"></param>
-        /// <returns></returns>
+        /// <summary>Converts a <see cref="Char[]"/> to a <see cref="Byte[]"/> using hexadecimal</summary>
+        /// <param name="Chars">The array to convert to <see cref="Byte[]"/>, array needs to be 35 items</param>
+        /// <returns>Converts a <see cref="Char[]"/> to a <see cref="Byte[]"/> using hexadecimal</returns>
         public static Byte[] ToBytes(Char[] Chars) {
             Byte[,] T = Converter._ToByte;
 

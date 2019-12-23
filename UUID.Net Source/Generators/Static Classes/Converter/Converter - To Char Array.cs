@@ -17,9 +17,9 @@ using System;
 
 namespace DaanV2.UUID.Generators {
     public static partial class Converter {
-        /// <summary>Size needs to be atleast 16</summary>
-        /// <param name="Array"></param>
-        /// <returns></returns>
+        /// <summary>Converts a <see cref="Byte[]"/> to <see cref="Char[]"/> using hexidecimal. Size needs to be atleast 16</summary>
+        /// <param name="Bytes">The <see cref="Byte[]"/> that need to be converted to <see cref="Char[]"/>. The size needs to be atleast 16 items</param>
+        /// <returns>Converts a <see cref="Byte[]"/> to <see cref="Char[]"/> using hexidecimal. Size needs to be atleast 16</returns>
         public static Char[] ToCharArray(Byte[] Bytes) {
             Char[] T = Converter._ToChars;
 

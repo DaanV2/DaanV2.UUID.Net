@@ -17,9 +17,7 @@ using System.Security.Cryptography;
 
 namespace DaanV2.UUID.Generators.Version5 {
     public partial class GeneratorVariant1 {
-        /// <summary>
-        /// 
-        /// </summary>
+        /// <summary>Gets or sets the hasher used to generate UUID</summary>
         public SHA1 Hasher { get => this._Hasher; set => this._Hasher = value; }
     }
 }

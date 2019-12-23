@@ -14,10 +14,6 @@ WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.*/
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DaanV2.UUID.Generators.Version4 {
     public abstract partial class RandomGeneratorBase : GeneratorBase<Int32> {
@@ -27,7 +23,7 @@ namespace DaanV2.UUID.Generators.Version4 {
         /// <summary>Gets the variant of the generator</summary>
         public abstract override Int32 Variant { get; }
 
-        /// <summary></summary>
+        /// <summary>Gets if this <see cref="RandomGeneratorBase"/> needs context to generate <see cref="UUID"/>s</summary>
         public override Boolean NeedContext => false;
 
         /// <summary>Generates a <see cref="UUID"/> specified by this version and variant format </summary>

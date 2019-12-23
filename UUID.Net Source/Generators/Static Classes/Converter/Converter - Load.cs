@@ -17,6 +17,7 @@ using System.Threading;
 
 namespace DaanV2.UUID.Generators {
     public static partial class Converter {
+        /// <summary>Loads and construct this <see cref="Converter"/> if it is needed</summary>
         public static void Load() {
             Thread.Sleep(1);
         }

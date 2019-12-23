@@ -2,7 +2,7 @@
 
 Provides a base class that can handle UUIDs as an object but also the generators to generate any version.
 
-### Table of Contents
+** Table of Contents **
 - [UUID.Net](#uuidnet)
     - [Table of Contents](#table-of-contents)
     - [Implicit Casting](#implicit-casting)

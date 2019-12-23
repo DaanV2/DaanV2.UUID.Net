@@ -18,32 +18,38 @@ using System.Text;
 
 namespace DaanV2.UUID.Generators.Version5 {
     public partial class GeneratorVariant1 : GeneratorBase<String> {
-        /// <summary></summary>
+        /// <summary>Gets the version of the UUID generator</summary>
         public override Int32 Version => 5;
 
-        /// <summary></summary>
+        /// <summary>Gets the variant of the UUID generator</summary>
         public override Int32 Variant => 1;
 
-        /// <summary></summary>
+        /// <summary>Gets if this <see cref="IUUIDGenerator"/> needs context to generate <see cref="UUID"/>s</summary>
         public override Boolean NeedContext => true;
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Context"></param>
-        /// <returns></returns>
+        /// <summary>Generates a <see cref="UUID"/> specified by this version and variant format </summary>
+        /// <param name="Context">The context needed to generate this UUID can be null</param>
+        /// <returns>A new generated <see cref="UUID"/></returns>
         public override UUID Generate(String Context = null) {
             if (String.IsNullOrEmpty(Context)) {
                 Context = DateTime.Now.ToString();
             }
 
-            return this.Generate(Context, Encoding.UTF8);
+            Byte[] Bytes = new Byte[16];
+
+            //Compute hash
+            Bytes = this._Hasher.ComputeHash(Encoding.Default.GetBytes(Context));
+
+            //set version and variant
+            Bytes[6] = (Byte)((Bytes[6] & 0b0000_1111) | 0b0101_0000);
+            Bytes[8] = (Byte)((Bytes[8] & 0b0011_1111) | 0b1000_0000);
+
+            return new UUID(Converter.ToCharArray(Bytes));
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
+        /// <summary>Generates a <see cref="UUID"/> specified by this version and variant format </summary>
+        /// <param name="Context">The context needed to generate this UUID can be null</param>
+        /// <returns>A new generated <see cref="UUID"/></returns>
         public UUID Generate(String Text, Encoding encoding) {
             Byte[] Bytes = new Byte[16];
 

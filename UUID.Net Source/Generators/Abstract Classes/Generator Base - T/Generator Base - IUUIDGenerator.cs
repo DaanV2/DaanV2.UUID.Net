@@ -23,10 +23,10 @@ namespace DaanV2.UUID.Generators {
         /// <summary>Gets the variant of the generator</summary>
         public abstract Int32 Variant { get; }
 
-        /// <summary></summary>
+        /// <summary>Gets if this generator need context to generate a UUID</summary>
         public abstract Boolean NeedContext { get; }
 
-        /// <summary></summary>
+        /// <summary>Gets the type needed for the context to generate a UUID</summary>
         public virtual Type ContextType => typeof(TypeContext);
 
         /// <summary>Generates a <see cref="UUID"/> specified by this version and variant format </summary>

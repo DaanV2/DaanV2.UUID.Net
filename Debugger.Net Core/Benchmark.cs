@@ -18,24 +18,24 @@ using System.Diagnostics;
 using DaanV2.UUID;
 
 namespace Debugger.Net_Core {
-    public class Benchmark {
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Version"></param>
-        /// <param name="Variant"></param>
-        /// <param name="TestCount"></param>
-        /// <param name="Count"></param>
+    /// <summary>A class that bench marks all the generators</summary>
+    public partial class Benchmark {
+        /// <summary>Tests the version inside the <see cref="UUIDFactory"/> on amount</summary>
+        /// <param name="Version">The version of the generator to test</param>
+        /// <param name="Variant">The variant of the generator to test</param>
+        /// <param name="TestCount">The amount of tests conducted</param>
+        /// <param name="Count">The amount of items per test to generate</param>
         public static void Test(Int32 Version, Int32 Variant, Int32 TestCount = 100, Int32 Count = 1000000) {
             Stopwatch stopwatch = new Stopwatch();
 
             for (Int32 I = 0; I < TestCount; I++) {
                 stopwatch.Start();
-
+                //Create Alot of UUIDs
                 UUID[] Temp = UUIDFactory.CreateUUIDs(Count, Version, Variant);
 
                 stopwatch.Stop();
 
+                //Dispose
                 Temp = null;
                 GC.Collect(GC.MaxGeneration, GCCollectionMode.Default, true);
                 Console.Title = $"V{Version}.{Variant}\t-\t{I}/{TestCount}";
@@ -44,9 +44,7 @@ namespace Debugger.Net_Core {
             Output(stopwatch, Version, Variant, TestCount, Count);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
+        /// <summary>Tests all possible generators and variants inside this library</summary>
         public static void TestAll() {
             Int32[] Versions = UUIDFactory.GetAvailableVersion();
 
@@ -59,15 +57,13 @@ namespace Debugger.Net_Core {
             }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sw"></param>
-        /// <param name="TestCount"></param>
-        /// <param name="ItemCount"></param>
+        /// <summary>Outputs the test result of a test onto the console</summary>
+        /// <param name="sw">The stopwatch that has recorded the timing</param>
+        /// <param name="TestCount">The amount of tests conducted</param>
+        /// <param name="ItemCount">The amount of items used per tests</param>
         public static void Output(Stopwatch sw, Int32 Version, Int32 Variant, Int32 TestCount, Int32 ItemCount = -1) {
-            Double MSPerTest = (double)sw.ElapsedMilliseconds / (double)TestCount;
-            Double TicksPerTest = (double)sw.ElapsedTicks / (double)TestCount;
+            Double MSPerTest = (Double)sw.ElapsedMilliseconds / (Double)TestCount;
+            Double TicksPerTest = (Double)sw.ElapsedTicks / (Double)TestCount;
             Double MSPerTestPerItem = MSPerTest / ItemCount;
             Double TicksPerTestPerItem = TicksPerTest / ItemCount;
 
