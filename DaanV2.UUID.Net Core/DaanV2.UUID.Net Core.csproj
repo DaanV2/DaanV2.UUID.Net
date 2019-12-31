@@ -1,10 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>DaanV2.UUID</RootNamespace>
     <Platforms>AnyCPU;x64;x86</Platforms>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <Authors>Daan Verstraten</Authors>
     <Company>Daan Verstraten</Company>
     <PackageId>UUID.Net</PackageId>
@@ -12,8 +12,8 @@
     <Description>Provides a base class that can handle UUIDs as an object but also the generators to generate any version.</Description>
     <Copyright>Daan Verstraten 2019</Copyright>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
-    <PackageProjectUrl>https://github.com/DaanV2/UUID.Net</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/DaanV2/UUID.Net</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/DaanV2/DaanV2.UUID.Net</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/DaanV2/DaanV2.UUID.Net.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>UUID;UUID3;UUID4;UUID5</PackageTags>
   </PropertyGroup>
@@ -48,6 +48,13 @@
     <DefineConstants>TRACE;NETCORE</DefineConstants>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Include="..\LICENSE.txt">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
   <Import Project="..\DaanV2.UUID.Net Source\DaanV2.UUID.Net Source.projitems" Label="Shared" />
 
   <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
@@ -55,7 +62,7 @@
   </Target>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="if $(ConfigurationName) == Release (&#xD;&#xA;	if not exist &quot;$(SolutionDir)Releases\&quot; mkdir &quot;$(SolutionDir)Releases\&quot;&#xD;&#xA;	if not exist &quot;$(SolutionDir)Releases\$(ProjectName)\$(PlatformName)\&quot; mkdir &quot;$(SolutionDir)Releases\$(ProjectName)\$(PlatformName)\&quot;&#xD;&#xA;	copy &quot;$(TargetDir)*&quot; &quot;$(SolutionDir)Releases\$(ProjectName)\$(PlatformName)\&quot;&#xD;&#xA;)" />
+    <Exec Command="if $(ConfigurationName) == Release (&#xD;&#xA;	if not exist &quot;$(SolutionDir)Releases\&quot; mkdir &quot;$(SolutionDir)Releases\&quot;&#xD;&#xA;	if not exist &quot;$(SolutionDir)Releases\$(ProjectName)\$(PlatformName)\&quot; mkdir &quot;$(SolutionDir)Releases\$(ProjectName)\$(PlatformName)\&quot;&#xD;&#xA;	copy &quot;$(TargetDir)*&quot; &quot;$(SolutionDir)Releases\$(ProjectName)\$(PlatformName)\&quot;&#xD;&#xA;)&#xD;&#xA;&#xD;&#xA;set Framework=netcoreapp3.1&#xD;&#xA;if '$(ConfigurationName)' == 'Release' (&#xD;&#xA;    if '$(PlatformName)' == 'AnyCPU' (&#xD;&#xA;        mkdir &quot;$(SolutionDir)Nuget\lib\%25Framework%25\&quot;&#xD;&#xA;        copy &quot;$(TargetDir)*&quot; &quot;$(SolutionDir)Nuget\lib\%25Framework%25\&quot;&#xD;&#xA;    ) ELSE (&#xD;&#xA;        mkdir &quot;$(SolutionDir)Nuget\runtimes\win10-$(PlatformName)\lib\%25Framework%25\&quot;&#xD;&#xA;        copy &quot;$(TargetDir)*&quot; &quot;$(SolutionDir)Nuget\runtimes\win10-$(PlatformName)\lib\%25Framework%25\&quot;&#xD;&#xA;     )&#xD;&#xA;)" />
   </Target>
 
 </Project>

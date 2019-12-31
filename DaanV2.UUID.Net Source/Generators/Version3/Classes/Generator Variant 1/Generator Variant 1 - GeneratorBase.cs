@@ -17,7 +17,7 @@ using System;
 using System.Text;
 
 namespace DaanV2.UUID.Generators.Version3 {
-    public partial class GeneratorVariant1 : GeneratorBase<String> {
+    public partial class GeneratorVariant1 : GeneratorBase {
         /// <summary>Gets the version of this <see cref="GeneratorVariant1"/></summary>
         public override Int32 Version => 3;
 
@@ -27,16 +27,27 @@ namespace DaanV2.UUID.Generators.Version3 {
         /// <summary>Gets if this Generator needs context to generate a <see cref="UUID"/></summary>
         public override Boolean NeedContext => true;
 
-        /// <summary>Generate a <see cref="UUID"/> with the specified context</summary>
-        /// <param name="Context">The context to use to generate the <see cref="UUID"/>. If the context is null or empty then the datetime is converted to a string</param>
-        /// <returns>Generate a <see cref="UUID"/> with the specified context</returns>
-        public override UUID Generate(String Context = null) {
-            if (String.IsNullOrEmpty(Context)) {
-                Context = DateTime.Now.ToString();
+        /// <summary>Gets what type this <see cref="IUUIDGenerator"/> needs to generate a <see cref="UUID"/></summary>
+        public override Type ContextType { get => typeof(String); }
+
+        /// <summary>Returns a new <see cref="UUID"/></summary>
+        /// <param name="Context">The context needed to generate this UUID</param>
+        /// <returns>Returns a new <see cref="UUID"/></returns>
+        public override UUID Generate(Object Context = null) {
+            String Value;
+
+            if (Context == null) {
+                Value = DateTime.Now.ToString();
+            }
+            else if (Context is String T) {
+                Value = T;
+            }
+            else {
+                Value = Context.ToString();
             }
 
             //Compute hash
-            Byte[] Bytes = this._Hasher.ComputeHash(Encoding.Default.GetBytes(Context));
+            Byte[] Bytes = this._Hasher.ComputeHash(Encoding.Default.GetBytes(Value));
 
             if (Bytes.Length < 16) {
                 Array.Resize(ref Bytes, 16);
@@ -50,12 +61,24 @@ namespace DaanV2.UUID.Generators.Version3 {
         }
 
         /// <summary>Generate a <see cref="UUID"/> with the specified context</summary>
-        /// <param name="Text">The text to use to create the <see cref="UUID"/></param>
+        /// <param name="Context">The text to use to create the <see cref="UUID"/></param>
         /// <param name="encoding">The encoding to use for converting to bytes</param>
         /// <returns>Generate a <see cref="UUID"/> with the specified context</returns>
-        public UUID Generate(String Text, Encoding encoding) {
+        public UUID Generate(Object Context, Encoding encoding) {
+            String Value;
+
+            if (Context == null) {
+                Value = DateTime.Now.ToString();
+            }
+            else if (Context is String T) {
+                Value = T;
+            }
+            else {
+                Value = Context.ToString();
+            }
+
             //Compute hash
-            Byte[] Bytes = this._Hasher.ComputeHash(encoding.GetBytes(Text));
+            Byte[] Bytes = this._Hasher.ComputeHash(encoding.GetBytes(Value));
 
             if (Bytes.Length < 16) {
                 Array.Resize(ref Bytes, 16);
@@ -66,6 +89,57 @@ namespace DaanV2.UUID.Generators.Version3 {
             Bytes[8] = (Byte)((Bytes[8] & 0b0011_1111) | 0b1000_0000);
 
             return new UUID(Converter.ToCharArray(Bytes));
+        }
+
+        /// <summary>Returns a new collection of <see cref="UUID"/></summary>
+        /// <param name="Count">The amount of UUID to generate</param>
+        /// <param name="Context">The context needed to generate this UUIDs</param>
+        /// <returns>Returns a new collection of <see cref="UUID"/></returns>
+        public override UUID[] Generate(Int32 Count, Object[] Context = null) {
+            UUID[] Out = new UUID[Count];
+            Int32 Index = 0;
+            Int32 Max;
+
+            if (Context == null || Context.Length == 0) {
+                Context = new Object[1];
+            }
+            Max = Context.Length - 1;
+
+            for (Int32 I = 0; I < Count; I++) {
+                Out[I] = this.Generate(Out[Index++]);
+
+                if (Index > Max) {
+                    Index = 0;
+                }
+            }
+
+            return Out;
+        }
+
+        /// <summary>Returns a new collection of <see cref="UUID"/></summary>
+        /// <param name="Count">The amount of UUID to generate</param>
+        /// <param name="Context">The context needed to generate this UUIDs</param>
+        /// <param name="encoding">The encoding to use for converting to bytes</param>
+        /// <returns>Returns a new collection of <see cref="UUID"/></returns>
+        public UUID[] Generate(Int32 Count, Encoding encoding, Object[] Context = null) {
+            UUID[] Out = new UUID[Count];
+            Int32 Index = 0;
+            Int32 Max;
+
+            if (Context == null || Context.Length == 0) {
+                Context = new Object[1];
+            }
+            Max = Context.Length - 1;
+
+            for (Int32 I = 0; I < Count; I++) {
+                Out[I] = this.Generate(Out[Index++], encoding);
+
+                if (Index > Max) {
+                    Index = 0;
+                }
+            }
+
+            return Out;
         }
     }
 }

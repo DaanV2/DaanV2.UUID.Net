@@ -16,22 +16,28 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.*/
 using System;
 
 namespace DaanV2.UUID.Generators {
-    public abstract partial class GeneratorBase : GeneratorBase<Object> {
+    public abstract partial class GeneratorBase : IUUIDGenerator {
         /// <summary>Gets the version of the generator</summary>
-        public abstract override Int32 Version { get; }
+        public abstract Int32 Version { get; }
 
         /// <summary>Gets the variant of the generator</summary>
-        public abstract override Int32 Variant { get; }
+        public abstract Int32 Variant { get; }
 
         /// <summary>Gets if this generator need context to generate a UUID</summary>
-        public override Boolean NeedContext => false;
+        public abstract Boolean NeedContext { get; }
 
         /// <summary>Gets the type needed for the context to generate a UUID</summary>
-        public new Type ContextType => typeof(Object);
+        public abstract Type ContextType { get; }
 
-        /// <summary>Generates a <see cref="UUID"/> specified by this version and variant format </summary>
-        /// <param name="Context">The context needed for this generation, can be null</param>
-        /// <returns>A new generated <see cref="UUID"/></returns>
-        public abstract override UUID Generate(Object Context = default);
+        /// <summary>Returns a new <see cref="UUID"/></summary>
+        /// <param name="Context">The context needed to generate this UUID</param>
+        /// <returns>Returns a new <see cref="UUID"/></returns>
+        public abstract UUID Generate(Object Context = default);
+
+        /// <summary>Returns a new collection of <see cref="UUID"/></summary>
+        /// <param name="Count">The amount of UUID to generate</param>
+        /// <param name="Context">The context needed to generate this UUIDs</param>
+        /// <returns>Returns a new collection of <see cref="UUID"/></returns>
+        public abstract UUID[] Generate(Int32 Count, Object[] Context = null);
     }
 }

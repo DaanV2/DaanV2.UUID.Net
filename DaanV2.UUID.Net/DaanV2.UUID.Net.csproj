@@ -88,12 +88,21 @@
   <Import Project="..\DaanV2.UUID.Net Source\DaanV2.UUID.Net Source.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>
-
-if $(ConfigurationName) == Release (
+    <PostBuildEvent>if $(ConfigurationName) == Release (
 	if not exist "$(SolutionDir)Releases\" mkdir "$(SolutionDir)Releases\"
 	if not exist "$(SolutionDir)Releases\$(ProjectName)\$(PlatformName)\" mkdir "$(SolutionDir)Releases\$(ProjectName)\$(PlatformName)\"
 	copy "$(TargetDir)*" "$(SolutionDir)Releases\$(ProjectName)\$(PlatformName)\"
+)
+
+set Framework=net48
+if '$(ConfigurationName)' == 'Release' (
+    if '$(PlatformName)' == 'AnyCPU' (
+        mkdir "$(SolutionDir)Nuget\lib\%25Framework%25\"
+        copy "$(TargetDir)*" "$(SolutionDir)Nuget\lib\%25Framework%25\"
+    ) ELSE (
+        mkdir "$(SolutionDir)Nuget\runtimes\win10-$(PlatformName)\lib\%25Framework%25\"
+        copy "$(TargetDir)*" "$(SolutionDir)Nuget\runtimes\win10-$(PlatformName)\lib\%25Framework%25\"
+     )
 )</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>

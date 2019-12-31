@@ -16,7 +16,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.*/
 using System;
 
 namespace DaanV2.UUID.Generators.Version4 {
-    public abstract partial class RandomGeneratorBase : GeneratorBase<Int32> {
+    public abstract partial class RandomGeneratorBase : GeneratorBase {
         /// <summary>Gets the version of the generator</summary>
         public abstract override Int32 Version { get; }
 
@@ -26,9 +26,7 @@ namespace DaanV2.UUID.Generators.Version4 {
         /// <summary>Gets if this <see cref="RandomGeneratorBase"/> needs context to generate <see cref="UUID"/>s</summary>
         public override Boolean NeedContext => false;
 
-        /// <summary>Generates a <see cref="UUID"/> specified by this version and variant format </summary>
-        /// <param name="Context">The context needed to generate this UUID can be null</param>
-        /// <returns>A new generated <see cref="UUID"/></returns>
-        public abstract override UUID Generate(Int32 Context = default);
+        /// <summary>Gets what type this <see cref="IUUIDGenerator"/> needs to generate a <see cref="UUID"/></summary>
+        public override Type ContextType => typeof(Int32);
     }
 }

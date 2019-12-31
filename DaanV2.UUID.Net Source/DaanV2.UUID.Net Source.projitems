@@ -16,10 +16,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Classes\UUID\UUID - Properties.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Classes\UUID\UUID - Overrides.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Classes\UUID\UUID - Variables.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Generators\Abstract Classes\Generator Base - T\Generator Base - Initialize.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Generators\Abstract Classes\Generator Base - T\Generator Base - IUUIDGenerator.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Generators\Abstract Classes\Generator Base\Generator Base - Initialize.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Generators\Abstract Classes\Generator Base\Generator Base - GeneratorBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Generators\Abstract Classes\Generator Base\Generator Base - IUUIDGenerator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Generators\Classes\Generator Info\Generator Info - Initialize.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Generators\Classes\Generator Info\Generator Info - Properties.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Generators\Classes\Generator Info\Generator Info - Variables.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Generators\Static Classes\Converter\Converter - Initialize.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Generators\Static Classes\Converter\Converter - To Char Array.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Generators\Static Classes\Converter\Converter - To Byte Array.cs" />
@@ -41,9 +41,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Generators\Version5\Classes\Generator Variant 1\Generator Variant 1 - Properties.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Generators\Version5\Classes\Generator Variant 1\Generator Variant 1 - GeneratorBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Generators\Version5\Classes\Generator Variant 1\Generator Variant 1 - Variables.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\IUUID Generator\IUUID Generator Base.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\IUUID Generator\IUUID Generator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Static Classes\UUID Factory\UUID Factory - Load.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Static Classes\UUID Factory\UUID Factory - Variables.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Static Classes\UUID Factory\UUID Factory - Context.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Static Classes\UUID Factory\UUID Factory - Create UUID - Version.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Static Classes\UUID Factory\UUID Factory - Get.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Static Classes\UUID Validator\UUID Validator - Initialize.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Static Classes\UUID Validator\UUID Validator - Validate.cs" />

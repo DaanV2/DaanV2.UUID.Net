@@ -22,54 +22,13 @@ namespace DaanV2.UUID {
         /// <param name="Variant">The variant of the generator to create</param>
         /// <returns>Creates the specified generator or returns null</returns>
         public static IUUIDGenerator CreateGenerator(Int32 Version, Int32 Variant) {
-            switch (Version) {
-                case 3:
-                    return CreateGeneratorVersion3(Variant);
-                case 4:
-                    return CreateGeneratorVersion4(Variant);
-                case 5:
-                    return CreateGeneratorVersion5(Variant);
-                default:
-                    return null;
+            if (UUIDFactory._Generators.Length <= Version || //No room for version
+                UUIDFactory._Generators[Version].Length <= Variant || //No room for variant
+                UUIDFactory._Generators[Version][Variant] == null) { //No type has been filled
+                throw new ArgumentException($"No such generator with: {Version}.{Variant}");
             }
-        }
 
-        /// <summary>Creates the specified generator of version 3 or returns null</summary>
-        /// <param name="Variant">The variant of the generator to create</param>
-        /// <returns>Creates the specified generator of version 3 or returns null</returns>
-        public static IUUIDGenerator<String> CreateGeneratorVersion3(Int32 Variant) {
-            switch (Variant) {
-                case 1:
-                    return new Generators.Version3.GeneratorVariant1();
-                default:
-                    return null;
-            }
-        }
-
-        /// <summary>Creates the specified generator of version 4 or returns null</summary>
-        /// <param name="Variant">The variant of the generator to create</param>
-        /// <returns>Creates the specified generator of version 4 or returns null</returns>
-        public static IUUIDGenerator<Int32> CreateGeneratorVersion4(Int32 Variant) {
-            switch (Variant) {
-                case 1:
-                    return new Generators.Version4.GeneratorVariant1();
-                case 2:
-                    return new Generators.Version4.GeneratorVariant2();
-                default:
-                    return null;
-            }
-        }
-
-        /// <summary>Creates the specified generator of version 5 or returns null</summary>
-        /// <param name="Variant">The variant of the generator to create</param>
-        /// <returns>Creates the specified generator of version 5 or returns null</returns>
-        public static IUUIDGenerator<String> CreateGeneratorVersion5(Int32 Variant) {
-            switch (Variant) {
-                case 1:
-                    return new Generators.Version5.GeneratorVariant1();
-                default:
-                    return null;
-            }
+            return (IUUIDGenerator)Activator.CreateInstance(UUIDFactory._Generators[Version][Variant].GeneratorType);
         }
     }
 }

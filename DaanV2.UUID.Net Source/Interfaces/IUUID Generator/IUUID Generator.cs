@@ -31,12 +31,15 @@ namespace DaanV2.UUID {
         /// <summary>Gets what type this <see cref="IUUIDGenerator"/> needs to generate a <see cref="UUID"/></summary>
         Type ContextType { get; }
 
-        /// <summary>Generate the UUID</summary>
+        /// <summary>Returns a new <see cref="UUID"/></summary>
+        /// <param name="Context">The context needed to generate this UUID</param>
         /// <returns>Returns a new <see cref="UUID"/></returns>
         UUID Generate(Object Context = default);
 
-        /// <summary>Generate the UUID</summary>
-        /// <returns>Returns a new <see cref="UUID"/></returns>
-        UUID[] Generate(Object[] Context = default);
+        /// <summary>Returns a new collection of <see cref="UUID"/></summary>
+        /// <param name="Count">The amount of UUID to generate</param>
+        /// <param name="Context">The context needed to generate this UUIDs</param>
+        /// <returns>Returns a new collection of <see cref="UUID"/></returns>
+        UUID[] Generate(Int32 Count, Object[] Context = default);
     }
 }

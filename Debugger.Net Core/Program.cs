@@ -17,9 +17,16 @@ using System;
 
 namespace Debugger.Net_Core {
     internal class Program {
-        private static void Main(String[] args) {
-            Benchmark.TestAll();
+        private static String _Folder = AppDomain.CurrentDomain.BaseDirectory;
 
+        private static void Main(String[] args) {
+            if (!_Folder.EndsWith("\\")) {
+                _Folder += "\\";
+            }
+
+            Benchmark.TestAll(_Folder);
+
+            Console.WriteLine("Done");
             Console.ReadLine();
         }
     }

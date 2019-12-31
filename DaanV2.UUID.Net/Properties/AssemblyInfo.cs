@@ -4,12 +4,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("UUID.Net")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("DaanV2.UUID.Net")]
+[assembly: AssemblyDescription("Provides a base class that can handle UUIDs as an object but also provides the generators to generate version 3, 4 and 5.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("UUID.Net")]
-[assembly: AssemblyCopyright("Copyright ©  2019")]
+[assembly: AssemblyProduct("DaanV2.UUID.Net")]
+[assembly: AssemblyCopyright("Copyright © Daan Verstraten 2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

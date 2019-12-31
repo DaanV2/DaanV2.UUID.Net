@@ -25,8 +25,11 @@ namespace Debugger.Net_Core {
         /// <param name="Variant">The variant of the generator to test</param>
         /// <param name="TestCount">The amount of tests conducted</param>
         /// <param name="Count">The amount of items per test to generate</param>
-        public static void Test(Int32 Version, Int32 Variant, Int32 TestCount = 100, Int32 Count = 1000000) {
+        public static void Test(Int32 Version, Int32 Variant, Logger dataRecorder, Int32 TestCount = 100, Int32 Count = 1000000) {
             Stopwatch stopwatch = new Stopwatch();
+            Int64 PreviousMS = 0;
+            Int64 PreviousTicks = 0;
+
 
             for (Int32 I = 0; I < TestCount; I++) {
                 stopwatch.Start();
@@ -37,24 +40,33 @@ namespace Debugger.Net_Core {
 
                 //Dispose
                 Temp = null;
+                dataRecorder.Add(Version, Variant, stopwatch.ElapsedMilliseconds - PreviousMS, stopwatch.ElapsedTicks - PreviousTicks, Count);
+                PreviousMS = stopwatch.ElapsedMilliseconds;
+                PreviousTicks = stopwatch.ElapsedTicks;
                 GC.Collect(GC.MaxGeneration, GCCollectionMode.Default, true);
                 Console.Title = $"V{Version}.{Variant}\t-\t{I}/{TestCount}";
             }
 
-            Output(stopwatch, Version, Variant, TestCount, Count);
+            dataRecorder.Flush();
+            Benchmark.Output(stopwatch, Version, Variant, TestCount, Count);
         }
 
         /// <summary>Tests all possible generators and variants inside this library</summary>
-        public static void TestAll() {
+        public static void TestAll(String Folder) {
             Int32[] Versions = UUIDFactory.GetAvailableVersion();
+
+            String Platform = IntPtr.Size == 4 ? "x86" : "x64";
+            Logger dataRecorder = new Logger(Folder + $"Data-{Platform}.csv");
 
             for (Int32 VersionIndex = 0; VersionIndex < Versions.Length; VersionIndex++) {
                 Int32[] Variants = UUIDFactory.GetAvailableVariants(Versions[VersionIndex]);
 
                 for (Int32 VariantIndex = 0; VariantIndex < Variants.Length; VariantIndex++) {
-                    Test(Versions[VersionIndex], Variants[VariantIndex]);
+                    Test(Versions[VersionIndex], Variants[VariantIndex], dataRecorder);
                 }
             }
+
+            dataRecorder.Done();
         }
 
         /// <summary>Outputs the test result of a test onto the console</summary>
@@ -62,8 +74,8 @@ namespace Debugger.Net_Core {
         /// <param name="TestCount">The amount of tests conducted</param>
         /// <param name="ItemCount">The amount of items used per tests</param>
         public static void Output(Stopwatch sw, Int32 Version, Int32 Variant, Int32 TestCount, Int32 ItemCount = -1) {
-            Double MSPerTest = (Double)sw.ElapsedMilliseconds / (Double)TestCount;
-            Double TicksPerTest = (Double)sw.ElapsedTicks / (Double)TestCount;
+            Double MSPerTest = sw.ElapsedMilliseconds / (Double)TestCount;
+            Double TicksPerTest = sw.ElapsedTicks / (Double)TestCount;
             Double MSPerTestPerItem = MSPerTest / ItemCount;
             Double TicksPerTestPerItem = TicksPerTest / ItemCount;
 

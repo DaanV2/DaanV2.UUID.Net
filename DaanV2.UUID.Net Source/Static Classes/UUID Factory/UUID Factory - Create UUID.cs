@@ -17,23 +17,13 @@ using System;
 
 namespace DaanV2.UUID {
     public static partial class UUIDFactory {
-
         /// <summary>Generate a <see cref="UUID"/> using the specified version and variant</summary>
         /// <param name="Version">The version of the generator</param>
         /// <param name="Variant">The variant of the generator</param>
         /// <returns>Generate a <see cref="UUID"/> using the specified version and variant and specified amount</returns>
         public static UUID CreateUUID(Int32 Version, Int32 Variant, Object Context = default) {
-            switch (Version) {
-                case 3:
-                    return UUIDFactory.CreateUUIDVersion3(Variant, (String)Context);
-                case 4:
-                    return UUIDFactory.CreateUUIDVersion4(Variant, (Int32)Context);
-                case 5:
-                    return UUIDFactory.CreateUUIDVersion5(Variant, (String)Context);
-
-                default:
-                    return UUID.Nill;
-            }
+            IUUIDGenerator generator = UUIDFactory.CreateGenerator(Version, Variant);
+            return generator.Generate(Context);
         }
 
         /// <summary>Generate a <see cref="UUID[]"/> using the specified version and variant and specified amount</summary>
@@ -41,49 +31,9 @@ namespace DaanV2.UUID {
         /// <param name="Version">The version of the generator</param>
         /// <param name="Variant">The variant of the generator</param>
         /// <returns>Generate a <see cref="UUID[]"/> using the specified version and variant and specified amount</returns>
-        public static UUID[] CreateUUIDs(Int32 Amount, Int32 Version, Int32 Variant, Object Context = default) {
-            switch (Version) {
-                case 3:
-                    return UUIDFactory.CreateUUIDsVersion3(Variant, Amount, (String[])Context);
-                case 4:
-                    return UUIDFactory.CreateUUIDsVersion4(Variant, Amount, (Int32[])Context);
-                case 5:
-                    return UUIDFactory.CreateUUIDsVersion5(Variant, Amount, (String[])Context);
-
-                default:
-                    return new UUID[] { UUID.Nill };
-            }
-        }
-
-        /// <summary>Generate a <see cref="UUID[]"/> using the specified version and variant and specified amount</summary>
-        /// <typeparam name="TypeContext"></typeparam>
-        /// <param name="Generator">The generator to use to generate multiple <see cref="UUID[]"/></param>
-        /// <param name="Context">The context to be used for generating uuids</param>
-        /// <returns>Generate a <see cref="UUID[]"/> using the specified version and variant and specified amount</returns>
-        public static UUID[] CreateUUIDs<TypeContext>(Int32 Amount, IUUIDGenerator Generator, TypeContext[] Context) {
-            UUID[] Out = new UUID[Amount];
-
-            if (Generator == null) { return new UUID[] { UUID.Nill }; }
-            if (Context == null) { Context = new TypeContext[] { default }; }
-            Int32 J = 0;
-            Int32 Max = Context.Length - 1;
-
-            for (Int32 I = 0; I < Amount; I++) {
-                Out[I] = Generator.Generate(Context[J++]);
-
-                if (J > Max) { J = 0; }
-            }
-
-            return Out;
-        }
-
-        /// <summary>Generate a <see cref="UUID"/> using the specified version and variant and specified amount</summary>
-        /// <typeparam name="TypeContext"></typeparam>
-        /// <param name="Generator">The generator to use to generate multiple <see cref="UUID[]"/></param>
-        /// <param name="Context">The context to be used for generating uuids</param>
-        /// <returns>Generate a <see cref="UUID"/> using the specified version and variant and specified amount</returns>
-        public static UUID CreateUUID<TypeContext>(IUUIDGenerator Generator, TypeContext Context) {
-            return Generator?.Generate(Context) ?? UUID.Nill;
+        public static UUID[] CreateUUIDs(Int32 Amount, Int32 Version, Int32 Variant, Object[] Context = default) {
+            IUUIDGenerator generator = UUIDFactory.CreateGenerator(Version, Variant);
+            return generator.Generate(Amount, Context);
         }
     }
 }

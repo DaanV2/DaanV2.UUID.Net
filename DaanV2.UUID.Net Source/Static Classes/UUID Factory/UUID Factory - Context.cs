@@ -14,6 +14,7 @@ WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.*/
 using System;
+using DaanV2.UUID.Generators;
 
 namespace DaanV2.UUID {
     public static partial class UUIDFactory {
@@ -24,19 +25,11 @@ namespace DaanV2.UUID {
         /// <param name="ForMultipleUUIDGeneration">Marks if there should be multiple items or single</param>
         /// <returns>Returns the type needed for the generator needs</returns>
         public static Type GetContext(Int32 Version, Int32 Variant, Boolean ForMultipleUUIDGeneration = false) {
-            Type T = null;
+            GeneratorInfo Info = UUIDFactory.GetInfo(Version, Variant);
 
-            T = CreateGenerator(Version, Variant)?.ContextType;
-
-            if (T == null) {
-                return T;
-            }
-            else if (ForMultipleUUIDGeneration) {
-                return T.MakeArrayType();
-            }
-            else {
-                return T;
-            }
+            return ForMultipleUUIDGeneration ? 
+                Info.ContextType.MakeArrayType() : 
+                Info.ContextType;
         }
 
         /// <summary>Returns if the specified generator needs context</summary>
@@ -44,7 +37,8 @@ namespace DaanV2.UUID {
         /// <param name="Variant">The variant of the generator to use</param>
         /// <returns>Returns if the specified generator needs context</returns>
         public static Boolean? NeedContext(Int32 Version, Int32 Variant) {
-            return CreateGenerator(Version, Variant)?.NeedContext;
+            GeneratorInfo Info = UUIDFactory.GetInfo(Version, Variant);
+            return Info.NeedContext;
         }
     }
 }
