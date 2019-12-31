@@ -39,7 +39,7 @@ UUID[] UUIDs = UUIDFactory.CreateUUIDs(100000, 4, 1); //Version 4, Variant 1, Am
 
 ```csharp
 IUUIDGenerator Generator = UUIDFactory.CreateGenerator(4, 1); //Get the version 4, variant 1 generator
-IUUIDGenerator<Int32> GeneratorV4 = new DaanV2.UUID.Generators.Version4.GeneratorVariant1(); //Get the version 4, variant 1 generator
+IUUIDGenerator GeneratorV4 = new DaanV2.UUID.Generators.Version4.GeneratorVariant1(); //Get the version 4, variant 1 generator
 
 UUID Out = GeneratorV4.Generate();
 ```
