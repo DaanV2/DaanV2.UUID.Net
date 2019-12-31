@@ -2,9 +2,9 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <!-- Required elements-->
-        <id>DaanV2.Essentials.Net</id>
+        <id>DaanV2.UUID.Net</id>
         <version>1.0.0</version>
-        <description>This library provides a set of default interfaces and code extensions upon .Net to ease up programming.</description>
+        <description>Provides a base class that can handle UUIDs as an object but also provides the generators to generate version 3, 4 and 5.</description>
         <authors>Daan Verstraten</authors>
 
         <!-- Optional elements -->
