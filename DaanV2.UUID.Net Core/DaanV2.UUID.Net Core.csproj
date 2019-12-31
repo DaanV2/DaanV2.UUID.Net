@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
@@ -48,14 +48,7 @@
     <DefineConstants>TRACE;NETCORE</DefineConstants>
   </PropertyGroup>
 
-  <ItemGroup>
-    <None Include="..\..\DaanV2.Essentials.Net\DaanV2.Essentials.Net\LICENSE.txt">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
-  </ItemGroup>
-
-  <Import Project="..\UUID.Net Source\UUID.Net Source.projitems" Label="Shared" />
+  <Import Project="..\DaanV2.UUID.Net Source\DaanV2.UUID.Net Source.projitems" Label="Shared" />
 
   <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
     <Exec Command="rd /s /q &quot;$(TargetDir)&quot;&#xD;&#xA;if not exist &quot;$(TargetDir)&quot; mkdir &quot;$(TargetDir)&quot;&#xD;&#xA;if $(ConfigurationName) == Release (&#xD;&#xA;	rd /s /q &quot;$(SolutionDir)Releases\$(ProjectName)-$(PlatformName)\&quot;&#xD;&#xA;	if exist &quot;$(SolutionDir)LICENSE.txt&quot; copy &quot;$(SolutionDir)LICENSE.txt&quot; &quot;$(TargetDir)LICENSE.txt&quot;&#xD;&#xA;	if exist &quot;$(SolutionDir)README.md&quot; copy &quot;$(SolutionDir)README.md&quot; &quot;$(TargetDir)README.md&quot;&#xD;&#xA;	if exist &quot;$(SolutionDir)Include\&quot; copy &quot;$(SolutionDir)Include\&quot; &quot;$(TargetDir)&quot;&#xD;&#xA;	if exist &quot;$(ProjectDir)Include\&quot; copy &quot;$(ProjectDir)Include\&quot; &quot;$(TargetDir)&quot;&#xD;&#xA;)" />

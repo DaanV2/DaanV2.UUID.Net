@@ -60,7 +60,7 @@ namespace DaanV2.UUID {
         /// <param name="Generator">The generator to use to generate multiple <see cref="UUID[]"/></param>
         /// <param name="Context">The context to be used for generating uuids</param>
         /// <returns>Generate a <see cref="UUID[]"/> using the specified version and variant and specified amount</returns>
-        public static UUID[] CreateUUIDs<TypeContext>(Int32 Amount, IUUIDGenerator<TypeContext> Generator, TypeContext[] Context) {
+        public static UUID[] CreateUUIDs<TypeContext>(Int32 Amount, IUUIDGenerator Generator, TypeContext[] Context) {
             UUID[] Out = new UUID[Amount];
 
             if (Generator == null) { return new UUID[] { UUID.Nill }; }
@@ -82,7 +82,7 @@ namespace DaanV2.UUID {
         /// <param name="Generator">The generator to use to generate multiple <see cref="UUID[]"/></param>
         /// <param name="Context">The context to be used for generating uuids</param>
         /// <returns>Generate a <see cref="UUID"/> using the specified version and variant and specified amount</returns>
-        public static UUID CreateUUID<TypeContext>(IUUIDGenerator<TypeContext> Generator, TypeContext Context) {
+        public static UUID CreateUUID<TypeContext>(IUUIDGenerator Generator, TypeContext Context) {
             return Generator?.Generate(Context) ?? UUID.Nill;
         }
     }

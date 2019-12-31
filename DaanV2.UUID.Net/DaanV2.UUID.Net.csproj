@@ -85,7 +85,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <Import Project="..\UUID.Net Source\UUID.Net Source.projitems" Label="Shared" />
+  <Import Project="..\DaanV2.UUID.Net Source\DaanV2.UUID.Net Source.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

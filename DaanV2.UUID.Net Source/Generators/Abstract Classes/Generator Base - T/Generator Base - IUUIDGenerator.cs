@@ -16,7 +16,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.*/
 using System;
 
 namespace DaanV2.UUID.Generators {
-    public abstract partial class GeneratorBase<TypeContext> : IUUIDGenerator<TypeContext> {
+    public abstract partial class GeneratorBase<TypeContext> : IUUIDGenerator {
         /// <summary>Gets the version of the generator</summary>
         public abstract Int32 Version { get; }
 

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -7,6 +7,6 @@
     <Platforms>AnyCPU;x64;x86</Platforms>
   </PropertyGroup>
 
-  <Import Project="..\UUID.Net Source\UUID.Net Source.projitems" Label="Shared" />
+  <Import Project="..\DaanV2.UUID.Net Source\DaanV2.UUID.Net Source.projitems" Label="Shared" />
 
 </Project>
