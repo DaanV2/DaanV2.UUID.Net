@@ -36,8 +36,8 @@ public static void Test(Int32 Version, Int32 Variant, Int32 TestCount = 100, Int
 
 ## Results
 
-|Platform|Version |Variant |Total <br>milli seconds<br> per test |Total<br> ticks per<br> test |
-|--------|--------|--------|---|---|---|---|
+|Platform|Version |Variant |milli seconds per test |ticks per test |
+|--------|--------|--------|---|---|
 |x64 |3 |1 |925.57|9255725.31|
 |x86 |3 |1 |902.71|9027142.91|
 |x64 |4 |1 |533.32|5333294.43|
