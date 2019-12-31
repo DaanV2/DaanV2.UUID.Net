@@ -11,6 +11,7 @@ Provides a base class that can handle UUIDs as an object but also provides the g
       - [Generate a batch of UUIDs](#generate-a-batch-of-uuids)
       - [Generating through a Generator](#generating-through-a-generator)
   - [UUIDs Version](#uuids-version)
+  - [Performance](#performance)
 
 ### Implicit Casting
 
@@ -52,3 +53,7 @@ UUID Out = GeneratorV4.Generate();
 |4 |1 |A random generated UUID of 122 bits |No |Int32 |
 |4 |2 |A random generated UUID of 121 bits |No |Int32 |
 |5 |1 |A UUID generated from a string using SHA1 hashing bits, 122 bits |Yes |String |
+
+## Performance
+
+See [Performance](Documentation/Performance.md)
