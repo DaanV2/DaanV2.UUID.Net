@@ -12,7 +12,7 @@
         <license type="file">LICENSE.txt</license>
         <projectUrl>https://github.com/DaanV2/DaanV2.UUID.Net</projectUrl>
         <copyright>Daan Verstraten 2019</copyright>
-        <tags>UUID UUID3 UUID4 UUID5</tags>
+        <tags>UUID UUID3 UUID4 UUID5 rfc4122 .Net</tags>
         <repository type="git" url="https://github.com/DaanV2/DaanV2.UUID.Net.git" />
         <dependencies>
             <group targetFramework=".NETCoreApp3.1" />
