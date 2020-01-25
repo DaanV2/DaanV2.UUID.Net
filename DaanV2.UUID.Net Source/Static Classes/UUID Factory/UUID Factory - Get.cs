@@ -42,13 +42,15 @@ namespace DaanV2.UUID {
         /// <param name="Version">The version to check which variants are aviable</param>
         /// <returns>An array of <see cref="Int32"/> contaning variant numbering</returns>
         public static Int32[] GetAvailableVariants(Int32 Version) {
-            if (UUIDFactory._Generators.Length <= Version)
+            if (UUIDFactory._Generators.Length <= Version) {
                 throw new ArgumentException($"No such generator with: {Version}");
+            }
 
             GeneratorInfo[] Generators = UUIDFactory._Generators[Version];
-            
-            if (Generators == null || Generators.Length == 0)
+
+            if (Generators == null || Generators.Length == 0) {
                 throw new ArgumentException($"No such generator with: {Version}");
+            }
 
             Int32 Length = Generators.Length;
             Int32[] Out = new Int32[Length];

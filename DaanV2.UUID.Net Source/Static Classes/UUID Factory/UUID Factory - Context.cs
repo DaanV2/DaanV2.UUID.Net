@@ -27,8 +27,8 @@ namespace DaanV2.UUID {
         public static Type GetContext(Int32 Version, Int32 Variant, Boolean ForMultipleUUIDGeneration = false) {
             GeneratorInfo Info = UUIDFactory.GetInfo(Version, Variant);
 
-            return ForMultipleUUIDGeneration ? 
-                Info.ContextType.MakeArrayType() : 
+            return ForMultipleUUIDGeneration ?
+                Info.ContextType.MakeArrayType() :
                 Info.ContextType;
         }
 

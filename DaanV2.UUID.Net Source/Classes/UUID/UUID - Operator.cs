@@ -23,8 +23,9 @@ namespace DaanV2.UUID {
         /// <param name="right">the second <see cref="UUID"/> to compare to the first</param>
         /// <returns>Returns true if two UUID are equal</returns>
         public static Boolean operator ==(UUID left, UUID right) {
-            if (Object.ReferenceEquals(left, right))
+            if (Object.ReferenceEquals(left, right)) {
                 return true;
+            }
 
             Boolean Bl = left is Object;
             Boolean Br = right is Object;
@@ -53,8 +54,9 @@ namespace DaanV2.UUID {
         /// <param name="right">the second <see cref="UUID"/> to compare to the first</param>
         /// <returns>Returns true if two UUID are not equal</returns>
         public static Boolean operator !=(UUID left, UUID right) {
-            if (Object.ReferenceEquals(left, right))
+            if (Object.ReferenceEquals(left, right)) {
                 return false;
+            }
 
             Boolean Bl = left is Object;
             Boolean Br = right is Object;

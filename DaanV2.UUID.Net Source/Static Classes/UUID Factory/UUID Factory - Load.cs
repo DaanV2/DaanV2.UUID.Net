@@ -40,8 +40,9 @@ namespace DaanV2.UUID {
             for (Int32 I = 0; I < Count; I++) {
                 Current = types[I];
 
-                if (Current.IsAbstract)
+                if (Current.IsAbstract) {
                     continue;
+                }
 
                 Interfaces = Current.GetInterfaces();
                 JCount = Interfaces.Length;
