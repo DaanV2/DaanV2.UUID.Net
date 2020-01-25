@@ -26,12 +26,8 @@ namespace DaanV2.UUID {
                 return C - '0';
             }
 
-            if (C >= 'A' && C <= 'F') {
-                return C - 'A' + 10;
-            }
-
             if (C >= 'a' && C <= 'f') {
-                return C - 'A' + 10;
+                return C - 'a' + 10;
             }
 
             return -1;
@@ -45,13 +41,13 @@ namespace DaanV2.UUID {
             if (C >= '0' && C < '8') {
                 return 0;
             }
-            else if (C >= '8' && C <= 'B') {
+            else if (C >= '8' && C <= 'b') {
                 return 1;
             }
-            else if (C == 'C' || C == 'D') {
+            else if (C == 'c' || C == 'd') {
                 return 2;
             }
-            else if (C == 'E' || C == 'F') {
+            else if (C == 'e' || C == 'f') {
                 return 3;
             }
 

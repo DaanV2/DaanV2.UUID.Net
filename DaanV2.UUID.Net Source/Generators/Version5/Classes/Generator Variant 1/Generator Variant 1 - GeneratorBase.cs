@@ -54,7 +54,7 @@ namespace DaanV2.UUID.Generators.Version5 {
             }
 
             //set version and variant
-            Bytes[6] = (Byte)((Bytes[6] & 0b0000_1111) | 0b0011_0000);
+            Bytes[6] = (Byte)((Bytes[6] & 0b0000_1111) | 0b0101_0000);
             Bytes[8] = (Byte)((Bytes[8] & 0b0011_1111) | 0b1000_0000);
 
             return new UUID(Converter.ToCharArray(Bytes));
@@ -85,7 +85,7 @@ namespace DaanV2.UUID.Generators.Version5 {
             }
 
             //set version and variant
-            Bytes[6] = (Byte)((Bytes[6] & 0b0000_1111) | 0b0011_0000);
+            Bytes[6] = (Byte)((Bytes[6] & 0b0000_1111) | 0b0101_0000);
             Bytes[8] = (Byte)((Bytes[8] & 0b0011_1111) | 0b1000_0000);
 
             return new UUID(Converter.ToCharArray(Bytes));

@@ -29,6 +29,10 @@ namespace DaanV2.UUID {
         /// <param name="obj">The object to compare to</param>
         /// <returns>Returns if true is the obj is the same as this object</returns>
         public override Boolean Equals(Object obj) {
+            if (Object.ReferenceEquals(this, obj)) {
+                return true;
+            }
+
             if (obj is null) {
                 return false;
             }
