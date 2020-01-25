@@ -3,7 +3,7 @@
     <metadata>
         <!-- Required elements-->
         <id>DaanV2.UUID.Net</id>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
         <description>Provides a base class that can handle UUIDs as an object but also provides the generators to generate version 3, 4, and 5. Compliant with rfc4122.</description>
         <authors>Daan Verstraten</authors>
 
@@ -18,6 +18,7 @@
         <dependencies>
             <group targetFramework=".NETCoreApp3.1" />
             <group targetFramework=".NETFramework4.8" />
+			<group targetFramework=".NETStandard2.0" />
         </dependencies>
 
         <!-- ... -->
@@ -30,5 +31,6 @@
         <!-- Any CPU -->
         <file src="lib\net48\*.dll" target="lib\net48\" />
         <file src="lib\netcoreapp3.1\*.dll" target="lib\netcoreapp3.1\" />
+		<file src="lib\netstandard2.0\*.dll" target="lib\netstandard2.0\" />
     </files>
 </package>

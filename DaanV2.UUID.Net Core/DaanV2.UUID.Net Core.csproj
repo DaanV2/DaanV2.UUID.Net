@@ -16,6 +16,7 @@
     <RepositoryUrl>https://github.com/DaanV2/DaanV2.UUID.Net.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>UUID;UUID3;UUID4;UUID5</PackageTags>
+    <AssemblyName>DaanV2.UUID.Net</AssemblyName>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
