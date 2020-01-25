@@ -4,7 +4,7 @@
         <!-- Required elements-->
         <id>DaanV2.UUID.Net</id>
         <version>1.0.0</version>
-        <description>Provides a base class that can handle UUIDs as an object but also provides the generators to generate version 3, 4 and 5.</description>
+        <description>Provides a base class that can handle UUIDs as an object but also provides the generators to generate version 3, 4, and 5. Compliant with rfc4122.</description>
         <authors>Daan Verstraten</authors>
 
         <!-- Optional elements -->
@@ -12,7 +12,7 @@
         <license type="file">LICENSE.txt</license>
         <projectUrl>https://github.com/DaanV2/DaanV2.UUID.Net</projectUrl>
         <copyright>Daan Verstraten 2019</copyright>
-        <tags>UUID UUID3 UUID4 UUID5</tags>
+        <tags>UUID UUID3 UUID4 UUID5 rfc4122 .Net</tags>
         <repository type="git" url="https://github.com/DaanV2/DaanV2.UUID.Net.git" />
 		<icon>images\icon.png</icon>
         <dependencies>
