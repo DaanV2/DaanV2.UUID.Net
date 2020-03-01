@@ -7,6 +7,6 @@
     <Platforms>AnyCPU;x64;x86</Platforms>
   </PropertyGroup>
 
-  <Import Project="..\DaanV2.UUID.Net Source\DaanV2.UUID.Net Source.projitems" Label="Shared" />
+  <Import Project="..\Source\Source.projitems" Label="Shared" />
 
 </Project>

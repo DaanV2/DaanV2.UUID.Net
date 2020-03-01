@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <RootNamespace>DaanV2.UUID</RootNamespace>
+    <AssemblyName>DaanV2.UUID.Net</AssemblyName>
+    <Platforms>AnyCPU;x64;x86</Platforms>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <Optimize>true</Optimize>
+    <DocumentationFile>D:\Mijn Projecten\Software\Git Hub\DaanV2.UUID.Net\API\Standard2.1\DaanV2.UUID.Net.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
+    <Optimize>true</Optimize>
+    <DocumentationFile>D:\Mijn Projecten\Software\Git Hub\DaanV2.UUID.Net\API\Standard2.1\DaanV2.UUID.Net.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Optimize>true</Optimize>
+    <DocumentationFile>D:\Mijn Projecten\Software\Git Hub\DaanV2.UUID.Net\API\Standard2.1\DaanV2.UUID.Net.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Optimize>false</Optimize>
+    <DocumentationFile>D:\Mijn Projecten\Software\Git Hub\DaanV2.UUID.Net\API\Standard2.1\DaanV2.UUID.Net.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
+    <Optimize>false</Optimize>
+    <DocumentationFile>D:\Mijn Projecten\Software\Git Hub\DaanV2.UUID.Net\API\Standard2.1\DaanV2.UUID.Net.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Optimize>false</Optimize>
+    <DocumentationFile>D:\Mijn Projecten\Software\Git Hub\DaanV2.UUID.Net\API\Standard2.1\DaanV2.UUID.Net.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="set Framework=netstandard2.1&#xD;&#xA;if '$(ConfigurationName)' == 'Release' (&#xD;&#xA;    if '$(PlatformName)' == 'AnyCPU' (&#xD;&#xA;        mkdir &quot;$(SolutionDir)Nuget\lib\%25Framework%25\&quot;&#xD;&#xA;        copy &quot;$(TargetDir)*&quot; &quot;$(SolutionDir)Nuget\lib\%25Framework%25\&quot;&#xD;&#xA;    ) ELSE (&#xD;&#xA;        mkdir &quot;$(SolutionDir)Nuget\runtimes\win10-$(PlatformName)\lib\%25Framework%25\&quot;&#xD;&#xA;        copy &quot;$(TargetDir)*&quot; &quot;$(SolutionDir)Nuget\runtimes\win10-$(PlatformName)\lib\%25Framework%25\&quot;&#xD;&#xA;     )&#xD;&#xA;)" />
+  </Target>
+
+  <Import Project="..\..\Source\Source.projitems" Label="Shared" />
+
+</Project>
