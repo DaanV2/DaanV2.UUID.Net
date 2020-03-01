@@ -10,16 +10,22 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <Optimize>true</Optimize>
     <DocumentationFile>D:\Mijn Projecten\Software\Git Hub\DaanV2.UUID.Net\API\Standard2.1\DaanV2.UUID.Net.xml</DocumentationFile>
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
     <Optimize>true</Optimize>
     <DocumentationFile>D:\Mijn Projecten\Software\Git Hub\DaanV2.UUID.Net\API\Standard2.1\DaanV2.UUID.Net.xml</DocumentationFile>
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Optimize>true</Optimize>
     <DocumentationFile>D:\Mijn Projecten\Software\Git Hub\DaanV2.UUID.Net\API\Standard2.1\DaanV2.UUID.Net.xml</DocumentationFile>
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

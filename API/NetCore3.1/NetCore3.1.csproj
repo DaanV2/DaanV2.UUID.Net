@@ -11,18 +11,24 @@
     <DefineConstants>TRACE;NETCORE</DefineConstants>
     <DocumentationFile>D:\Mijn Projecten\Software\Git Hub\DaanV2.UUID.Net\API\NetCore3.1\DaanV2.UUID.Net.xml</DocumentationFile>
     <Optimize>true</Optimize>
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
     <DefineConstants>TRACE;NETCORE</DefineConstants>
     <DocumentationFile>D:\Mijn Projecten\Software\Git Hub\DaanV2.UUID.Net\API\NetCore3.1\DaanV2.UUID.Net.xml</DocumentationFile>
     <Optimize>true</Optimize>
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <DefineConstants>TRACE;NETCORE</DefineConstants>
     <DocumentationFile>D:\Mijn Projecten\Software\Git Hub\DaanV2.UUID.Net\API\NetCore3.1\DaanV2.UUID.Net.xml</DocumentationFile>
     <Optimize>true</Optimize>
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

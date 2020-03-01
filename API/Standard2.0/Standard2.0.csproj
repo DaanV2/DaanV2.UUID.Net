@@ -9,6 +9,8 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DocumentationFile>D:\Mijn Projecten\Software\Git Hub\DaanV2.UUID.Net\API\Standard2.0\DaanV2.UUID.Net.xml</DocumentationFile>
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -25,10 +27,14 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <DocumentationFile>D:\Mijn Projecten\Software\Git Hub\DaanV2.UUID.Net\API\Standard2.0\DaanV2.UUID.Net.xml</DocumentationFile>
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
     <DocumentationFile>D:\Mijn Projecten\Software\Git Hub\DaanV2.UUID.Net\API\Standard2.0\DaanV2.UUID.Net.xml</DocumentationFile>
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
   </PropertyGroup>
 
   <Import Project="..\..\Source\Source.projitems" Label="Shared" />

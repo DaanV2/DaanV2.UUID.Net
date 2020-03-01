@@ -32,11 +32,15 @@
         <!-- Any CPU -->
         <file src="lib\net48\*.dll" target="lib\net48\" />
         <file src="lib\net48\*.xml" target="lib\net48\" />
+        <file src="lib\net48\*.json" target="lib\net48\" />
         <file src="lib\netcoreapp3.1\*.dll" target="lib\netcoreapp3.1\" />
         <file src="lib\netcoreapp3.1\*.xml" target="lib\netcoreapp3.1\" />
+        <file src="lib\netcoreapp3.1\*.json" target="lib\netcoreapp3.1\" />
 		<file src="lib\netstandard2.0\*.dll" target="lib\netstandard2.0\" />
 		<file src="lib\netstandard2.0\*.xml" target="lib\netstandard2.0\" />
+		<file src="lib\netstandard2.0\*.json" target="lib\netstandard2.0\" />
         <file src="lib\netstandard2.1\*.dll" target="lib\netstandard2.1\" />
 		<file src="lib\netstandard2.1\*.xml" target="lib\netstandard2.1\" />
+		<file src="lib\netstandard2.1\*.json" target="lib\netstandard2.1\" />
     </files>
 </package>
