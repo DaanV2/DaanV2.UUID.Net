@@ -99,8 +99,8 @@ namespace DaanV2.UUID {
             return new UUID(value);
         }
 
-        /// <summary>Auto converts the <see cref="Char[]"/> to a <see cref="UUID"/></summary>
-        /// <param name="Values">The <see cref="Char[]"/> to convert to <see cref="UUID"/>[]</param>
+        /// <summary>Auto converts the <see cref="Char"/>[] to a <see cref="UUID"/></summary>
+        /// <param name="Values">The <see cref="Char"/>[] to convert to <see cref="UUID"/>[]</param>
         public static implicit operator UUID(Char[] Values) {
             return new UUID(Values);
         }
