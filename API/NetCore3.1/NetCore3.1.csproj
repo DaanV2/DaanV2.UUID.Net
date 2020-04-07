@@ -5,11 +5,13 @@
     <RootNamespace>DaanV2.UUID</RootNamespace>
     <AssemblyName>DaanV2.UUID.Net</AssemblyName>
     <Platforms>AnyCPU;x64;x86</Platforms>
+    <AssemblyVersion>1.0.3.0</AssemblyVersion>
+    <FileVersion>1.0.3.0</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DefineConstants>TRACE;NETCORE</DefineConstants>
-    <DocumentationFile>D:\Mijn Projecten\Software\Git Hub\DaanV2.UUID.Net\API\NetCore3.1\DaanV2.UUID.Net.xml</DocumentationFile>
+    <DocumentationFile>DaanV2.UUID.Net.xml</DocumentationFile>
     <Optimize>true</Optimize>
     <DebugType>none</DebugType>
     <DebugSymbols>false</DebugSymbols>
@@ -17,7 +19,7 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
     <DefineConstants>TRACE;NETCORE</DefineConstants>
-    <DocumentationFile>D:\Mijn Projecten\Software\Git Hub\DaanV2.UUID.Net\API\NetCore3.1\DaanV2.UUID.Net.xml</DocumentationFile>
+    <DocumentationFile>DaanV2.UUID.Net.xml</DocumentationFile>
     <Optimize>true</Optimize>
     <DebugType>none</DebugType>
     <DebugSymbols>false</DebugSymbols>
@@ -25,7 +27,7 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <DefineConstants>TRACE;NETCORE</DefineConstants>
-    <DocumentationFile>D:\Mijn Projecten\Software\Git Hub\DaanV2.UUID.Net\API\NetCore3.1\DaanV2.UUID.Net.xml</DocumentationFile>
+    <DocumentationFile>DaanV2.UUID.Net.xml</DocumentationFile>
     <Optimize>true</Optimize>
     <DebugType>none</DebugType>
     <DebugSymbols>false</DebugSymbols>
@@ -33,19 +35,19 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DefineConstants>TRACE;NETCORE</DefineConstants>
-    <DocumentationFile>D:\Mijn Projecten\Software\Git Hub\DaanV2.UUID.Net\API\NetCore3.1\DaanV2.UUID.Net.xml</DocumentationFile>
+    <DocumentationFile>DaanV2.UUID.Net.xml</DocumentationFile>
     <Optimize>false</Optimize>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
     <DefineConstants>TRACE;NETCORE</DefineConstants>
-    <DocumentationFile>D:\Mijn Projecten\Software\Git Hub\DaanV2.UUID.Net\API\NetCore3.1\DaanV2.UUID.Net.xml</DocumentationFile>
+    <DocumentationFile>DaanV2.UUID.Net.xml</DocumentationFile>
     <Optimize>false</Optimize>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <DefineConstants>TRACE;NETCORE</DefineConstants>
-    <DocumentationFile>D:\Mijn Projecten\Software\Git Hub\DaanV2.UUID.Net\API\NetCore3.1\DaanV2.UUID.Net.xml</DocumentationFile>
+    <DocumentationFile>DaanV2.UUID.Net.xml</DocumentationFile>
     <Optimize>false</Optimize>
   </PropertyGroup>
 

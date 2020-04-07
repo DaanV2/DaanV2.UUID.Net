@@ -99,10 +99,22 @@ namespace DaanV2.UUID {
             return new UUID(value);
         }
 
-        /// <summary>Auto converts the <see cref="Char"/>[] to a <see cref="UUID"/></summary>
-        /// <param name="Values">The <see cref="Char"/>[] to convert to <see cref="UUID"/>[]</param>
+        /// <summary>Auto converts the <see cref="Char[]"/> to a <see cref="UUID"/></summary>
+        /// <param name="Values">The <see cref="Char[]"/> to convert to <see cref="UUID"/>[]</param>
         public static implicit operator UUID(Char[] Values) {
             return new UUID(Values);
+        }
+
+        /// <summary>Auto converts the <see cref="UUID"/> to a <see cref="Guid"/></summary>
+        /// <param name="Data">The <see cref="UUID"/> to convert</param>
+        public static implicit operator Guid(UUID Data) {
+            return new Guid(Data.ToString());
+        }
+
+        /// <summary>Auto converts the <see cref="Guid"/> to a <see cref="UUID"/></summary>
+        /// <param name="Data">The <see cref="Guid"/> to convert</param>
+        public static implicit operator UUID(Guid Data) {
+            return new UUID(Data.ToString());
         }
     }
 }

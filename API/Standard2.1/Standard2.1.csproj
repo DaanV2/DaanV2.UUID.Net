@@ -5,42 +5,44 @@
     <RootNamespace>DaanV2.UUID</RootNamespace>
     <AssemblyName>DaanV2.UUID.Net</AssemblyName>
     <Platforms>AnyCPU;x64;x86</Platforms>
+    <AssemblyVersion>1.0.3.0</AssemblyVersion>
+    <FileVersion>1.0.3.0</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <Optimize>true</Optimize>
-    <DocumentationFile>D:\Mijn Projecten\Software\Git Hub\DaanV2.UUID.Net\API\Standard2.1\DaanV2.UUID.Net.xml</DocumentationFile>
+    <DocumentationFile>DaanV2.UUID.Net.xml</DocumentationFile>
     <DebugType>none</DebugType>
     <DebugSymbols>false</DebugSymbols>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
     <Optimize>true</Optimize>
-    <DocumentationFile>D:\Mijn Projecten\Software\Git Hub\DaanV2.UUID.Net\API\Standard2.1\DaanV2.UUID.Net.xml</DocumentationFile>
+    <DocumentationFile>DaanV2.UUID.Net.xml</DocumentationFile>
     <DebugType>none</DebugType>
     <DebugSymbols>false</DebugSymbols>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Optimize>true</Optimize>
-    <DocumentationFile>D:\Mijn Projecten\Software\Git Hub\DaanV2.UUID.Net\API\Standard2.1\DaanV2.UUID.Net.xml</DocumentationFile>
+    <DocumentationFile>DaanV2.UUID.Net.xml</DocumentationFile>
     <DebugType>none</DebugType>
     <DebugSymbols>false</DebugSymbols>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <Optimize>false</Optimize>
-    <DocumentationFile>D:\Mijn Projecten\Software\Git Hub\DaanV2.UUID.Net\API\Standard2.1\DaanV2.UUID.Net.xml</DocumentationFile>
+    <DocumentationFile>DaanV2.UUID.Net.xml</DocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
     <Optimize>false</Optimize>
-    <DocumentationFile>D:\Mijn Projecten\Software\Git Hub\DaanV2.UUID.Net\API\Standard2.1\DaanV2.UUID.Net.xml</DocumentationFile>
+    <DocumentationFile>DaanV2.UUID.Net.xml</DocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Optimize>false</Optimize>
-    <DocumentationFile>D:\Mijn Projecten\Software\Git Hub\DaanV2.UUID.Net\API\Standard2.1\DaanV2.UUID.Net.xml</DocumentationFile>
+    <DocumentationFile>DaanV2.UUID.Net.xml</DocumentationFile>
   </PropertyGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">

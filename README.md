@@ -15,7 +15,7 @@ Provides a base class that can handle UUIDs as an object but also provides the g
 
 ### Implicit Casting
 
-This API contains pre-made casting methods that convert UUID to strings, char arrays or vice versa.
+This API contains pre-made casting methods that convert UUID to strings, guids, char arrays or vice versa.
 
 ## Usage Example
 

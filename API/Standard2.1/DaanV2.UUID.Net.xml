@@ -46,8 +46,16 @@
             <param name="value">The <see cref="T:System.String"/> to convert to <see cref="T:DaanV2.UUID.UUID"/>[]</param>
         </member>
         <member name="M:DaanV2.UUID.UUID.op_Implicit(System.Char[])~DaanV2.UUID.UUID">
-            <summary>Auto converts the <see cref="T:System.Char"/>[] to a <see cref="T:DaanV2.UUID.UUID"/></summary>
-            <param name="Values">The <see cref="T:System.Char"/>[] to convert to <see cref="T:DaanV2.UUID.UUID"/>[]</param>
+            <summary>Auto converts the <see cref="!:Char[]"/> to a <see cref="T:DaanV2.UUID.UUID"/></summary>
+            <param name="Values">The <see cref="!:Char[]"/> to convert to <see cref="T:DaanV2.UUID.UUID"/>[]</param>
+        </member>
+        <member name="M:DaanV2.UUID.UUID.op_Implicit(DaanV2.UUID.UUID)~System.Guid">
+            <summary>Auto converts the <see cref="T:DaanV2.UUID.UUID"/> to a <see cref="T:System.Guid"/></summary>
+            <param name="Data">The <see cref="T:DaanV2.UUID.UUID"/> to convert</param>
+        </member>
+        <member name="M:DaanV2.UUID.UUID.op_Implicit(System.Guid)~DaanV2.UUID.UUID">
+            <summary>Auto converts the <see cref="T:System.Guid"/> to a <see cref="T:DaanV2.UUID.UUID"/></summary>
+            <param name="Data">The <see cref="T:System.Guid"/> to convert</param>
         </member>
         <member name="M:DaanV2.UUID.UUID.GetVersion">
             <summary>Returns the version of this UUID</summary>
