@@ -3,7 +3,7 @@
     <metadata>
         <!-- Required elements-->
         <id>DaanV2.UUID.Net</id>
-        <version>1.0.3</version>
+        <version>1.0.4</version>
         <description>Provides a base class that can handle UUIDs as an object and generators/factory to generate version 3, 4 and 5. Compliant with rfc4122.</description>
         <authors>Daan Verstraten</authors>
 
