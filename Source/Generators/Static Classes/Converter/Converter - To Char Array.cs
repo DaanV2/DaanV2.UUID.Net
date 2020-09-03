@@ -21,47 +21,79 @@ namespace DaanV2.UUID.Generators {
         /// <summary>Converts a <see cref="Byte"/>[] to <see cref="Char"/>[] using hexidecimal. Size needs to be atleast 16</summary>
         /// <param name="Bytes">The <see cref="Byte"/>[] that need to be converted to <see cref="Char"/>[]. The size needs to be atleast 16 items</param>
         /// <returns>Converts a <see cref="Byte"/>[] to <see cref="Char"/>[] using hexidecimal. Size needs to be atleast 16</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Char[] ToCharArray(Byte[] Bytes) {
-            Char[] T = Converter._ToChars;
+            Char[] Out = new Char[36];
 
-            return new Char[]{
-                T[Bytes[0] >> 4],
-                T[Bytes[0] & 0b0000_1111],
-                T[Bytes[1] >> 4],
-                T[Bytes[1] & 0b0000_1111],
-                T[Bytes[2] >> 4],
-                T[Bytes[2] & 0b0000_1111],
-                T[Bytes[3] >> 4],
-                T[Bytes[3] & 0b0000_1111],
-                '-',
-                T[Bytes[4] >> 4],
-                T[Bytes[4] & 0b0000_1111],
-                T[Bytes[5] >> 4],
-                T[Bytes[5] & 0b0000_1111],
-                '-',
-                T[Bytes[6] >> 4],
-                T[Bytes[6] & 0b0000_1111],
-                T[Bytes[7] >> 4],
-                T[Bytes[7] & 0b0000_1111],
-                '-',
-                T[Bytes[8] >> 4],
-                T[Bytes[8] & 0b0000_1111],
-                T[Bytes[9] >> 4],
-                T[Bytes[9] & 0b0000_1111],
-                '-',
-                T[Bytes[10] >> 4],
-                T[Bytes[10] & 0b0000_1111],
-                T[Bytes[11] >> 4],
-                T[Bytes[11] & 0b0000_1111],
-                T[Bytes[12] >> 4],
-                T[Bytes[12] & 0b0000_1111],
-                T[Bytes[13] >> 4],
-                T[Bytes[13] & 0b0000_1111],
-                T[Bytes[14] >> 4],
-                T[Bytes[14] & 0b0000_1111],
-                T[Bytes[15] >> 4],
-                T[Bytes[15] & 0b0000_1111],
-            };
+            Int32 WriteIndex = 0;
+
+            for (Int32 I = 0; I < 16; I++) {
+                Byte Byte = Bytes[I];
+                Char Temp = (Char)(Byte >> 4);
+
+                if (Temp > 9) {
+                    Temp += (Char)('a' - 10);
+                }
+                else {
+                    Temp += '0';
+                }
+                Out[WriteIndex++] = Temp;
+
+                Temp = (Char)(Byte & 0b0000_1111);
+                if (Temp > 9) {
+                    Temp += (Char)('a' - 10);
+                }
+                else {
+                    Temp += '0';
+                }
+                Out[WriteIndex++] = Temp;
+
+                if (WriteIndex == 8 || WriteIndex == 13 || WriteIndex == 18 || WriteIndex == 23) {
+                    Out[WriteIndex++] = '-';
+                }
+            }
+
+            return Out;
+        }
+
+        /// <summary>Converts a <see cref="Byte"/>[] to <see cref="Char"/>[] using hexidecimal. Size needs to be atleast 16 + startindex</summary>
+        /// <param name="Bytes">The <see cref="Byte"/>[] that need to be converted to <see cref="Char"/>[]. The size needs to be atleast 16 items + startindex</param>
+        /// <param name="StartIndex">The index to start at in the byte array</param>
+        /// <returns>Converts a <see cref="Byte"/>[] to <see cref="Char"/>[] using hexidecimal. Size needs to be atleast 16</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Char[] ToCharArray(Byte[] Bytes, Int32 StartIndex) {
+            Char[] Out = new Char[36];
+
+            Int32 WriteIndex = 0;
+
+            Int32 Max = StartIndex + 16;
+            for (Int32 I = StartIndex; I < Max; I++) {
+                Byte Byte = Bytes[I];
+                Char Temp = (Char)(Byte >> 4);
+
+                if (Temp > 9) {
+                    Temp += (Char)('a' - 10);
+                }
+                else {
+                    Temp += '0';
+                }
+                Out[WriteIndex++] = Temp;
+
+                Temp = (Char)(Byte & 0b0000_1111);
+                if (Temp > 9) {
+                    Temp += (Char)('a' - 10);
+                }
+                else {
+                    Temp += '0';
+                }
+                Out[WriteIndex++] = Temp;
+
+                if (WriteIndex == 8 || WriteIndex == 13 || WriteIndex == 18 || WriteIndex == 23) {
+                    Out[WriteIndex++] = '-';
+                }
+            }
+
+            return Out;
         }
     }
 }

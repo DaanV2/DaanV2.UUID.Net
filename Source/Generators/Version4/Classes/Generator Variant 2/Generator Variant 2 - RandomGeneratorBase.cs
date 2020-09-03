@@ -55,9 +55,9 @@ namespace DaanV2.UUID.Generators.Version4 {
             }
 
             Max = Context.Length - 1;
+            Byte[] Bytes = new Byte[16];
 
             for (Int32 I = 0; I < Count; I++) {
-                Byte[] Bytes = new Byte[16];
                 this._NumberGenerator.NextBytes(Bytes);
 
                 //set version and variant

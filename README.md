@@ -1,6 +1,5 @@
 # UUID.Net
-
-Provides a base class that can handle UUIDs as an object but also provides the generators to generate version 3, 4 and 5.
+Provides a base class that can handle UUIDs as an object and generators/factory to generate version 3, 4 and 5. Compliant with rfc4122.
 
 **Table of Contents**
 - [UUID.Net](#uuidnet)
@@ -14,11 +13,9 @@ Provides a base class that can handle UUIDs as an object but also provides the g
   - [Performance](#performance)
 
 ### Implicit Casting
-
 This API contains pre-made casting methods that convert UUID to strings, guids, char arrays or vice versa.
 
 ## Usage Example
-
 Below are two examples of generating UUIDs and usage
 
 ### Generating UUIDs
@@ -55,5 +52,4 @@ UUID Out = GeneratorV4.Generate();
 |5 |1 |A UUID generated from a string using SHA1 hashing bits, 122 bits |Yes |String |
 
 ## Performance
-
 See [Performance](Documentation/Performance.md)

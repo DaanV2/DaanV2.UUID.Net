@@ -11,6 +11,7 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Classes\GeneratorTests\GeneratorTests.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Classes\NillTest\NillTest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Classes\UUIDTests\UUIDTests.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Classes\VersionTests\VersionTests - Casting.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Classes\VersionTests\VersionTests - Generic.cs" />
   </ItemGroup>

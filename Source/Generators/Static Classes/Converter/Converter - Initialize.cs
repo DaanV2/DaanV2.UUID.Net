@@ -19,15 +19,6 @@ namespace DaanV2.UUID.Generators {
     /// <summary>The class responsible for converting data</summary>
     public static partial class Converter {
         /// <summary>Creates a new instance of <see cref="Converter"/></summary>
-        static Converter() {
-            Converter._ToChars = new Char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
-            Converter._ToByte = new Byte[103, 103];
-
-            for (Int32 I = 0; I < Converter._ToChars.Length; I++) {
-                for (Int32 J = 0; J < Converter._ToChars.Length; J++) {
-                    Converter._ToByte[Converter._ToChars[I], Converter._ToChars[J]] = (Byte)((I << 4) | J);
-                }
-            }
-        }
+        static Converter() { }
     }
 }

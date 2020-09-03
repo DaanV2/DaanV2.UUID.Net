@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using DaanV2.UUID;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Test.UUID;
 
 namespace Unit_Test {
     public partial class VersionTests {
@@ -21,6 +23,7 @@ namespace Unit_Test {
                     CurVariant = Variants[VariantIndex];
 
                     UUID ID = UUIDFactory.CreateUUID(CurVersion, CurVariant);
+                    UUIDTests.ValidateUUID(ID);
                     String Temp = ID;
                     UUID New = Temp;
 

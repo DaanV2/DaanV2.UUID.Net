@@ -14,37 +14,55 @@ WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.*/
 using System;
+using System.Runtime.CompilerServices;
 
 namespace DaanV2.UUID.Generators {
     public static partial class Converter {
         /// <summary>Converts a <see cref="Char"/>[] to a <see cref="Byte"/>[] using hexadecimal</summary>
         /// <param name="Chars">The array to convert to <see cref="Byte"/>[], array needs to be 35 items</param>
         /// <returns>Converts a <see cref="Char"/>[] to a <see cref="Byte"/>[] using hexadecimal</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Byte[] ToBytes(Char[] Chars) {
-            Byte[,] T = Converter._ToByte;
+            Byte[] Data = new Byte[16];
+            Int32 WriteIndex = 0;
 
-            return new Byte[] {
-                T[Chars[0], Chars[1]],
-                T[Chars[2], Chars[3]],
-                T[Chars[4], Chars[5]],
-                T[Chars[6], Chars[7]],
+            const Char SubA = (Char)('a' - 10);
+            const Char Sub0 = '0';
+            const Byte Mask = 0b0000_1111;
 
-                T[Chars[9], Chars[10]],
-                T[Chars[11], Chars[12]],
+            for (Int32 I = 0; I < 35; I++) {
+                Char Char = Chars[I];
 
-                T[Chars[14], Chars[15]],
-                T[Chars[16], Chars[17]],
+                if (Char == '-') {
+                    I++;
+                    Char = Chars[I];
+                }
 
-                T[Chars[19], Chars[20]],
-                T[Chars[21], Chars[22]],
+                //Out[WriteIndex++] = (Char)((Byte >> 4) + '0');
+                Byte Byte;
+                if (Char >= 'a') {
+                    Char -= SubA;
+                    Byte = (Byte)(Char << 4);
+                }
+                else {
+                    Byte = (Byte)((Char - Sub0) << 4);
+                }
 
-                T[Chars[24], Chars[25]],
-                T[Chars[26], Chars[27]],
-                T[Chars[28], Chars[29]],
-                T[Chars[30], Chars[31]],
-                T[Chars[32], Chars[33]],
-                T[Chars[34], Chars[35]]
-            };
+                I++;
+                //Out[WriteIndex++] = (Char)((Byte & 0b0000_1111) + '0');
+                Char = Chars[I];
+                if (Char >= 'a') {
+                    Char -= SubA;
+                    Byte |= (Byte)(Char & Mask);
+                }
+                else {
+                    Byte |= (Byte)((Char - Sub0) & Mask);
+                }
+
+                Data[WriteIndex++] = Byte;
+            }
+
+            return Data;
         }
     }
 }

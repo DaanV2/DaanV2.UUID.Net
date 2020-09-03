@@ -103,6 +103,7 @@ namespace DaanV2.UUID.Generators.Version3 {
             if (Context == null || Context.Length == 0) {
                 Context = new Object[1];
             }
+
             Max = Context.Length - 1;
 
             for (Int32 I = 0; I < Count; I++) {

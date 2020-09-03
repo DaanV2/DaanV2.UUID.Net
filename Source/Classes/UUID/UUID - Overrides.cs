@@ -54,7 +54,7 @@ namespace DaanV2.UUID {
                 return false;
             }
 
-            return this == other;
+            return this._Chars == other._Chars;
         }
 
         /// <summary>Generates the hashcode for this <see cref="UUID"/></summary>

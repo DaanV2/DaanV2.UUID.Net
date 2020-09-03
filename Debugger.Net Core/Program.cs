@@ -14,12 +14,15 @@ WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.*/
 using System;
+using DaanV2.UUID;
 
 namespace Debugger.Net_Core {
     internal class Program {
         private static String _Folder = AppDomain.CurrentDomain.BaseDirectory;
 
         private static void Main(String[] args) {
+            UUID UUID = UUIDFactory.CreateUUID(4, 2);
+
             if (!_Folder.EndsWith("\\")) {
                 _Folder += "\\";
             }

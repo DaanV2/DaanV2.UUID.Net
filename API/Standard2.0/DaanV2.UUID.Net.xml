@@ -166,6 +166,12 @@
             <param name="Bytes">The <see cref="T:System.Byte"/>[] that need to be converted to <see cref="T:System.Char"/>[]. The size needs to be atleast 16 items</param>
             <returns>Converts a <see cref="T:System.Byte"/>[] to <see cref="T:System.Char"/>[] using hexidecimal. Size needs to be atleast 16</returns>
         </member>
+        <member name="M:DaanV2.UUID.Generators.Converter.ToCharArray(System.Byte[],System.Int32)">
+            <summary>Converts a <see cref="T:System.Byte"/>[] to <see cref="T:System.Char"/>[] using hexidecimal. Size needs to be atleast 16 + startindex</summary>
+            <param name="Bytes">The <see cref="T:System.Byte"/>[] that need to be converted to <see cref="T:System.Char"/>[]. The size needs to be atleast 16 items + startindex</param>
+            <param name="StartIndex">The index to start at in the byte array</param>
+            <returns>Converts a <see cref="T:System.Byte"/>[] to <see cref="T:System.Char"/>[] using hexidecimal. Size needs to be atleast 16</returns>
+        </member>
         <member name="M:DaanV2.UUID.Generators.Converter.ToBytes(System.Char[])">
             <summary>Converts a <see cref="T:System.Char"/>[] to a <see cref="T:System.Byte"/>[] using hexadecimal</summary>
             <param name="Chars">The array to convert to <see cref="T:System.Byte"/>[], array needs to be 35 items</param>
@@ -173,12 +179,6 @@
         </member>
         <member name="M:DaanV2.UUID.Generators.Converter.Load">
             <summary>Loads and construct this <see cref="T:DaanV2.UUID.Generators.Converter"/> if it is needed</summary>
-        </member>
-        <member name="F:DaanV2.UUID.Generators.Converter._ToChars">
-            <summary>An <see cref="T:System.Char"/>[] that can be used to convert <see cref="T:System.Byte"/> to <see cref="T:System.Char"/> using hexidecimal</summary>
-        </member>
-        <member name="F:DaanV2.UUID.Generators.Converter._ToByte">
-            <summary>An <see cref="T:System.Byte"/>[] that can be used to convert <see cref="T:System.Char"/> to <see cref="T:System.Byte"/> using hexidecimal</summary>
         </member>
         <member name="T:DaanV2.UUID.Generators.Version3.GeneratorVariant1">
             <summary>The UUID Generator Version 3, Variant 1</summary>
