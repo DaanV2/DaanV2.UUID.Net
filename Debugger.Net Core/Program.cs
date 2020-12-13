@@ -22,6 +22,7 @@ namespace Debugger.Net_Core {
 
         private static void Main(String[] args) {
             UUID UUID = UUIDFactory.CreateUUID(4, 2);
+            Byte[] Adress = DaanV2.UUID.Generators.Version1.Utillity.GetMacAddressBytes();
 
             if (!_Folder.EndsWith("\\")) {
                 _Folder += "\\";
