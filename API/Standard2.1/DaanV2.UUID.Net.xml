@@ -180,6 +180,32 @@
         <member name="M:DaanV2.UUID.Generators.Converter.Load">
             <summary>Loads and construct this <see cref="T:DaanV2.UUID.Generators.Converter"/> if it is needed</summary>
         </member>
+        <member name="T:DaanV2.UUID.Generators.Version1.GeneratorVariant1">
+            DOLATER <summary>add description for class: GeneratorVariant1</summary>
+        </member>
+        <member name="P:DaanV2.UUID.Generators.Version1.GeneratorVariant1.Version">
+            <summary></summary>
+        </member>
+        <member name="P:DaanV2.UUID.Generators.Version1.GeneratorVariant1.Variant">
+            <summary></summary>
+        </member>
+        <member name="P:DaanV2.UUID.Generators.Version1.GeneratorVariant1.NeedContext">
+            <summary></summary>
+        </member>
+        <member name="P:DaanV2.UUID.Generators.Version1.GeneratorVariant1.ContextType">
+            <summary></summary>
+        </member>
+        <member name="T:DaanV2.UUID.Generators.Version1.Utillity">
+            DOLATER <summary>add description for class: Utillity</summary>
+        </member>
+        <member name="M:DaanV2.UUID.Generators.Version1.Utillity.GetMacAddress">
+            <summary>Looks for the mac address of this instance</summary>
+            <returns>The mac address</returns>
+        </member>
+        <member name="M:DaanV2.UUID.Generators.Version1.Utillity.GetMacAddressBytes">
+            <summary>Looks for the mac address of this instance</summary>
+            <returns>The mac address</returns>
+        </member>
         <member name="T:DaanV2.UUID.Generators.Version3.GeneratorVariant1">
             <summary>The UUID Generator Version 3, Variant 1</summary>
         </member>
