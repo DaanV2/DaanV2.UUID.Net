@@ -28,7 +28,7 @@ namespace DaanV2.UUID.Generators.Version5 {
         public override Boolean NeedContext => true;
 
         /// <summary>Gets what type this <see cref="IUUIDGenerator"/> needs to generate a <see cref="UUID"/></summary>
-        public override Type ContextType { get => typeof(String); }
+        public override Type ContextType => typeof(String);
 
         /// <summary>Returns a new <see cref="UUID"/></summary>
         /// <param name="Context">The context needed to generate this UUID</param>
@@ -96,7 +96,7 @@ namespace DaanV2.UUID.Generators.Version5 {
         /// <param name="Context">The context needed to generate this UUIDs</param>
         /// <returns>Returns a new collection of <see cref="UUID"/></returns>
         public override UUID[] Generate(Int32 Count, Object[] Context = null) {
-            UUID[] Out = new UUID[Count];
+            var Out = new UUID[Count];
             Int32 Index = 0;
             Int32 Max;
 
@@ -122,7 +122,7 @@ namespace DaanV2.UUID.Generators.Version5 {
         /// <param name="encoding">The encoding to use for converting to bytes</param>
         /// <returns>Returns a new collection of <see cref="UUID"/></returns>
         public UUID[] Generate(Int32 Count, Encoding encoding, Object[] Context = null) {
-            UUID[] Out = new UUID[Count];
+            var Out = new UUID[Count];
             Int32 Index = 0;
             Int32 Max;
 

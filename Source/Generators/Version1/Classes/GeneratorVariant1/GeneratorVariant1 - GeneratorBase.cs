@@ -15,6 +15,11 @@ namespace DaanV2.UUID.Generators.Version1 {
         /// <summary></summary>
         public override Type ContextType => null;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Context"></param>
+        /// <returns></returns>
         public override UUID Generate(Object Context = null) {
             //Compute hash
             Byte[] Bytes = new Byte[16];
@@ -24,6 +29,7 @@ namespace DaanV2.UUID.Generators.Version1 {
 
             //Set mac address
             Byte[] MacAddress = Utillity.GetMacAddressBytes();
+
 
             if (MacAddress == null) {
                 MacAddress = new Byte[6];
@@ -40,9 +46,17 @@ namespace DaanV2.UUID.Generators.Version1 {
             Bytes[3] = Converted[3];
 
             //next 16 bites = time_mid
-            //next 16 bites = time_hi_version
+            Bytes[4] = Converted[4];
+            Bytes[5] = Converted[5];
+
+            //next 16 bites = time_hi_version = time_high | version
+            Bytes[4] = (Byte)(Converted[4] | 0x10L);
+            Bytes[5] = Converted[5];
+
             //next 8 bites = clock_seq_hi_variant 
             //last 48 bites mac address
+
+
 
             //set version and variant
             Bytes[6] = (Byte)((Bytes[6] & 0b0000_1111) | 0b0001_0000);
@@ -51,6 +65,12 @@ namespace DaanV2.UUID.Generators.Version1 {
             return new UUID(Converter.ToCharArray(Bytes));
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Count"></param>
+        /// <param name="Context"></param>
+        /// <returns></returns>
         public override UUID[] Generate(Int32 Count, Object[] Context = null) {
             throw new NotImplementedException();
         }

@@ -25,8 +25,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Generators\Static Classes\Converter\Converter - To Byte Array.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Generators\Static Classes\Converter\Converter - Load.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Generators\Static Classes\Converter\Converter - Variables.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Generators\Version1\Classes\GeneratorVariant1\GeneratorVariant1 - GeneratorBase.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Generators\Version1\Static Classes\Utillity\Utillity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Generators\Version3\Classes\Generator Variant 1\Generator Variant 1 - Variable.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Generators\Version3\Classes\Generator Variant 1\Generator Variant 1 - Properties.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Generators\Version3\Classes\Generator Variant 1\Generator Variant 1 - Initialize.cs" />

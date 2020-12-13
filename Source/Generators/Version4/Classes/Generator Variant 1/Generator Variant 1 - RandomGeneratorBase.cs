@@ -46,7 +46,7 @@ namespace DaanV2.UUID.Generators.Version4 {
         /// <param name="Context">The context needed to generate this UUIDs</param>
         /// <returns>Returns a new collection of <see cref="UUID"/></returns>
         public override UUID[] Generate(Int32 Count, Object[] Context = null) {
-            UUID[] Out = new UUID[Count];
+            var Out = new UUID[Count];
             Int32 Index = 0;
             Int32 Max;
 

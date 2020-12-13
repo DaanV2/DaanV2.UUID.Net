@@ -51,7 +51,7 @@ namespace DaanV2.UUID {
 
                     for (Int32 J = 0; J < JCount; J++) {
                         if (Interfaces[J] == typeof(IUUIDGenerator)) {
-                            IUUIDGenerator Generator = (IUUIDGenerator)Activator.CreateInstance(Current);
+                            var Generator = (IUUIDGenerator)Activator.CreateInstance(Current);
                             Add(Generator);
 
                             break;

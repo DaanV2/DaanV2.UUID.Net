@@ -5,8 +5,8 @@
     <RootNamespace>DaanV2.UUID</RootNamespace>
     <AssemblyName>DaanV2.UUID.Net</AssemblyName>
     <Platforms>AnyCPU;x64;x86</Platforms>
-    <AssemblyVersion>1.0.4.0</AssemblyVersion>
-    <FileVersion>1.0.4.0</FileVersion>
+    <AssemblyVersion>1.1.0.0</AssemblyVersion>
+    <FileVersion>1.1.0.0</FileVersion>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <Version>1.0.5</Version>
   </PropertyGroup>
