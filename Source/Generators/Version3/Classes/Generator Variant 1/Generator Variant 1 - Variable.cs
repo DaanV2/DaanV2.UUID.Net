@@ -15,7 +15,7 @@ ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.*/
 using System.Security.Cryptography;
 
-namespace DaanV2.UUID.Generators.Version3 {
+namespace DaanV2.UUID.Generators.V3 {
     public partial class GeneratorVariant1 {
         /// <summary>The hasher used to generate UUID</summary>
         private MD5 _Hasher;

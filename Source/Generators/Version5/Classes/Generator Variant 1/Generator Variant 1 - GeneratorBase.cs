@@ -16,7 +16,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.*/
 using System;
 using System.Text;
 
-namespace DaanV2.UUID.Generators.Version5 {
+namespace DaanV2.UUID.Generators.V5 {
     public partial class GeneratorVariant1 : GeneratorBase {
         /// <summary>Gets the version of the UUID generator</summary>
         public override Int32 Version => 5;

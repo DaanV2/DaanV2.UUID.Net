@@ -15,7 +15,7 @@ ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.*/
 using System.Security.Cryptography;
 
-namespace DaanV2.UUID.Generators.Version3 {
+namespace DaanV2.UUID.Generators.V3 {
     /// <summary>The UUID Generator Version 3, Variant 1</summary>
     public partial class GeneratorVariant1 {
         /// <summary>Creates a new instance of <see cref="GeneratorVariant1"/></summary>

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DaanV2.UUID.Generators.Version1 {
+namespace DaanV2.UUID.Generators.V1 {
     ///DOLATER <summary>add description for class: GeneratorVariant1</summary>
     public partial class GeneratorVariant1 : GeneratorBase {
         /// <summary></summary>
@@ -55,8 +55,6 @@ namespace DaanV2.UUID.Generators.Version1 {
 
             //next 8 bites = clock_seq_hi_variant 
             //last 48 bites mac address
-
-
 
             //set version and variant
             Bytes[6] = (Byte)((Bytes[6] & 0b0000_1111) | 0b0001_0000);

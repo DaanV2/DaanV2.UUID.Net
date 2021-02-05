@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net.NetworkInformation;
 
-namespace DaanV2.UUID.Generators.Version1 {
+namespace DaanV2.UUID.Generators.V1 {
     ///DOLATER <summary>add description for class: Utillity</summary>
     public static partial class Utillity {
         private static PhysicalAddress _Address = null;
