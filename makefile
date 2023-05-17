@@ -1,8 +1,11 @@
 
 
 
-test:
+restore:
+	dotnet restore
+
+test: restore
 	dotnet test --no-restore --verbosity normal
 
-build:
+build: restore
 	dotnet build --no-restore --verbosity normal
