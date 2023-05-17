@@ -15,7 +15,7 @@
         <tags>UUID UUID3 UUID4 UUID5 rfc4122 .Net GUID dotnet</tags>
         <repository type="git" url="https://github.com/DaanV2/DaanV2.UUID.Net.git" />
         <releaseNotes>Added Net5.0</releaseNotes>
-		<icon>images\icon.png</icon>
+        <icon>images\icon.png</icon>
         <dependencies>
             <group targetFramework=".NETCoreApp3.1" />
             <group targetFramework=".NETCore5.0" />

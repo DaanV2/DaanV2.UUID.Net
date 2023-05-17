@@ -6,17 +6,11 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{11DEC96A-31A7-414B-9858-86815C90CF13}"
 	ProjectSection(SolutionItems) = preProject
 		LICENSE.txt = LICENSE.txt
-		Performance.md = Performance.md
-		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{898452FA-EE0A-48F2-A101-055E150A8D03}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Debugger.Net Core", "Debugger.Net Core\Debugger.Net Core.csproj", "{248BA48A-4504-4CB3-97CA-918D0B250310}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{D323591A-620B-4526-9524-759A264CC403}"
-EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Source", "Source\Source.shproj", "{72DE337F-6F32-4E42-9CA3-3F4759275E1E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{50D6D6B9-BDF7-48FB-BF46-99E8AA696755}"
 EndProject
@@ -36,18 +30,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{248BA48A-4504-4CB3-97CA-918D0B250310}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{248BA48A-4504-4CB3-97CA-918D0B250310}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{248BA48A-4504-4CB3-97CA-918D0B250310}.Debug|x64.ActiveCfg = Debug|x64
-		{248BA48A-4504-4CB3-97CA-918D0B250310}.Debug|x64.Build.0 = Debug|x64
-		{248BA48A-4504-4CB3-97CA-918D0B250310}.Debug|x86.ActiveCfg = Debug|x86
-		{248BA48A-4504-4CB3-97CA-918D0B250310}.Debug|x86.Build.0 = Debug|x86
-		{248BA48A-4504-4CB3-97CA-918D0B250310}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{248BA48A-4504-4CB3-97CA-918D0B250310}.Release|Any CPU.Build.0 = Release|Any CPU
-		{248BA48A-4504-4CB3-97CA-918D0B250310}.Release|x64.ActiveCfg = Release|x64
-		{248BA48A-4504-4CB3-97CA-918D0B250310}.Release|x64.Build.0 = Release|x64
-		{248BA48A-4504-4CB3-97CA-918D0B250310}.Release|x86.ActiveCfg = Release|x86
-		{248BA48A-4504-4CB3-97CA-918D0B250310}.Release|x86.Build.0 = Release|x86
 		{6D0BED8D-E586-46CA-9CB0-DC67A0FF3DF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6D0BED8D-E586-46CA-9CB0-DC67A0FF3DF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D0BED8D-E586-46CA-9CB0-DC67A0FF3DF1}.Debug|x64.ActiveCfg = Debug|Any CPU
@@ -77,16 +59,10 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{248BA48A-4504-4CB3-97CA-918D0B250310} = {F2496212-7EE0-4494-A739-F4D824FCC4A1}
-		{72DE337F-6F32-4E42-9CA3-3F4759275E1E} = {50D6D6B9-BDF7-48FB-BF46-99E8AA696755}
 		{6D0BED8D-E586-46CA-9CB0-DC67A0FF3DF1} = {898452FA-EE0A-48F2-A101-055E150A8D03}
 		{A03DA89D-313B-406A-8116-479C5AA82D91} = {D323591A-620B-4526-9524-759A264CC403}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A1F15161-4DBA-4D04-9D21-9E7834457610}
-	EndGlobalSection
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		Source\Source.projitems*{248ba48a-4504-4cb3-97ca-918d0b250310}*SharedItemsImports = 5
-		Source\Source.projitems*{72de337f-6f32-4e42-9ca3-3f4759275e1e}*SharedItemsImports = 13
 	EndGlobalSection
 EndGlobal

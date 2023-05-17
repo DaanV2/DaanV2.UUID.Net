@@ -2,7 +2,7 @@
 
 [![.NET Unit test](https://github.com/DaanV2/DaanV2.UUID.Net/actions/workflows/dotnet-test.yml/badge.svg)](https://github.com/DaanV2/DaanV2.UUID.Net/actions/workflows/dotnet-test.yml)
 
-Provides a base class that can handle UUIDs as an object and generators/factory to generate version 3, 4 and 5. Compliant with rfc4122.
+Provides a base class that can handle UUIDs as an object and generators/factory to generate versions 3, 4 and 5. Compliant with rfc4122.
 
 **Table of Contents**
 - [UUID.Net](#uuidnet)
@@ -16,7 +16,7 @@ Provides a base class that can handle UUIDs as an object and generators/factory 
   - [Performance](#performance)
 
 ### Implicit Casting
-This API contains pre-made casting methods that convert UUID to strings, guids, char arrays or vice versa.
+This API contains pre-made casting methods that convert UUID to strings, GUIDs, char arrays or vice versa.
 
 ## Usage Example
 Below are two examples of generating UUIDs and usage

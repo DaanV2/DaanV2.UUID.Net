@@ -11,7 +11,7 @@ public static partial class Format {
 
         //Set version bits
         mask = Vector128.WithElement(mask, VERSION_BYTE_INDEX, (Byte)version.GetMask());
-        mask = Vector128.WithElement(mask, VARIANT_BYTE_INDEX, (Byte)variant.GetMask2());
+        mask = Vector128.WithElement(mask, VARIANT_BYTE_INDEX, (Byte)variant.GetMask());
 
         return mask;
     }
