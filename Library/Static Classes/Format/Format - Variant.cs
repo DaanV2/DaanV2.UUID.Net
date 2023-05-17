@@ -4,19 +4,26 @@ using System.Runtime.Intrinsics;
 namespace DaanV2.UUID;
 
 public static partial class Format {
+    /// <summary>The index of where the variant in located in a byte array</summary>
     public const Int32 VARIANT_BYTE_INDEX = 8;
 
+    /// <inheritdoc cref="GetVariant(Byte)"/>
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
     public static Variant GetVariant(ReadOnlySpan<Byte> data) {
         return GetVariant(data[VARIANT_BYTE_INDEX]);
     }
 
+    /// <inheritdoc cref="GetVariant(Byte)"/>
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
     public static Variant GetVariant<T>(Vector128<T> data)
         where T : struct {
         return GetVariant(Vector128.AsByte(data)[VARIANT_BYTE_INDEX]);
     }
 
+    /// <summary>Retrieves the variant from the given data</summary>
+    /// <param name="data">The data to retrieve the variant from</param>
+    /// <returns>The <see cref="Variant"/></returns>
+    /// <exception cref="ArgumentException">Thrown if the value has an invalid variant value</exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
     public static Variant GetVariant(Byte data) {
         // 0 x x.
@@ -37,9 +44,12 @@ public static partial class Format {
             return Variant.V3;
         }
 
-        return Variant.V0;
+        throw new ArgumentException($"Value is not a valid Variant value {data}", nameof(data));
     }
 
+    /// <summary>Returns a mask that allows to set/get this specific <see cref="Variant"/></summary>
+    /// <param name="variant">The variant to get the mask for</param>
+    /// <returns>A <see cref="UInt32"/> containing the mask</returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
     public static UInt32 GetMask(this Variant variant) {
         // 0 x x. 0 bits => 0b1000_0000
@@ -53,13 +63,14 @@ public static partial class Format {
             r = 3;
         }
 
+        //Shift a mask to the right and then & it with another to get the mask
         return ((UInt32)0b1111_0000_0000 >> r) & 0b1110_0000;
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="variant"></param>
+    /// <summary>Retrieves the <see cref="Variant"/> that fits the specific <see cref="Variant"/></summary>
+    /// <param name="variant">The value to convert</param>
+    /// <returns>A <see cref="Variant"/></returns>
+    /// <exception cref="ArgumentException">Throw if out of range</exception>
     public static Variant ToVariant(Int32 variant) {
         switch (variant) {
             case 0:
@@ -75,13 +86,11 @@ public static partial class Format {
         throw new ArgumentException($"Invalid variant {variant}", nameof(variant));
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="version"></param>
-    /// <returns></returns>
-    public static Int32 ToInt32(this Variant version) {
-        switch (version) {
+    /// <summary>Converts this variant to its <see cref="Int32"/> representation</summary>
+    /// <param name="variant">The variant to convert</param>
+    /// <returns>A <see cref="Int32"/></returns>
+    public static Int32 ToInt32(this Variant variant) {
+        switch (variant) {
             default:
             case Variant.V0:
                 return 0;

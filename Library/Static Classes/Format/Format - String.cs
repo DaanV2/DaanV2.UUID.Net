@@ -5,12 +5,14 @@ using System.Runtime.Intrinsics;
 namespace DaanV2.UUID;
 
 public static partial class Format {
-    public const Int32 UUID_STRING_LENGTH = 36;
-
+    /// <inheritdoc cref="ToString(Vector128{Byte})"/>
     public static String ToString(ReadOnlySpan<Byte> uuid) {
         return ToString(Vector128.Create(uuid));
     }
 
+    /// <summary>Converts the given byte data and outputs a UUID formatted string</summary>
+    /// <param name="uuid">The uuid as a byte collection to output as UUID</param>
+    /// <returns>A <see cref="String"/> formatted as UUID</returns>
     [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     public static String ToString(Vector128<Byte> uuid) {
         var _Lower4BitsMask = Vector128.Create((Byte)0b0000_1111);
@@ -50,18 +52,28 @@ public static partial class Format {
         return new String(characters);
     }
 
-
-    public static Vector128<Byte> Parse(String chars) {
-        return Parse(chars.AsSpan());
+    /// <summary>Tries to parse the given string to a <see cref="UUID"/> content</summary>
+    /// <param name="str">The string to parse</param>
+    /// <returns>A <see cref="Vector128{T}"/></returns>
+    /// <exception cref="ArgumentException">Throw if the string is not the proper length</exception>
+    public static Vector128<Byte> Parse(String str) {
+        return Parse(str.AsSpan());
     }
 
+    /// <summary>Tries to parse the given string to a <see cref="UUID"/> content</summary>
+    /// <param name="chars">The string to parse</param>
+    /// <returns>A <see cref="Vector128{T}"/></returns>
+    /// <exception cref="ArgumentException">Throw if the string is not the proper length</exception>
     [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     public static Vector128<Byte> Parse(ReadOnlySpan<Char> chars) {
         if (chars.Length < UUID_STRING_LENGTH) {
-            throw new ArgumentException("The length of the string is not 36", nameof(chars));
+            throw new ArgumentException($"The length of the string is not {chars}", nameof(chars));
         }
 
         //Upper 4 bits goes first in the string and lower 4 bits goes second in the string
+        //We create two vectors, one for the upper 4 bits and one for the lower 4 bits
+        //
+        //No need to init, all values will be overwritten
         Unsafe.SkipInit(out Vector128<Byte> upper);
         Unsafe.SkipInit(out Vector128<Byte> lower);
 

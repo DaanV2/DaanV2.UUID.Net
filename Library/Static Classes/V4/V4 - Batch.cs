@@ -18,7 +18,7 @@ public static partial class V4 {
     /// <returns></returns>
     public static UUID[] GenerateBatch(Int32 Amount, Random rnd) {
         Vector128<Byte> mask = Format.VersionVariantMaskNot(V4.Version, V4.Variant);
-        Vector128<Byte> overlay = Format.CreateVersionVariantOverlayer(V4.Version, V4.Variant);
+        Vector128<Byte> overlay = Format.VersionVariantOverlayer(V4.Version, V4.Variant);
 
         var uuids = new UUID[Amount];
         Span<Byte> bytes = stackalloc Byte[Format.UUID_BYTE_LENGTH];
@@ -38,7 +38,7 @@ public static partial class V4 {
     /// <returns></returns>
     public static UUID[] GenerateBatch(ReadOnlySpan<Byte> bytes) {
         Vector128<Byte> mask = Format.VersionVariantMaskNot(V4.Version, V4.Variant);
-        Vector128<Byte> overlay = Format.CreateVersionVariantOverlayer(V4.Version, V4.Variant);
+        Vector128<Byte> overlay = Format.VersionVariantOverlayer(V4.Version, V4.Variant);
 
         Int32 count = bytes.Length;
         Int32 amount = count / Format.UUID_BYTE_LENGTH;
@@ -61,7 +61,7 @@ public static partial class V4 {
     /// <returns></returns>
     public static UUID[] GenerateBatch(Int32 Amount, Func<Int32, Memory<Byte>> generateContents) {
         Vector128<Byte> mask = Format.VersionVariantMaskNot(V4.Version, V4.Variant);
-        Vector128<Byte> overlay = Format.CreateVersionVariantOverlayer(V4.Version, V4.Variant);
+        Vector128<Byte> overlay = Format.VersionVariantOverlayer(V4.Version, V4.Variant);
 
         var uuids = new UUID[Amount];
 

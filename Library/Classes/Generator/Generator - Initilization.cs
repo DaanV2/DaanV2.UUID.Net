@@ -11,6 +11,6 @@ public partial class Generator {
     /// <param name="variant">The variant to stamp</param>
     public Generator(Version version, Variant variant) {
         this._Mask = Format.VersionVariantMaskNot(version, variant);
-        this._Overlay = Format.CreateVersionVariantOverlayer(version, variant);
+        this._Overlay = Format.VersionVariantOverlayer(version, variant);
     }
 }
