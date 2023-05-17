@@ -1,4 +1,7 @@
 # UUID.Net
+
+[![.NET Unit test](https://github.com/DaanV2/DaanV2.UUID.Net/actions/workflows/dotnet-test.yml/badge.svg)](https://github.com/DaanV2/DaanV2.UUID.Net/actions/workflows/dotnet-test.yml)
+
 Provides a base class that can handle UUIDs as an object and generators/factory to generate version 3, 4 and 5. Compliant with rfc4122.
 
 **Table of Contents**
@@ -44,12 +47,12 @@ UUID Out = GeneratorV4.Generate();
 
 ## UUIDs Version
 
-|Version    |Variant    |Description    |Context Needed |Context Type   |
-|-----------|-----------|---------------|---------------|---------------|
-|3 |1 |A UUID generated from a string using MD5 hashing bits, 122 bits |Yes |String |
-|4 |1 |A random generated UUID of 122 bits |No |Int32 |
-|4 |2 |A random generated UUID of 121 bits |No |Int32 |
-|5 |1 |A UUID generated from a string using SHA1 hashing bits, 122 bits |Yes |String |
+| Version | Variant | Description                                                      | Context Needed | Context Type |
+| ------- | ------- | ---------------------------------------------------------------- | -------------- | ------------ |
+| 3       | 1       | A UUID generated from a string using MD5 hashing bits, 122 bits  | Yes            | String       |
+| 4       | 1       | A random generated UUID of 122 bits                              | No             | Int32        |
+| 4       | 2       | A random generated UUID of 121 bits                              | No             | Int32        |
+| 5       | 1       | A UUID generated from a string using SHA1 hashing bits, 122 bits | Yes            | String       |
 
 ## Performance
 See [Performance](Documentation/Performance.md)
