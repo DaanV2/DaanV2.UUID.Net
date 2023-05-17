@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>DaanV2.UUID.Net</AssemblyName>
+    <RootNamespace>DaanV2.UUID</RootNamespace>
+    <GenerateDocumentationFile>False</GenerateDocumentationFile>
+    <Title>DaanV2.UUID.Net</Title>
+    <Authors>DaanV2</Authors>
+    <Copyright>daanverstraten@hotmail.com</Copyright>
+  </PropertyGroup>
+
+</Project>
