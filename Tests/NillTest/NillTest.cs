@@ -3,7 +3,7 @@
 namespace Tests;
 
 public partial class ZeroTest {
-    [Fact(DisplayName ="UUID.Zero is really zero")]
+    [Fact(DisplayName = "UUID.Zero is really zero")]
     public void ZeroIsReallyZero() {
         UUID nil = UUID.Zero;
         String str = nil.ToString();

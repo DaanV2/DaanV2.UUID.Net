@@ -20,10 +20,10 @@ public static partial class Validator {
     /// <param name="value">The character to check</param>
     /// <returns>True or false depending on whenever or not its valid</returns>
     public static Boolean IsValidChar(Char value) {
-        if (value >= '0' && value <= '9') {
+        if (value is >= '0' and <= '9') {
             return true;
         }
-        if (value >= 'a' && value <= 'f') {
+        if (value is >= 'a' and <= 'f') {
             return true;
         }
         if (value == '-') {

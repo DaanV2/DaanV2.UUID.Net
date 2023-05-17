@@ -1,5 +1,4 @@
-﻿using System;
-using System.Runtime.CompilerServices;
+﻿using System.Runtime.CompilerServices;
 using System.Runtime.Intrinsics;
 
 namespace DaanV2.UUID;
@@ -24,7 +23,7 @@ public static partial class Format {
 
         upper = Vector128.Add(upper, _AddOverlay);
         lower = Vector128.Add(lower, _AddOverlay);
-        
+
         // UUID format: 00000000-0000-0000-0000-000000000000
         Span<Char> characters = stackalloc Char[UUID_STRING_LENGTH];
 
@@ -90,8 +89,8 @@ public static partial class Format {
                 I++;
                 continue;
             }
-            upper = Vector128.WithElement(upper, J,  FromChar(chars[I]));
-            lower = Vector128.WithElement(lower, J,  FromChar(chars[I + 1]));
+            upper = Vector128.WithElement(upper, J, FromChar(chars[I]));
+            lower = Vector128.WithElement(lower, J, FromChar(chars[I + 1]));
             J++;
             I += 2;
         }

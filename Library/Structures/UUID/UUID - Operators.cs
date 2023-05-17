@@ -1,6 +1,4 @@
-﻿using System.Runtime.Intrinsics;
-
-namespace DaanV2.UUID;
+﻿namespace DaanV2.UUID;
 
 public readonly partial struct UUID {
     /// <inheritdoc/>

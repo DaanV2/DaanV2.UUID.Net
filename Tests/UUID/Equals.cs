@@ -14,7 +14,8 @@ public sealed partial class UUIDtests {
             Assert.True(a == b);
             Assert.True(a.Equals(b));
             Assert.Equal(a.GetHashCode(), b.GetHashCode());
-        } else {
+        }
+        else {
             Assert.True(a != b);
             Assert.False(a.Equals(b));
             Assert.NotEqual(a.GetHashCode(), b.GetHashCode());
