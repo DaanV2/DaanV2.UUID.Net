@@ -10,7 +10,6 @@ public static partial class Format {
         return Create(version, variant, temp);
     }
 
-
     /// <inheritdoc cref="Create(Version,Variant,Vector128{Byte})"/>
     public static Vector128<Byte> Create(Version version, Variant variant, UInt64 e0, UInt64 e1) {
         Vector128<Byte> temp = Vector128.Create(e0, e1).AsByte();

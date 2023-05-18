@@ -14,7 +14,9 @@ public partial class Utillity {
         //And so on
         Int32 J = 0;
         for (Int32 I = 0; I < data.Length; I++) {
-            data[I] = (Byte)((J << 4) | (J + 1)); //Store first value in the upper 4 bits and second value in the lower 4 bits
+            Int32 upper = J;
+            Int32 lower = J + 1;
+            data[I] = (Byte)((upper << 4) | lower); //Store first value in the upper 4 bits and second value in the lower 4 bits
             J += 2;
         }
 

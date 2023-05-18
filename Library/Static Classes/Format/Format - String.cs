@@ -17,7 +17,7 @@ public static partial class Format {
         var _Lower4BitsMask = Vector128.Create((Byte)0b0000_1111);
         var _AddOverlay = Vector128.Create((Byte)'0');
 
-        //Upper 4 bits goes first in the string and lower 4 bits goes second in the string
+        //Upper 4 bits goes second in the string and lower 4 bits goes first in the string
         var upper = Vector128.ShiftRightLogical(uuid, 4);
         var lower = Vector128.BitwiseAnd(uuid, _Lower4BitsMask);
 

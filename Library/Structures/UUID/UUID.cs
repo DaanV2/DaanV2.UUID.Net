@@ -2,7 +2,8 @@
 
 namespace DaanV2.UUID;
 
-///DOLATER <summary>add description for struct: UUID</summary>
+
+/// <summary>An Unique Universal IDentifier, 128 bits of data</summary>
 public partial struct UUID {
     /// <summary>Creates a new instance of <see cref="UUID"/></summary>
     /// <param name="data">The bytes to set</param>
@@ -17,5 +18,11 @@ public partial struct UUID {
     /// <param name="data">The bytes to set</param>
     public UUID(Vector128<Byte> data) {
         this._Data = data;
+    }
+
+    /// <summary>Creates a new instance of <see cref="UUID"/></summary>
+    /// <param name="uuid">The uuid string to use</param>
+    public UUID(String uuid) {
+        this._Data = Format.Parse(uuid);
     }
 }

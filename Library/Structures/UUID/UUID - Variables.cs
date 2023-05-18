@@ -4,5 +4,5 @@ namespace DaanV2.UUID;
 
 public readonly partial struct UUID {
     /// <summary>The data field</summary>
-    private readonly Vector128<Byte> _Data;
+    internal readonly Vector128<Byte> _Data;
 }
