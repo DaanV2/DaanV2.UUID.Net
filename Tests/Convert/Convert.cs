@@ -14,14 +14,17 @@ public sealed partial class ConvertTest {
         Assert.Equal(g.ToString(), uuid);
         Assert.Equal(u.ToString(), uuid);
 
-        var c = DaanV2.UUID.Convert.ToUUID(g);
+        var c = UUID.From(g);
 
         Assert.Equal(u, c);
 
-        var d = DaanV2.UUID.Convert.ToGuid(u);
+        var d = u.ToGuid();
 
         Assert.Equal(d, g);
         Assert.Equal<UUID>(u, g);
         Assert.True(u == g);
+
+        var imp = (UUID)g;
+        Assert.Equal(imp, u);
     }
 }
