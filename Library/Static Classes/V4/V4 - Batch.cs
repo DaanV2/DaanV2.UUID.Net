@@ -17,16 +17,13 @@ public static partial class V4 {
     /// <param name="rnd"></param>
     /// <returns></returns>
     public static UUID[] GenerateBatch(Int32 Amount, Random rnd) {
-        Vector128<Byte> mask = Format.VersionVariantMaskNot(V4.Version, V4.Variant);
-        Vector128<Byte> overlay = Format.VersionVariantOverlayer(V4.Version, V4.Variant);
-
         var uuids = new UUID[Amount];
         Span<Byte> bytes = stackalloc Byte[Format.UUID_BYTE_LENGTH];
 
         for (Int32 I = 0; I < uuids.Length; I++) {
             rnd.NextBytes(bytes);
             var data = Vector128.Create<Byte>(bytes);
-            Vector128<Byte> uuid = Format.StampVersion(mask, overlay, data);
+            Vector128<Byte> uuid = Format.StampVersion(_VersionMask, _VersionOverlay, data);
             uuids[I] = new UUID(uuid);
         }
 
@@ -37,9 +34,6 @@ public static partial class V4 {
     /// <param name="bytes"></param>
     /// <returns></returns>
     public static UUID[] GenerateBatch(ReadOnlySpan<Byte> bytes) {
-        Vector128<Byte> mask = Format.VersionVariantMaskNot(V4.Version, V4.Variant);
-        Vector128<Byte> overlay = Format.VersionVariantOverlayer(V4.Version, V4.Variant);
-
         Int32 count = bytes.Length;
         Int32 amount = count / Format.UUID_BYTE_LENGTH;
         Int32 max = count - Format.UUID_BYTE_LENGTH;
@@ -47,7 +41,7 @@ public static partial class V4 {
 
         for (Int32 I = 0; I < max; I += Format.UUID_BYTE_LENGTH) {
             var data = Vector128.Create(bytes.Slice(I, Format.UUID_BYTE_LENGTH));
-            Vector128<Byte> uuid = Format.StampVersion(mask, overlay, data);
+            Vector128<Byte> uuid = Format.StampVersion(_VersionMask, _VersionOverlay, data);
             uuids[I] = new UUID(uuid);
         }
 
@@ -60,15 +54,12 @@ public static partial class V4 {
     /// <param name="rnd"></param>
     /// <returns></returns>
     public static UUID[] GenerateBatch(Int32 Amount, Func<Int32, Memory<Byte>> generateContents) {
-        Vector128<Byte> mask = Format.VersionVariantMaskNot(V4.Version, V4.Variant);
-        Vector128<Byte> overlay = Format.VersionVariantOverlayer(V4.Version, V4.Variant);
-
         var uuids = new UUID[Amount];
 
         for (Int32 I = 0; I < uuids.Length; I++) {
             Memory<Byte> bytes = generateContents(I);
             var data = Vector128.Create<Byte>(bytes.Span);
-            Vector128<Byte> uuid = Format.StampVersion(mask, overlay, data);
+            Vector128<Byte> uuid = Format.StampVersion(_VersionMask, _VersionOverlay, data);
             uuids[I] = new UUID(uuid);
         }
 

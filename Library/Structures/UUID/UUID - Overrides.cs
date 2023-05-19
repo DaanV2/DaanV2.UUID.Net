@@ -37,4 +37,8 @@ public readonly partial struct UUID : IEquatable<UUID> {
         Vector128<Byte> data = Format.Parse(uuid);
         return new UUID(data);
     }
+
+    public UUID Select() {
+        throw new NotImplementedException();
+    }
 }

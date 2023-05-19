@@ -34,7 +34,7 @@ public static partial class Format {
     /// <param name="data">The data to stamp the version & variant onto</param>
     /// <returns>Returns a <see cref="Vector128{T}"/></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    internal static Vector128<Byte> StampVersion(Vector128<Byte> versionMask, Vector128<Byte> versionOverlay, Vector128<Byte> data) {
+    public static Vector128<Byte> StampVersion(Vector128<Byte> versionMask, Vector128<Byte> versionOverlay, Vector128<Byte> data) {
         var result = Vector128.BitwiseAnd(data, versionMask);
         result = Vector128.BitwiseOr(result, versionOverlay);
         return result;

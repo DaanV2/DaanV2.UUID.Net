@@ -9,8 +9,14 @@ public partial struct UUID {
     }
 
     /// <summary>Implicitly casts a <see cref="Guid"/> to a <see cref="UUID"/></summary>
-    /// <param name="guid">The <see cref="GUID"/> to convert</param>
+    /// <param name="guid">The <see cref="Guid"/> to convert</param>
     public static implicit operator UUID(Guid guid) {
         return Convert.ToUUID(guid);
+    }
+
+    /// <summary>Implicitly casts a <see cref="UUID"/> to a <see cref="Guid"/></summary>
+    /// <param name="uuid">The <see cref="UUID"/> to convert</param>
+    public static implicit operator Guid(UUID uuid) {
+        return Convert.ToGuid(uuid);
     }
 }

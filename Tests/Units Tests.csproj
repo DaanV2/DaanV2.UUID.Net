@@ -26,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Library\Library.csproj" />
+    <ProjectReference Include="..\Library\DaanV2.UUID.Net.csproj" />
   </ItemGroup>
 
 </Project>

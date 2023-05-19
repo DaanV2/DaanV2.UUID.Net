@@ -29,7 +29,8 @@ public static partial class V4 {
     /// <param name="bytes"></param>
     /// <returns></returns>
     public static UUID Generate(ReadOnlySpan<Byte> bytes) {
-        Vector128<Byte> uuid = Format.Create(V4.Version, V4.Variant, bytes);
+        var data = Vector128.Create(bytes);
+        Vector128<Byte> uuid = Format.StampVersion(_VersionMask, _VersionOverlay, data);
         return new UUID(uuid);
     }
 
@@ -40,7 +41,8 @@ public static partial class V4 {
     /// <param name="e1"></param>
     /// <returns></returns>
     public static UUID Generate(UInt64 e0, UInt64 e1) {
-        Vector128<Byte> uuid = Format.Create(V4.Version, V4.Variant, e0, e1);
+        Vector128<Byte> data = Vector128.Create(e0, e1).AsByte();
+        Vector128<Byte> uuid = Format.StampVersion(_VersionMask, _VersionOverlay, data);
         return new UUID(uuid);
     }
 }

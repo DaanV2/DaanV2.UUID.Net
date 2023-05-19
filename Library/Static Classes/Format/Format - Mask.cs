@@ -5,7 +5,7 @@ namespace DaanV2.UUID;
 public static partial class Format {
     /// <summary>The mask to cut out the version & variant</summary>
     /// <returns>Returns a <see cref="Vector128{T}"/></returns>
-    internal static Vector128<Byte> VersionVariantMask(Version version, Variant variant) {
+    public static Vector128<Byte> VersionVariantMask(Version version, Variant variant) {
         Vector128<Byte> mask = Vector128<Byte>.Zero;
 
         //Set version & variants bits
@@ -17,7 +17,7 @@ public static partial class Format {
 
     /// <summary>The mask to cut out everything but the version or variant</summary>
     /// <returns>Returns a <see cref="Vector128{T}"/></returns>
-    internal static Vector128<Byte> VersionVariantMaskNot(Version version, Variant variant) {
+    public static Vector128<Byte> VersionVariantMaskNot(Version version, Variant variant) {
         return ~VersionVariantMask(version, variant);
     }
 
@@ -25,7 +25,7 @@ public static partial class Format {
     /// <param name="version">The version to set</param>
     /// <param name="variant">The variant to set</param>
     /// <returns>Returns a <see cref="Vector128{T}"/></returns>
-    internal static Vector128<Byte> VersionVariantOverlayer(Version version, Variant variant) {
+    public static Vector128<Byte> VersionVariantOverlayer(Version version, Variant variant) {
         Vector128<Byte> mask = Vector128<Byte>.Zero;
 
         //Set version bits

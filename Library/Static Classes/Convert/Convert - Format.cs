@@ -22,14 +22,10 @@ public static partial class Convert {
     }
 
     internal static void SwapBytes(Span<Byte> bytes) {
-        static void SwapByte(Span<Byte> bytes, Int32 I, Int32 J) {
-            (bytes[J], bytes[I]) = (bytes[I], bytes[J]);
-        }
-
         Int32 max = bytes.Length / 2;
         for (Int32 I = 0; I < max; I += 1) {
             Int32 J = bytes.Length - I - 1;
-            SwapByte(bytes, I, J);
+            (bytes[J], bytes[I]) = (bytes[I], bytes[J]);
         }
     }
 }

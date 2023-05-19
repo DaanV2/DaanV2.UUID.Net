@@ -1,18 +1,13 @@
 ﻿namespace DaanV2.UUID.Structures.Validator;
 ///DOLATER <summary>add description for class: Validator</summary>
-public static partial class Validator
-{
-    public static bool IsValid(string value)
-    {
-        if (value.Length != Format.UUID_STRING_LENGTH)
-        {
+public static partial class Validator {
+    public static Boolean IsValid(String value) {
+        if (value.Length != Format.UUID_STRING_LENGTH) {
             return false;
         }
 
-        for (int I = 0; I < value.Length; I++)
-        {
-            if (!IsValidChar(value[I]))
-            {
+        for (Int32 I = 0; I < value.Length; I++) {
+            if (!IsValidChar(value[I])) {
                 return false;
             }
         }
@@ -24,47 +19,38 @@ public static partial class Validator
     /// <summary>Checks whenever or not the given char is a valid UUID char</summary>
     /// <param name="value">The character to check</param>
     /// <returns>True or false depending on whenever or not its valid</returns>
-    public static bool IsValidChar(char value)
-    {
-        if (value is >= '0' and <= '9')
-        {
+    public static Boolean IsValidChar(Char value) {
+        if (value is >= '0' and <= '9') {
             return true;
         }
-        if (value is >= 'a' and <= 'f')
-        {
+        if (value is >= 'a' and <= 'f') {
             return true;
         }
-        if (value == '-')
-        {
+        if (value == '-') {
             return true;
         }
         return false;
     }
 
-    public static bool IsValid(UUID uuid)
-    {
+    public static Boolean IsValid(UUID uuid) {
         return IsValidVersionVariant(uuid.Version, uuid.Variant);
     }
 
-    public static bool IsValidVersionVariant(int version, int variant)
-    {
+    public static Boolean IsValidVersionVariant(Int32 version, Int32 variant) {
         var vers = Format.ToVersion(version);
         var vars = Format.ToVariant(variant);
 
         return IsValidVersionVariant(vers, vars);
     }
 
-    public static bool IsValidVersionVariant(Version version, Variant variant)
-    {
+    public static Boolean IsValidVersionVariant(Version version, Variant variant) {
         Version[] Values = Enum.GetValues<Version>();
-        if (!Values.Contains(version))
-        {
+        if (!Values.Contains(version)) {
             return false;
         }
 
         Variant[] Variants = Enum.GetValues<Variant>();
-        if (!Variants.Contains(variant))
-        {
+        if (!Variants.Contains(variant)) {
             return false;
         }
 
