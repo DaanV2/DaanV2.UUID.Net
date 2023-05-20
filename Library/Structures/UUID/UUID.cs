@@ -1,8 +1,10 @@
 ﻿using System.Runtime.Intrinsics;
+using System.Text.Json.Serialization;
 
 namespace DaanV2.UUID;
 
 /// <summary>An Unique Universal IDentifier, 128 bits of data</summary>
+[JsonConverter(typeof(UUIDJsonConverter))]
 public readonly partial struct UUID {
     /// <summary>Creates a new instance of <see cref="UUID"/></summary>
     /// <param name="data">The bytes to set</param>
