@@ -37,12 +37,23 @@ public static partial class Validator {
     }
 
     public static Boolean IsValidVersionVariant(Int32 version, Int32 variant) {
-        var vers = Format.ToVersion(version);
-        var vars = Format.ToVariant(variant);
+        Version vers;
+        Variant vars;
+        try {
+            vers = Format.ToVersion(version);
+            vars = Format.ToVariant(variant);
+        }
+        catch (Exception) {
+            return false;
+        }
 
         return IsValidVersionVariant(vers, vars);
     }
 
+    /// <summary></summary>
+    /// <param name="version"></param>
+    /// <param name="variant"></param>
+    /// <returns></returns>
     public static Boolean IsValidVersionVariant(Version version, Variant variant) {
         Version[] Values = Enum.GetValues<Version>();
         if (!Values.Contains(version)) {

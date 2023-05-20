@@ -2,7 +2,6 @@
 
 namespace DaanV2.UUID;
 
-
 /// <summary>An Unique Universal IDentifier, 128 bits of data</summary>
 public readonly partial struct UUID {
     /// <summary>Creates a new instance of <see cref="UUID"/></summary>
@@ -19,7 +18,6 @@ public readonly partial struct UUID {
     public UUID(Vector128<Byte> data) {
         this._Data = data;
     }
-
     /// <summary>Creates a new instance of <see cref="UUID"/></summary>
     /// <param name="uuid">The uuid string to use</param>
     public UUID(String uuid) {
