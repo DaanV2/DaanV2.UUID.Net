@@ -1,6 +1,6 @@
 ﻿namespace DaanV2.UUID;
 
-public partial struct UUID {
+public readonly partial struct UUID {
     /// <summary>Converts a <see cref="Guid"/> to <see cref="UUID"/></summary>
     /// <param name="guid">The <see cref="Guid"/> to convert to <see cref="UUID"/></param>
     /// <returns>Returns a <see cref="UUID"/></returns>

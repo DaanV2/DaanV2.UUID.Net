@@ -1,4 +1,5 @@
-﻿using DaanV2.UUID;
+﻿using System.Runtime.CompilerServices;
+using DaanV2.UUID;
 
 namespace Tests;
 public sealed partial class UUIDtests {

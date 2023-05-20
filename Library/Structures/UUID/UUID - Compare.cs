@@ -2,7 +2,7 @@
 
 namespace DaanV2.UUID;
 
-public partial struct UUID {
+public readonly partial struct UUID {
     /// <summary>
     /// 
     /// </summary>

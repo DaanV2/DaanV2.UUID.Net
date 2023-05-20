@@ -2,7 +2,7 @@
 
 namespace DaanV2.UUID;
 
-public partial struct UUID {
+public readonly partial struct UUID {
     /// <summary>Creates a new instance of <see cref="UUID"/> and applies version and variant information. Assumes the given data is RFC compliant</summary>
     /// <param name="version">The version to set</param>
     /// <param name="variant">The variant to set</param>
