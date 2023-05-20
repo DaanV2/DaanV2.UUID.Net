@@ -22,7 +22,7 @@ public sealed partial class ConvertTest {
 
         Assert.Equal(d, g);
         Assert.Equal<UUID>(u, g);
-        Assert.True(u == g);
+        Assert.True(u == (UUID)g);
 
         var imp = (UUID)g;
         Assert.Equal(imp, u);

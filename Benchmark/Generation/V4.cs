@@ -2,7 +2,7 @@
 using BenchmarkDotNet.Engines;
 using DaanV2.UUID;
 
-namespace Benchmark;
+namespace Benchmark.Generation;
 
 [MemoryDiagnoser]
 [SimpleJob(RunStrategy.Throughput, id: "Generating v4", iterationCount: 5, invocationCount: 50_000_000)]

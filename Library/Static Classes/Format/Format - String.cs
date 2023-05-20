@@ -4,6 +4,12 @@ using System.Runtime.Intrinsics;
 namespace DaanV2.UUID;
 
 public static partial class Format {
+    private static readonly Vector128<Byte> _Lower4BitsMask = Vector128.Create((Byte)0b0000_1111);
+    private static readonly Vector128<Byte> _AddOverlay = Vector128.Create((Byte)'0');
+    private static readonly Vector128<Byte> _9Vector = Vector128.Create((Byte)'9');
+    private static readonly Vector128<Byte> _9AOffsetVector = Vector128.Create((Byte)('a' - '9' - 1));
+
+
     /// <inheritdoc cref="ToString(Vector128{Byte})"/>
     public static String ToString(ReadOnlySpan<Byte> uuid) {
         return ToString(Vector128.Create(uuid));
@@ -14,37 +20,35 @@ public static partial class Format {
     /// <returns>A <see cref="String"/> formatted as UUID</returns>
     [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     public static String ToString(Vector128<Byte> uuid) {
-        var _Lower4BitsMask = Vector128.Create((Byte)0b0000_1111);
-        var _AddOverlay = Vector128.Create((Byte)'0');
+
+        static Vector128<Byte> RaiseNine(Vector128<Byte> data) {
+            //Each element becomes 0xff if it is greater than 9
+            var elementsGreatherThan = Vector128.GreaterThan(data, _9Vector);
+            var toAdd = Vector128.BitwiseAnd(elementsGreatherThan, _9AOffsetVector);
+            return Vector128.Add(data, toAdd);
+        }
 
         //Upper 4 bits goes second in the string and lower 4 bits goes first in the string
         var upper = Vector128.ShiftRightLogical(uuid, 4);
-        var lower = Vector128.BitwiseAnd(uuid, _Lower4BitsMask);
-
         upper = Vector128.Add(upper, _AddOverlay);
+        upper = RaiseNine(upper);
+
+        var lower = Vector128.BitwiseAnd(uuid, _Lower4BitsMask);
         lower = Vector128.Add(lower, _AddOverlay);
+        lower = RaiseNine(lower);
 
         // UUID format: 00000000-0000-0000-0000-000000000000
         Span<Char> characters = stackalloc Char[UUID_STRING_LENGTH];
 
-        static Char FromByte(Byte data) {
-            if (data > '9') {
-                return (Char)(data + ('a' - '9' - 1));
-            }
-            return (Char)(data);
-        }
-
         Int32 J = 0;
         for (Int32 I = 0; I < characters.Length;) {
             if (I is 8 or 13 or 18 or 23) {
-                characters[I] = '-';
-                I++;
+                characters[I++] = '-';
                 continue;
             }
 
-            characters[I] = FromByte(upper[J]);
-            characters[I + 1] = FromByte(lower[J]);
-            I += 2;
+            characters[I++] = (Char)upper[J];
+            characters[I++] = (Char)lower[J];
             J++;
         }
 
@@ -76,11 +80,11 @@ public static partial class Format {
         Unsafe.SkipInit(out Vector128<Byte> upper);
         Unsafe.SkipInit(out Vector128<Byte> lower);
 
-        static Byte FromChar(Char data) {
-            if (data > '9') {
-                return (Byte)(data - ('a' - '9' - 1));
-            }
-            return (Byte)(data);
+        static Vector128<Byte> LowerNine(Vector128<Byte> data) {
+            //Each element becomes 0xff if it is greater than 9
+            var elementsGreatherThan = Vector128.GreaterThan(data, _9Vector);
+            var toAdd = Vector128.BitwiseAnd(elementsGreatherThan, _9AOffsetVector);
+            return Vector128.Subtract(data, toAdd);
         }
 
         Int32 J = 0;
@@ -89,14 +93,15 @@ public static partial class Format {
                 I++;
                 continue;
             }
-            upper = Vector128.WithElement(upper, J, FromChar(chars[I]));
-            lower = Vector128.WithElement(lower, J, FromChar(chars[I + 1]));
+            upper = Vector128.WithElement(upper, J, (Byte)chars[I++]);
+            lower = Vector128.WithElement(lower, J, (Byte)chars[I++]);
             J++;
-            I += 2;
         }
 
-        var _AddOverlay = Vector128.Create((Byte)'0');
+        upper = LowerNine(upper);
         upper = Vector128.Subtract(upper, _AddOverlay);
+
+        lower = LowerNine(lower);
         lower = Vector128.Subtract(lower, _AddOverlay);
 
         upper = Vector128.ShiftLeft(upper, 4);
