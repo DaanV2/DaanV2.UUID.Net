@@ -10,9 +10,9 @@ Job=Version masking, as vector or just bytes?  InvocationCount=5000000  Iteratio
 RunStrategy=Throughput  
 
 ```
-|                                             Method |      Mean |     Error |    StdDev | Ratio | RatioSD | Allocated | Alloc Ratio |
-|--------------------------------------------------- |----------:|----------:|----------:|------:|--------:|----------:|------------:|
-|             &#39;Using Vector128 and constants values&#39; | 1.4262 ns | 0.0917 ns | 0.1788 ns |  0.31 |    0.04 |         - |          NA |
-|         &#39;Using Vector128 and using dynamic values&#39; | 1.3277 ns | 0.0418 ns | 0.0796 ns |  0.29 |    0.03 |         - |          NA |
-| &#39;Using Vector128 and using static masks &amp; overlay&#39; | 0.4122 ns | 0.0439 ns | 0.0836 ns |  0.09 |    0.02 |         - |          NA |
-|                  &#39;Using bytes and constant values&#39; | 4.6336 ns | 0.1411 ns | 0.2818 ns |  1.00 |    0.00 |         - |          NA |
+|                                             Method |     Mean |     Error |    StdDev | Ratio | RatioSD | Allocated | Alloc Ratio |
+|--------------------------------------------------- |---------:|----------:|----------:|------:|--------:|----------:|------------:|
+|             &#39;Using Vector128 and constants values&#39; | 1.756 ns | 0.0806 ns | 0.1514 ns |  0.37 |    0.04 |         - |          NA |
+|         &#39;Using Vector128 and using dynamic values&#39; | 1.527 ns | 0.1242 ns | 0.2451 ns |  0.32 |    0.06 |         - |          NA |
+| &#39;Using Vector128 and using static masks &amp; overlay&#39; | 1.104 ns | 0.0669 ns | 0.1206 ns |  0.23 |    0.03 |         - |          NA |
+|                  &#39;Using bytes and constant values&#39; | 4.785 ns | 0.1532 ns | 0.2988 ns |  1.00 |    0.00 |         - |          NA |

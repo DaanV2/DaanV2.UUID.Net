@@ -10,9 +10,9 @@ Job=Generating v4  InvocationCount=50000000  IterationCount=5
 RunStrategy=Throughput  
 
 ```
-|                                       Method |      Mean |     Error |    StdDev | Ratio | RatioSD | Allocated | Alloc Ratio |
-|--------------------------------------------- |----------:|----------:|----------:|------:|--------:|----------:|------------:|
-|        &#39;Generating UUID v4, standard method&#39; | 11.750 ns | 1.0267 ns | 0.2666 ns |  0.17 |    0.00 |         - |          NA |
-| &#39;Generating UUID v4, with a supplied random&#39; |  9.106 ns | 1.3929 ns | 0.3617 ns |  0.14 |    0.00 |         - |          NA |
-|                &#39;Generating GUID with a UUID&#39; | 25.594 ns | 4.5708 ns | 1.1870 ns |  0.38 |    0.02 |         - |          NA |
-|           &#39;Generating Guid, standard method&#39; | 67.123 ns | 0.5460 ns | 0.0845 ns |  1.00 |    0.00 |         - |          NA |
+|                            Method |      Mean |     Error |    StdDev | Ratio | RatioSD | Allocated | Alloc Ratio |
+|---------------------------------- |----------:|----------:|----------:|------:|--------:|----------:|------------:|
+|        &#39;UUID v4, standard method&#39; | 12.920 ns |  1.848 ns | 0.4800 ns |  0.16 |    0.02 |         - |          NA |
+| &#39;UUID v4, with a supplied random&#39; |  9.216 ns |  1.908 ns | 0.2952 ns |  0.11 |    0.01 |         - |          NA |
+|                &#39;GUID with a UUID&#39; | 31.582 ns | 18.131 ns | 4.7086 ns |  0.39 |    0.05 |         - |          NA |
+|           &#39;Guid, standard method&#39; | 81.254 ns | 26.107 ns | 6.7798 ns |  1.00 |    0.00 |         - |          NA |
