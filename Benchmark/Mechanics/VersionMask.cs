@@ -65,12 +65,12 @@ public partial class VersionMask {
 
         UInt32 maskVer = Version.V4.GetMask();
         Byte b = data[Format.VERSION_BYTE_INDEX];
-        b = (Byte)(b & maskVer | (UInt32)Version.V4);
+        b = (Byte)((b & maskVer) | (UInt32)Version.V4);
         data[Format.VERSION_BYTE_INDEX] = b;
 
         UInt32 maskVar = Variant.V1.GetMask();
         b = data[Format.VARIANT_BYTE_INDEX];
-        b = (Byte)(b & maskVar | (UInt32)Variant.V1);
+        b = (Byte)((b & maskVar) | (UInt32)Variant.V1);
         data[Format.VARIANT_BYTE_INDEX] = b;
 
         return new UUID(data);
