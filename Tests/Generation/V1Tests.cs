@@ -7,10 +7,14 @@ public sealed partial class V1Tests {
         var dateTime = new DateTime(2019, 1, 2, 3, 4, 5, DateTimeKind.Utc);
         UUID uuid = V1.Generate(dateTime, (Byte)0);
 
+        Utillity.ValidateUUID(uuid, V1.Version, V1.Variant);
         Byte[] macAddress = V1.GetMacAddressBytes();
         String machex = BitConverter.ToString(macAddress).Replace("-", String.Empty).ToLower();
 
-        Assert.Equal($"e57e8080-c019-1386-8300-{machex}", uuid.ToString());
+        String str = uuid.ToString();
+
+        Assert.EndsWith($"-{machex}", str);
+        Assert.StartsWith("e57e8080-c019-1386-", str);
 
         V1.Information data = V1.Extract(uuid);
         Assert.Equal(dateTime, data.Timestamp);

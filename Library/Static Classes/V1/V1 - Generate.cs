@@ -20,7 +20,7 @@ public static partial class V1 {
     }
 
     [MethodImpl(MethodImplOptions.AggressiveOptimization)]
-    public static UUID Generate(DateTime timestamp, Byte Nanoseconds) {
+    public static UUID Generate(DateTime timestamp, UInt16 Nanoseconds) {
         return Generate(timestamp, Nanoseconds, V1.GetMacAddressBytes());
     }
 

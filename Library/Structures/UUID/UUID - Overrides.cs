@@ -13,7 +13,7 @@ public readonly partial struct UUID : IEquatable<UUID> {
     /// <inheritdoc/>
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
     public Boolean Equals(UUID other) {
-        return Vector128.Equals(this, other);
+        return Vector128.EqualsAll<Byte>(this._Data, other._Data);
     }
 
     /// <inheritdoc/>
