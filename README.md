@@ -2,7 +2,7 @@
 
 [![.NET Unit test](https://github.com/DaanV2/DaanV2.UUID.Net/actions/workflows/dotnet-test.yml/badge.svg)](https://github.com/DaanV2/DaanV2.UUID.Net/actions/workflows/dotnet-test.yml)
 
-A library that provides a way to handle, generate UUIDs. Convert them to and from strings, GUIDs, and the like. 
+A library that provides a way to handle, and generate UUIDs. Convert them to and from strings, GUIDs, and the like. 
 The library is written to be fast and efficient when comparing, generating or other handling operations. But still, comply with the RFC 4122 standard.
 
 Also has support for JSON serialization and deserialization.
@@ -24,7 +24,7 @@ Also has support for JSON serialization and deserialization.
 
 
 ## Benchmarks
-See [Benchmark reports](./Benchmark/Reports/Reports.md)
+See [Benchmark reports](./Benchmark/Reports/results/README.md)
 
 ## Usage Example
 Below are two examples of generating UUIDs and usage

@@ -2,16 +2,10 @@
 using BenchmarkDotNet.Engines;
 using DaanV2.UUID;
 
-namespace Benchmark;
+namespace Benchmark.Dictionary;
 
-public class DictonaryTestClass {
-    public String Data1 { get; set; }
-    public String Data2 { get; set; }
-    public String Data3 { get; set; }
-}
-
-[SimpleJob(RunStrategy.Throughput, id: "Dictionary", warmupCount: 10)]
-public partial class DictionaryTest {
+[SimpleJob(RunStrategy.Throughput, id: "Retrieve from dictionary", warmupCount: 10)]
+public class RetrieveTest {
     private const Int32 _Amount = 10_000;
 
     public Dictionary<UUID, DictonaryTestClass> DictUUID { get; set; } = new(_Amount, null);
@@ -50,7 +44,7 @@ public partial class DictionaryTest {
         }
     }
 
-    [Benchmark(Description = "Retrieving Guid from the dictionary")]
+    [Benchmark(Description = "Guid")]
     public Int32 Guid() {
         Int32 Count = 0;
 
@@ -64,7 +58,7 @@ public partial class DictionaryTest {
         return Count;
     }
 
-    [Benchmark(Description = "Retrieving UUID from the dictionary")]
+    [Benchmark(Description = "UUID")]
     public Int32 UUID() {
         Int32 Count = 0;
 
@@ -78,7 +72,7 @@ public partial class DictionaryTest {
         return Count;
     }
 
-    [Benchmark(Description = "Retrieving String UUID from the dictionary", Baseline = true)]
+    [Benchmark(Description = "String UUID", Baseline = true)]
     public Int32 StringUUID() {
         Int32 Count = 0;
 

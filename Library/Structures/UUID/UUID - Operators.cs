@@ -8,7 +8,7 @@ public readonly partial struct UUID {
     /// <param name="right"></param>
     /// <returns></returns>
     public static Boolean operator ==(UUID left, UUID right) {
-        return left._Data == right._Data;
+        return left.Equals(right);
     }
 
     /// <summary>
