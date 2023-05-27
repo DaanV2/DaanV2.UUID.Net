@@ -21,7 +21,7 @@ public partial class VersionMask {
     public static Vector128<Byte> versionMask = Format.VersionVariantMaskNot(Version.V4, Variant.V1);
     public static Vector128<Byte> versionOverlay = Format.VersionVariantOverlayer(Version.V4, Variant.V1);
 
-    public required Byte[] Data { get; set; }
+    public Byte[] Data { get; set; }
     public Version Ver { get; set; }
     public Variant Var { get; set; }
 
