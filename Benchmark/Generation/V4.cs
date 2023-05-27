@@ -14,22 +14,22 @@ public partial class GenerationV4 {
         this.R = new Random();
     }
 
-    [Benchmark(Description = "Generating UUID v4, standard method")]
+    [Benchmark(Description = "UUID v4, standard method")]
     public UUID UUID() {
         return V4.Generate();
     }
 
-    [Benchmark(Description = "Generating UUID v4, with a supplied random")]
+    [Benchmark(Description = "UUID v4, with a supplied random")]
     public UUID UUIDRandom() {
         return V4.Generate(this.R);
     }
 
-    [Benchmark(Description = "Generating GUID with a UUID")]
+    [Benchmark(Description = "GUID with a UUID")]
     public Guid UUIDToGuid() {
         return V4.Generate(this.R).ToGuid();
     }
 
-    [Benchmark(Baseline = true, Description = "Generating Guid, standard method")]
+    [Benchmark(Baseline = true, Description = "Guid, standard method")]
     public Guid GUIDs() {
         return Guid.NewGuid();
     }
@@ -63,24 +63,32 @@ public partial class GenerationBatchV4 {
     [Params(10, 100, 500, 1000, 10000, 1000_000)]
     public Int32 Amount { get; set; }
 
-    [Benchmark(Description = "Generating a batch of UUID V4, Using the global randomizer")]
+    [Benchmark(Description = "UUID V4, Using the global randomizer")]
     public UUID[] UUIDs() {
         return V4.GenerateBatch(this.Amount);
     }
 
-    [Benchmark(Description = "Generating a batch of UUID V4, Using a local randomizer")]
+    [Benchmark(Description = "UUID V4, Using a local randomizer")]
     public UUID[] UUIDsRandom() {
         var R = new Random();
         return V4.GenerateBatch(this.Amount, R);
     }
 
-    [Benchmark(Description = "Generating a batch of GUID using UUIDS V4, Using a local randomizer")]
+    [Benchmark(Description = "UUID V4, Using a supplied byte array")]
+    public UUID[] UUIDsMac() {
+        var R = new Random();
+        Byte[] bytes = new Byte[Format.UUID_BYTE_LENGTH * this.Amount];
+
+        return V4.GenerateBatch(bytes);
+    }
+
+    [Benchmark(Description = "GUID using UUIDS V4, Using a local randomizer")]
     public Guid[] UUIDsToGuid() {
         var R = new Random();
         return V4.GenerateBatch(this.Amount, R).Select(m => m.ToGuid()).ToArray();
     }
 
-    [Benchmark(Baseline = true, Description = "Generating a batch of UUID V4")]
+    [Benchmark(Baseline = true, Description = "GUID")]
     public Guid[] GUIDs() {
         var result = new Guid[this.Amount];
 
@@ -104,7 +112,7 @@ public partial class StringBatchGenerationV4 {
         this.R = new Random();
     }
 
-    [Benchmark(Description = "Generating UUID v4, standard method")]
+    [Benchmark(Description = "UUID v4")]
     public String[] UUID() {
         Random R = this.R;
         String[] result = new String[this.Amount];
@@ -116,7 +124,7 @@ public partial class StringBatchGenerationV4 {
         return result;
     }
 
-    [Benchmark(Baseline = true, Description = "Generating Guid, standard method")]
+    [Benchmark(Baseline = true, Description = "Guid")]
     public String[] GUIDs() {
         String[] result = new String[this.Amount];
 
