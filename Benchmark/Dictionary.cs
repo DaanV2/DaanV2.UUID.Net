@@ -18,9 +18,9 @@ public partial class DictionaryTest {
     public Dictionary<Guid, DictonaryTestClass> DictGUID { get; set; } = new(_Amount, null);
     public Dictionary<String, DictonaryTestClass> DictString { get; set; } = new(_Amount, null);
 
-    public UUID[] UUIDs { get; set; } = new UUID[] { };
-    public Guid[] Guids { get; set; } = new Guid[] { };
-    public String[] Strings { get; set; } = new String[] { };
+    public UUID[] UUIDs { get; set; } = Array.Empty<UUID>();
+    public Guid[] Guids { get; set; } = Array.Empty<Guid>();
+    public String[] Strings { get; set; } = Array.Empty<String>();
 
 
     [GlobalSetup]

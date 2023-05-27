@@ -10,12 +10,12 @@ public partial class ArrayTest {
     [Params(10, 100, 1000, 2000, 5000)]
     public Int32 Amount { get; set; }
 
-    public UUID[] UUIDs { get; set; } = new UUID[] { };
-    public UUID[] UUIDs2 { get; set; } = new UUID[] { };
-    public Guid[] Guids { get; set; } = new Guid[] { };
-    public Guid[] Guids2 { get; set; } = new Guid[] { };
-    public String[] Strings { get; set; } = new String[] { };
-    public String[] Strings2 { get; set; } = new String[] { };
+    public UUID[] UUIDs { get; set; } = Array.Empty<UUID>();
+    public UUID[] UUIDs2 { get; set; } = Array.Empty<UUID>();
+    public Guid[] Guids { get; set; } = Array.Empty<Guid>();
+    public Guid[] Guids2 { get; set; } = Array.Empty<Guid>();
+    public String[] Strings { get; set; } = Array.Empty<String>();
+    public String[] Strings2 { get; set; } = Array.Empty<String>();
 
     [IterationSetup]
     public void Setup() {
