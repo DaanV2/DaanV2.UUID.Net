@@ -34,7 +34,7 @@ public sealed partial class JsonSerializationTest {
 
         TestClass? data2 = JsonSerializer.Deserialize<TestClass>(jsonString);
 
-        Assert.Equal(data.ID, data2.ID);
+        Assert.Equal(data.ID, data2?.ID);
     }
 
 }
