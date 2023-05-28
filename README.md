@@ -14,6 +14,7 @@ Also has support for JSON serialization and deserialization.
   - [Benchmarks](#benchmarks)
   - [Usage Example](#usage-example)
     - [Generating UUIDs](#generating-uuids)
+    - [Creating UUIDs](#creating-uuids)
 
 ## UUIDs Version
 
@@ -42,4 +43,19 @@ uuid = DaanV2.UUID.V1.Generate();
 
 //Batch of UUIDs
 var uuids = DaanV2.UUID.V4.Batch(1000);
+
+//Chunk an byte array into UUIDs
+Byte[] data = ...
+var uuids = DaanV2.UUID.V4.Batch(data);
+```
+
+### Creating UUIDs
+In case you want to provide your own data to generate a UUID, you can use the `DaanV2.UUID.UUID` class.
+This will stamp the UUID with the provided data, and use the provided data to generate the UUID.
+
+```csharp
+using DaanV2.UUID;
+
+Byte[] data = ...
+var uuid = UUID.Create(Version.V4, Variant.V1, data)
 ```
