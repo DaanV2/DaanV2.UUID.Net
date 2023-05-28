@@ -1,6 +1,11 @@
 ﻿namespace DaanV2.UUID.Structures.Validator;
 ///DOLATER <summary>add description for class: Validator</summary>
 public static partial class Validator {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="value"></param>
+    /// <returns></returns>
     public static Boolean IsValid(String value) {
         if (value.Length != Format.UUID_STRING_LENGTH) {
             return false;
@@ -32,10 +37,21 @@ public static partial class Validator {
         return false;
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="uuid"></param>
+    /// <returns></returns>
     public static Boolean IsValid(UUID uuid) {
         return IsValidVersionVariant(uuid.Version, uuid.Variant);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="version"></param>
+    /// <param name="variant"></param>
+    /// <returns></returns>
     public static Boolean IsValidVersionVariant(Int32 version, Int32 variant) {
         Version vers;
         Variant vars;

@@ -75,9 +75,10 @@ public partial class GenerationBatchV4 {
     }
 
     [Benchmark(Description = "UUID V4, Using a supplied byte array")]
-    public UUID[] UUIDsMac() {
+    public UUID[] UUIDsArray() {
         var R = new Random();
         Byte[] bytes = new Byte[Format.UUID_BYTE_LENGTH * this.Amount];
+        R.NextBytes(bytes);
 
         return V4.GenerateBatch(bytes);
     }

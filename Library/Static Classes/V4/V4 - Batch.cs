@@ -1,7 +1,7 @@
 ﻿using System.Runtime.Intrinsics;
 
 namespace DaanV2.UUID;
-/// <summary>The class that makes version 4</summary>
+
 public static partial class V4 {
     /// <summary>
     /// 
@@ -51,9 +51,7 @@ public static partial class V4 {
         return uuids;
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /// <summary>Turns </summary>
     /// <param name="rnd"></param>
     /// <returns></returns>
     public static UUID[] GenerateBatch(Int32 Amount, Func<Int32, Memory<Byte>> generateContents) {

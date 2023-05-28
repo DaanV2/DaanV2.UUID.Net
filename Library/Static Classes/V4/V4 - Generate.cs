@@ -1,7 +1,7 @@
 ﻿using System.Runtime.Intrinsics;
 
 namespace DaanV2.UUID;
-/// <summary>The class that makes version 4</summary>
+
 public static partial class V4 {
     /// <summary>
     /// 

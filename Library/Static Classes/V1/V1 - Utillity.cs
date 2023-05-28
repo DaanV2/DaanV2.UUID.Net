@@ -3,11 +3,6 @@
 namespace DaanV2.UUID;
 
 public static partial class V1 {
-    static V1() {
-        _EmptyMacAddress = new Byte[6];
-        Random.Shared.NextBytes(_EmptyMacAddress);
-    }
-
     private static readonly Byte[] _EmptyMacAddress = new Byte[6];
     private static PhysicalAddress? _Address = null;
     private static Byte[]? _AddressBytes = null;

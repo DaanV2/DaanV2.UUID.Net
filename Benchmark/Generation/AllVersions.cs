@@ -14,7 +14,7 @@ public partial class AllVersions {
 
     [Benchmark(Description = "V4")]
     public UUID V4() {
-        return DaanV2.UUID.V4.Generate();
+        return DaanV2.UUID.V5.Generate();
     }
 
     [Benchmark(Baseline = true, Description = "GUID")]
@@ -36,7 +36,7 @@ public partial class BatchAllVersions {
 
     [Benchmark(Description = "V4")]
     public UUID[] V4() {
-        return DaanV2.UUID.V4.GenerateBatch(this.Amount);
+        return DaanV2.UUID.V5.GenerateBatch(this.Amount);
     }
 
     [Benchmark(Baseline = true, Description = "GUID")]
