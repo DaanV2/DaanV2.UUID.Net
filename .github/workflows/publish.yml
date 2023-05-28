@@ -44,4 +44,6 @@ jobs:
         run: dotnet pack --configuration Release Library
 
       - name: 🚚 Publish the package to GPR
-        run: dotnet nuget push DaanV2.UUID.Net/Library/bin/Release/*.nupkg
+        run: |
+          cd ${{ github.workspace }}Library/bin/Release/
+          dotnet nuget push *.nupkg
