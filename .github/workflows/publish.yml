@@ -1,4 +1,4 @@
-name: .NET 📋 Unit test
+name: 📦 Nuget Release
 
 on:
   release:
@@ -6,7 +6,7 @@ on:
   workflow_dispatch: {}
 
 concurrency:
-  group: ${{ github.ref }}
+  group: publish-${{ github.ref }}
   cancel-in-progress: true
 
 env:
