@@ -16,11 +16,12 @@ Also has support for JSON serialization and deserialization.
 
 ## UUIDs Version
 
-| Version | Variant | Description                                                      | Context Needed | Context Type |
-| ------- | ------- | ---------------------------------------------------------------- | -------------- | ------------ |
-| 3       | 1       | A UUID generated from a string using MD5 hashing bits, 122 bits  | Yes            | String       |
-| 4       | 1       | A random generated UUID of 122 bits                              | No             | Int32        |
-| 5       | 1       | A UUID generated from a string using SHA1 hashing bits, 122 bits | Yes            | String       |
+| Version | Variant | Description                                                      |
+| ------- | ------- | ---------------------------------------------------------------- |
+| 1       | 1       | A UUID generated from a timestamp and the macaddresss            |
+| 3       | 1       | A UUID generated from a string using MD5 hashing bits, 122 bits  |
+| 4       | 1       | A random generated UUID of 122 bits                              |
+| 5       | 1       | A UUID generated from a string using SHA1 hashing bits, 122 bits |
 
 
 ## Benchmarks
