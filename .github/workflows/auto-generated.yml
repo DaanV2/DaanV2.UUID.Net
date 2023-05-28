@@ -39,7 +39,7 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE
           git config --global user.email "github-action@github.com"
-          git config --global user.name "Tasha"
+          git config --global user.name "github"
           git add .
           git commit -m "auto: Generated Readmes"
 
