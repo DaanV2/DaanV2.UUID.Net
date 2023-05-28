@@ -10,7 +10,7 @@ Job=Generating v4 as string  InvocationCount=5000000  IterationCount=5
 RunStrategy=Throughput  
 
 ```
-|                                Method |     Mean |    Error |  StdDev | Ratio | RatioSD |   Gen0 | Allocated | Alloc Ratio |
-|-------------------------------------- |---------:|---------:|--------:|------:|--------:|-------:|----------:|------------:|
-| &#39;Generating UUID v4, standard method&#39; | 115.3 ns | 29.21 ns | 7.59 ns |  0.49 |    0.04 | 0.0228 |      96 B |        1.00 |
-|    &#39;Generating Guid, standard method&#39; | 231.3 ns | 34.97 ns | 5.41 ns |  1.00 |    0.00 | 0.0228 |      96 B |        1.00 |
+|                                Method |      Mean |    Error |   StdDev | Ratio |   Gen0 | Allocated | Alloc Ratio |
+|-------------------------------------- |----------:|---------:|---------:|------:|-------:|----------:|------------:|
+| &#39;Generating UUID v4, standard method&#39; |  78.61 ns | 4.626 ns | 0.716 ns |  0.40 | 0.0228 |      96 B |        1.00 |
+|    &#39;Generating Guid, standard method&#39; | 194.40 ns | 2.907 ns | 0.755 ns |  1.00 | 0.0228 |      96 B |        1.00 |

@@ -12,7 +12,7 @@ RunStrategy=Throughput
 ```
 |                                             Method |      Mean |     Error |    StdDev |    Median | Ratio | RatioSD | Allocated | Alloc Ratio |
 |--------------------------------------------------- |----------:|----------:|----------:|----------:|------:|--------:|----------:|------------:|
-|             &#39;Using Vector128 and constants values&#39; | 1.9934 ns | 0.2511 ns | 0.5014 ns | 1.8641 ns |  0.43 |    0.11 |         - |          NA |
-|         &#39;Using Vector128 and using dynamic values&#39; | 1.5831 ns | 0.2567 ns | 0.5066 ns | 1.4554 ns |  0.34 |    0.11 |         - |          NA |
-| &#39;Using Vector128 and using static masks &amp; overlay&#39; | 0.5082 ns | 0.1100 ns | 0.2120 ns | 0.4227 ns |  0.11 |    0.05 |         - |          NA |
-|                  &#39;Using bytes and constant values&#39; | 4.6790 ns | 0.0825 ns | 0.1666 ns | 4.6145 ns |  1.00 |    0.00 |         - |          NA |
+|             &#39;Using Vector128 and constants values&#39; | 1.5045 ns | 0.0635 ns | 0.1238 ns | 1.5246 ns |  0.34 |    0.03 |         - |          NA |
+|         &#39;Using Vector128 and using dynamic values&#39; | 1.3325 ns | 0.0620 ns | 0.1252 ns | 1.3774 ns |  0.30 |    0.03 |         - |          NA |
+| &#39;Using Vector128 and using static masks &amp; overlay&#39; | 0.9754 ns | 0.0625 ns | 0.1247 ns | 0.9232 ns |  0.22 |    0.03 |         - |          NA |
+|                  &#39;Using bytes and constant values&#39; | 4.4093 ns | 0.1013 ns | 0.1976 ns | 4.5136 ns |  1.00 |    0.00 |         - |          NA |
