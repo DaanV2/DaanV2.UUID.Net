@@ -1,11 +1,9 @@
 
+test:
+	dotnet test --verbosity normal
 
+build:
+	dotnet build --verbosity normal
 
-restore:
-	dotnet restore
-
-test: restore
-	dotnet test --no-restore --verbosity normal
-
-build: restore
-	dotnet build --no-restore --verbosity normal
+package:
+	dotnet pack --output Packages --verbosity normal 

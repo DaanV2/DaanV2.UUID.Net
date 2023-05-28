@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <AssemblyName>DaanV2.UUID.Net</AssemblyName>
     <RootNamespace>DaanV2.UUID</RootNamespace>
-    <GenerateDocumentationFile>False</GenerateDocumentationFile>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <Title>DaanV2.UUID.Net</Title>
     <Authors>DaanV2</Authors>
     <Copyright>daanverstraten@hotmail.com</Copyright>
@@ -14,6 +14,33 @@
     <AssemblyVersion>$(VersionPrefix)</AssemblyVersion>
     <Version>2.0.0</Version>
     <Platforms>AnyCPU;x64;x86</Platforms>
+    <SignAssembly>False</SignAssembly>
+    <Description>A library that provides a way to handle, and generate UUIDs. Convert them to and from strings, GUIDs, and the like. 
+The library is written to be fast and efficient when comparing, generating or other handling operations. But still, comply with the RFC 4122 standard.</Description>
+    <PackageProjectUrl>https://github.com/DaanV2/DaanV2.UUID.Net</PackageProjectUrl>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/DaanV2/DaanV2.UUID.Net</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>UUID;</PackageTags>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <IncludeSymbols>True</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE.txt">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\Resources\icon.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>
