@@ -11,7 +11,7 @@ public static partial class V5 {
     /// <param name="amount">The amount of bytes in the collection</param>
     /// <exception cref="Exception">Throw if the minimum amount of data is not met</exception>
     public static void ThrowIfMinimumLength(Int32 amount) {
-        if (HasMinimumLength(amount)) {
+        if (!HasMinimumLength(amount)) {
             throw new Exception($"Source data must be at least {MinimumDataLength} bytes");
         }
     }

@@ -5,6 +5,6 @@ public static partial class V4 {
     public const Version Version = DaanV2.UUID.Version.V4;
     public const Variant Variant = DaanV2.UUID.Variant.V1;
 
-    private static readonly Vector128<Byte> _VersionMask = Format.VersionVariantMaskNot(V5.Version, V5.Variant);
-    private static readonly Vector128<Byte> _VersionOverlay = Format.VersionVariantOverlayer(V5.Version, V5.Variant);
+    private static readonly Vector128<Byte> _VersionMask = Format.VersionVariantMaskNot(V4.Version, V4.Variant);
+    private static readonly Vector128<Byte> _VersionOverlay = Format.VersionVariantOverlayer(V4.Version, V4.Variant);
 }
