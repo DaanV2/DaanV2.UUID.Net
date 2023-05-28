@@ -4,8 +4,8 @@ using System.Runtime.Intrinsics;
 namespace DaanV2.UUID;
 
 public readonly partial struct UUID {
-    /// <summary>Returns a copy contents of the UUID as a <see cref="Byte[]"/></summary>
-    /// <returns>A copy of the contents as a <see cref="Byte[]"/></returns>
+    /// <summary>Returns a copy contents of the UUID as a <see cref="Byte"/>[]</summary>
+    /// <returns>A copy of the contents as a <see cref="Byte"/>[]</returns>
     public Byte[] AsByte() {
         Byte[] data = new Byte[Vector128<Byte>.Count];
         this._Data.CopyTo(data);

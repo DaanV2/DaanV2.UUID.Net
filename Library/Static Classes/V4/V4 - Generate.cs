@@ -3,19 +3,12 @@
 namespace DaanV2.UUID;
 
 public static partial class V4 {
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <returns></returns>
+    /// <inheritdoc cref="Generate(UInt64, UInt64)"/>
     public static UUID Generate() {
         return Generate(Random.Shared);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="rnd"></param>
-    /// <returns></returns>
+    /// <inheritdoc cref="Generate(UInt64, UInt64)"/>
     public static UUID Generate(Random rnd) {
         Span<Byte> bytes = stackalloc Byte[Format.UUID_BYTE_LENGTH];
         rnd.NextBytes(bytes);
@@ -23,23 +16,19 @@ public static partial class V4 {
         return Generate(bytes);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="bytes"></param>
-    /// <returns></returns>
+    /// <inheritdoc cref="Generate(UInt64, UInt64)"/>
     public static UUID Generate(ReadOnlySpan<Byte> bytes) {
         var data = Vector128.Create(bytes);
         Vector128<Byte> uuid = Format.StampVersion(_VersionMask, _VersionOverlay, data);
         return new UUID(uuid);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="e0"></param>
-    /// <param name="e1"></param>
-    /// <returns></returns>
+    /// <summary>Generates a new random <see cref="UUID"/></summary>
+    /// <param name="e0">The lower set of data</param>
+    /// <param name="e1">The higher set of data</param>
+    /// <param name="bytes">The byte to use to fill the <see cref="UUID"/> expects it to be atleast 16 bytes long</param>
+    /// <param name="rnd">The randomizer to use to create <see cref="UUID"/></param>
+    /// <returns>A new <see cref="UUID"/></returns>
     public static UUID Generate(UInt64 e0, UInt64 e1) {
         Vector128<Byte> data = Vector128.Create(e0, e1).AsByte();
         Vector128<Byte> uuid = Format.StampVersion(_VersionMask, _VersionOverlay, data);

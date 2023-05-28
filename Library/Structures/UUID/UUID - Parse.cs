@@ -1,12 +1,9 @@
-﻿using System.Runtime.CompilerServices;
-using System.Runtime.Intrinsics;
+﻿using System.Runtime.Intrinsics;
 
 namespace DaanV2.UUID;
 
 public readonly partial struct UUID : IEquatable<UUID> {
-    /// <summary>Parses the given string into a <see cref="UUID"/></summary>
-    /// <param name="uuid">The string uuid representation to parse</param>
-    /// <returns>A <see cref="UUID"/></returns>
+    /// <see cref="Parse(ReadOnlySpan{Char})"/>"/>
     public static UUID Parse(String uuid) {
         return Parse(uuid.AsSpan());
     }
@@ -19,13 +16,14 @@ public readonly partial struct UUID : IEquatable<UUID> {
         return new UUID(data);
     }
 
+    /// <see cref="TryParse(ReadOnlySpan{Char}, out UUID)"/>"/>
     public static Boolean TryParse(String uuid, out UUID result) {
         return TryParse(uuid.AsSpan(), out result);
     }
 
     /// <summary>Tries parsing</summary>
-    /// <param name="data"></param>
-    /// <param name="uuid"></param>
+    /// <param name="uuid">The data to try to parse into a <see cref="UUID"/></param>
+    /// <param name="result">The resulting <see cref="UUID"/></param>
     /// <returns></returns>
     public static Boolean TryParse(ReadOnlySpan<Char> uuid, out UUID result) {
         Boolean r = false;

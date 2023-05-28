@@ -1,7 +1,7 @@
 ﻿using System.Security.Cryptography;
 
 namespace Benchmark;
-///DOLATER <summary>add description for class: Utility</summary>
+
 public static partial class Utility {
     /// <summary>Looks recursively up to find the folder</summary>
     /// <param name="start"></param>

@@ -6,12 +6,19 @@ namespace DaanV2.UUID;
 
 
 public static partial class V1 {
+    /// <summary>A record of what information can be returned by a <see cref="UUID"/> of version 1</summary>
     public record Information {
+        /// <summary>The timestamp it was made at, Note; because of overlaying with version and variant, might get corrupt</summary>
         public DateTime Timestamp { get; init; }
+        /// <summary>The nanoseconds it was made at, Note; because of overlaying with version and variant, might get corrupt</summary>
         public Byte Nanoseconds { get; init; }
+        /// <summary>The mac address of the machine it was made on</summary>
         public required Byte[] MacAddress { get; init; }
     }
 
+    /// <summary>Extract from the given <see cref="UUID"/> Its information record, if made with <see cref="V1"/></summary>
+    /// <param name="uuid">The <see cref="UUID"/> to extract from</param>
+    /// <returns>A record of <see cref="Information"/></returns>
     public static Information Extract(UUID uuid) {
         Span<Byte> data = stackalloc Byte[Format.UUID_BYTE_LENGTH];
         uuid._Data.CopyTo(data);

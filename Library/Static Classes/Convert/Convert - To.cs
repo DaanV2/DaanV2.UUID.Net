@@ -2,7 +2,7 @@
 
 namespace DaanV2.UUID;
 
-///DOLATER <summary>add description for class: Converty</summary>
+/// <summary>A class that helps with converting to and from <see cref="Guid"/></summary>
 public static partial class Convert {
     /// <summary>Converts a <see cref="Guid"/> to <see cref="UUID"/></summary>
     /// <param name="guid">The <see cref="Guid"/> to convert to <see cref="UUID"/></param>

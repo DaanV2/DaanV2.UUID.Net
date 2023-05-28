@@ -12,3 +12,5 @@ using System.Diagnostics.CodeAnalysis;
 [assembly: SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "Its part of the benchmark", Scope = "member", Target = "~M:Benchmark.Generation.GenerationV4.UUID~DaanV2.UUID.UUID")]
 [assembly: SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "Its part of the benchmark", Scope = "member", Target = "~M:Benchmark.Generation.StringGenerationV4.GUIDs~System.String")]
 [assembly: SuppressMessage("Usage", "CA2211:Non-constant fields should not be visible", Justification = "Its part of the benchmark", Scope = "member", Target = "~F:Benchmark.Mechanics.VersionMask.versionMask")]
+[assembly: SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "<Pending>", Scope = "member", Target = "~M:Benchmark.Generation.AllVersions.V5~DaanV2.UUID.UUID")]
+[assembly: SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "<Pending>", Scope = "member", Target = "~M:Benchmark.Generation.AllVersions.V3~DaanV2.UUID.UUID")]
