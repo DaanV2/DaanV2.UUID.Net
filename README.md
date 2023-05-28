@@ -37,7 +37,7 @@ Since most of the UUIDs are generated from different data, different overloads a
 ```csharp
 //Single UUID
 var uuid = DaanV2.UUID.V4.Generate();
-uuid = DaanV2.UUID.V1.Generate(); //Version 3, Variant 1. auto cast to string
+uuid = DaanV2.UUID.V1.Generate();
 
 //Batch of UUIDs
 var uuids = DaanV2.UUID.V4.Batch(1000);
