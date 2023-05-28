@@ -47,3 +47,4 @@ jobs:
         run: |
           cd ${{ github.workspace }}/Library/bin/Release/
           dotnet nuget push *.nupkg
+          dotnet nuget push *.nupkg --api-key ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json
