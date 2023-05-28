@@ -22,7 +22,7 @@ The library is written to be fast and efficient when comparing, generating or ot
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/DaanV2/DaanV2.UUID.Net</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageTags>UUID;</PackageTags>
+    <PackageTags>UUID;V1;V3;V4;V5</PackageTags>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <IncludeSymbols>True</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
