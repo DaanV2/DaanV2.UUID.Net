@@ -7,7 +7,7 @@ public readonly partial struct UUID {
     /// <param name="left">The first UUID to compare</param>
     /// <param name="right">The second UUID to compare</param>
     /// <returns>True or false depending whenever or not </returns>
-    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
+    [MethodImpl(MethodImplOptions.AggressiveOptimization | MethodImplOptions.AggressiveInlining)]
     public static Boolean operator ==(UUID left, UUID right) {
         return left.Equals(right);
     }
@@ -16,6 +16,7 @@ public readonly partial struct UUID {
     /// <param name="left">The first UUID to compare</param>
     /// <param name="right">The second UUID to compare</param>
     /// <returns>True or false depending whenever or not </returns>
+    [MethodImpl(MethodImplOptions.AggressiveOptimization | MethodImplOptions.AggressiveInlining)]
     public static Boolean operator !=(UUID left, UUID right) {
         return !(left == right);
     }

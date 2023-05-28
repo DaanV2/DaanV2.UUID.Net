@@ -7,7 +7,7 @@ using Version = DaanV2.UUID.Version;
 namespace Benchmark.Mechanics;
 
 [MemoryDiagnoser]
-[SimpleJob(RunStrategy.Throughput, id: "Version masking, as vector or just bytes?", iterationCount: 50, invocationCount: 5000000)]
+[SimpleJob(RunStrategy.Throughput, id: "Version masking, as vector or just bytes?")]
 public partial class VersionMask {
     [IterationSetup]
     public void Setup() {

@@ -12,5 +12,5 @@ UnrollFactor=1
 ```
 |              Method |      Mean |    Error |   StdDev | Ratio | RatioSD | Allocated | Alloc Ratio |
 |-------------------- |----------:|---------:|---------:|------:|--------:|----------:|------------:|
-| &#39;Serializing UUIDs&#39; | 104.36 ms | 2.083 ms | 5.031 ms |  1.92 |    0.13 |  74.39 MB |        1.00 |
-| &#39;Serializing Guids&#39; |  54.59 ms | 1.077 ms | 2.075 ms |  1.00 |    0.00 |  74.39 MB |        1.00 |
+| &#39;Serializing UUIDs&#39; | 106.49 ms | 2.111 ms | 2.593 ms |  1.84 |    0.13 |  74.39 MB |        1.00 |
+| &#39;Serializing Guids&#39; |  55.84 ms | 1.831 ms | 5.223 ms |  1.00 |    0.00 |  74.39 MB |        1.00 |

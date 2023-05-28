@@ -9,8 +9,8 @@ Intel Core i7-7700K CPU 4.20GHz (Kaby Lake), 1 CPU, 8 logical and 4 physical cor
 Job=Retrieve from dictionary  RunStrategy=Throughput  WarmupCount=10  
 
 ```
-|        Method |     Mean |   Error |  StdDev | Ratio | RatioSD |
-|-------------- |---------:|--------:|--------:|------:|--------:|
-|          Guid | 160.3 μs | 1.93 μs | 1.71 μs |  0.54 |    0.01 |
-|          UUID | 162.8 μs | 3.21 μs | 4.39 μs |  0.55 |    0.02 |
-| &#39;String UUID&#39; | 296.6 μs | 5.63 μs | 6.03 μs |  1.00 |    0.00 |
+|        Method |     Mean |   Error |  StdDev | Ratio |
+|-------------- |---------:|--------:|--------:|------:|
+|          Guid | 154.5 μs | 3.04 μs | 3.13 μs |  0.54 |
+|          UUID | 157.1 μs | 2.67 μs | 2.50 μs |  0.55 |
+| &#39;String UUID&#39; | 285.9 μs | 5.31 μs | 4.97 μs |  1.00 |

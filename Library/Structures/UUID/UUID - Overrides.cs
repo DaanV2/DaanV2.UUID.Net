@@ -11,9 +11,9 @@ public readonly partial struct UUID : IEquatable<UUID> {
     }
 
     /// <inheritdoc/>
-    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    [MethodImpl(MethodImplOptions.AggressiveOptimization | MethodImplOptions.AggressiveInlining)]
     public Boolean Equals(UUID other) {
-        return Vector128.EqualsAll<Byte>(this._Data, other._Data);
+        return this._Data == other._Data;
     }
 
     /// <inheritdoc/>
