@@ -19,7 +19,7 @@ public class RetrieveTest {
 
     [GlobalSetup]
     public void Setup() {
-        UUID[] uuids = V5.GenerateBatch(_Amount);
+        UUID[] uuids = V5.Batch(_Amount);
 
         this.UUIDs = uuids;
         this.Guids = uuids.Select((u) => u.ToGuid()).ToArray();

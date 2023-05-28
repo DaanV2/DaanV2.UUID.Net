@@ -7,8 +7,8 @@ public static partial class V4 {
     /// 
     /// </summary>
     /// <returns></returns>
-    public static UUID[] GenerateBatch(Int32 Amount) {
-        return GenerateBatch(Amount, Random.Shared);
+    public static UUID[] Batch(Int32 Amount) {
+        return Batch(Amount, Random.Shared);
     }
 
     /// <summary>
@@ -16,7 +16,7 @@ public static partial class V4 {
     /// </summary>
     /// <param name="rnd"></param>
     /// <returns></returns>
-    public static UUID[] GenerateBatch(Int32 Amount, Random rnd) {
+    public static UUID[] Batch(Int32 Amount, Random rnd) {
         var uuids = new UUID[Amount];
 
         //Cant allocate more than 1024 bytes on the stack
@@ -29,13 +29,13 @@ public static partial class V4 {
 
         rnd.NextBytes(bytes);
 
-        return GenerateBatch(bytes);
+        return Batch(bytes);
     }
 
     /// <summary>Turns the entire bytes collection into UUIDs</summary>
     /// <param name="bytes"></param>
     /// <returns></returns>
-    public static UUID[] GenerateBatch(ReadOnlySpan<Byte> bytes) {
+    public static UUID[] Batch(ReadOnlySpan<Byte> bytes) {
         Int32 count = bytes.Length;
         Int32 amount = count / Format.UUID_BYTE_LENGTH;
         Int32 max = count - Format.UUID_BYTE_LENGTH;
@@ -54,7 +54,7 @@ public static partial class V4 {
     /// <summary>Turns </summary>
     /// <param name="rnd"></param>
     /// <returns></returns>
-    public static UUID[] GenerateBatch(Int32 Amount, Func<Int32, Memory<Byte>> generateContents) {
+    public static UUID[] Batch(Int32 Amount, Func<Int32, Memory<Byte>> generateContents) {
         var uuids = new UUID[Amount];
 
         for (Int32 I = 0; I < uuids.Length; I++) {

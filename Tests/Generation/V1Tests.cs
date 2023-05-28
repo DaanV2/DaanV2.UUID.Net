@@ -27,7 +27,7 @@ public sealed partial class V1Tests {
     [InlineData(100)]
     [InlineData(1000)]
     public void TestBatchUnique(Int32 Amount) {
-        UUID[] UUIDs = V1.GenerateBatch(Amount);
+        UUID[] UUIDs = V1.Batch(Amount);
         Assert.Equal(Amount, UUIDs.Length);
 
         for (Int32 i = 0; i < UUIDs.Length; i++) {

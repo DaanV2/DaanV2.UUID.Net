@@ -6,31 +6,31 @@ public static partial class V5 {
     /// <summary>Cuts up the given data into chunks and each gets turned into a <see cref="UUID"/></summary>
     /// <param name="source">The data to create a <see cref="UUID[]"/> from</param>
     /// <returns>A new <see cref="UUID[]"/></returns>
-    public static UUID[] GenerateBatch(String source) {
-        return GenerateBatch(source, Encoding.UTF8);
+    public static UUID[] Batch(String source) {
+        return Batch(source, Encoding.UTF8);
     }
 
     /// <summary>Cuts up the given data into chunks and each gets turned into a <see cref="UUID"/></summary>
     /// <param name="source">The data to create a <see cref="UUID[]"/> from</param>
     /// <param name="encoding">The encoding to use to turn the string to bytes</param>
     /// <returns>A new <see cref="UUID[]"/></returns>
-    public static UUID[] GenerateBatch(String source, Encoding encoding) {
+    public static UUID[] Batch(String source, Encoding encoding) {
         Byte[] bytes = encoding.GetBytes(source);
-        return GenerateBatch(bytes);
+        return Batch(bytes);
     }
 
     /// <summary>Cuts up the given data into chunks and each gets turned into a <see cref="UUID"/></summary>
     /// <param name="source">The data to create a <see cref="UUID[]"/> from</param>
     /// <returns>A new <see cref="UUID[]"/></returns>
-    public static UUID[] GenerateBatch(Byte[] source) {
-        return GenerateBatch(source.AsSpan());
+    public static UUID[] Batch(Byte[] source) {
+        return Batch(source.AsSpan());
     }
 
     /// <summary>Cuts up the given data into chunks and each gets turned into a <see cref="UUID"/></summary>
     /// <param name="source">The data to create a <see cref="UUID[]"/> from</param>
     /// <returns>A new <see cref="UUID[]"/></returns>
     [MethodImpl(MethodImplOptions.AggressiveOptimization | MethodImplOptions.AggressiveInlining)]
-    public static UUID[] GenerateBatch(ReadOnlySpan<Byte> source) {
+    public static UUID[] Batch(ReadOnlySpan<Byte> source) {
         Int32 count = source.Length;
         Int32 amount = count / MinimumDataLength;
         Int32 max = count - MinimumDataLength;

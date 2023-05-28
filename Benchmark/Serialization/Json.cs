@@ -16,7 +16,7 @@ public partial class JsonSerializationTest {
 
     [IterationSetup]
     public void Setup() {
-        this.UUIDs = V4.GenerateBatch(Amount);
+        this.UUIDs = V4.Batch(Amount);
         this.Guids = this.UUIDs.Select(x => x.ToGuid()).ToArray();
     }
 
@@ -40,7 +40,7 @@ public partial class JsonDeserializationTest {
 
     [IterationSetup]
     public void Setup() {
-        UUID[] uuids = V4.GenerateBatch(Amount);
+        UUID[] uuids = V4.Batch(Amount);
         this.Serialized = JsonSerializer.Serialize(uuids);
     }
 

@@ -65,13 +65,13 @@ public partial class GenerationBatchV4 {
 
     [Benchmark(Description = "UUID V4, Using the global randomizer")]
     public UUID[] UUIDs() {
-        return V4.GenerateBatch(this.Amount);
+        return V4.Batch(this.Amount);
     }
 
     [Benchmark(Description = "UUID V4, Using a local randomizer")]
     public UUID[] UUIDsRandom() {
         var R = new Random();
-        return V4.GenerateBatch(this.Amount, R);
+        return V4.Batch(this.Amount, R);
     }
 
     [Benchmark(Description = "UUID V4, Using a supplied byte array")]
@@ -80,13 +80,13 @@ public partial class GenerationBatchV4 {
         Byte[] bytes = new Byte[Format.UUID_BYTE_LENGTH * this.Amount];
         R.NextBytes(bytes);
 
-        return V4.GenerateBatch(bytes);
+        return V4.Batch(bytes);
     }
 
     [Benchmark(Description = "GUID using UUIDS V4, Using a local randomizer")]
     public Guid[] UUIDsToGuid() {
         var R = new Random();
-        return V4.GenerateBatch(this.Amount, R).Select(m => m.ToGuid()).ToArray();
+        return V4.Batch(this.Amount, R).Select(m => m.ToGuid()).ToArray();
     }
 
     [Benchmark(Baseline = true, Description = "GUID")]

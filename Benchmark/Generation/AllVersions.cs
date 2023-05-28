@@ -31,12 +31,12 @@ public partial class BatchAllVersions {
 
     [Benchmark(Description = "V1")]
     public UUID[] V1() {
-        return DaanV2.UUID.V1.GenerateBatch(this.Amount);
+        return DaanV2.UUID.V1.Batch(this.Amount);
     }
 
     [Benchmark(Description = "V4")]
     public UUID[] V4() {
-        return DaanV2.UUID.V5.GenerateBatch(this.Amount);
+        return DaanV2.UUID.V5.Batch(this.Amount);
     }
 
     [Benchmark(Baseline = true, Description = "GUID")]

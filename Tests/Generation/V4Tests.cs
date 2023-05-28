@@ -16,7 +16,7 @@ public sealed partial class V4Tests {
 
     [Fact(DisplayName = "Can generate a batch of UUIDs")]
     public void TestUUIDBatch() {
-        UUID[] UUIDs = V4.GenerateBatch(100);
+        UUID[] UUIDs = V4.Batch(100);
         Assert.Equal(100, UUIDs.Length);
 
         for (Int32 i = 0; i < UUIDs.Length; i++) {
@@ -26,7 +26,7 @@ public sealed partial class V4Tests {
 
     [Fact(DisplayName = "Can generate a large batch of UUIDs")]
     public void TestUUIDLargeBatch() {
-        UUID[] UUIDs = V4.GenerateBatch(1000_000);
+        UUID[] UUIDs = V4.Batch(1000_000);
         Assert.Equal(1000_000, UUIDs.Length);
 
         for (Int32 i = 0; i < UUIDs.Length; i++) {
@@ -36,7 +36,7 @@ public sealed partial class V4Tests {
 
     [Fact(DisplayName = "Can generate a batch of UUIDs with a supplied random")]
     public void TestUUIDBatchRandom() {
-        UUID[] UUIDs = V4.GenerateBatch(100, new Random());
+        UUID[] UUIDs = V4.Batch(100, new Random());
         Assert.Equal(100, UUIDs.Length);
 
         for (Int32 i = 0; i < UUIDs.Length; i++) {
@@ -55,7 +55,7 @@ public sealed partial class V4Tests {
         var R = new Random();
         R.NextBytes(Bytes);
 
-        UUID[] UUIDs = V4.GenerateBatch(Bytes);
+        UUID[] UUIDs = V4.Batch(Bytes);
         Assert.Equal(Amount, UUIDs.Length);
 
         for (Int32 i = 0; i < UUIDs.Length; i++) {
@@ -68,7 +68,7 @@ public sealed partial class V4Tests {
     [InlineData(100_000)]
     [InlineData(1000_000)]
     public void TestUUIDBatchUnique(Int32 Amount) {
-        UUID[] UUIDs = V4.GenerateBatch(Amount);
+        UUID[] UUIDs = V4.Batch(Amount);
         Assert.Equal(Amount, UUIDs.Length);
 
         var counters = new Dictionary<UUID, Int32>(UUIDs.Length);
