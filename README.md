@@ -40,5 +40,5 @@ var uuid = DaanV2.UUID.V4.Generate();
 uuid = DaanV2.UUID.V1.Generate(); //Version 3, Variant 1. auto cast to string
 
 //Batch of UUIDs
-var uuids = DaanV2.UUID.V4.Generate(1000);
+var uuids = DaanV2.UUID.V4.Batch(1000);
 ```
