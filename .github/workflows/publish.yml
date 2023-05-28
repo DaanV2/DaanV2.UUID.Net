@@ -45,5 +45,5 @@ jobs:
 
       - name: 🚚 Publish the package to GPR
         run: |
-          cd ${{ github.workspace }}Library/bin/Release/
+          cd ${{ github.workspace }}/Library/bin/Release/
           dotnet nuget push *.nupkg
