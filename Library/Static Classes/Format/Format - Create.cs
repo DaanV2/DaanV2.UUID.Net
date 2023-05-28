@@ -16,7 +16,7 @@ public static partial class Format {
         return Create(version, variant, temp);
     }
 
-    /// <summary>Creates a new vector of the given data, with the version & variant inserted</summary>
+    /// <summary>Creates a new vector of the given data, with the version and variant inserted</summary>
     /// <param name="version">The version to insert</param>
     /// <param name="variant">The variant to insert</param>
     /// <param name="data">The contents of the <see cref="UUID"/></param>
@@ -29,9 +29,9 @@ public static partial class Format {
     }
 
     /// <summary>Uses the given mask and overlay to insert the version and variant onto the data</summary>
-    /// <param name="versionMask">The mask of the versions & variants</param>
-    /// <param name="versionOverlay">The overlay of the versions & variants</param>
-    /// <param name="data">The data to stamp the version & variant onto</param>
+    /// <param name="versionMask">The mask of the versions and variants</param>
+    /// <param name="versionOverlay">The overlay of the versions and variants</param>
+    /// <param name="data">The data to stamp the version and variant onto</param>
     /// <returns>Returns a <see cref="Vector128{T}"/></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
     public static Vector128<Byte> StampVersion(Vector128<Byte> versionMask, Vector128<Byte> versionOverlay, Vector128<Byte> data) {

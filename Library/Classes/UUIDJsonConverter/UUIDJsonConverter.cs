@@ -5,6 +5,7 @@ using System.Text.Json.Serialization;
 
 namespace DaanV2.UUID;
 
+/// <summary>The class that converts <see cref="UUID"/> to and from json data</summary>
 public partial class UUIDJsonConverter : JsonConverter<UUID> {
     /// <inheritdoc/>
     [MethodImpl(MethodImplOptions.AggressiveOptimization | MethodImplOptions.AggressiveInlining)]

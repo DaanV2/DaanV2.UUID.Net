@@ -6,7 +6,7 @@ using DaanV2.UUID;
 namespace Benchmark.Serialization;
 
 [MemoryDiagnoser]
-[SimpleJob(RunStrategy.Throughput, id: "Json Serialization", warmupCount: 10, invocationCount: 500)]
+[SimpleJob(RunStrategy.Throughput, id: "Json Serialization")]
 public partial class JsonSerializationTest {
     public const Int32 Amount = 1000_000;
 
@@ -32,7 +32,7 @@ public partial class JsonSerializationTest {
 }
 
 [MemoryDiagnoser]
-[SimpleJob(RunStrategy.Throughput, id: "Json Deserialization", warmupCount: 10, invocationCount: 500)]
+[SimpleJob(RunStrategy.Throughput, id: "Json Deserialization")]
 public partial class JsonDeserializationTest {
     public const Int32 Amount = 20_000;
 

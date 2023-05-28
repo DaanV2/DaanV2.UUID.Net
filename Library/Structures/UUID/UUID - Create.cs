@@ -3,11 +3,7 @@
 namespace DaanV2.UUID;
 
 public readonly partial struct UUID {
-    /// <summary>Creates a new instance of <see cref="UUID"/> and applies version and variant information. Assumes the given data is RFC compliant</summary>
-    /// <param name="version">The version to set</param>
-    /// <param name="variant">The variant to set</param>
-    /// <param name="data">The data to set for the UUID</param>
-    /// <returns>A <see cref="UUID"/></returns>
+    /// <inheritdoc cref="Create(Version, Variant, ReadOnlySpan{Byte})"/>
     public static UUID Create(Version version, Variant variant, Vector128<Byte> data) {
         Vector128<Byte> formatted = Format.Create(version, variant, data);
         return new UUID(formatted);

@@ -11,9 +11,6 @@ Job=Retrieve from dictionary  RunStrategy=Throughput  WarmupCount=10
 ```
 |        Method |     Mean |   Error |  StdDev | Ratio | RatioSD |
 |-------------- |---------:|--------:|--------:|------:|--------:|
-|          Guid | 162.8 μs | 3.19 μs | 3.55 μs |  0.55 |    0.02 |
-|          UUID |       NA |      NA |      NA |     ? |       ? |
-| &#39;String UUID&#39; | 294.8 μs | 5.84 μs | 6.25 μs |  1.00 |    0.00 |
-
-Benchmarks with issues:
-  RetrieveTest.UUID: Retrieve from dictionary(RunStrategy=Throughput, WarmupCount=10)
+|          Guid | 160.3 μs | 1.93 μs | 1.71 μs |  0.54 |    0.01 |
+|          UUID | 162.8 μs | 3.21 μs | 4.39 μs |  0.55 |    0.02 |
+| &#39;String UUID&#39; | 296.6 μs | 5.63 μs | 6.03 μs |  1.00 |    0.00 |

@@ -3,7 +3,7 @@
 namespace DaanV2.UUID;
 
 public static partial class Format {
-    /// <summary>The mask to cut out the version & variant</summary>
+    /// <summary>The mask to cut out the version and variant</summary>
     /// <returns>Returns a <see cref="Vector128{T}"/></returns>
     public static Vector128<Byte> VersionVariantMask(Version version, Variant variant) {
         Vector128<Byte> mask = Vector128<Byte>.Zero;

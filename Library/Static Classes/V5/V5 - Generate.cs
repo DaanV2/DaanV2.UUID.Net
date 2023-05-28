@@ -5,38 +5,35 @@ using System.Text;
 
 namespace DaanV2.UUID;
 public static partial class V5 {
-    /// <summary>Generates a <see cref="UUID"/> from the given data</summary>
-    /// <returns>A new <see cref="UUID"/></returns>
+    /// <inheritdoc cref="Generate(ReadOnlySpan{Byte})"/>
+    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     public static UUID Generate() {
         return Generate(DateTime.Now.ToString());
     }
 
-    /// <summary>Generates a <see cref="UUID"/> from the given data</summary>
-    /// <param name="source">The data to create a <see cref="UUID"/> from</param>
-    /// <returns>A new <see cref="UUID"/></returns>
+    /// <inheritdoc cref="Generate(ReadOnlySpan{Byte})"/>
+    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     public static UUID Generate(String source) {
         return Generate(source, Encoding.UTF8);
     }
 
-    /// <summary>Generates a <see cref="UUID"/> from the given data</summary>
-    /// <param name="source">The data to create a <see cref="UUID"/> from</param>
-    /// <param name="encoding">The encoding to use to turn the string to bytes</param>
-    /// <returns>A new <see cref="UUID"/></returns>
+    /// <inheritdoc cref="Generate(ReadOnlySpan{Byte})"/>
+    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     public static UUID Generate(String source, Encoding encoding) {
         Byte[] bytes = encoding.GetBytes(source);
 
         return Generate(bytes);
     }
 
-    /// <summary>Generates a <see cref="UUID"/> from the given data</summary>
-    /// <param name="source">The data to create a <see cref="UUID"/> from</param>
-    /// <returns>A new <see cref="UUID"/></returns>
+    /// <inheritdoc cref="Generate(ReadOnlySpan{Byte})"/>
+    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     public static UUID Generate(Byte[] source) {
         return Generate(source.AsSpan());
     }
 
     /// <summary>Generates a <see cref="UUID"/> from the given data</summary>
     /// <param name="source">The data to create a <see cref="UUID"/> from</param>
+    /// <param name="encoding">The encoding to use to turn the string to bytes</param>
     /// <returns>A new <see cref="UUID"/></returns>
     [MethodImpl(MethodImplOptions.AggressiveOptimization | MethodImplOptions.AggressiveInlining)]
     public static UUID Generate(ReadOnlySpan<Byte> source) {

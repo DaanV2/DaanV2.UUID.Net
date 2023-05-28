@@ -4,9 +4,21 @@ using System.Runtime.Intrinsics;
 namespace DaanV2.UUID;
 
 public static partial class Format {
+    /// <summary>
+    /// The mask used to cut out the lower 4 bits of a byte for each byte in a vector
+    /// </summary>
     private static readonly Vector128<Byte> _Lower4BitsMask = Vector128.Create((Byte)0b0000_1111);
-    private static readonly Vector128<Byte> _AddOverlay = Vector128.Create((Byte)'0');
+    /// <summary>
+    /// The overlay used to add the 0x30 character to each byte in a vector, so a value of 0 will become '0' char
+    /// </summary>
+    private static readonly Vector128<Byte> _AddOffset = Vector128.Create((Byte)'0');
+    /// <summary>
+    /// The mask / values used to determine if a byte is between greater then '9', since between '9' and 'a' is not allowed
+    /// </summary>
     private static readonly Vector128<Byte> _9Vector = Vector128.Create((Byte)'9');
+    /// <summary>
+    /// The offset needed to increase if a byte is between '9' and 'a'
+    /// </summary>
     private static readonly Vector128<Byte> _9AOffsetVector = Vector128.Create((Byte)('a' - '9' - 1));
 
 
@@ -20,21 +32,14 @@ public static partial class Format {
     /// <returns>A <see cref="String"/> formatted as UUID</returns>
     [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     public static String ToString(Vector128<Byte> uuid) {
-
-
         // UUID format: 00000000-0000-0000-0000-000000000000
         Span<Char> characters = stackalloc Char[UUID_STRING_LENGTH];
         IntoSpan(uuid, characters);
 
-
         return new String(characters);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="uuid"></param>
-    /// <param name="receiver"></param>
+    /// <inheritdoc cref="IntoSpan(Vector128{Byte}, Span{Byte})"/>
     [MethodImpl(MethodImplOptions.AggressiveOptimization | MethodImplOptions.AggressiveInlining)]
     public static void IntoSpan(Vector128<Byte> uuid, Span<Char> receiver) {
         static Vector128<Byte> RaiseNine(Vector128<Byte> data) {
@@ -46,11 +51,11 @@ public static partial class Format {
 
         //Upper 4 bits goes second in the string and lower 4 bits goes first in the string
         var upper = Vector128.ShiftRightLogical(uuid, 4);
-        upper = Vector128.Add(upper, _AddOverlay);
+        upper = Vector128.Add(upper, _AddOffset);
         upper = RaiseNine(upper);
 
         var lower = Vector128.BitwiseAnd(uuid, _Lower4BitsMask);
-        lower = Vector128.Add(lower, _AddOverlay);
+        lower = Vector128.Add(lower, _AddOffset);
         lower = RaiseNine(lower);
 
         Int32 J = 0;
@@ -66,6 +71,9 @@ public static partial class Format {
         }
     }
 
+    /// <summary>Takes the given uuid data and writes it to the given receiver as UTF8 characters, assumes the receiver is already of propery string length; <see cref="Format.UUID_STRING_LENGTH"/></summary>
+    /// <param name="uuid">The <see cref="UUID"/> data to convert to string</param>
+    /// <param name="receiver">The receiving container</param>
     [MethodImpl(MethodImplOptions.AggressiveOptimization | MethodImplOptions.AggressiveInlining)]
     public static void IntoSpan(Vector128<Byte> uuid, Span<Byte> receiver) {
         static Vector128<Byte> RaiseNine(Vector128<Byte> data) {
@@ -77,11 +85,11 @@ public static partial class Format {
 
         //Upper 4 bits goes second in the string and lower 4 bits goes first in the string
         var upper = Vector128.ShiftRightLogical(uuid, 4);
-        upper = Vector128.Add(upper, _AddOverlay);
+        upper = Vector128.Add(upper, _AddOffset);
         upper = RaiseNine(upper);
 
         var lower = Vector128.BitwiseAnd(uuid, _Lower4BitsMask);
-        lower = Vector128.Add(lower, _AddOverlay);
+        lower = Vector128.Add(lower, _AddOffset);
         lower = RaiseNine(lower);
 
         Int32 J = 0;
@@ -141,17 +149,17 @@ public static partial class Format {
         }
 
         upper = LowerNine(upper);
-        upper = Vector128.Subtract(upper, _AddOverlay);
+        upper = Vector128.Subtract(upper, _AddOffset);
 
         lower = LowerNine(lower);
-        lower = Vector128.Subtract(lower, _AddOverlay);
+        lower = Vector128.Subtract(lower, _AddOffset);
 
         upper = Vector128.ShiftLeft(upper, 4);
 
         return Vector128.BitwiseOr(upper, lower);
     }
 
-    /// <summary>To read utf8</summary>
+    /// <inheritdoc cref="Parse(ReadOnlySpan{Char})"/>
     internal static Vector128<Byte> Parse(ReadOnlySpan<Byte> chars) {
         if (chars.Length < UUID_STRING_LENGTH) {
             throw new ArgumentException($"The length of the string is not {chars.Length}", nameof(chars));
@@ -183,10 +191,10 @@ public static partial class Format {
         }
 
         upper = LowerNine(upper);
-        upper = Vector128.Subtract(upper, _AddOverlay);
+        upper = Vector128.Subtract(upper, _AddOffset);
 
         lower = LowerNine(lower);
-        lower = Vector128.Subtract(lower, _AddOverlay);
+        lower = Vector128.Subtract(lower, _AddOffset);
 
         upper = Vector128.ShiftLeft(upper, 4);
 

@@ -1,31 +1,30 @@
-﻿using System.Runtime.Intrinsics;
+﻿using System.Runtime.CompilerServices;
+using System.Runtime.Intrinsics;
 
 namespace DaanV2.UUID;
 
 public static partial class V4 {
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <returns></returns>
-    public static UUID[] Batch(Int32 Amount) {
-        return Batch(Amount, Random.Shared);
+    /// <inheritdoc/>
+    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
+    public static UUID[] Batch(Int32 amount) {
+        return Batch(amount, Random.Shared);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="rnd"></param>
-    /// <returns></returns>
-    public static UUID[] Batch(Int32 Amount, Random rnd) {
-        var uuids = new UUID[Amount];
+    /// <summary>Generates a batch of <see cref="UUID"/> using randomized data</summary>
+    /// <param name="amount">The amount of <see cref="UUID"/>s to generate</param>
+    /// <param name="rnd">The randomizor to use</param>
+    /// <returns>A collection of <see cref="UUID"/></returns>
+    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
+    public static UUID[] Batch(Int32 amount, Random rnd) {
+        var uuids = new UUID[amount];
 
         //Cant allocate more than 1024 bytes on the stack
         const Int32 MaxStackAlloc = 1024;
-        Int32 toAllocate = Format.UUID_BYTE_LENGTH * Amount;
+        Int32 toAllocate = Format.UUID_BYTE_LENGTH * amount;
 
         Span<Byte> bytes = toAllocate <= MaxStackAlloc ?
-            stackalloc Byte[Format.UUID_BYTE_LENGTH * Amount] :
-            new Byte[Format.UUID_BYTE_LENGTH * Amount];
+            stackalloc Byte[Format.UUID_BYTE_LENGTH * amount] :
+            new Byte[Format.UUID_BYTE_LENGTH * amount];
 
         rnd.NextBytes(bytes);
 
@@ -33,8 +32,9 @@ public static partial class V4 {
     }
 
     /// <summary>Turns the entire bytes collection into UUIDs</summary>
-    /// <param name="bytes"></param>
-    /// <returns></returns>
+    /// <param name="bytes">The byte to chunk into <see cref="UUID"/></param>
+    /// <returns>A collection of <see cref="UUID"/></returns>
+    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     public static UUID[] Batch(ReadOnlySpan<Byte> bytes) {
         Int32 count = bytes.Length;
         Int32 amount = count / Format.UUID_BYTE_LENGTH;
@@ -51,11 +51,13 @@ public static partial class V4 {
         return uuids;
     }
 
-    /// <summary>Turns </summary>
-    /// <param name="rnd"></param>
-    /// <returns></returns>
-    public static UUID[] Batch(Int32 Amount, Func<Int32, Memory<Byte>> generateContents) {
-        var uuids = new UUID[Amount];
+    /// <summary>Uses a user specified function to generate more <see cref="UUID"/></summary>
+    /// <param name="amount">The amount of <see cref="UUID"/>s to generate</param>
+    /// <param name="generateContents">The function to provide content</param>
+    /// <returns>A collection of <see cref="UUID"/></returns>
+    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
+    public static UUID[] Batch(Int32 amount, Func<Int32, Memory<Byte>> generateContents) {
+        var uuids = new UUID[amount];
 
         for (Int32 I = 0; I < uuids.Length; I++) {
             Memory<Byte> bytes = generateContents(I);

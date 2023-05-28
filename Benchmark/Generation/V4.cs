@@ -5,7 +5,7 @@ using DaanV2.UUID;
 namespace Benchmark.Generation;
 
 [MemoryDiagnoser]
-[SimpleJob(RunStrategy.Throughput, id: "Generating v4", iterationCount: 5, invocationCount: 50_000_000)]
+[SimpleJob(RunStrategy.Throughput, id: "Generating v4")]
 public partial class GenerationV4 {
     public Random R { get; set; } = new Random();
 
@@ -36,7 +36,7 @@ public partial class GenerationV4 {
 }
 
 [MemoryDiagnoser]
-[SimpleJob(RunStrategy.Throughput, id: "Generating v4 as string", iterationCount: 5, invocationCount: 5000_000)]
+[SimpleJob(RunStrategy.Throughput, id: "Generating v4 as string")]
 public partial class StringGenerationV4 {
     public Random R { get; set; } = new Random();
 
@@ -57,7 +57,7 @@ public partial class StringGenerationV4 {
 }
 
 [MemoryDiagnoser]
-[SimpleJob(RunStrategy.Throughput, iterationCount: 5, id: "Generating batches v4")]
+[SimpleJob(RunStrategy.Throughput, id: "Generating batches v4")]
 public partial class GenerationBatchV4 {
 
     [Params(10, 100, 500, 1000, 10000, 1000_000)]
@@ -102,7 +102,7 @@ public partial class GenerationBatchV4 {
 }
 
 [MemoryDiagnoser]
-[SimpleJob(RunStrategy.Throughput, id: "Generating batches v4 as strings", iterationCount: 5, invocationCount: 5000)]
+[SimpleJob(RunStrategy.Throughput, id: "Generating batches v4 as strings")]
 public partial class StringBatchGenerationV4 {
     [Params(10, 100, 500, 1000)]
     public Int32 Amount { get; set; }

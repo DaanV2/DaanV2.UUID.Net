@@ -2,7 +2,7 @@
 using BenchmarkDotNet.Engines;
 using DaanV2.UUID;
 
-namespace Benchmark;
+namespace Benchmark.ArrayBenchmark;
 
 [SimpleJob(RunStrategy.Throughput, id: "Retrieving from Array", warmupCount: 10)]
 public class RetrieveTest {
@@ -10,12 +10,12 @@ public class RetrieveTest {
     [Params(10, 100, 1000, 2000, 5000)]
     public Int32 Amount { get; set; }
 
-    public UUID[] UUIDs { get; set; } = Array.Empty<UUID>();
-    public UUID[] UUIDs2 { get; set; } = Array.Empty<UUID>();
-    public Guid[] Guids { get; set; } = Array.Empty<Guid>();
-    public Guid[] Guids2 { get; set; } = Array.Empty<Guid>();
-    public String[] Strings { get; set; } = Array.Empty<String>();
-    public String[] Strings2 { get; set; } = Array.Empty<String>();
+    public UUID[] UUIDs { get; set; } = System.Array.Empty<UUID>();
+    public UUID[] UUIDs2 { get; set; } = System.Array.Empty<UUID>();
+    public Guid[] Guids { get; set; } = System.Array.Empty<Guid>();
+    public Guid[] Guids2 { get; set; } = System.Array.Empty<Guid>();
+    public String[] Strings { get; set; } = System.Array.Empty<String>();
+    public String[] Strings2 { get; set; } = System.Array.Empty<String>();
 
     [IterationSetup]
     public void Setup() {
@@ -37,7 +37,7 @@ public class RetrieveTest {
         Guid[] guids = this.Guids;
         Guid[] indata = this.Guids2;
         foreach (Guid U in guids) {
-            Int32 index = Array.IndexOf(indata, U);
+            Int32 index = System.Array.IndexOf(indata, U);
             if (index >= 0) {
                 Count++;
             }
@@ -53,7 +53,7 @@ public class RetrieveTest {
         UUID[] uuids = this.UUIDs;
         UUID[] indata = this.UUIDs2;
         foreach (UUID U in uuids) {
-            Int32 index = Array.IndexOf(indata, U);
+            Int32 index = System.Array.IndexOf(indata, U);
             if (index >= 0) {
                 Count++;
             }
@@ -69,7 +69,7 @@ public class RetrieveTest {
         String[] uuids = this.Strings;
         String[] indata = this.Strings2;
         foreach (String U in uuids) {
-            Int32 index = Array.IndexOf(indata, U);
+            Int32 index = System.Array.IndexOf(indata, U);
             if (index >= 0) {
                 Count++;
             }
