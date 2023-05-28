@@ -14,6 +14,7 @@
 - [Benchmark.Generation.StringBatchGenerationV4-report-github](Benchmark.Generation.StringBatchGenerationV4-report-github.md)
 - [Benchmark.Generation.StringGenerationV4-report-github](Benchmark.Generation.StringGenerationV4-report-github.md)
 - [Benchmark.List.RetrieveTest-report-github](Benchmark.List.RetrieveTest-report-github.md)
+- [Benchmark.Mechanics.VectorComparing-report-github](Benchmark.Mechanics.VectorComparing-report-github.md)
 - [Benchmark.Mechanics.VersionMask-report-github](Benchmark.Mechanics.VersionMask-report-github.md)
 - [Benchmark.Serialization.JsonDeserializationTest-report-github](Benchmark.Serialization.JsonDeserializationTest-report-github.md)
 - [Benchmark.Serialization.JsonSerializationTest-report-github](Benchmark.Serialization.JsonSerializationTest-report-github.md)
