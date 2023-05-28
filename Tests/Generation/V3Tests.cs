@@ -1,14 +1,14 @@
 ﻿using DaanV2.UUID;
 
 namespace Tests.Generation;
-public sealed partial class V5Tests {
+public sealed partial class V3Tests {
     [Fact(DisplayName = "When generating with specific data returns expected result")]
     public void TestSpecific1() {
         String data = "DaanV2.UUID;DaanV2.UUID;";
-        UUID uuid = V5.Generate(data);
+        UUID uuid = V3.Generate(data);
 
-        Utility.ValidateUUID(uuid, V5.Version, V5.Variant);
-        Assert.Equal("f4f8e8db-6c96-5fa8-b503-d6ebd40cf5f3", uuid.ToString());
+        Utility.ValidateUUID(uuid, V3.Version, V3.Variant);
+        Assert.Equal("89445ea6-f5d7-35aa-9d39-b589895bdcd6", uuid.ToString());
     }
 
     [Theory(DisplayName = "When batch generating, will always return unique UUIDs")]
@@ -16,13 +16,13 @@ public sealed partial class V5Tests {
     [InlineData(100)]
     [InlineData(1000)]
     public void TestBatchUnique(Int32 Amount) {
-        Int32 byteCount = (Amount * V5.MinimumDataLength) / 2;
+        Int32 byteCount = (Amount * V3.MinimumDataLength) / 2;
         Byte[] data = new Byte[byteCount];
         Random.Shared.NextBytes(data);
         //Data to hex
         String Hex = BitConverter.ToString(data).Replace("-", String.Empty);
 
-        UUID[] UUIDs = V5.Batch(Hex);
+        UUID[] UUIDs = V3.Batch(Hex);
         Assert.Equal(Amount, UUIDs.Length);
 
         for (Int32 i = 0; i < UUIDs.Length; i++) {

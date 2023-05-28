@@ -1,7 +1,8 @@
-﻿namespace Benchmark;
-///DOLATER <summary>add description for class: Utillity</summary>
-public static partial class Utillity {
+﻿using System.Security.Cryptography;
 
+namespace Benchmark;
+///DOLATER <summary>add description for class: Utility</summary>
+public static partial class Utility {
     /// <summary>Looks recursively up to find the folder</summary>
     /// <param name="start"></param>
     /// <param name="find"></param>
@@ -17,5 +18,12 @@ public static partial class Utillity {
         }
 
         return null;
+    }
+
+    public static String HexString(Int32 Length) {
+        Byte[] data = new Byte[Length / 2];
+        RandomNumberGenerator.Fill(data);
+
+        return BitConverter.ToString(data).Replace("-", "");
     }
 }

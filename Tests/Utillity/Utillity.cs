@@ -3,7 +3,7 @@ using DaanV2.UUID;
 
 namespace Tests;
 
-public partial class Utillity {
+public partial class Utility {
 
     /// <summary>
     /// 

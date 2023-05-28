@@ -4,7 +4,7 @@ using System.Security.Cryptography;
 using System.Text;
 
 namespace DaanV2.UUID;
-public static partial class V5 {
+public static partial class V3 {
     /// <summary>Generates a <see cref="UUID"/> from the given data</summary>
     /// <returns>A new <see cref="UUID"/></returns>
     public static UUID Generate() {
@@ -41,7 +41,7 @@ public static partial class V5 {
     [MethodImpl(MethodImplOptions.AggressiveOptimization | MethodImplOptions.AggressiveInlining)]
     public static UUID Generate(ReadOnlySpan<Byte> source) {
         Span<Byte> hash = stackalloc Byte[SHA1.HashSizeInBytes];
-        _ = SHA1.HashData(source, hash);
+        _ = MD5.HashData(source, hash);
 
         var data = Vector128.Create<Byte>(hash);
         Vector128<Byte> uuid = Format.StampVersion(_VersionMask, _VersionOverlay, data);

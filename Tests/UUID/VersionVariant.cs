@@ -13,7 +13,7 @@ public sealed partial class UUIDtests {
         var vers = Format.ToVersion(version);
         var vari = Format.ToVariant(variant);
 
-        Vector128<Byte> data = Utillity.PinnedUUIDVector();
+        Vector128<Byte> data = Utility.PinnedUUIDVector();
         var uuid = UUID.Create(vers, vari, data);
 
         Assert.Equal(vers, uuid.Version);

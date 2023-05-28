@@ -9,10 +9,10 @@ public sealed partial class JsonSerializationTest {
 
     [Fact(DisplayName = "Can json serializer")]
     public void JsonSerialization() {
-        UUID uuid = Utillity.PinnedUUIDData();
+        UUID uuid = Utility.PinnedUUIDData();
         String jsonString = JsonSerializer.Serialize(uuid);
 
-        Assert.Contains(Utillity.PinnedUUID, jsonString);
+        Assert.Contains(Utility.PinnedUUID, jsonString);
 
         var data = new TestClass {
             ID = uuid
@@ -20,17 +20,17 @@ public sealed partial class JsonSerializationTest {
 
         jsonString = JsonSerializer.Serialize(data);
 
-        Assert.Contains(Utillity.PinnedUUID, jsonString);
+        Assert.Contains(Utility.PinnedUUID, jsonString);
     }
 
     [Fact(DisplayName = "Can json serialize and deserialize")]
     public void JsonSerializationAndDeserialization() {
-        UUID uuid = Utillity.PinnedUUIDData();
+        UUID uuid = Utility.PinnedUUIDData();
         var data = new TestClass {
             ID = uuid
         };
         String jsonString = JsonSerializer.Serialize(data);
-        Assert.Contains(Utillity.PinnedUUID, jsonString);
+        Assert.Contains(Utility.PinnedUUID, jsonString);
 
         TestClass? data2 = JsonSerializer.Deserialize<TestClass>(jsonString);
 

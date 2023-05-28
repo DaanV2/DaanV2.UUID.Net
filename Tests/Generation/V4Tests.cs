@@ -5,13 +5,13 @@ public sealed partial class V4Tests {
     [Fact(DisplayName = "Can generate a single valid UUID")]
     public void TestUUID() {
         UUID UUID = V4.Generate();
-        Utillity.ValidateUUID(UUID, V4.Version, V4.Variant);
+        Utility.ValidateUUID(UUID, V4.Version, V4.Variant);
     }
 
     [Fact(DisplayName = "Can generate a single valid UUID with a supplied random")]
     public void TestUUIDRandom() {
         UUID UUID = V4.Generate(new Random());
-        Utillity.ValidateUUID(UUID, V4.Version, V4.Variant);
+        Utility.ValidateUUID(UUID, V4.Version, V4.Variant);
     }
 
     [Fact(DisplayName = "Can generate a batch of UUIDs")]
@@ -20,7 +20,7 @@ public sealed partial class V4Tests {
         Assert.Equal(100, UUIDs.Length);
 
         for (Int32 i = 0; i < UUIDs.Length; i++) {
-            Utillity.ValidateUUID(UUIDs[i], V4.Version, V4.Variant);
+            Utility.ValidateUUID(UUIDs[i], V4.Version, V4.Variant);
         }
     }
 
@@ -30,7 +30,7 @@ public sealed partial class V4Tests {
         Assert.Equal(1000_000, UUIDs.Length);
 
         for (Int32 i = 0; i < UUIDs.Length; i++) {
-            Utillity.ValidateUUID(UUIDs[i], V4.Version, V4.Variant);
+            Utility.ValidateUUID(UUIDs[i], V4.Version, V4.Variant);
         }
     }
 
@@ -40,7 +40,7 @@ public sealed partial class V4Tests {
         Assert.Equal(100, UUIDs.Length);
 
         for (Int32 i = 0; i < UUIDs.Length; i++) {
-            Utillity.ValidateUUID(UUIDs[i], V4.Version, V4.Variant);
+            Utility.ValidateUUID(UUIDs[i], V4.Version, V4.Variant);
         }
     }
 
@@ -59,7 +59,7 @@ public sealed partial class V4Tests {
         Assert.Equal(Amount, UUIDs.Length);
 
         for (Int32 i = 0; i < UUIDs.Length; i++) {
-            Utillity.ValidateUUID(UUIDs[i], V4.Version, V4.Variant);
+            Utility.ValidateUUID(UUIDs[i], V4.Version, V4.Variant);
         }
     }
 

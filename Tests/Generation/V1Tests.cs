@@ -7,7 +7,7 @@ public sealed partial class V1Tests {
         var dateTime = new DateTime(2019, 1, 2, 3, 4, 5, DateTimeKind.Utc);
         UUID uuid = V1.Generate(dateTime, (Byte)0);
 
-        Utillity.ValidateUUID(uuid, V1.Version, V1.Variant);
+        Utility.ValidateUUID(uuid, V1.Version, V1.Variant);
         Byte[] macAddress = V1.GetMacAddressBytes();
         String machex = BitConverter.ToString(macAddress).Replace("-", String.Empty).ToLower();
 

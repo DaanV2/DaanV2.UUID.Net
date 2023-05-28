@@ -4,7 +4,7 @@ using DaanV2.UUID;
 namespace Tests;
 
 
-public partial class Utillity {
+public partial class Utility {
     /// <summary>Value has been determined after testing and now here pinned.</summary>
     public const String PinnedUUID = "01234567-89ab-cdef-1133-557799bbddff";
 
