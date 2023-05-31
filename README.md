@@ -7,28 +7,7 @@ A library that provides a way to handle, and generate UUIDs. Convert them to and
 The library is written to be fast and efficient when comparing, generating or other handling operations. But still, comply with the RFC 4122 standard.
 As well as providing a way to generate UUIDs from different data, like a string, or a byte array. Or cutting up a byte array into UUIDs.
 
-Also has support for JSON serialization and deserialization.
-
-**Table of Contents**
-- [UUID.Net](#uuidnet)
-  - [UUIDs Version](#uuids-version)
-  - [Benchmarks](#benchmarks)
-  - [Usage Example](#usage-example)
-    - [Generating UUIDs](#generating-uuids)
-    - [Creating UUIDs](#creating-uuids)
-
-## UUIDs Version
-
-| Version | Variant | Description                                                      |
-| ------- | ------- | ---------------------------------------------------------------- |
-| 1       | 1       | A UUID generated from a timestamp and the macaddresss            |
-| 3       | 1       | A UUID generated from a string using MD5 hashing bits, 122 bits  |
-| 4       | 1       | A random generated UUID of 122 bits                              |
-| 5       | 1       | A UUID generated from a string using SHA1 hashing bits, 122 bits |
-
-
-## Benchmarks
-See [Benchmark reports](./Benchmark/Reports/results/README.md)
+Also has support for JSON serialization.
 
 ## Usage Example
 Below are two examples of generating UUIDs and usage
@@ -60,3 +39,17 @@ using DaanV2.UUID;
 Byte[] data = ...
 var uuid = UUID.Create(Version.V4, Variant.V1, data)
 ```
+
+## UUIDs Version
+
+| Version | Variant | Description                                                      |
+| ------- | ------- | ---------------------------------------------------------------- |
+| 1       | 1       | A UUID generated from a timestamp and the macaddresss            |
+| 3       | 1       | A UUID generated from a string using MD5 hashing bits, 122 bits  |
+| 4       | 1       | A random generated UUID of 122 bits                              |
+| 5       | 1       | A UUID generated from a string using SHA1 hashing bits, 122 bits |
+
+
+## Benchmarks
+See [Benchmark reports](./Benchmark/Reports/results/README.md)
+
