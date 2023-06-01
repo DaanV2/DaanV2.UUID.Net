@@ -39,7 +39,7 @@ public static partial class V3 {
     [MethodImpl(MethodImplOptions.AggressiveOptimization | MethodImplOptions.AggressiveInlining)]
     public static UUID Generate(ReadOnlySpan<Byte> source) {
         Span<Byte> hash = stackalloc Byte[SHA1.HashSizeInBytes];
-        _ = MD5.HashData(source, hash);
+        _ = MD5.TryHashData(source, hash, out Int32 _);
 
         var data = Vector128.Create<Byte>(hash);
         Vector128<Byte> uuid = Format.StampVersion(_VersionMask, _VersionOverlay, data);

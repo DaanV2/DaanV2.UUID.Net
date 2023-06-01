@@ -10,7 +10,7 @@ Job=Json Deserialization  InvocationCount=1  RunStrategy=Throughput
 UnrollFactor=1  
 
 ```
-|                Method |     Mean |     Error |    StdDev |   Median | Ratio | RatioSD | Allocated | Alloc Ratio |
-|---------------------- |---------:|----------:|----------:|---------:|------:|--------:|----------:|------------:|
-| &#39;Deserializing UUIDs&#39; | 5.263 ms | 0.1547 ms | 0.4156 ms | 5.146 ms |  1.78 |    0.47 |   2.05 MB |        1.00 |
-| &#39;Deserializing Guids&#39; | 3.095 ms | 0.3319 ms | 0.9577 ms | 2.596 ms |  1.00 |    0.00 |   2.05 MB |        1.00 |
+| Method |     Mean |     Error |    StdDev | Ratio | RatioSD | Allocated | Alloc Ratio |
+|------- |---------:|----------:|----------:|------:|--------:|----------:|------------:|
+|  UUIDs | 4.963 ms | 0.0884 ms | 0.2298 ms |  1.46 |    0.40 |   2.05 MB |        1.00 |
+|  Guids | 3.439 ms | 0.3400 ms | 1.0026 ms |  1.00 |    0.00 |   2.05 MB |        1.00 |

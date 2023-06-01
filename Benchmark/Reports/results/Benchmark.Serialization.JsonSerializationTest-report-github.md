@@ -10,7 +10,7 @@ Job=Json Serialization  InvocationCount=1  RunStrategy=Throughput
 UnrollFactor=1  
 
 ```
-|              Method |      Mean |    Error |   StdDev | Ratio | RatioSD | Allocated | Alloc Ratio |
-|-------------------- |----------:|---------:|---------:|------:|--------:|----------:|------------:|
-| &#39;Serializing UUIDs&#39; | 106.49 ms | 2.111 ms | 2.593 ms |  1.84 |    0.13 |  74.39 MB |        1.00 |
-| &#39;Serializing Guids&#39; |  55.84 ms | 1.831 ms | 5.223 ms |  1.00 |    0.00 |  74.39 MB |        1.00 |
+| Method |      Mean |    Error |   StdDev | Ratio | RatioSD | Allocated | Alloc Ratio |
+|------- |----------:|---------:|---------:|------:|--------:|----------:|------------:|
+|  UUIDs | 100.61 ms | 1.969 ms | 3.746 ms |  1.98 |    0.10 |  74.39 MB |        1.00 |
+|  Guids |  50.71 ms | 0.979 ms | 1.740 ms |  1.00 |    0.00 |  74.39 MB |        1.00 |

@@ -1,4 +1,6 @@
 ﻿using System.Runtime.CompilerServices;
+using System.Runtime.Intrinsics;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace DaanV2.UUID;
@@ -57,10 +59,17 @@ public static partial class V3 {
         Int32 step = source.Length / amount;
         Int32 max = source.Length - step;
 
+        Span<Byte> hash = stackalloc Byte[MD5.HashSizeInBytes];
+
         var uuids = new UUID[amount];
         Int32 J = 0;
         for (Int32 I = 0; I < max; I += step) {
-            uuids[J++] = Generate(source.Slice(I, step));
+            ReadOnlySpan<Byte> section = source.Slice(I, step);
+            _ = MD5.TryHashData(section, hash, out Int32 _);
+
+            var data = Vector128.Create<Byte>(hash);
+            Vector128<Byte> uuid = Format.StampVersion(_VersionMask, _VersionOverlay, data);
+            uuids[J++] = new UUID(uuid);
         }
 
         return uuids;

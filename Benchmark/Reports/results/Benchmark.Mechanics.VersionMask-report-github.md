@@ -6,13 +6,13 @@ Intel Core i7-7700K CPU 4.20GHz (Kaby Lake), 1 CPU, 8 logical and 4 physical cor
   [Host]                                    : .NET 7.0.5 (7.0.523.17405), X64 RyuJIT AVX2 [AttachedDebugger]
   Version masking, as vector or just bytes? : .NET 7.0.5 (7.0.523.17405), X64 RyuJIT AVX2
 
-Job=Version masking, as vector or just bytes?  InvocationCount=5000000  IterationCount=50  
-RunStrategy=Throughput  
+Job=Version masking, as vector or just bytes?  InvocationCount=1  RunStrategy=Throughput  
+UnrollFactor=1  
 
 ```
-|                                             Method |      Mean |     Error |    StdDev |    Median | Ratio | RatioSD | Allocated | Alloc Ratio |
-|--------------------------------------------------- |----------:|----------:|----------:|----------:|------:|--------:|----------:|------------:|
-|             &#39;Using Vector128 and constants values&#39; | 1.5045 ns | 0.0635 ns | 0.1238 ns | 1.5246 ns |  0.34 |    0.03 |         - |          NA |
-|         &#39;Using Vector128 and using dynamic values&#39; | 1.3325 ns | 0.0620 ns | 0.1252 ns | 1.3774 ns |  0.30 |    0.03 |         - |          NA |
-| &#39;Using Vector128 and using static masks &amp; overlay&#39; | 0.9754 ns | 0.0625 ns | 0.1247 ns | 0.9232 ns |  0.22 |    0.03 |         - |          NA |
-|                  &#39;Using bytes and constant values&#39; | 4.4093 ns | 0.1013 ns | 0.1976 ns | 4.5136 ns |  1.00 |    0.00 |         - |          NA |
+|                                             Method |     Mean |     Error |    StdDev |   Median | Ratio | RatioSD | Allocated | Alloc Ratio |
+|--------------------------------------------------- |---------:|----------:|----------:|---------:|------:|--------:|----------:|------------:|
+|             &#39;Using Vector128 and constants values&#39; | 267.9 ns |  18.20 ns |  46.97 ns | 300.0 ns |  0.65 |    0.13 |     504 B |        1.00 |
+|         &#39;Using Vector128 and using dynamic values&#39; | 300.0 ns |   0.00 ns |   0.00 ns | 300.0 ns |  0.70 |    0.10 |     504 B |        1.00 |
+| &#39;Using Vector128 and using static masks &amp; overlay&#39; | 722.2 ns | 101.66 ns | 298.14 ns | 800.0 ns |  1.76 |    0.73 |     504 B |        1.00 |
+|                  &#39;Using bytes and constant values&#39; | 417.2 ns |  16.90 ns |  46.27 ns | 400.0 ns |  1.00 |    0.00 |     504 B |        1.00 |
