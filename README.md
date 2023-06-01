@@ -1,7 +1,9 @@
 # UUID.Net
 
 [![.NET Unit test](https://github.com/DaanV2/DaanV2.UUID.Net/actions/workflows/dotnet-test.yml/badge.svg)](https://github.com/DaanV2/DaanV2.UUID.Net/actions/workflows/dotnet-test.yml)
-[![📦 Nuget Release](https://github.com/DaanV2/DaanV2.UUID.Net/actions/workflows/publish.yml/badge.svg)](https://github.com/DaanV2/DaanV2.UUID.Net/actions/workflows/publish.yml)
+[![📦 Nuget Release](https://github.com/DaanV2/DaanV2.UUID.Net/actions/workflows/publish.yml/badge.svg)](https://github.com/DaanV2/DaanV2.UUID.Net/actions/workflows/publish.yml)  
+![Nuget Version](https://img.shields.io/nuget/v/DaanV2.UUID.Net)
+![Nuget Downloads](https://img.shields.io/nuget/dt/DaanV2.UUID.Net)
 
 A library that provides a way to handle, and generate UUIDs. Convert them to and from strings, GUIDs, and the like. 
 The library is written to be fast and efficient when comparing, generating or other handling operations. But still, comply with the RFC 4122 standard.
