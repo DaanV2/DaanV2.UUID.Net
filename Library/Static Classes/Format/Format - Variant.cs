@@ -56,9 +56,8 @@ public static partial class Format {
         // 1 0 x. 1 bits => 0b1100_0000
         // 1 1 0. 2 bits => 0b1110_0000
         // 1 1 1. 3 bits => 0b1110_0000
-
-        UInt32 bitsSet = System.Runtime.Intrinsics.X86.Popcnt.PopCount((UInt32)variant);
-        Int32 r = (Int32)(bitsSet + 1);
+        Int32 bitsSet = System.Numerics.BitOperations.PopCount((UInt32)variant);
+        Int32 r = bitsSet + 1;
         if (r > 3) {
             r = 3;
         }
