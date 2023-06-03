@@ -106,7 +106,7 @@ public partial class GenerationBatchV4 {
 public partial class StringBatchGenerationV4 {
     [Params(10, 100, 500, 1000)]
     public Int32 Amount { get; set; }
-    public Random R { get; set; }
+    public Random R { get; set; } = Random.Shared;
 
     [IterationSetup]
     public void Setup() {

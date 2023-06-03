@@ -37,7 +37,7 @@ public partial class AllVersions {
 [SimpleJob(RunStrategy.ColdStart, id: "Generating in batch all versions")]
 public partial class BatchAllVersions {
     private Int32 _Amount;
-    private String _Data;
+    private String _Data = String.Empty;
 
     [Params(10, 100, 500, 1000, 2500, 5000, 10_000, 100_000)]
     public Int32 Amount {
