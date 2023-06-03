@@ -16,7 +16,7 @@ public sealed partial class V5Tests {
     [InlineData(100)]
     [InlineData(1000)]
     public void TestBatchUnique(Int32 Amount) {
-        Int32 byteCount = (Amount * V5.MinimumDataLength) / 2;
+        Int32 byteCount = Amount * V5.MinimumDataLength / 2;
         Byte[] data = new Byte[byteCount];
         Random.Shared.NextBytes(data);
         //Data to hex

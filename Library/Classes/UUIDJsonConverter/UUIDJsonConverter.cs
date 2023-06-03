@@ -23,10 +23,9 @@ public partial class UUIDJsonConverter : JsonConverter<UUID> {
     /// <inheritdoc/>
     [MethodImpl(MethodImplOptions.AggressiveOptimization | MethodImplOptions.AggressiveInlining)]
     public override void Write(Utf8JsonWriter writer, UUID value, JsonSerializerOptions options) {
-        Span<Byte> characters = stackalloc Byte[64];
-        Span<Byte> receiver = characters[..Format.UUID_STRING_LENGTH];
-        Format.IntoSpan(value._Data, receiver);
-
-        writer.WriteStringValue(receiver);
+        //Converting first to string is faster, but the validation on the string is slower
+        //So we convert to guid, which skips that
+        var guid = value.ToGuid();
+        writer.WriteStringValue(guid);
     }
 }
