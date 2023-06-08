@@ -31,7 +31,7 @@ var uuids = DaanV2.UUID.V4.Batch(data);
 
 ### Creating UUIDs
 In case you want to provide your own data to generate a UUID, you can use the `DaanV2.UUID.UUID` class.
-This will stamp the UUID with the provided data, and use the provided data to generate the UUID.
+This will stamp the UUID with the provided data, and turn it into a UUID.
 
 ```csharp
 using DaanV2.UUID;
