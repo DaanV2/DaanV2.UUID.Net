@@ -22,7 +22,7 @@ jobs:
 
       - name: 🔍 Get Tag
         id: tag
-        run: echo "::set-output name=tag_name::${GITHUB_REF#refs/tags/}"
+        run: echo "${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
 
       - name: 🖊️ Update version in .csproj files
         run: |
@@ -37,9 +37,8 @@ jobs:
           git commit -m "Update version to $TAG" || echo "No changes to commit"
 
       - name: 🚚 Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          branch: ${{ github.ref }}
+        continue-on-error: true
+        run: git push
   
   build:
     name: 🛠️ Build
