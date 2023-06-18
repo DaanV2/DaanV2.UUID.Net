@@ -19,6 +19,8 @@ jobs:
     steps:
       - name: 📦 Checkout repository
         uses: actions/checkout@v3
+        with:
+          ref: main
 
       - name: 🔍 Get Tag
         id: tag
@@ -34,7 +36,7 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add .
-          git commit -m "Update version to $TAG" || echo "No changes to commit"
+          git commit -m "auto: Update version to $TAG" || echo "No changes to commit"
 
       - name: 🚚 Push changes
         continue-on-error: true
