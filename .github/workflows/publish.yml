@@ -17,26 +17,26 @@ jobs:
     name: 📝 Update version
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+      - name: 📦 Checkout repository
+        uses: actions/checkout@v3
 
-      - name: Get tag name
+      - name: 🔍 Get Tag
         id: tag
         run: echo "::set-output name=tag_name::${GITHUB_REF#refs/tags/}"
 
-      - name: Update version in .csproj files
+      - name: 🖊️ Update version in .csproj files
         run: |
           TAG=${{ steps.tag.outputs.tag_name }}
           find . -name '*.csproj' -type f -exec sed -i "s/<Version>.*<\/Version>/<Version>${TAG//v}<\/Version>/g" {} \;
 
-      - name: Commit changes
+      - name: 📋 Commit changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add .
           git commit -m "Update version to $TAG" || echo "No changes to commit"
 
-      - name: Push changes
+      - name: 🚚 Push changes
         uses: ad-m/github-push-action@master
         with:
           branch: ${{ github.ref }}
