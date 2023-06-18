@@ -1,8 +1,9 @@
-name: .NET 📋 Unit test
+name: 📋 .NET Unit test
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
   pull_request:
 
 concurrency: 
