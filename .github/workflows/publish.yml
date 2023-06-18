@@ -22,7 +22,7 @@ jobs:
 
       - name: 🔍 Get Tag
         id: tag
-        run: echo "${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
+        run: echo "tag_name=${GITHUB_REF#refs/tags/}" >> "$GITHUB_OUTPUT"
 
       - name: 🖊️ Update version in .csproj files
         run: |
