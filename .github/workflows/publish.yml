@@ -69,7 +69,6 @@ jobs:
         with:
           dotnet-version: 7.0.x
           cache: true
-          source-url: https://nuget.pkg.github.com/DaanV2/index.json
 
       - name: 📥 Restore dependencies
         run: dotnet restore --verbosity normal
