@@ -40,13 +40,13 @@ Byte[] data = ...
 var uuid = UUID.Create(Version.V4, Variant.V1, data)
 ```
 
-## UUIDs Version
+## Supported Version
 
 | Version | Variant | Description                                                      |
 | ------- | ------- | ---------------------------------------------------------------- |
-| 1       | 1       | A UUID generated from a timestamp and the macaddresss            |
+| 1       | 1       | A UUID generated from a timestamp and the mac address            |
 | 3       | 1       | A UUID generated from a string using MD5 hashing bits, 122 bits  |
-| 4       | 1       | A random generated UUID of 122 bits                              |
+| 4       | 1       | A randomly generated UUID of 122 bits                            |
 | 5       | 1       | A UUID generated from a string using SHA1 hashing bits, 122 bits |
 
 
