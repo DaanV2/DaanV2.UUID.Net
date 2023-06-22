@@ -1,4 +1,4 @@
-# UUID.Net
+# DaanV2.UUID.Net
 
 [![.NET Unit test](https://github.com/DaanV2/DaanV2.UUID.Net/actions/workflows/dotnet-test.yml/badge.svg)](https://github.com/DaanV2/DaanV2.UUID.Net/actions/workflows/dotnet-test.yml)
 [![📦 Nuget Release](https://github.com/DaanV2/DaanV2.UUID.Net/actions/workflows/publish.yml/badge.svg)](https://github.com/DaanV2/DaanV2.UUID.Net/actions/workflows/publish.yml)  
