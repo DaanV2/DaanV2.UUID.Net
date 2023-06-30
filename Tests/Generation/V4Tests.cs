@@ -82,4 +82,18 @@ public sealed partial class V4Tests {
             }
         }
     }
+
+    [Fact(DisplayName = "Stream handling should be the same as the array")]
+    public void TestUUIDStream() {
+        Byte[] data = new Byte[32];
+        Random.Shared.NextBytes(data);
+
+        UUID expected = DaanV2.UUID.V4.Generate(data);
+
+        using (var stream = new MemoryStream(data)) {
+            UUID actual = DaanV2.UUID.V4.Generate(stream);
+
+            Assert.Equal(expected, actual);
+        }
+    }
 }
