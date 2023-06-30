@@ -12,7 +12,7 @@
     <Copyright>daanverstraten@hotmail.com</Copyright>
     <FileVersion>$(VersionPrefix)</FileVersion>
     <AssemblyVersion>$(VersionPrefix)</AssemblyVersion>
-    <Version>2.0.8</Version>
+    <Version>2.0.9</Version>
     <Platforms>AnyCPU;x64;x86</Platforms>
     <SignAssembly>False</SignAssembly>
     <Description>A library that provides a way to handle, and generate UUIDs. Convert them to and from strings, GUIDs, and the like. 
