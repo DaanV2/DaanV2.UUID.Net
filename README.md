@@ -6,8 +6,7 @@
 ![Nuget Downloads](https://img.shields.io/nuget/dt/DaanV2.UUID.Net)
 
 A library that provides a way to handle and generate UUIDs. Convert them to and from strings, GUIDs, and the like. 
-The library is written to be fast and efficient when comparing, generating, or handling operations. But still comply with the RFC 4122 standard.
-As well as providing a way to generate UUIDs from different data, like a string or a byte array, or cutting up a byte array into UUIDs.
+The library is written to be fast and efficient when comparing, generating, or handling operations. Provides ways to generate UUIDs from different data, like a string,  a byte array, or cutting up a byte array into UUIDs. Complies with the RFC 4122 standard.
 
 ## Usage Example
 Below are two examples of generating UUIDs and usage
