@@ -3,8 +3,6 @@ using System.Runtime.Intrinsics;
 
 namespace DaanV2.UUID;
 
-
-
 public static partial class V1 {
     /// <summary>A record of what information can be returned by a <see cref="UUID"/> of version 1</summary>
     public record Information {
