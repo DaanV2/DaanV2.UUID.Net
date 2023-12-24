@@ -39,3 +39,6 @@ jobs:
 
     - name: 📋 Test
       run: dotnet test --no-restore --verbosity normal
+
+    - name: 📦 Packaging test
+      run: dotnet pack --configuration Release Library
