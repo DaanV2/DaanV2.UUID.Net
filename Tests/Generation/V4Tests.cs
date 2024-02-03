@@ -88,10 +88,10 @@ public sealed partial class V4Tests {
         Byte[] data = new Byte[32];
         Random.Shared.NextBytes(data);
 
-        UUID expected = DaanV2.UUID.V4.Generate(data);
+        UUID expected = V4.Generate(data);
 
         using (var stream = new MemoryStream(data)) {
-            UUID actual = DaanV2.UUID.V4.Generate(stream);
+            UUID actual = V4.Generate(stream);
 
             Assert.Equal(expected, actual);
         }

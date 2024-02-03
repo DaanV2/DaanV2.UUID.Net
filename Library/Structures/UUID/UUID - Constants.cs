@@ -10,6 +10,9 @@ public readonly partial struct UUID {
     /// <summary>The amount of bits in a UUID</summary>
     public const Int32 BITS_AMOUNT = Format.UUID_BITS;
 
-    /// <summary>00000000-0000-0000-0000-000000000000</summary>
+    /// <summary>The minimum or null <see cref="UUID"/> 00000000-0000-0000-0000-000000000000</summary>
     public static readonly UUID Zero = new(Vector128<Byte>.Zero);
+
+    /// <summary>The maximum or filled <see cref="UUID"/> FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF</summary>
+    public static readonly UUID Max = new(~Vector128<Byte>.Zero);
 }

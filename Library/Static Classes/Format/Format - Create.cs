@@ -1,5 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-using System.Runtime.Intrinsics;
+﻿using System.Runtime.Intrinsics;
 
 namespace DaanV2.UUID;
 
@@ -28,15 +27,20 @@ public static partial class Format {
         return StampVersion(mask, overlay, data);
     }
 
-    /// <summary>Uses the given mask and overlay to insert the version and variant onto the data</summary>
-    /// <param name="versionMask">The mask of the versions and variants</param>
-    /// <param name="versionOverlay">The overlay of the versions and variants</param>
-    /// <param name="data">The data to stamp the version and variant onto</param>
-    /// <returns>Returns a <see cref="Vector128{T}"/></returns>
-    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    public static Vector128<Byte> StampVersion(Vector128<Byte> versionMask, Vector128<Byte> versionOverlay, Vector128<Byte> data) {
-        var result = Vector128.BitwiseAnd(data, versionMask);
-        result = Vector128.BitwiseOr(result, versionOverlay);
-        return result;
+    /// <summary>Creates a layout of the data along with version and variant, the provided data will be placed around the version and variant</summary>
+    /// <param name="version">The version to set</param>
+    /// <param name="variant">The variant to set</param>
+    /// <param name="dataA">48 bits of data, top 16 will be removed</param>
+    /// <param name="dataB">12 bits of data, top 4 will be removed</param>
+    /// <param name="dataC">62 bits of data, top 2 will be removed</param>
+    /// <returns></returns>
+    public static Vector128<Byte> Create(Version version, Variant variant, UInt64 dataA, UInt16 dataB, UInt64 dataC) {
+        // 48 bits of data in the top, 16 bits will be removed
+        UInt64 upper = dataA << 16;
+        // 12 bits in the lower, 4 bits in the middle for the version.
+        upper |= dataB;
+
+        // 62 bits of data in the lower, 2 bits in the top for the variant.
+        return Create(version, variant, upper, dataC);
     }
 }

@@ -26,6 +26,8 @@ public sealed partial class V3Tests {
         Assert.Equal(Amount, UUIDs.Length);
 
         for (Int32 i = 0; i < UUIDs.Length; i++) {
+            Utility.ValidateUUID(UUIDs[i], V3.Version, V3.Variant);
+
             for (Int32 j = 0; j < UUIDs.Length; j++) {
                 if (i == j) {
                     continue;
