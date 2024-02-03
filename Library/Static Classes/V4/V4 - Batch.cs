@@ -36,19 +36,7 @@ public static partial class V4 {
     /// <returns>A collection of <see cref="UUID"/></returns>
     [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     public static UUID[] Batch(ReadOnlySpan<Byte> bytes) {
-        Int32 count = bytes.Length;
-        Int32 amount = count / Format.UUID_BYTE_LENGTH;
-        Int32 max = count - Format.UUID_BYTE_LENGTH;
-        var uuids = new UUID[amount];
-
-        Int32 J = 0;
-        for (Int32 I = 0; I <= max; I += Format.UUID_BYTE_LENGTH) {
-            var data = Vector128.Create(bytes.Slice(I, Format.UUID_BYTE_LENGTH));
-            Vector128<Byte> uuid = Format.StampVersion(_VersionMask, _VersionOverlay, data);
-            uuids[J++] = new UUID(uuid);
-        }
-
-        return uuids;
+        return Convert.Slice(bytes, _VersionMask, _VersionOverlay);
     }
 
     /// <summary>Uses a user specified function to generate more <see cref="UUID"/></summary>
