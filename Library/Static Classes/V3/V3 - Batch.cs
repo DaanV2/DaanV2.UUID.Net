@@ -32,18 +32,6 @@ public static partial class V3 {
     }
 
     /// <inheritdoc cref="Batch(Int32, ReadOnlySpan{Byte})"/>
-    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
-    public static UUID[] Batch(Byte[] source) {
-        return Batch(source.AsSpan());
-    }
-
-    /// <inheritdoc cref="Batch(Int32, ReadOnlySpan{Byte})"/>
-    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
-    public static UUID[] Batch(Int32 amount, Byte[] source) {
-        return Batch(amount, source.AsSpan());
-    }
-
-    /// <inheritdoc cref="Batch(Int32, ReadOnlySpan{Byte})"/>
     [MethodImpl(MethodImplOptions.AggressiveOptimization | MethodImplOptions.AggressiveInlining)]
     public static UUID[] Batch(ReadOnlySpan<Byte> source) {
         return Batch(source.Length / MinimumDataLength, source);
@@ -57,9 +45,9 @@ public static partial class V3 {
     [MethodImpl(MethodImplOptions.AggressiveOptimization | MethodImplOptions.AggressiveInlining)]
     public static UUID[] Batch(Int32 amount, ReadOnlySpan<Byte> source) {
         Int32 step = source.Length / amount;
-        Int32 max = source.Length - step;
+        Int32 max = (source.Length - step + 1);
 
-        Span<Byte> hash = stackalloc Byte[MD5.HashSizeInBytes];
+        Span<Byte> hash = stackalloc Byte[Math.Max(MD5.HashSizeInBytes, UUID.BYTE_LENGTH)];
 
         var uuids = new UUID[amount];
         Int32 J = 0;
