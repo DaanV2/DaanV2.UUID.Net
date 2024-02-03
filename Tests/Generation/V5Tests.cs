@@ -26,6 +26,8 @@ public sealed partial class V5Tests {
         Assert.Equal(Amount, UUIDs.Length);
 
         for (Int32 i = 0; i < UUIDs.Length; i++) {
+            Utility.ValidateUUID(UUIDs[i], V5.Version, V5.Variant);
+
             for (Int32 j = 0; j < UUIDs.Length; j++) {
                 if (i == j) {
                     continue;
