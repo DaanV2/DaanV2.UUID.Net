@@ -12,6 +12,9 @@ public static partial class Format {
     /// <inheritdoc cref="Create(Version,Variant,Vector128{Byte})"/>
     public static Vector128<Byte> Create(Version version, Variant variant, UInt64 e0, UInt64 e1) {
         Vector128<Byte> temp = Vector128.Create(e0, e1).AsByte();
+        // Reverse the order of the bytes with a shuffle, sinces strings are little endian
+        temp = temp.Reverse();
+
         return Create(version, variant, temp);
     }
 
@@ -19,6 +22,8 @@ public static partial class Format {
     /// <param name="version">The version to insert</param>
     /// <param name="variant">The variant to insert</param>
     /// <param name="data">The contents of the <see cref="UUID"/></param>
+    /// <param name="e0">The lower 64 bits of the <see cref="UUID"/></param>
+    /// <param name="e1">The upper 64 bits of the <see cref="UUID"/></param>
     /// <returns>Returns a <see cref="Vector128{T}"/></returns>
     public static Vector128<Byte> Create(Version version, Variant variant, Vector128<Byte> data) {
         Vector128<Byte> mask = VersionVariantMaskNot(version, variant);
@@ -41,6 +46,6 @@ public static partial class Format {
         upper |= dataB;
 
         // 62 bits of data in the lower, 2 bits in the top for the variant.
-        return Create(version, variant, upper, dataC);
+        return Create(version, variant, dataC, upper);
     }
 }
