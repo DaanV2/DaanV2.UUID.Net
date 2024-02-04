@@ -69,12 +69,12 @@ public partial class JsonDeserializationTest {
     }
 
     [Benchmark(Description = "UUIDs")]
-    public UUID[] UUID() {
+    public UUID[]? UUID() {
         return JsonSerializer.Deserialize<UUID[]>(this.Serialized);
     }
 
     [Benchmark(Description = "Guids", Baseline = true)]
-    public Guid[] GUIDs() {
+    public Guid[]? GUIDs() {
         return JsonSerializer.Deserialize<Guid[]>(this.Serialized);
     }
 }
