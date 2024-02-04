@@ -21,7 +21,6 @@ public static partial class Format {
     /// </summary>
     private static readonly Vector128<Byte> _9AOffsetVector = Vector128.Create((Byte)('a' - '9' - 1));
 
-
     /// <inheritdoc cref="ToString(Vector128{Byte})"/>
     public static String ToString(ReadOnlySpan<Byte> uuid) {
         return ToString(Vector128.Create(uuid));
