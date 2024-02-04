@@ -15,14 +15,15 @@
     <Version>2.2.0</Version>
     <Platforms>AnyCPU;x64;x86</Platforms>
     <SignAssembly>False</SignAssembly>
-    <Description>A library that provides a way to handle, and generate UUIDs. Convert them to and from strings, GUIDs, and the like. 
-The library is written to be fast and efficient when comparing, generating or other handling operations. But still, comply with the RFC 4122 standard.</Description>
+    <Description>A library that provides a way to handle and generate UUIDs. Convert them to and from strings, GUIDs, and the like. 
+The library is written to be fast and efficient when comparing, generating, or handling operations. Provides ways to generate UUIDs from different data, like a string, a byte array, or cutting up a byte array into UUIDs.
+Complies with the RFC 4122 standard. And has version 1-8 UUIDs implemented. except 2. Which I haven't been able to figure out how to implement.</Description>
     <PackageProjectUrl>https://github.com/DaanV2/DaanV2.UUID.Net</PackageProjectUrl>
     <PackageIcon>icon.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/DaanV2/DaanV2.UUID.Net</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageTags>UUID;V1;V3;V4;V5</PackageTags>
+    <PackageTags>UUIDl;RFC-4122;V1;V3;V4;V5;V6;V7;V8</PackageTags>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <IncludeSymbols>True</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
