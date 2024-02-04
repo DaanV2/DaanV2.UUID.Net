@@ -25,12 +25,6 @@ public static partial class V5 {
         return Generate(bytes);
     }
 
-    /// <inheritdoc cref="Generate(ReadOnlySpan{Byte})"/>
-    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
-    public static UUID Generate(Byte[] source) {
-        return Generate(source.AsSpan());
-    }
-
     /// <summary>Generates a <see cref="UUID"/> from the given data</summary>
     /// <param name="source">The data to create a <see cref="UUID"/> from</param>
     /// <param name="encoding">The encoding to use to turn the string to bytes</param>
