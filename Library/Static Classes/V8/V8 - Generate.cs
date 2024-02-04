@@ -3,9 +3,6 @@ using System.Runtime.Intrinsics;
 
 namespace DaanV2.UUID;
 
-
-
-
 public static partial class V8 {
     /// <summary>Creates a <see cref="UUID"/> of the data around the version and variant, the provided data will be placed around the version and variant</summary>
     /// <param name="dataA">48 bits of data, top 16 will be removed</param>
