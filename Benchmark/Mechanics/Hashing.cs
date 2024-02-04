@@ -2,7 +2,6 @@
 using System.Security.Cryptography;
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Engines;
-using DaanV2.UUID;
 
 namespace Benchmark.Mechanics;
 
@@ -46,7 +45,7 @@ public partial class Hashing {
         return Vector128.Create<Byte>(hash);
     }
 
-    static public readonly SHA1 GlobalHasher = SHA1.Create();
+    public static readonly SHA1 GlobalHasher = SHA1.Create();
 
     [Benchmark(Description = "Sha1 Global")]
     public Vector128<Byte> Sha1Global() {

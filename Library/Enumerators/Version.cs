@@ -12,7 +12,7 @@ public enum Version {
     V4 = 0b0100_0000,
     /// <summary>The <see cref="UUID"/> version that hashes (SHA1) given data into <see cref="UUID"/></summary>
     V5 = 0b0101_0000,
-    /// <summary>The <see cref="UUID"/> version that is reordered Gregorian time-based UUID specified in this document.</summary></summary>
+    /// <summary>The <see cref="UUID"/> version that is reordered Gregorian time-based UUID specified in this document.</summary>
     V6 = 0b0110_0000,
     /// <summary>The <see cref="UUID"/> version that exposes Unix Epoch time-based UUID specified in this document.</summary>
     V7 = 0b0111_0000,

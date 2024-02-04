@@ -60,7 +60,7 @@ public static partial class V5 {
     [MethodImpl(MethodImplOptions.AggressiveOptimization | MethodImplOptions.AggressiveInlining)]
     public static UUID[] Batch(Int32 amount, ReadOnlySpan<Byte> source) {
         Int32 step = source.Length / amount;
-        Int32 max = (source.Length - step) + 1;
+        Int32 max = source.Length - step + 1;
 
         Span<Byte> hash = stackalloc Byte[SHA1.HashSizeInBytes];
 
