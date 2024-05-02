@@ -31,7 +31,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: 📓 Create Readmes
-        uses: DaanV2/Markdown-Action-Create-Indexes@v5.0.0
+        uses: DaanV2/Markdown-Action-Create-Indexes@v5.0.2
         with:
           folder: ${{github.workspace}}/Benchmark
           filename: README.md
