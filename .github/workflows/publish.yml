@@ -70,6 +70,7 @@ jobs:
           dotnet-version: |
             7.0.x
             8.0.x
+            9.0.x
 
       - name: 📥 Restore dependencies
         run: dotnet restore --verbosity normal
