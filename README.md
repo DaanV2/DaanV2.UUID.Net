@@ -31,15 +31,16 @@ var uuids = DaanV2.UUID.V4.Batch(data);
 
 ## Supported Version
 
-| Version | Variant | Description                                                                                                         |
-| ------- | ------- | ------------------------------------------------------------------------------------------------------------------- |
-| 1       | 1       | A UUID generated from a timestamp and the mac address                                                               |
-| 3       | 1       | A UUID generated from a string using MD5 hashing bits, 122 bits                                                     |
-| 4       | 1       | A randomly generated UUID of 122 bits                                                                               |
-| 5       | 1       | A UUID generated from a string using SHA1 hashing bits, 122 bits                                                    |
-| 6       | 1       | A UUID that is reordered Gregorian time-based UUID specified in this document. Its an upgrade from V1 for databases |
-| 7       | 1       | A UUID version that exposes Unix Epoch time-based UUID specified in this document. Same like V1, V6 but on UTC      |
-| 8       | 1       | A UUID version that allows for custom data of 122 bits of data                                                      |
+| Version | Description                                                                                                         |
+| ------- | ------------------------------------------------------------------------------------------------------------------- |
+| 1       | A UUID generated from a timestamp and the mac address                                                               |
+| 2       | A UUID that is based on DCE Security, with embedded POSIX UIDs.                                                     |
+| 3       | A UUID generated from a string using MD5 hashing bits, 122 bits                                                     |
+| 4       | A UUID that is randomly generated of 122 bits                                                                       |
+| 5       | A UUID generated from a string using SHA1 hashing bits, 122 bits                                                    |
+| 6       | A UUID that is reordered Gregorian time-based UUID specified in this document. Its an upgrade from V1 for databases |
+| 7       | A UUID version that exposes Unix Epoch time-based UUID specified in this document. Same like V1, V6 but on UTC      |
+| 8       | A UUID version that allows for custom data of 122 bits of data                                                      |
 
 ## Benchmarks
 See [Benchmark reports](./Benchmark/Reports/results/README.md)
