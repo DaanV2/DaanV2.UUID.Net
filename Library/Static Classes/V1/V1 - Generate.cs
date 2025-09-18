@@ -75,7 +75,7 @@ public static partial class V1 {
         UInt32 timeLow = (UInt32)(timestamp & 0xFFFFFFFF);
         UInt16 timeMid = (UInt16)((timestamp >> 32) & 0xFFFF);
         UInt16 timeHi = (UInt16)((timestamp >> 48) & 0x0FFF); // 12 bits for time_hi
-        UInt16 timeHiAndVersion = (UInt16)(timeHi | ((UInt16)V1.Version << 12)); // Set version 1 using constant
+        UInt16 timeHiAndVersion = (UInt16)(timeHi | ((UInt16)V1.Version << 8)); // Set version 1 using constant
 
         BinaryPrimitives.WriteUInt32BigEndian(data, timeLow);
         BinaryPrimitives.WriteUInt16BigEndian(data[4..], timeMid);

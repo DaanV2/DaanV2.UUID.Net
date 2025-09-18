@@ -41,8 +41,8 @@ public static partial class V2 {
 
         // Extract domain (high 6 bits of data[8])
         Byte domain = (Byte)(data[8] & 0x3F);
-        // Extract local identifier (UID/GID): low 2 bits of data[8] and all of data[9]
-        UInt16 localIdentifier = (UInt16)(((data[8] & 0xC0) << 2) | data[9]);
+        // Extract local identifier (UID/GID)
+        UInt16 localIdentifier = (UInt16)((data[8] & 0x3F) << 8);
 
         // Extract mac address
         Byte[] macAddress = data.Slice(10, 6).ToArray();

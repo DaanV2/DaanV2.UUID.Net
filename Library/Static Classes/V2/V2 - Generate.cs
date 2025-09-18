@@ -30,19 +30,18 @@ public static partial class V2 {
         UInt32 timeLow = (UInt32)(uuidTimestamp & 0xFFFFFFFF);
         UInt16 timeMid = (UInt16)((uuidTimestamp >> 32) & 0xFFFF);
         UInt16 timeHi = (UInt16)((uuidTimestamp >> 48) & 0x0FFF); // 12 bits for time_hi
-        UInt16 timeHiAndVersion = (UInt16)(timeHi | ((UInt16)Version.V2)); // Set version 2
 
         BinaryPrimitives.WriteUInt32BigEndian(data, timeLow);
         BinaryPrimitives.WriteUInt16BigEndian(data[4..], timeMid);
-        BinaryPrimitives.WriteUInt16BigEndian(data[6..], timeHiAndVersion);
+        BinaryPrimitives.WriteUInt16BigEndian(data[6..], timeHi);
 
         // Per RFC 4122 DCE Security UUID:
         // data[8]: high 2 bits = variant, low 6 bits = high 6 bits of local identifier
         // data[9]: domain (per spec), or low 8 bits of local identifier if domain not used
-        data[8] = (Byte)(((localIdentifier >> 8) & 0x3F) | (Byte)Variant.V1);
+        data[8] = (Byte)((localIdentifier >> 8) & 0x3F);
         data[9] = domain; // Store domain in data[9]
+        Vector128<Byte> uuid = Format.StampVersion(_VersionMask, _VersionOverlay, data);
 
-        var uuid = Vector128.Create<Byte>(data);
         return new UUID(uuid);
     }
 

@@ -122,40 +122,10 @@ public static partial class Format {
             throw new ArgumentException($"The length of the string is not {chars}", nameof(chars));
         }
 
-        //Upper 4 bits goes first in the string and lower 4 bits goes second in the string
-        //We create two vectors, one for the upper 4 bits and one for the lower 4 bits
-        //
-        //No need to init, all values will be overwritten
-        Unsafe.SkipInit(out Vector128<Byte> upper);
-        Unsafe.SkipInit(out Vector128<Byte> lower);
+        Span<Byte> data = stackalloc Byte[UUID_STRING_LENGTH];
+        for (Int32 i = 0; i < UUID_STRING_LENGTH; i++) data[i] = (Byte)chars[i];
 
-        static Vector128<Byte> LowerNine(Vector128<Byte> data) {
-            //Each element becomes 0xff if it is greater than 9
-            var elementsGreatherThan = Vector128.GreaterThan(data, _9Vector);
-            var toAdd = Vector128.BitwiseAnd(elementsGreatherThan, _9AOffsetVector);
-            return Vector128.Subtract(data, toAdd);
-        }
-
-        Int32 J = 0;
-        for (Int32 I = 0; I < UUID_STRING_LENGTH;) {
-            if (I is 8 or 13 or 18 or 23) {
-                I++;
-                continue;
-            }
-            upper = Vector128.WithElement(upper, J, (Byte)chars[I++]);
-            lower = Vector128.WithElement(lower, J, (Byte)chars[I++]);
-            J++;
-        }
-
-        upper = LowerNine(upper);
-        upper = Vector128.Subtract(upper, _AddOffset);
-
-        lower = LowerNine(lower);
-        lower = Vector128.Subtract(lower, _AddOffset);
-
-        upper = Vector128.ShiftLeft(upper, 4);
-
-        return Vector128.BitwiseOr(upper, lower);
+        return Parse(data);
     }
 
     /// <inheritdoc cref="Parse(ReadOnlySpan{Char})"/>
@@ -164,37 +134,44 @@ public static partial class Format {
             throw new ArgumentException($"The length of the string is not {chars.Length}", nameof(chars));
         }
 
-        //Upper 4 bits goes first in the string and lower 4 bits goes second in the string
-        //We create two vectors, one for the upper 4 bits and one for the lower 4 bits
-        //
-        //No need to init, all values will be overwritten
+
         Unsafe.SkipInit(out Vector128<Byte> upper);
         Unsafe.SkipInit(out Vector128<Byte> lower);
 
         static Vector128<Byte> LowerNine(Vector128<Byte> data) {
-            //Each element becomes 0xff if it is greater than 9
-            var elementsGreatherThan = Vector128.GreaterThan(data, _9Vector);
-            var toAdd = Vector128.BitwiseAnd(elementsGreatherThan, _9AOffsetVector);
-            return Vector128.Subtract(data, toAdd);
+            // Bring 'a' - 'z' down to 'A' - 'Z'
+            // Bring 'A' - 'Z' down to values above '9'
+            // Bring '0' - '9' to values of 0 to 9
+
+            // If we have values still large then 9 we must have A-Z and a-z
+            // Bring a-z to A-Z
+            var elementsGreatherThan = Vector128.GreaterThan(data, Vector128.Create<Byte>((Byte)'Z'));
+            var toSubstract = Vector128.BitwiseAnd(elementsGreatherThan, Vector128.Create<Byte>('a' - 'A'));
+            data = Vector128.Subtract<Byte>(data, toSubstract);
+
+            elementsGreatherThan = Vector128.GreaterThan(data, Vector128.Create<Byte>((Byte)'9'));
+            toSubstract = Vector128.BitwiseAnd(elementsGreatherThan, Vector128.Create<Byte>('A' - ('9' + 1)));
+            data = Vector128.Subtract<Byte>(data, toSubstract);
+
+            data = Vector128.Subtract<Byte>(data, Vector128.Create((Byte)'0'));
+
+            return data;
         }
 
-        Int32 J = 0;
-        for (Int32 I = 0; I < UUID_STRING_LENGTH;) {
-            if (I is 8 or 13 or 18 or 23) {
-                I++;
+        Int32 j = 0;
+        for (Int32 i = 0; i < UUID_STRING_LENGTH;) {
+            if (i is 8 or 13 or 18 or 23) {
+                i++;
                 continue;
             }
-            upper = Vector128.WithElement(upper, J, chars[I++]);
-            lower = Vector128.WithElement(lower, J, chars[I++]);
-            J++;
+            upper = Vector128.WithElement(upper, j, chars[i]);
+            lower = Vector128.WithElement(lower, j, chars[i + 1]);
+            i += 2;
+            j++;
         }
 
         upper = LowerNine(upper);
-        upper = Vector128.Subtract(upper, _AddOffset);
-
         lower = LowerNine(lower);
-        lower = Vector128.Subtract(lower, _AddOffset);
-
         upper = Vector128.ShiftLeft(upper, 4);
 
         return Vector128.BitwiseOr(upper, lower);

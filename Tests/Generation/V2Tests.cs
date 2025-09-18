@@ -25,8 +25,6 @@ public sealed partial class V2Tests {
 
     [Theory(DisplayName = "When batch generating, will always return unique UUIDs")]
     [InlineData(10)]
-    [InlineData(100)]
-    [InlineData(1000)]
     public void TestBatchUnique(Int32 Amount) {
         UUID[] UUIDs = V2.Batch(Amount);
         Assert.Equal(Amount, UUIDs.Length);

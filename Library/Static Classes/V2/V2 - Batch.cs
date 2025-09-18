@@ -37,7 +37,7 @@ public static partial class V2 {
         DateTime timestamp = startTimestamp;
         for (Int32 i = 0; i < amount; i++) {
             // Use i as the local identifier (UID/GID) for demonstration; domain is passed in
-            uuids[i] = Generate(timestamp, (UInt32)i, macAddress, domain);
+            uuids[i] = Generate(timestamp, (UInt32)(i << 8), macAddress, domain);
             // Optionally increment timestamp if you want unique timestamps per UUID
             if (i % UInt16.MaxValue == 0) {
                 timestamp = timestamp.AddTicks(1);
