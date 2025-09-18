@@ -67,9 +67,9 @@ public static partial class V2 {
         // Not standard for V2, but for API compatibility: hash and overlay version/variant
         Span<byte> data = stackalloc byte[16];
         System.Security.Cryptography.MD5.HashData(source, data);
-        // Set version and variant
-        data[6] = (byte)((data[6] & 0x0F) | (_Version << 4));
-        data[8] = (byte)((data[8] & 0x3F) | _Variant);
+        // Set version and variant using V2.Version and V2.Variant constants
+        data[6] = (byte)((data[6] & 0x0F) | ((byte)V2.Version));
+        data[8] = (byte)((data[8] & 0x3F) | (byte)V2.Variant);
 
         var uuid = Vector128.Create<Byte>(data);
         return new UUID(uuid);
