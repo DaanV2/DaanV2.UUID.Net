@@ -24,7 +24,8 @@ Complies with the RFC 4122 / RFC 9562 standard. And has version 1-8 UUIDs implem
     <RepositoryUrl>https://github.com/DaanV2/DaanV2.UUID.Net</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>UUID;RFC-4122;V1;V3;V4;V5;V6;V7;V8</PackageTags>
-    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+  <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+  <PackageLicenseFile>LICENSE.rfc9562.txt</PackageLicenseFile>
     <IncludeSymbols>True</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
@@ -59,6 +60,10 @@ Complies with the RFC 4122 / RFC 9562 standard. And has version 1-8 UUIDs implem
       <PackagePath>\</PackagePath>
     </None>
     <None Include="..\README.md">
+    <None Include="..\LICENSE.rfc9562.txt">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
