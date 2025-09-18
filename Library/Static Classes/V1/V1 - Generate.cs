@@ -58,32 +58,35 @@ public static partial class V1 {
     /// <returns>A new <see cref="UUID"/></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
     internal static UUID Generate(UInt64 timestamp, UInt16 nanoSeconds, ReadOnlySpan<Byte> macAddress) {
-        //First 32 bites = time_low
-        //Next 16 bites = time_mid
-        //Next 16 bites = time_hi_version = time_high | version
-        //next 8 bites = clock_seq_hi_variant 
-        //next 8 bites = clock_seq_low | node
-        //last 48 bites mac address
+        // RFC 4122 layout:
+        // 0-3: time_low
+        // 4-5: time_mid
+        // 6-7: time_hi_and_version
+        // 8:   clock_seq_hi_and_reserved (variant in high bits)
+        // 9:   clock_seq_low
+        // 10-15: node (MAC address)
 
         Span<Byte> data = stackalloc Byte[Format.UUID_BYTE_LENGTH];
 
-        //mac is 6 bytes, transfer to 8 bytes and use BinaryPrimitives to convert to UInt64
+        // Write node (MAC address)
         macAddress.CopyTo(data[10..]);
-        var read = Vector64.Create<UInt64>(timestamp);
 
-        //Setting timelow to be the 32 least significant bits of the timestamp
-        UInt32 timeLow = read.AsUInt32().GetElement(0);
+        // Split timestamp
+        UInt32 timeLow = (UInt32)(timestamp & 0xFFFFFFFF);
+        UInt16 timeMid = (UInt16)((timestamp >> 32) & 0xFFFF);
+        UInt16 timeHi = (UInt16)((timestamp >> 48) & 0x0FFF); // 12 bits for time_hi
+        UInt16 timeHiAndVersion = (UInt16)(timeHi | (1 << 12)); // Set version 1
+
         BinaryPrimitives.WriteUInt32BigEndian(data, timeLow);
-        //Next 16 bites = time_mid
-        UInt16 timeMid = read.AsUInt16().GetElement(2);
         BinaryPrimitives.WriteUInt16BigEndian(data[4..], timeMid);
-        //Next 16 bites = time_hi_version = time_high | version
-        UInt16 timeHiVersion = read.AsUInt16().GetElement(3);
-        BinaryPrimitives.WriteUInt16BigEndian(data[6..], timeHiVersion);
-        BinaryPrimitives.WriteUInt16BigEndian(data[8..], nanoSeconds);
+        BinaryPrimitives.WriteUInt16BigEndian(data[6..], timeHiAndVersion);
+
+        // Split nanoSeconds (clock sequence) into 14 bits
+        UInt16 clockSeq = (UInt16)(nanoSeconds & 0x3FFF);
+        data[8] = (byte)(((clockSeq >> 8) & 0x3F) | 0x80); // Set variant (10xxxxxx)
+        data[9] = (byte)(clockSeq & 0xFF);
 
         var uuid = Vector128.Create<Byte>(data);
-        uuid = Format.StampVersion(V1._VersionMask, V1._VersionOverlay, uuid);
         return new UUID(uuid);
     }
 }
