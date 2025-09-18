@@ -19,7 +19,7 @@ public static partial class V4 {
     /// <inheritdoc cref="Generate(UInt64, UInt64)"/>
     public static UUID Generate(Stream stream) {
         Span<Byte> bytes = stackalloc Byte[Format.UUID_BYTE_LENGTH];
-        stream.Read(bytes);
+        stream.ReadExactly(bytes);
 
         return Generate(bytes);
     }

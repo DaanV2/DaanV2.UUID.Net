@@ -12,12 +12,12 @@ public partial class UUIDJsonConverter : JsonConverter<UUID> {
     public override UUID Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) {
         ReadOnlySpan<Byte> data = reader.ValueSpan;
 
-        if (data != null && data.Length == Format.UUID_STRING_LENGTH) {
-            Vector128<Byte> d = Format.Parse(data);
-            return new UUID(d);
+        if (data == Span<Byte>.Empty || data.Length != Format.UUID_STRING_LENGTH) {
+            throw new JsonException("Unknown UUID format");
         }
 
-        throw new JsonException("Unknown UUID format");
+        Vector128<Byte> d = Format.Parse(data);
+        return new UUID(d);
     }
 
     /// <inheritdoc/>

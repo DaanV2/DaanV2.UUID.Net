@@ -7,7 +7,7 @@
 
 A library that provides a way to handle and generate UUIDs. Convert them to and from strings, GUIDs, and the like. 
 The library is written to be fast and efficient when comparing, generating, or handling operations. Provides ways to generate UUIDs from different data, like a string, a byte array, or cutting up a byte array into UUIDs.
-Complies with the RFC 4122 standard. And has version 1-8 UUIDs implemented. except 2. Which I haven't been able to figure out how to implement.
+Complies with the RFC 4122 / RFC 9562 standard. And has version 1-8 UUIDs implemented.
 
 ## Usage Example
 Below are two examples of generating UUIDs and usage
