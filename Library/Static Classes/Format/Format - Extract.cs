@@ -19,7 +19,7 @@ public static partial class Format {
 
         // Remove top 2 bits, so we have 62 bits of data
         const UInt64 mask = 0xC000000000000000u;
-        dataC = (dataC & ~mask);
+        dataC &= ~mask;
 
         return (dataA, dataB, dataC);
     }

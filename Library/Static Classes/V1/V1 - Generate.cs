@@ -75,7 +75,7 @@ public static partial class V1 {
         UInt32 timeLow = (UInt32)(timestamp & 0xFFFFFFFF);
         UInt16 timeMid = (UInt16)((timestamp >> 32) & 0xFFFF);
         UInt16 timeHi = (UInt16)((timestamp >> 48) & 0x0FFF); // 12 bits for time_hi
-        UInt16 timeHiAndVersion = (UInt16)(timeHi | ((byte)V1.Version << 12)); // Set version 1 using constant
+        UInt16 timeHiAndVersion = (UInt16)(timeHi | ((UInt16)V1.Version << 12)); // Set version 1 using constant
 
         BinaryPrimitives.WriteUInt32BigEndian(data, timeLow);
         BinaryPrimitives.WriteUInt16BigEndian(data[4..], timeMid);
@@ -83,8 +83,8 @@ public static partial class V1 {
 
         // Split nanoSeconds (clock sequence) into 14 bits
         UInt16 clockSeq = (UInt16)(nanoSeconds & 0x3FFF);
-        data[8] = (byte)(((clockSeq >> 8) & 0x3F) | (byte)V1.Variant); // Set variant using constant
-        data[9] = (byte)(clockSeq & 0xFF);
+        data[8] = (Byte)(((clockSeq >> 8) & 0x3F) | (Byte)V1.Variant); // Set variant using constant
+        data[9] = (Byte)(clockSeq & 0xFF);
 
         var uuid = Vector128.Create<Byte>(data);
         return new UUID(uuid);
