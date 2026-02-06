@@ -116,22 +116,14 @@ public sealed partial class RFC9562Tests {
 
     [Fact(DisplayName = "RFC9562 Section 5.6 - V6 uniqueness")]
     public void RFC9562_V6_Uniqueness() {
-        var uuids = new HashSet<UUID>();
-        const int count = 100; // Reduced count to avoid timing issues on fast systems
+        const int count = 1000;
 
-        for (int i = 0; i < count; i++) {
-            var uuid = V6.Generate();
-            uuids.Add(uuid);
-            
-            // Add small delay every 10 iterations to ensure timestamp progression
-            if (i % 10 == 9) {
-                Thread.Sleep(1);
-            }
-        }
+        // Use batch function which properly handles timestamp incrementing
+        var uuids = V6.Batch(count);
+        var uniqueUuids = new HashSet<UUID>(uuids);
 
-        // V6 should produce mostly unique UUIDs (allow up to 5% duplicates in tight loop)
-        Assert.True(uuids.Count >= count * 0.95, 
-            $"Expected at least 95% unique UUIDs, got {uuids.Count}/{count}");
+        // All UUIDs should be unique when using batch generation
+        Assert.Equal(count, uniqueUuids.Count);
     }
 
     // ========== V7 Specific Tests (RFC 9562 Section 5.7) ==========
@@ -290,22 +282,16 @@ public sealed partial class RFC9562Tests {
 
     [Fact(DisplayName = "RFC9562 Section 5.5 - V2 uniqueness")]
     public void RFC9562_V2_Uniqueness() {
-        var uuids = new HashSet<UUID>();
-        const int count = 100; // Reduced count to avoid timing issues on fast systems
+        const int count = 50;
 
-        for (int i = 0; i < count; i++) {
-            var uuid = V2.Generate();
-            uuids.Add(uuid);
-            
-            // Add small delay every 10 iterations to ensure timestamp progression
-            if (i % 10 == 9) {
-                Thread.Sleep(1);
-            }
-        }
+        // Use batch function which properly handles timestamp incrementing
+        // Note: V2 has design limitations - only 6 bits for local identifier variation
+        // So batch can only guarantee ~64 unique UUIDs before timestamp increment
+        var uuids = V2.Batch(count);
+        var uniqueUuids = new HashSet<UUID>(uuids);
 
-        // V2 should produce mostly unique UUIDs (allow up to 5% duplicates in tight loop)
-        Assert.True(uuids.Count >= count * 0.95, 
-            $"Expected at least 95% unique UUIDs, got {uuids.Count}/{count}");
+        // All UUIDs should be unique when using batch generation within limit
+        Assert.Equal(count, uniqueUuids.Count);
     }
 
     // ========== Round-Trip Tests for New Versions ==========
