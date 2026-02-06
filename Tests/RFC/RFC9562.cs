@@ -81,8 +81,9 @@ public sealed partial class RFC9562Tests {
 
         // V6 should contain a timestamp
         var info = V6.Extract(uuid);
-        Assert.True(info.Timestamp >= beforeGen.AddSeconds(-1));
-        Assert.True(info.Timestamp <= afterGen.AddSeconds(1));
+        // V6 uses 100-nanosecond intervals, so use tighter tolerance (100ms)
+        Assert.True(info.Timestamp >= beforeGen.AddMilliseconds(-100));
+        Assert.True(info.Timestamp <= afterGen.AddMilliseconds(100));
     }
 
     [Fact(DisplayName = "RFC9562 Section 5.6 - V6 UUIDs are sortable by time")]
@@ -192,6 +193,9 @@ public sealed partial class RFC9562Tests {
     public void RFC9562_V7_MillisecondPrecision() {
         // Generate multiple UUIDs within the same millisecond
         var uuids = new List<UUID>();
+        var startTime = DateTime.UtcNow;
+        
+        // Generate rapidly to likely get some in the same millisecond
         for (int i = 0; i < 100; i++) {
             uuids.Add(V7.Generate());
         }
@@ -205,6 +209,22 @@ public sealed partial class RFC9562Tests {
 
         // All should be unique despite potentially being generated in same millisecond
         Assert.Equal(uuids.Count, uuids.Distinct().Count());
+        
+        // Verify that UUIDs with the same timestamp have identical timestamp bits but different random bits
+        var grouped = uuids.GroupBy(u => V7.ExtractUtc(u)).Where(g => g.Count() > 1).ToList();
+        if (grouped.Any()) {
+            // Found UUIDs with same millisecond timestamp
+            var group = grouped.First();
+            var timestampMs = group.Key;
+            
+            // All UUIDs in this group should have same timestamp value
+            foreach (var uuid in group) {
+                Assert.Equal(timestampMs, V7.ExtractUtc(uuid));
+            }
+            
+            // But all UUIDs should be unique (different random portions)
+            Assert.Equal(group.Count(), group.Distinct().Count());
+        }
     }
 
     // ========== V8 Specific Tests (RFC 9562 Section 5.8) ==========

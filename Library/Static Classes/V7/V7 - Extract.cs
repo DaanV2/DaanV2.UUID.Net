@@ -23,11 +23,8 @@ public static partial class V7 {
     /// <param name="unixMs">Milliseconds since Unix epoch (1970-01-01 00:00:00 UTC)</param>
     /// <returns>The corresponding DateTime in UTC</returns>
     private static DateTime UnixMillisecondsToDateTime(UInt64 unixMs) {
-        // Unix epoch: January 1, 1970 00:00:00 UTC
-        var unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-        
         try {
-            return unixEpoch.AddMilliseconds(unixMs);
+            return UnixEpoch.AddMilliseconds(unixMs);
         }
         catch (ArgumentOutOfRangeException) {
             // If the milliseconds value is too large, return MaxValue

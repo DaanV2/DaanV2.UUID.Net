@@ -85,13 +85,11 @@ public static partial class V7 {
     /// <param name="timestamp">The DateTime to convert</param>
     /// <returns>Milliseconds since Unix epoch (1970-01-01 00:00:00 UTC)</returns>
     private static UInt64 DateTimeToUnixMilliseconds(DateTime timestamp) {
-        // Unix epoch: January 1, 1970 00:00:00 UTC
-        var unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-        var milliseconds = (timestamp.ToUniversalTime() - unixEpoch).TotalMilliseconds;
+        var milliseconds = (timestamp.ToUniversalTime() - UnixEpoch).TotalMilliseconds;
         
         // Ensure non-negative and within 48-bit range
         if (milliseconds < 0) milliseconds = 0;
-        if (milliseconds > 0xFFFFFFFFFFFF) milliseconds = 0xFFFFFFFFFFFF;
+        if (milliseconds > Max48BitValue) milliseconds = Max48BitValue;
         
         return (UInt64)milliseconds;
     }
