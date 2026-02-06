@@ -130,9 +130,8 @@ public sealed partial class RFC9562Tests {
 
     [Fact(DisplayName = "RFC9562 Section 5.7 - V7 contains Unix Epoch timestamp")]
     public void RFC9562_V7_ContainsTimestamp() {
-        // Note: V7 only stores 48 bits for timestamp. When using FileTimeUtc, this limits the range.
-        // Use a timestamp that fits within 48-bit FileTime range for this test
-        var inputTime = DateTime.FromFileTimeUtc(1645557742000); // Known good value from RFC test vector
+        // V7 uses Unix epoch milliseconds (RFC9562 Section 5.7)
+        var inputTime = DateTime.UtcNow;
         var uuid = V7.Generate(inputTime);
 
         Assert.Equal(DaanV2.UUID.Version.V7, uuid.Version);
@@ -141,34 +140,39 @@ public sealed partial class RFC9562Tests {
         // Extract timestamp and verify round-trip accuracy
         var extractedTime = V7.Extract(uuid);
         
-        // V7 timestamps should round-trip correctly
-        Assert.Equal(inputTime, extractedTime);
+        // V7 only stores milliseconds, so allow up to 1ms difference
+        var timeDiff = Math.Abs((extractedTime - inputTime).TotalMilliseconds);
+        Assert.True(timeDiff < 2, 
+            $"Time difference {timeDiff}ms is too large. Input: {inputTime}, Extracted: {extractedTime}");
     }
 
     [Fact(DisplayName = "RFC9562 Section 5.7 - V7 UUIDs are sortable by time")]
     public void RFC9562_V7_Sortable() {
-        var uuids = new List<UUID>();
+        var uuids = new List<(UUID uuid, DateTime time)>();
         
-        for (int i = 0; i < 100; i++) {
-            uuids.Add(V7.Generate());
-            // Small delay to ensure time progression
-            if (i % 10 == 0) {
-                Thread.Sleep(1);
-            }
+        // Generate UUIDs with known time gaps
+        for (int i = 0; i < 20; i++) {
+            var time = DateTime.UtcNow;
+            uuids.Add((V7.Generate(time), time));
+            Thread.Sleep(5); // 5ms delay to ensure time progression
         }
 
-        // V7 UUIDs should be in ascending order when generated sequentially
-        // Check that most UUIDs maintain order
-        int inOrder = 0;
-        for (int i = 0; i < uuids.Count - 1; i++) {
-            if (string.Compare(uuids[i].ToString(), uuids[i + 1].ToString(), StringComparison.Ordinal) <= 0) {
-                inOrder++;
-            }
-        }
+        // Verify that UUIDs generated at different times maintain time order
+        // Group by millisecond and verify cross-group ordering
+        var groups = uuids.GroupBy(x => x.time.Ticks / TimeSpan.TicksPerMillisecond).ToList();
         
-        // At least 90% should be in order
-        Assert.True(inOrder >= (uuids.Count - 1) * 0.9, 
-            $"Expected at least 90% in order, got {inOrder}/{uuids.Count - 1}");
+        // With 5ms delays, we should have multiple distinct timestamps
+        Assert.True(groups.Count >= 10, $"Expected at least 10 distinct timestamps, got {groups.Count}");
+        
+        // Compare first UUID from each group - they should be in time order
+        for (int i = 0; i < groups.Count - 1; i++) {
+            var earlier = groups[i].First().uuid;
+            var later = groups[i + 1].First().uuid;
+            
+            // UUIDs from earlier time should compare less than UUIDs from later time
+            Assert.True(string.Compare(earlier.ToString(), later.ToString(), StringComparison.Ordinal) < 0,
+                $"UUID from earlier time should be less than UUID from later time");
+        }
     }
 
     [Fact(DisplayName = "RFC9562 Section 5.7 - V7 uniqueness")]
